@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import OldSchool from '../providers/oldschool'
+import OldSchoolRenderer from '../theme/oldschool/oldschoolstyle'
 import React from 'react'
 function Portfolio({ Component, pageProps, router }: AppProps) {
   return (
@@ -13,11 +14,7 @@ function Portfolio({ Component, pageProps, router }: AppProps) {
 function Wrapper({ Component, pageProps }: AppProps) {
   const OS = OldSchool.useOldSchool()
   if (OS?.state) {
-    return (
-      <div>
-        <button onClick={() => OS.hideOldSchool()}>click me</button>
-      </div>
-    )
+    return <OldSchoolRenderer />
   }
   return <Component {...pageProps} />
 }
