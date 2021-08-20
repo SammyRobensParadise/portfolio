@@ -24,7 +24,7 @@ export const OldSchoolContext = createContext<OldSchoolInterface | null>(null)
  * Hool to use the theme provider
  * for the old school look
  */
-export const useOldSchool = useContext(OldSchoolContext)
+export const useOldSchool = () => useContext(OldSchoolContext)
 
 /**
  * theme provider for old school
