@@ -2,13 +2,13 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 
-const Home: NextPage = () => (
+const LandingPage: NextPage = () => (
   <>
     <Head>
-      <title>Create Next App</title>
+      <title>Sammy</title>
     </Head>
     This is some text
   </>
 )
 
-export default Home
+export default LandingPage
