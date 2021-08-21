@@ -1,48 +1,77 @@
-import React, { useState } from 'react'
+import React from 'react'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import {} from 'react95'
+// pick a theme of your choice
+import original from 'react95/dist/themes/original'
+// original Windows95 font (optionally)
 import {
+  styleReset,
   AppBar,
   Toolbar,
-  TextField,
   Button,
-  List,
-  ListItem,
-  Divider
+  Bar,
+  Window,
+  WindowContent,
+  WindowHeader
 } from 'react95'
-import Image from 'next/image'
-import oldMSLogo from '../../global/assets/oldMSLogo.png'
-const OldSchoolRenderer = () => {
-  const [open, setOpen] = useState(false)
-  return (
-    <AppBar className="font-mono">
-      <Toolbar style={{ justifyContent: 'space-between' }}>
-        <div style={{ position: 'relative', display: 'inline-block' }}>
-          <Button
-            onClick={() => setOpen(!open)}
-            active={open}
-            style={{ fontWeight: 'bold' }}
-          >
-            <Image src={oldMSLogo} alt="react95 logo" width="18" height="18" />
-            Start
-          </Button>
-          {open && (
-            <List
-              style={{
-                position: 'absolute',
-                left: '0',
-                top: '100%'
-              }}
-              onClick={() => setOpen(false)}
-            >
-              <ListItem>Resume</ListItem>
-              <ListItem>Linkedin</ListItem>
-              <Divider />
-            </List>
-          )}
-        </div>
+import Draggable from 'react-draggable'
 
-        <TextField placeholder="Search..." width={150} />
+const GlobalStyles = createGlobalStyle`
+  ${styleReset}
+`
+const Wrapper = styled.div`
+  .window-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .window {
+    width: 400px;
+    min-height: 200px;
+  }
+`
+
+const NavigationBar = () => (
+  <AppBar className="font-mono">
+    <Toolbar>
+      <Bar size={35} />
+      <Button variant="menu">Resume</Button>
+      <Button variant="menu">Linkedin</Button>
+      <Bar size={35} />
+    </Toolbar>
+  </AppBar>
+)
+
+const WindowElement = () => (
+  <Draggable defaultPosition={{ x: 60, y: 60 }}>
+    <Window className="w-1/4 font-mono">
+      <WindowHeader className="window-header cursor-move">
+        <span>s_robens_paradise.exe</span>
+      </WindowHeader>
+      <Toolbar>
+        <Button variant="menu" size="sm">
+          Help
+        </Button>
       </Toolbar>
-    </AppBar>
+      <WindowContent>
+        <p>Click the Button to begin</p>
+        <Button className="mt-8">Begin Viewing</Button>
+      </WindowContent>
+    </Window>
+  </Draggable>
+)
+
+const OldSchoolRenderer = () => {
+  return (
+    <div className="h-screen bg-teal">
+      <GlobalStyles />
+      <ThemeProvider theme={original}>
+        <NavigationBar />
+        <Wrapper>
+          <WindowElement />
+        </Wrapper>
+      </ThemeProvider>
+    </div>
   )
 }
 

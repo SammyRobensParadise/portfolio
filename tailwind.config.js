@@ -3,7 +3,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      fontFamily: { mono: ['Ms\\ Sans'] }
+      fontFamily: { mono: ['Ms\\ Sans'] },
+      backgroundColor: {
+        teal: 'teal'
+      }
     }
   },
   variants: {
