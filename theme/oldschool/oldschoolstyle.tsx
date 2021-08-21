@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 `
 
 const NavigationBar = () => (
-  <AppBar className="font-mono">
+  <AppBar className="font-mono bottom-0" style={{ top: 'auto' }}>
     <Toolbar>
       <Bar size={35} />
       <Button variant="menu">Resume</Button>
