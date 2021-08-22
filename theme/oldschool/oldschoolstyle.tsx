@@ -54,29 +54,27 @@ const WindowElement = () => {
     }
   }, [])
   return (
-    <>
-      <Draggable
-        position={{
-          x: xPos,
-          y: yPos
-        }}
-      >
-        <Window className="font-mono w-64">
-          <WindowHeader className="window-header cursor-move">
-            <span>s_robens_paradise.exe</span>
-          </WindowHeader>
-          <Toolbar>
-            <Button variant="menu" size="sm">
-              Help
-            </Button>
-          </Toolbar>
-          <WindowContent>
-            <p>Press the Enter Key or Click the Button to Begin</p>
-            <Button className="mt-8">Begin Viewing Portfolio</Button>
-          </WindowContent>
-        </Window>
-      </Draggable>
-    </>
+    <Draggable
+      position={{
+        x: xPos,
+        y: yPos
+      }}
+    >
+      <Window className="font-mono w-64">
+        <WindowHeader className="window-header cursor-move">
+          <span>s_robens_paradise.exe</span>
+        </WindowHeader>
+        <Toolbar>
+          <Button variant="menu" size="sm">
+            Help
+          </Button>
+        </Toolbar>
+        <WindowContent>
+          <p>Press the Enter Key or Click the Button to Begin</p>
+          <Button className="mt-8">Begin Viewing Portfolio</Button>
+        </WindowContent>
+      </Window>
+    </Draggable>
   )
 }
 
