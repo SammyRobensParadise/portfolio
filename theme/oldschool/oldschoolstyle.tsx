@@ -12,6 +12,7 @@ import {
   WindowHeader
 } from 'react95'
 import Draggable from 'react-draggable'
+import constants from '../../global/constants/constants'
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -33,8 +34,12 @@ const NavigationBar = () => (
   <AppBar className="font-mono bottom-0" style={{ top: 'auto' }}>
     <Toolbar>
       <Bar size={35} />
-      <Button variant="menu">Resume</Button>
-      <Button variant="menu">Linkedin</Button>
+      <a href={constants.urls.RESUME_URL()}>
+        <Button variant="menu">Resume</Button>
+      </a>
+      <a href={constants.urls.LINKEDIN_URL}>
+        <Button variant="menu">Linkedin</Button>
+      </a>
       <Bar size={35} />
     </Toolbar>
   </AppBar>
