@@ -1,9 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
-import {} from 'react95'
-// pick a theme of your choice
 import original from 'react95/dist/themes/original'
-// original Windows95 font (optionally)
 import {
   styleReset,
   AppBar,
@@ -19,6 +16,7 @@ import Draggable from 'react-draggable'
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `
+
 const Wrapper = styled.div`
   .window-header {
     display: flex;
@@ -42,24 +40,45 @@ const NavigationBar = () => (
   </AppBar>
 )
 
-const WindowElement = () => (
-  <Draggable defaultPosition={{ x: 60, y: 60 }}>
-    <Window className="w-1/4 font-mono">
-      <WindowHeader className="window-header cursor-move">
-        <span>s_robens_paradise.exe</span>
-      </WindowHeader>
-      <Toolbar>
-        <Button variant="menu" size="sm">
-          Help
-        </Button>
-      </Toolbar>
-      <WindowContent>
-        <p>Click the Button to begin</p>
-        <Button className="mt-8">Begin Viewing</Button>
-      </WindowContent>
-    </Window>
-  </Draggable>
-)
+const WindowElement = () => {
+  const [xPos, setXPos] = useState<number>(0)
+  const [yPos, setYPos] = useState<number>(0)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const { innerWidth, innerHeight } = window
+      const updatedXPos = innerWidth / 2 - 256
+      const updatedYPos = innerHeight / 2 - 256
+      setXPos(updatedXPos)
+      setYPos(updatedYPos)
+    }
+  }, [])
+  return (
+    <>
+      <Draggable
+        position={{
+          x: xPos,
+          y: yPos
+        }}
+      >
+        <Window className="font-mono w-64">
+          <WindowHeader className="window-header cursor-move">
+            <span>s_robens_paradise.exe</span>
+          </WindowHeader>
+          <Toolbar>
+            <Button variant="menu" size="sm">
+              Help
+            </Button>
+          </Toolbar>
+          <WindowContent>
+            <p>Press the Enter Key or Click the Button to Begin</p>
+            <Button className="mt-8">Begin Viewing Portfolio</Button>
+          </WindowContent>
+        </Window>
+      </Draggable>
+    </>
+  )
+}
 
 const OldSchoolRenderer = () => {
   return (
