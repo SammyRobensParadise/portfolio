@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState, useEffect, useCallback } from 'react'
 import styled, {
   createGlobalStyle,
   StyledComponent,
@@ -17,11 +17,14 @@ import {
   Tooltip,
   Counter
 } from 'react95'
+
 import constants from '../../global/constants/constants'
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `
+
+const initialSeconds = 30
 
 const Wrapper: StyledComponent<'div', never> = styled.div`
   .window-header {
@@ -57,6 +60,18 @@ const NavigationBar = (): ReactElement => (
 )
 
 const WindowElement = (): ReactElement => {
+  const [seconds, setSeconds] = useState(initialSeconds)
+
+  useEffect(() => {
+    const myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds(seconds - 1)
+      }
+    }, 1000)
+    return () => {
+      clearInterval(myInterval)
+    }
+  })
   return (
     <Window className="font-mono w-64">
       <WindowHeader className="window-header cursor-move">
@@ -74,8 +89,12 @@ const WindowElement = (): ReactElement => {
         </Tooltip>
       </Toolbar>
       <WindowContent>
-        <p>Press the Enter Key or Click the Button to Begin</p>
-        <Button className="mt-8">Begin Viewing Portfolio</Button>
+        <p className="pb-4">Press the Enter Key or Click the Button to Begin</p>
+        <Counter value={0} minLength={2} />
+        <Counter value={0} minLength={2} />
+        <Counter value={seconds} minLength={2} />
+
+        <Button className="mt-4">Begin Viewing Portfolio</Button>
       </WindowContent>
     </Window>
   )
@@ -85,20 +104,18 @@ const WindowElement = (): ReactElement => {
  *
  * @returns
  */
-const OldSchoolRenderer = (): ReactElement => {
-  return (
-    <Page className="h-screen bg-teal">
-      <GlobalStyles />
-      <ThemeProvider theme={original}>
-        <NavigationBar />
-        <div className="grid justify-items-center p-16  bg-teal">
-          <Wrapper>
-            <WindowElement />
-          </Wrapper>
-        </div>
-      </ThemeProvider>
-    </Page>
-  )
-}
+const OldSchoolRenderer = (): ReactElement => (
+  <Page className="h-screen bg-teal">
+    <GlobalStyles />
+    <ThemeProvider theme={original as unknown}>
+      <NavigationBar />
+      <div className="grid justify-items-center p-16  bg-teal">
+        <Wrapper>
+          <WindowElement />
+        </Wrapper>
+      </div>
+    </ThemeProvider>
+  </Page>
+)
 
 export default OldSchoolRenderer
