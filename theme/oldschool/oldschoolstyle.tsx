@@ -15,7 +15,8 @@ import {
   WindowContent,
   WindowHeader,
   Tooltip,
-  Counter
+  Counter,
+  LoadingIndicator
 } from 'react95'
 
 import constants from '../../global/constants/constants'
@@ -90,9 +91,22 @@ const WindowElement = (): ReactElement => {
       </Toolbar>
       <WindowContent>
         <p className="pb-4">Press the Enter Key or Click the Button to Begin</p>
-        <Counter value={0} minLength={2} />
-        <Counter value={0} minLength={2} />
-        <Counter value={seconds} minLength={2} />
+        {seconds === 0 ? (
+          <>
+            <>
+              <p style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+                Loading...
+              </p>
+              <LoadingIndicator isLoading />
+            </>
+          </>
+        ) : (
+          <>
+            <Counter value={0} minLength={2} />
+            <Counter value={0} minLength={2} />
+            <Counter value={seconds} minLength={2} />
+          </>
+        )}
 
         <Button className="mt-4">Begin Viewing Portfolio</Button>
       </WindowContent>

@@ -1,11 +1,16 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/display-name */
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { PropsWithChildren } from 'react'
+
 import OldSchoolProvider, { useOldSchool } from './oldschool'
 
-const OldSchool = (props: PropsWithChildren<{}>) => (
+const OldSchool = (props: PropsWithChildren<React.ReactNode>): JSX.Element => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
   <div {...props} className="oldschool-wrapper" />
 )
 OldSchool.Provider = (props: PropsWithChildren<{}>) => (
-  <OldSchoolProvider>{props.children}</OldSchoolProvider>
+  <OldSchoolProvider>{props?.children}</OldSchoolProvider>
 )
 
 OldSchool.useOldSchool = useOldSchool

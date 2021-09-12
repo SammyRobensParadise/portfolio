@@ -24,12 +24,15 @@ export const OldSchoolContext = createContext<OldSchoolInterface | null>(null)
  * Hool to use the theme provider
  * for the old school look
  */
-export const useOldSchool = () => useContext(OldSchoolContext)
+export const useOldSchool = (): OldSchoolInterface | null =>
+  useContext(OldSchoolContext)
 
 /**
  * theme provider for old school
  */
-export default function OldSchoolProvider(props: PropsWithChildren<{}>) {
+export default function OldSchoolProvider(
+  props: PropsWithChildren<React.ReactNode>
+): JSX.Element {
   const { children } = props
   const [oldSchoolVisible, updateShowOldSchool] = useState<boolean>(true)
 
@@ -45,14 +48,15 @@ export default function OldSchoolProvider(props: PropsWithChildren<{}>) {
     updateShowOldSchool((prevState: boolean) => !prevState)
   }, [])
 
-  const OldSchoolContextFrame = useCallback(() => {
-    return {
+  const OldSchoolContextFrame = useCallback(
+    () => ({
       state: oldSchoolVisible,
-      hideOldSchool: hideOldSchool,
-      showOldSchool: showOldSchool,
-      undoOldSchool: undoOldSchool
-    }
-  }, [oldSchoolVisible, hideOldSchool, showOldSchool, undoOldSchool])
+      hideOldSchool,
+      showOldSchool,
+      undoOldSchool
+    }),
+    [oldSchoolVisible, hideOldSchool, showOldSchool, undoOldSchool]
+  )
 
   return (
     <OldSchoolContext.Provider value={OldSchoolContextFrame()}>
