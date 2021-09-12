@@ -1,5 +1,9 @@
-import React from 'react'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import React, { ReactElement } from 'react'
+import styled, {
+  createGlobalStyle,
+  StyledComponent,
+  ThemeProvider
+} from 'styled-components'
 import original from 'react95/dist/themes/original'
 import {
   styleReset,
@@ -9,7 +13,9 @@ import {
   Bar,
   Window,
   WindowContent,
-  WindowHeader
+  WindowHeader,
+  Tooltip,
+  Counter
 } from 'react95'
 import constants from '../../global/constants/constants'
 
@@ -17,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `
 
-const Wrapper = styled.div`
+const Wrapper: StyledComponent<'div', never> = styled.div`
   .window-header {
     display: flex;
     align-items: center;
@@ -35,7 +41,7 @@ const Page = styled.div`
   }
 `
 
-const NavigationBar = () => (
+const NavigationBar = (): ReactElement => (
   <AppBar className="font-mono bottom-0" style={{ top: 'auto' }}>
     <Toolbar>
       <Bar size={35} />
@@ -50,16 +56,22 @@ const NavigationBar = () => (
   </AppBar>
 )
 
-const WindowElement = () => {
+const WindowElement = (): ReactElement => {
   return (
     <Window className="font-mono w-64">
       <WindowHeader className="window-header cursor-move">
         <span>s_robens_paradise.exe</span>
       </WindowHeader>
       <Toolbar>
-        <Button variant="menu" size="sm">
-          Help
-        </Button>
+        <Tooltip
+          text="It looks like you've managed to return to 1995! Click 'Begin Viewing Portfolio' to zoom to present day."
+          enterDelay={100}
+          leaveDelay={500}
+        >
+          <Button variant="menu" size="sm">
+            Help
+          </Button>
+        </Tooltip>
       </Toolbar>
       <WindowContent>
         <p>Press the Enter Key or Click the Button to Begin</p>
@@ -69,15 +81,21 @@ const WindowElement = () => {
   )
 }
 
-const OldSchoolRenderer = () => {
+/**
+ *
+ * @returns
+ */
+const OldSchoolRenderer = (): ReactElement => {
   return (
     <Page className="h-screen bg-teal">
       <GlobalStyles />
       <ThemeProvider theme={original}>
         <NavigationBar />
-        <Wrapper>
-          <WindowElement />
-        </Wrapper>
+        <div className="grid justify-items-center p-16  bg-teal">
+          <Wrapper>
+            <WindowElement />
+          </Wrapper>
+        </div>
       </ThemeProvider>
     </Page>
   )

@@ -11,8 +11,8 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'prettier',
-    'next/core-web-vitals',
-    '@next/eslint-plugin-next'
+    'next/core-web-vitals'
+    // '@next/eslint-plugin-next'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -36,7 +36,6 @@ module.exports = {
         }
       }
     ],
-    /* NOTE: https://github.com/beacon-biosignals/platform/issues/1424 */
     '@typescript-eslint/naming-convention': [
       'error',
       {
@@ -65,7 +64,6 @@ module.exports = {
       }
     ],
     'no-console': 'off',
-    /* NOTE: https://stackoverflow.com/a/42399879 */
     'no-param-reassign': ['error', { props: false }],
     'prettier/prettier': 'error',
     'react/jsx-props-no-spreading': [
