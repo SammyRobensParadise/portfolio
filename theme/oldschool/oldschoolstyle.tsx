@@ -29,6 +29,12 @@ const Wrapper = styled.div`
     min-height: 200px;
   }
 `
+const Page = styled.div`
+  p::selection {
+    background-color: blue;
+    color: white;
+  }
+`
 
 const NavigationBar = () => (
   <AppBar className="font-mono bottom-0" style={{ top: 'auto' }}>
@@ -85,7 +91,7 @@ const WindowElement = () => {
 
 const OldSchoolRenderer = () => {
   return (
-    <div className="h-screen bg-teal">
+    <Page className="h-screen bg-teal">
       <GlobalStyles />
       <ThemeProvider theme={original}>
         <NavigationBar />
@@ -93,7 +99,7 @@ const OldSchoolRenderer = () => {
           <WindowElement />
         </Wrapper>
       </ThemeProvider>
-    </div>
+    </Page>
   )
 }
 
