@@ -11,13 +11,11 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
     'prettier',
-    'next/core-web-vitals'
-    // '@next/eslint-plugin-next'
+    'next/core-web-vitals',
+    'next'
   ],
-  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: ['./tsconfig.json'],
-    tsconfigRootDir: __dirname
+    project: './tsconfig.json'
   },
   plugins: [
     'react',
