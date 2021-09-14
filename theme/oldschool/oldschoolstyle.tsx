@@ -60,13 +60,22 @@ const NavigationBar = (): ReactElement => (
   </AppBar>
 )
 
-const WindowElement = (): ReactElement => {
+const WindowElement = ({
+  forwardedEvent
+}: {
+  forwardedEvent?: () => void
+}): ReactElement => {
   const [seconds, setSeconds] = useState<number>(initialSeconds)
   const [showLoading, setShowLoading] = useState<boolean>(false)
 
   const handleTransition = useCallback((): void => {
     setShowLoading(true)
-  }, [setShowLoading])
+    setTimeout(() => {
+      if (forwardedEvent) {
+        forwardedEvent()
+      }
+    }, 1000)
+  }, [setShowLoading, forwardedEvent])
 
   const handleKeyPress = useCallback(
     (event: KeyboardEvent): void => {
@@ -81,6 +90,9 @@ const WindowElement = (): ReactElement => {
     const myInterval = setInterval(() => {
       if (seconds > 0) {
         setSeconds(seconds - 1)
+      }
+      if (seconds === 0) {
+        handleTransition()
       }
     }, 1000)
     return () => {
@@ -138,18 +150,29 @@ const WindowElement = (): ReactElement => {
  *
  * @returns
  */
-const OldSchoolRenderer = (): ReactElement => (
-  <Page className="h-screen bg-teal">
-    <GlobalStyles />
-    <ThemeProvider theme={original as unknown}>
-      <NavigationBar />
-      <div className="grid justify-items-center p-16  bg-teal">
-        <Wrapper>
-          <WindowElement />
-        </Wrapper>
-      </div>
-    </ThemeProvider>
-  </Page>
-)
+const OldSchoolRenderer = (): ReactElement => {
+  const [transition, setTransition] = useState<boolean>(false)
+
+  function handleSetTransition(): void {
+    setTransition(true)
+  }
+
+  if (transition) {
+    return <p>Loading...</p>
+  }
+  return (
+    <Page className="h-screen bg-teal">
+      <GlobalStyles />
+      <ThemeProvider theme={original as unknown}>
+        <NavigationBar />
+        <div className="grid justify-items-center p-16  bg-teal">
+          <Wrapper>
+            <WindowElement forwardedEvent={handleSetTransition} />
+          </Wrapper>
+        </div>
+      </ThemeProvider>
+    </Page>
+  )
+}
 
 export default OldSchoolRenderer
