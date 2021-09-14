@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from 'react'
+import React, { ReactElement, useState, useEffect, useCallback } from 'react'
 import styled, {
   createGlobalStyle,
   StyledComponent,
@@ -61,7 +61,21 @@ const NavigationBar = (): ReactElement => (
 )
 
 const WindowElement = (): ReactElement => {
-  const [seconds, setSeconds] = useState(initialSeconds)
+  const [seconds, setSeconds] = useState<number>(initialSeconds)
+  const [showLoading, setShowLoading] = useState<boolean>(false)
+
+  const handleTransition = useCallback((): void => {
+    setShowLoading(true)
+  }, [setShowLoading])
+
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent): void => {
+      if (event.key === 'Enter') {
+        handleTransition()
+      }
+    },
+    [handleTransition]
+  )
 
   useEffect(() => {
     const myInterval = setInterval(() => {
@@ -73,6 +87,14 @@ const WindowElement = (): ReactElement => {
       clearInterval(myInterval)
     }
   })
+
+  useEffect(() => {
+    window?.addEventListener('keydown', handleKeyPress)
+    return () => {
+      window?.removeEventListener('keydown', handleKeyPress)
+    }
+  })
+
   return (
     <Window className="font-mono w-64">
       <WindowHeader className="window-header cursor-move">
@@ -91,14 +113,10 @@ const WindowElement = (): ReactElement => {
       </Toolbar>
       <WindowContent>
         <p className="pb-4">Press the Enter Key or Click the Button to Begin</p>
-        {seconds === 0 ? (
+        {seconds === 0 || showLoading ? (
           <>
-            <>
-              <p style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
-                Loading...
-              </p>
-              <LoadingIndicator isLoading />
-            </>
+            <p className="text-center mb-2">Loading...</p>
+            <LoadingIndicator isLoading />
           </>
         ) : (
           <>
@@ -108,7 +126,9 @@ const WindowElement = (): ReactElement => {
           </>
         )}
 
-        <Button className="mt-4">Begin Viewing Portfolio</Button>
+        <Button className="mt-4" onClick={handleTransition}>
+          Begin Viewing Portfolio
+        </Button>
       </WindowContent>
     </Window>
   )
