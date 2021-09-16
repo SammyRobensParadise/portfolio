@@ -6,8 +6,8 @@ import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/oldschool/oldschoolstyle'
 
 function Wrapper({ Component, pageProps }: AppProps) {
-  const OS = OldSchool.useOldSchool()
-  if (OS?.state) {
+  const oldSchool = OldSchool.useOldSchool()
+  if (oldSchool?.state) {
     return <OldSchoolRenderer />
   }
   // eslint-disable-next-line react/jsx-props-no-spreading

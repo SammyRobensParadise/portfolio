@@ -1,9 +1,6 @@
 import React, { ReactElement, useState, useEffect, useCallback } from 'react'
-import styled, {
-  createGlobalStyle,
-  StyledComponent,
-  ThemeProvider
-} from 'styled-components'
+import { Transition } from '@headlessui/react'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import original from 'react95/dist/themes/original'
 import {
   styleReset,
@@ -20,30 +17,13 @@ import {
 } from 'react95'
 
 import constants from '../../global/constants/constants'
+import OldSchool from '../../providers/oldschool'
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
 `
 
 const initialSeconds = 30
-
-const Wrapper: StyledComponent<'div', never> = styled.div`
-  .window-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .window {
-    width: 400px;
-    min-height: 200px;
-  }
-`
-const Page = styled.div`
-  p::selection {
-    background-color: blue;
-    color: white;
-  }
-`
 
 const NavigationBar = (): ReactElement => (
   <AppBar className="font-mono bottom-0" style={{ top: 'auto' }}>
@@ -108,7 +88,7 @@ const WindowElement = ({
   })
 
   return (
-    <Window className="font-mono w-64">
+    <Window className="font-mono w-64 flex items-center justify-between">
       <WindowHeader className="window-header cursor-move">
         <span>s_robens_paradise.exe</span>
       </WindowHeader>
@@ -151,27 +131,41 @@ const WindowElement = ({
  * @returns
  */
 const OldSchoolRenderer = (): ReactElement => {
+  const oldSchool = OldSchool.useOldSchool()
+
   const [transition, setTransition] = useState<boolean>(false)
 
   function handleSetTransition(): void {
     setTransition(true)
+    if (oldSchool) {
+      setTimeout(() => {
+        oldSchool.hideOldSchool()
+      }, 2000)
+    }
   }
 
-  if (transition) {
-    return <p>Loading...</p>
-  }
   return (
-    <Page className="h-screen bg-teal">
-      <GlobalStyles />
-      <ThemeProvider theme={original as unknown}>
-        <NavigationBar />
-        <div className="grid justify-items-center p-16  bg-teal">
-          <Wrapper>
-            <WindowElement forwardedEvent={handleSetTransition} />
-          </Wrapper>
+    <div className="h-screen bg-gray-900">
+      <Transition
+        appear
+        show={!transition}
+        leave="transform duration-250 transition cubic-bezier(.97,.03,.36,.45)"
+        leaveFrom="scale-100 opacity-100"
+        leaveTo="scale-0 opacity-25"
+      >
+        <div className="h-screen bg-teal">
+          <GlobalStyles />
+          <ThemeProvider theme={original as unknown}>
+            <NavigationBar />
+            <div className="grid justify-items-center p-16  bg-teal">
+              <div>
+                <WindowElement forwardedEvent={handleSetTransition} />
+              </div>
+            </div>
+          </ThemeProvider>
         </div>
-      </ThemeProvider>
-    </Page>
+      </Transition>
+    </div>
   )
 }
 

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
     "curtainsjs": "^8.1.2",
     "next": "11.1.0",
     "react": "17.0.2",
