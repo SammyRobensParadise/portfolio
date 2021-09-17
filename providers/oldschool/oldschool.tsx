@@ -7,10 +7,13 @@ import React, {
 } from 'react'
 
 export interface OldSchoolInterface {
-  state: boolean
-  hideOldSchool: () => void
-  showOldSchool: () => void
-  undoOldSchool: () => void
+  state: { react95Visible: boolean; glitchVisible: boolean }
+  hideReact95: () => void
+  showReact95: () => void
+  toggleReact95: () => void
+  hideGlitch: () => void
+  showGlitch: () => void
+  toggleGlitch: () => void
 }
 
 /**
@@ -34,28 +37,53 @@ export default function OldSchoolProvider(
   props: PropsWithChildren<React.ReactNode>
 ): JSX.Element {
   const { children } = props
-  const [oldSchoolVisible, updateShowOldSchool] = useState<boolean>(true)
+  const [react95Visible, updateReact95Visible] = useState<boolean>(true)
+  const [glitchVisible, updateGlitchVisible] = useState<boolean>(false)
 
-  const hideOldSchool = useCallback(() => {
-    updateShowOldSchool(false)
-  }, [])
+  const hideReact95 = useCallback(() => {
+    updateReact95Visible(false)
+  }, [updateReact95Visible])
 
-  const showOldSchool = useCallback(() => {
-    updateShowOldSchool(true)
-  }, [])
+  const showReact95 = useCallback(() => {
+    updateReact95Visible(true)
+  }, [updateReact95Visible])
 
-  const undoOldSchool = useCallback(() => {
-    updateShowOldSchool((prevState: boolean) => !prevState)
-  }, [])
+  const toggleReact95 = useCallback(() => {
+    updateReact95Visible((prevState: boolean) => !prevState)
+  }, [updateReact95Visible])
+
+  const hideGlitch = useCallback(() => {
+    updateGlitchVisible(false)
+  }, [updateGlitchVisible])
+
+  const showGlitch = useCallback(() => {
+    updateGlitchVisible(true)
+  }, [updateGlitchVisible])
+
+  const toggleGlitch = useCallback(() => {
+    updateGlitchVisible((prevState: boolean) => !prevState)
+  }, [updateGlitchVisible])
 
   const OldSchoolContextFrame = useCallback(
     () => ({
-      state: oldSchoolVisible,
-      hideOldSchool,
-      showOldSchool,
-      undoOldSchool
+      state: { react95Visible, glitchVisible },
+      hideReact95,
+      showReact95,
+      toggleReact95,
+      toggleGlitch,
+      showGlitch,
+      hideGlitch
     }),
-    [oldSchoolVisible, hideOldSchool, showOldSchool, undoOldSchool]
+    [
+      react95Visible,
+      hideReact95,
+      showReact95,
+      toggleReact95,
+      glitchVisible,
+      showGlitch,
+      hideGlitch,
+      toggleGlitch
+    ]
   )
 
   return (

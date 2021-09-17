@@ -133,25 +133,25 @@ const WindowElement = ({
 const OldSchoolRenderer = (): ReactElement => {
   const oldSchool = OldSchool.useOldSchool()
 
-  const [transition, setTransition] = useState<boolean>(false)
+  const [transition, setTransition] = useState<boolean>(true)
 
   function handleSetTransition(): void {
-    setTransition(true)
+    setTransition(false)
     if (oldSchool) {
       setTimeout(() => {
-        oldSchool.hideOldSchool()
+        oldSchool.hideReact95()
       }, 2000)
     }
   }
 
   return (
-    <div className="h-screen bg-gray-900">
+    <div className="h-screen bg-gray-900 items-center">
       <Transition
         appear
-        show={!transition}
-        leave="transform duration-250 transition cubic-bezier(.97,.03,.36,.45)"
-        leaveFrom="scale-100 opacity-100"
-        leaveTo="scale-0 opacity-25"
+        show={transition}
+        leave="transform transition duration-250  cubic-bezier(.97,.03,.36,.45)"
+        leaveFrom="scale-100 opacity-100 bg-teal"
+        leaveTo="scale-0 opacity-25 bg-white"
       >
         <div className="h-screen bg-teal">
           <GlobalStyles />
