@@ -145,7 +145,7 @@ const OldSchoolRenderer = (): ReactElement => {
   }
 
   return (
-    <div className="screen glitch pointer-events-none">
+    <div className="screen glitch pointer">
       <Transition
         appear
         show={transition}
