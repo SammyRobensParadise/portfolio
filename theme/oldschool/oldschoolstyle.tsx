@@ -145,7 +145,7 @@ const OldSchoolRenderer = (): ReactElement => {
   }
 
   return (
-    <div className="h-screen bg-gray-900 items-center">
+    <div className="screen glitch pointer-events-none">
       <Transition
         appear
         show={transition}

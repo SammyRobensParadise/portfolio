@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
-  reactStrictMode: true,
-}
+const withLess = require('@zeit/next-less')
+module.exports = withLess({
+  reactStrictMode: true
+})
