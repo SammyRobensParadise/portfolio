@@ -1,10 +1,5 @@
 import React, { ReactElement } from 'react'
-import GlitchClip from 'react-glitch-effect/core/GlitchClip'
 
-const GlitchRenderer = (): ReactElement => (
-  <GlitchClip>
-    <div>Glitch</div>
-  </GlitchClip>
-)
+const GlitchRenderer = (): ReactElement => <div>Glitch</div>
 
 export default GlitchRenderer
