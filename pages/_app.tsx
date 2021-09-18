@@ -6,12 +6,17 @@ import React, { ReactElement } from 'react'
 
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/oldschool/oldschoolstyle'
+import GlitchRenderer from '../theme/glitch/glitchstyle'
 
 function Wrapper({ Component, pageProps }: AppProps) {
   const oldSchool = OldSchool.useOldSchool()
-  if (oldSchool?.state) {
+  if (oldSchool?.state.react95Visible) {
     return <OldSchoolRenderer />
   }
+  if (!oldSchool?.state.react95Visible && oldSchool?.state.glitchVisible) {
+    return <GlitchRenderer />
+  }
+
   // eslint-disable-next-line react/jsx-props-no-spreading
   return <Component {...pageProps} />
 }

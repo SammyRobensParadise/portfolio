@@ -140,7 +140,8 @@ const OldSchoolRenderer = (): ReactElement => {
     if (oldSchool) {
       setTimeout(() => {
         oldSchool.hideReact95()
-      }, 2000)
+        oldSchool.showGlitch()
+      }, 500)
     }
   }
 
