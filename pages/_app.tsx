@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import '../styles/tv.css'
+import '../styles/glitch.scss'
 
 import type { AppProps } from 'next/app'
 import React, { ReactElement } from 'react'
