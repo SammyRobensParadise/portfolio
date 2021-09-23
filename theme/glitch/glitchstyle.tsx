@@ -8,7 +8,6 @@ const GlitchRenderer = (): ReactElement => (
       </div>
       <div className="glow">Loading...</div>
     </div>
-    <div className="scanlines" />
   </div>
 )
 

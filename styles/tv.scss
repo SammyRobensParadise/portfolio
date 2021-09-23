@@ -55,11 +55,10 @@ a.switcher:before {
   left: 5px;
 }
 .screen {
-  position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: auto;
+  overflow-y: scroll;
 }
 .figure {
   display: block;
@@ -138,23 +137,7 @@ a.switcher:before {
   animation: tr-bag 4s linear infinite;
   pointer-events: none;
 }
-.glitch .clock {
-  transform: skewX(0deg) scaleY(1);
-  animation: clock-bag 4s linear infinite;
-}
-.glitch .clock span:before,
-.glitch .clock span:after {
-  display: block;
-  content: attr(data-time);
-  position: absolute;
-  top: 0;
-  color: #fff;
-  background: #111;
-  overflow: hidden;
-  width: 720px;
-  height: 128px;
-  clip: rect(0, 900px, 0, 0);
-}
+
 
 @-moz-keyframes is-off {
   0% {
