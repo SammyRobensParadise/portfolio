@@ -6,8 +6,8 @@ import type { AppProps } from 'next/app'
 import React, { ReactElement } from 'react'
 
 import OldSchool from '../providers/oldschool'
-import OldSchoolRenderer from '../theme/oldschool/oldschoolstyle'
-import GlitchRenderer from '../theme/glitch/glitchstyle'
+import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
+import GlitchRenderer from '../theme/Glitch/GlitchStyle'
 
 function Wrapper({ Component, pageProps }: AppProps) {
   const oldSchool = OldSchool.useOldSchool()
