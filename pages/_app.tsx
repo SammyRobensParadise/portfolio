@@ -1,5 +1,5 @@
-import '../styles/globals.css'
-import '../styles/tv.css'
+import '../styles/globals.scss'
+import '../styles/tv.scss'
 import '../styles/glitch.scss'
 
 import type { AppProps } from 'next/app'
