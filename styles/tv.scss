@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-*,
-*:before,
-*:after {
+.window,
+.window > :before,
+.window > :after {
   margin: 0;
   padding: 0;
   border: 0;
@@ -15,8 +15,6 @@ body {
   height: 100%;
 }
 body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
   background: #111;
   color: #fff;
 }

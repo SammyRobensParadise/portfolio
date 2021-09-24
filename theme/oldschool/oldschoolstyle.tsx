@@ -88,7 +88,7 @@ const WindowElement = ({
   })
 
   return (
-    <Window className="font-mono w-64 flex items-center justify-between">
+    <Window className="font-mono w-64 flex items-center justify-between window">
       <WindowHeader className="window-header cursor-move">
         <span>s_robens_paradise.exe</span>
       </WindowHeader>
