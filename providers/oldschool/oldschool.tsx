@@ -38,7 +38,7 @@ export default function OldSchoolProvider(
 ): JSX.Element {
   const { children } = props
   const [react95Visible, updateReact95Visible] = useState<boolean>(true)
-  const [glitchVisible, updateGlitchVisible] = useState<boolean>(false)
+  const [glitchVisible, updateGlitchVisible] = useState<boolean>(true)
 
   const hideReact95 = useCallback(() => {
     updateReact95Visible(false)

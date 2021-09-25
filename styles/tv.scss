@@ -10,14 +10,6 @@
   box-sizing: border-box;
   user-select: none;
 }
-html,
-body {
-  height: 100%;
-}
-body {
-  background: #111;
-  color: #fff;
-}
 a.switcher {
   display: block;
   position: fixed;
@@ -57,6 +49,7 @@ a.switcher:before {
   width: 100%;
   height: auto;
   overflow-y: scroll;
+  background-color: rgba(17, 24, 39, 1);
 }
 .figure {
   display: block;
@@ -84,7 +77,7 @@ a.switcher:before {
   top: -194px;
   left: -90px;
   margin: auto;
-  border-top: 180px solid #111;
+  border-top: 180px solid rgba(17, 24, 39, 1);
   border-right: 90px solid transparent;
   border-left: 90px solid transparent;
   border-bottom: 0 solid transparent;
@@ -102,8 +95,8 @@ a.switcher:before {
   left: 0;
   margin: auto;
   border-top: 200px solid transparent;
-  border-right: 100px solid #111;
-  border-left: 100px solid #111;
+  border-right: 100px solid rgba(17, 24, 39, 1);
+  border-left: 100px solid rgba(17, 24, 39, 1);
   border-bottom: 0 solid transparent;
   pointer-events: none;
 }

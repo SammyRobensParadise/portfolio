@@ -9,24 +9,30 @@ import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
 import GlitchRenderer from '../theme/Glitch/GlitchStyle'
 
-function Wrapper({ Component, pageProps }: AppProps) {
+function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
-  if (oldSchool?.state.react95Visible) {
-    return <OldSchoolRenderer />
-  }
-  if (!oldSchool?.state.react95Visible && oldSchool?.state.glitchVisible) {
-    return <GlitchRenderer />
-  }
+  if (oldSchool) {
+    const { state } = oldSchool
+    if (state?.react95Visible && state?.glitchVisible) {
+      return <OldSchoolRenderer />
+    }
+    if (!state?.react95Visible && state?.glitchVisible) {
+      return <GlitchRenderer />
+    }
 
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <Component {...pageProps} />
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    return <Component {...pageProps} />
+  }
+  return null
 }
 
 function Portfolio({ Component, pageProps, router }: AppProps): ReactElement {
   return (
     <OldSchool.Provider>
-      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-      <Wrapper Component={Component} pageProps={pageProps} router={router} />
+      <div className="h-screen bg-gray-900">
+        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+        <Wrapper Component={Component} pageProps={pageProps} router={router} />
+      </div>
     </OldSchool.Provider>
   )
 }
