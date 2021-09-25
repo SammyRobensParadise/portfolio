@@ -3,9 +3,23 @@ import { Transition } from '@headlessui/react'
 
 import OldSchool from '../../providers/oldschool'
 
+/**
+ * Message displayed
+ */
 const MESSAGE = 'Welcome.'
+/**
+ * Tying interval timeout
+ */
 const DEFAULT_INTERVAL_TIMEOUT = 100
-const TRANSITION_TIMEOUT = DEFAULT_INTERVAL_TIMEOUT * MESSAGE.length + 1500
+/**
+ * Transition timeout
+ */
+const TRANSITION_TIMEOUT: number =
+  DEFAULT_INTERVAL_TIMEOUT * MESSAGE.length + 1500
+/**
+ * Animation duration
+ */
+const TRANSITION_DURATION = 1000
 
 const GlitchRenderer = (): ReactElement => {
   const [printMessage, updatePrintMessage] = useState<string>('')
@@ -42,7 +56,7 @@ const GlitchRenderer = (): ReactElement => {
       className="flex items-center justify-between align-center p-40 h-screen"
       appear
       show={show}
-      leave="transform transition duration-1000  cubic-bezier(.97,.03,.36,.45)"
+      leave={`transform transition duration-${TRANSITION_DURATION} cubic-bezier(.97,.03,.36,.45)`}
       leaveFrom="scale-100 h-screen"
       leaveTo="scale-20 opacity-0 h-screen"
     >
