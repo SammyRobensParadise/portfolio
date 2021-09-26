@@ -9,6 +9,7 @@ import React, { ReactElement } from 'react'
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
 import GlitchRenderer from '../theme/Glitch/GlitchStyle'
+import NavigationBar from '../components/navigation/NavigationBar'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
@@ -34,8 +35,13 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
         </div>
       )
     }
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return <Component {...pageProps} />
+    return (
+      <div className="h-screen bg-off-white dark:bg-shadow">
+        <NavigationBar />
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <Component {...pageProps} />
+      </div>
+    )
   }
   return null
 }

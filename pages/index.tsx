@@ -6,9 +6,7 @@ const LandingPage: NextPage = () => (
     <Head>
       <title>Sammy</title>
     </Head>
-    <div className="h-screen bg-off-white dark:bg-shadow">
-      This is some text
-    </div>
+    <div>This is some text</div>
   </>
 )
 

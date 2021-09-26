@@ -66,7 +66,7 @@ const GlitchRenderer = (): ReactElement => {
         0.45
       )}`}
       leaveFrom="scale-100 h-screen bg-shadow"
-      leaveTo="scale-200 opacity-0 h-screen bg-off-white dar"
+      leaveTo="scale-200 opacity-0 h-screen bg-off-white dark:bg-shadow"
     >
       <div className="gl-center">
         <div className="glitch-effect" data-text={printMessage}>

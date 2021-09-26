@@ -13,8 +13,15 @@ module.exports = {
       ...theme('colors'),
       'off-white': '#E5E5E5',
       highlight: '#3FF3B2',
-      shadow: '#2B2B2B'
-    })
+      shadow: '#2B2B2B',
+      cerulaen: '#3F46F3'
+    }),
+    colors: {
+      'off-white': '#E5E5E5',
+      highlight: '#3FF3B2',
+      shadow: '#2B2B2B',
+      cerulaen: '#3F46F3'
+    }
   },
   variants: {
     extend: {}
