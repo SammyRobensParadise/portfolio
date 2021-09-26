@@ -56,7 +56,7 @@ const GlitchRenderer = (): ReactElement => {
 
   return (
     <Transition
-      className="flex items-center justify-between align-center p-40 h-screen"
+      className="flex items-center justify-between align-center p-40 h-screen bg-shadow"
       appear
       show={show}
       leave={`${animate(TRANSITION_DURATION)} ${cubicBezier(
@@ -65,8 +65,8 @@ const GlitchRenderer = (): ReactElement => {
         0.36,
         0.45
       )}`}
-      leaveFrom="scale-100 h-screen"
-      leaveTo="scale-200 opacity-0 h-screen bg-white"
+      leaveFrom="scale-100 h-screen bg-shadow"
+      leaveTo="scale-200 opacity-0 h-screen bg-off-white dar"
     >
       <div className="gl-center">
         <div className="glitch-effect" data-text={printMessage}>

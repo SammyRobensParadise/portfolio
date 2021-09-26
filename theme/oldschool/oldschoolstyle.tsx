@@ -146,9 +146,9 @@ const OldSchoolRenderer = (): ReactElement => {
   }
 
   return (
-    <div className="screen glitch pointer bg-gray-900">
+    <div className="screen glitch pointer bg-shadow">
       <Transition
-        className="bg-gray-900"
+        className="bg-shadow"
         appear
         show={transition}
         leave="transform transition duration-250  cubic-bezier(.97,.03,.36,.45)"

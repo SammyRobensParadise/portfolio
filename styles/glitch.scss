@@ -19,7 +19,7 @@
   position: absolute;
   left: -2px;
   text-shadow: -5px 0 rgb(192, 192, 192);
-  background: rgba(17, 24, 39, 1);
+  background: #2B2B2B;
   overflow: hidden;
   top: 0;
   animation: noise-1 3s linear infinite alternate-reverse, glitch-effect 5s 5.05s infinite;
@@ -30,7 +30,7 @@
   position: absolute;
   left: 2px;
   text-shadow: -5px 0 rgb(219, 219, 219);
-  background: rgba(17, 24, 39, 1);
+  background: #2B2B2B;
   overflow: hidden;
   top: 0;
   animation: noise-2 3s linear infinite alternate-reverse, glitch-effect 5s 5s infinite;
@@ -83,7 +83,7 @@
   background: repeating-linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(17, 17, 17, 1) 100%,
+    #2B2B2B,
     transparent 1%
   );
 

@@ -3,6 +3,7 @@ import '../styles/tv.scss'
 import '../styles/glitch.scss'
 
 import type { AppProps } from 'next/app'
+import Head from 'next/head'
 import React, { ReactElement } from 'react'
 
 import OldSchool from '../providers/oldschool'
@@ -14,12 +15,25 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   if (oldSchool) {
     const { state } = oldSchool
     if (state?.react95Visible && state?.glitchVisible) {
-      return <OldSchoolRenderer />
+      return (
+        <div className="h-screen bg-shadow">
+          <Head>
+            <title>💾</title>
+          </Head>
+          <OldSchoolRenderer />
+        </div>
+      )
     }
     if (!state?.react95Visible && state?.glitchVisible) {
-      return <GlitchRenderer />
+      return (
+        <div className="h-screen bg-off-white">
+          <Head>
+            <title>🌩️</title>
+          </Head>
+          <GlitchRenderer />
+        </div>
+      )
     }
-
     // eslint-disable-next-line react/jsx-props-no-spreading
     return <Component {...pageProps} />
   }
@@ -29,10 +43,8 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
 function Portfolio({ Component, pageProps, router }: AppProps): ReactElement {
   return (
     <OldSchool.Provider>
-      <div className="h-screen bg-gray-900">
-        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-        <Wrapper Component={Component} pageProps={pageProps} router={router} />
-      </div>
+      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+      <Wrapper Component={Component} pageProps={pageProps} router={router} />
     </OldSchool.Provider>
   )
 }
