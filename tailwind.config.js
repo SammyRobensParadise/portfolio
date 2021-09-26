@@ -21,7 +21,8 @@ module.exports = {
       highlight: '#3FF3B2',
       shadow: '#2B2B2B',
       cerulaen: '#3F46F3'
-    }
+    },
+    fontFamily: { work: ['Work Sans', 'sans-serif'] }
   },
   variants: {
     extend: {}
