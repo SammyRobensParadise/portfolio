@@ -7,7 +7,8 @@ module.exports = {
       backgroundColor: {
         teal: 'teal'
       }
-    }
+    },
+    scale: { 200: '2' }
   },
   variants: {
     extend: {}
