@@ -37,14 +37,19 @@ const Footer = (): ReactElement => (
           </p>
         </Link>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row justify-center">
         <p>
           {`© ${new Date().getFullYear().toString()} Designed & Developed by
-          Sammy Robens-Paradise `}
+          Sammy R-Paradise `}
         </p>
       </div>
-      <div className="flex flex-row">
-        <a href={constants.urls.GITHUB_REPO_URL}>Source Code</a>
+      <div className="flex flex-row justify-end">
+        <a
+          className="hover:underline transition-all cursor-pointer"
+          href={constants.urls.GITHUB_REPO_URL}
+        >
+          Source Code
+        </a>
       </div>
     </div>
   </div>
