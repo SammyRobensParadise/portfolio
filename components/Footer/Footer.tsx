@@ -13,7 +13,7 @@ const Footer = (): ReactElement => (
       <div className="font-bold flex flex-row ">
         <button
           type="button"
-          className="font-bold flex flex-row space-x-4 text-xl"
+          className="font-bold flex flex-row space-x-4 text-xl hover:underline transition-all cursor-pointer"
         >
           <div>GET IN TOUCH</div>
           <Chat />
