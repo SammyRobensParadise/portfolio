@@ -11,6 +11,11 @@ export function cubicBezier(
   return `cubic-bezier(${x},${y},${z},${t})`
 }
 
-export function animate(duration: 0 | 250 | 500 | 1000 | 2500): string {
-  return `transform transition duration-${duration}`
+export function animate(
+  duration: 0 | 250 | 500 | 1000 | 2500,
+  delay?: 0 | 250 | 500 | 1000 | 2500
+): string {
+  return `transform transition duration-${duration} ${
+    delay ? `delay-${delay}` : ''
+  }`
 }

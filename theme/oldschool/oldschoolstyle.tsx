@@ -18,6 +18,7 @@ import {
 
 import constants from '../../global/constants/constants'
 import OldSchool from '../../providers/oldschool'
+import { animate, cubicBezier } from '../../global/helpers/animation'
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -151,7 +152,7 @@ const OldSchoolRenderer = (): ReactElement => {
         className="bg-shadow"
         appear
         show={transition}
-        leave="transform transition duration-250  cubic-bezier(.97,.03,.36,.45)"
+        leave={`${animate(250)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
         leaveFrom="scale-100 opacity-100 bg-teal"
         leaveTo="scale-0 opacity-25 bg-white"
       >
