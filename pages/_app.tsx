@@ -10,6 +10,7 @@ import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
 import GlitchRenderer from '../theme/Glitch/GlitchStyle'
 import NavigationBar from '../components/navigation/NavigationBar'
+import Footer from '../components/Footer/Footer'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
@@ -40,6 +41,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
         <NavigationBar />
         {/* eslint-disable-next-line react/jsx-props-no-spreading */}
         <Component {...pageProps} />
+        <Footer />
       </div>
     )
   }

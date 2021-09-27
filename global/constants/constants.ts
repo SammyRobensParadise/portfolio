@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const RESUME_FILE_NAME = 'SammyRPResume.pdf'
+export const RESUME_FILE_NAME = 'SammyRPResume.pdf'
 
 const constants = {
   urls: {
@@ -12,15 +12,16 @@ const constants = {
      *
      * @returns string link to the uploaded resume
      */
-    RESUME_URL: () => {
+    RESUME_URL: (): string => {
       const [resumeUrl, setResumeUrl] = useState<string>('#')
       useEffect(() => {
         if (typeof window !== 'undefined') {
           setResumeUrl(`${window.location.origin}/${RESUME_FILE_NAME}`)
         }
-      })
+      }, [setResumeUrl])
       return resumeUrl
-    }
+    },
+    GITHUB_REPO_URL: 'https://github.com/SammyRobensParadise/Portfolio'
   }
 }
 export default constants
