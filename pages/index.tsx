@@ -6,13 +6,6 @@ const LandingPage: NextPage = () => (
     <Head>
       <title>Sammy</title>
     </Head>
-    <div>This is some text</div>
-    <div>This is some text</div> <div>This is some text</div>{' '}
-    <div>This is some text</div> <div>This is some text</div>{' '}
-    <div>This is some text</div> <div>This is some text</div>{' '}
-    <div>This is some text</div> <div>This is some text</div>{' '}
-    <div>This is some text</div> <div>This is some text</div>{' '}
-    <div>This is some text</div>
   </>
 )
 

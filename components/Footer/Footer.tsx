@@ -1,11 +1,20 @@
 import React, { ReactElement } from 'react'
 import Link from 'next/link'
+import { Transition } from '@headlessui/react'
 
+import { animate, cubicBezier } from '../../global/helpers/animation'
 import constants from '../../global/constants/constants'
 import Chat from '../../global/assets/chat.svg'
 
 const Footer = (): ReactElement => (
-  <div className="text-off-white dark:text-cerulaen bg-cerulaen dark:bg-off-white p-6 text-lg font-work font-normal">
+  <Transition
+    className="text-off-white dark:text-cerulaen bg-cerulaen dark:bg-off-white p-6 text-lg font-work font-normal"
+    show
+    appear
+    enter={`${animate(1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+    enterFrom="opacity-0"
+    enterTo="opaciy-100"
+  >
     <div className="justify-center text-center flex flex-row space-x-8 p-4">
       <div className="font-extralight hover:underline hover:cursor-pointer">
         <a href={constants?.urls?.LINKEDIN_URL}>linkedin.com/sammy</a>
@@ -52,7 +61,7 @@ const Footer = (): ReactElement => (
         </a>
       </div>
     </div>
-  </div>
+  </Transition>
 )
 
 export default Footer

@@ -36,7 +36,14 @@ const NavigationBar = (): ReactElement => (
         </>
       </Link>
     </Transition>
-    <div className="flex flex-row justify-end space-x-4 pt-2">
+    <Transition
+      className="flex flex-row justify-end space-x-4 pt-2"
+      show
+      appear
+      enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+      enterFrom="opacity-0"
+      enterTo="opaciy-100"
+    >
       <Link href={RESUME_FILE_NAME} passHref>
         <p className="hover:underline transition-all cursor-pointer">Résume</p>
       </Link>
@@ -49,7 +56,7 @@ const NavigationBar = (): ReactElement => (
       <Link href="/about" passHref>
         <p className="hover:underline cursor-pointer">About</p>
       </Link>
-    </div>
+    </Transition>
   </div>
 )
 
