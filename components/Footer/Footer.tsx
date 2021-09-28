@@ -35,11 +35,11 @@ const Footer = (): ReactElement => (
       </div>
       <div className="font-extralight hover:underline hover:cursor-pointer">
         <a
-          href="mailto:srobenspardise@gmail.com"
+          href="mailto:srobensparadise@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
-          srobenspardise@gmail.com
+          srobensparadise@gmail.com
         </a>
       </div>
     </Transition.Child>
