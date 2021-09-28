@@ -17,7 +17,6 @@ const Footer = (): ReactElement => (
   >
     <Transition.Child
       className="justify-center text-center flex flex-row space-x-8 p-4"
-      appear
       enter={`${animate(1000, 1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
       enterFrom="opacity-0"
       enterTo="opaciy-100"
@@ -46,7 +45,6 @@ const Footer = (): ReactElement => (
     </Transition.Child>
     <Transition.Child
       className="grid grid-cols-3 col p-4 text-lg font-extralight"
-      appear
       enter={`${animate(500, 1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
       enterFrom="opacity-0"
       enterTo="opaciy-100"

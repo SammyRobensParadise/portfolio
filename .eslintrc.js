@@ -98,16 +98,7 @@ module.exports = {
         project: ['./cypress/tsconfig.json']
       },
 
-      rules: {
-        /* NOTE: https://github.com/beacon-biosignals/platform/issues/1471#issuecomment-872162695 */
-        'cypress/no-unnecessary-waiting': 'off',
-        /* NOTE: https://mochajs.org/#arrow-functions */
-        'mocha/no-mocha-arrows': 'off',
-        /* NOTE: https://github.com/testing-library/cypress-testing-library/pull/144 */
-        'testing-library/await-async-query': 'off',
-        'testing-library/await-async-utils': 'off',
-        'testing-library/prefer-screen-queries': 'off'
-      }
+      rules: {}
     },
     {
       env: {
