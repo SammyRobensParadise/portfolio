@@ -27,7 +27,7 @@ export interface OldSchoolInterface {
 export const OldSchoolContext = createContext<OldSchoolInterface | null>(null)
 
 /**
- * Hool to use the theme provider
+ * Hook to use the theme provider
  * for the old school look
  */
 export const useOldSchool = (): OldSchoolInterface | null =>
