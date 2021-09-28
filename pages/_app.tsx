@@ -9,7 +9,7 @@ import React, { ReactElement } from 'react'
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
 import GlitchRenderer from '../theme/Glitch/GlitchStyle'
-import NavigationBar from '../components/navigation/NavigationBar'
+import NavigationBar from '../components/Navigation/NavigationBar'
 import Footer from '../components/Footer/Footer'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
