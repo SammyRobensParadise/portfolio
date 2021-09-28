@@ -20,7 +20,7 @@ const TRANSITION_TIMEOUT: number =
 /**
  * Animation duration
  */
-const TRANSITION_DURATION = 1000
+const TRANSITION_DURATION = 500
 
 const GlitchRenderer = (): ReactElement => {
   const [printMessage, updatePrintMessage] = useState<string>('')

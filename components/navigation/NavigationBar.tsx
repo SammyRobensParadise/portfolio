@@ -25,7 +25,7 @@ const NavigationBar = (): ReactElement => (
       className="text-center flex flex-row space-x-4 justify-center hover:underline cursor-pointer pt-2"
       show
       appear
-      enter={`${animate(1000, 250)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+      enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
       enterFrom="opacity-0"
       enterTo="opaciy-100"
     >
