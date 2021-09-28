@@ -3,8 +3,11 @@ import React, {
   useContext,
   PropsWithChildren,
   useState,
-  useCallback
+  useCallback,
+  useEffect
 } from 'react'
+
+const HAS_SEEN_INTRO = 'has_seen_intro'
 
 export interface OldSchoolInterface {
   state: { react95Visible: boolean; glitchVisible: boolean }
@@ -40,6 +43,21 @@ export default function OldSchoolProvider(
   const [react95Visible, updateReact95Visible] = useState<boolean>(true)
   const [glitchVisible, updateGlitchVisible] = useState<boolean>(true)
 
+  useEffect(() => {
+    const hasSeenIntro: string | null =
+      window?.sessionStorage?.getItem(HAS_SEEN_INTRO)
+    if (hasSeenIntro?.length) {
+      updateReact95Visible(false)
+      updateGlitchVisible(false)
+    }
+  }, [updateReact95Visible, updateGlitchVisible])
+
+  useEffect(() => {
+    if (!react95Visible && !glitchVisible) {
+      window.sessionStorage.setItem(HAS_SEEN_INTRO, 'true')
+    }
+  }, [react95Visible, glitchVisible])
+
   const hideReact95 = useCallback(() => {
     updateReact95Visible(false)
   }, [updateReact95Visible])
@@ -54,6 +72,7 @@ export default function OldSchoolProvider(
 
   const hideGlitch = useCallback(() => {
     updateGlitchVisible(false)
+    updateReact95Visible(false)
   }, [updateGlitchVisible])
 
   const showGlitch = useCallback(() => {
