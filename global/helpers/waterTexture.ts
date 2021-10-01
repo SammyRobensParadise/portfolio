@@ -35,12 +35,14 @@ export default class WaterTexture {
 
   // Initialize our canvas
   initTexture(canvas: HTMLCanvasElement): void {
-    this.canvas = canvas
-    this.canvas.id = 'WaterTexture'
-    this.canvas.width = this.width
-    this.canvas.height = this.height
-    this.ctx = this.canvas.getContext('2d')
-    this.clear()
+    if (canvas) {
+      this.canvas = canvas
+      this.canvas.id = 'WaterTexture'
+      this.canvas.width = this.width
+      this.canvas.height = this.height
+      this.ctx = this.canvas.getContext('2d')
+      this.clear()
+    }
   }
 
   clear(): void {
