@@ -74,25 +74,22 @@ export default class WaterTexture {
   drawPoint(point: { x: number; y: number; age: number }): void {
     // Convert normalized position into canvas coordinates
     const pos = {
-      x: point.x * this.width,
-      y: point.y * this.height
+      x: point.x,
+      y: point.y
     }
     const { radius } = this
-    const { ctx } = this
-
     let intensity = 1
     intensity = 1 - point.age / this.maxAge
 
     const color = '255,255,255'
 
-    const offset = this.width * 5
+    const offset = this.width
     // 1. Give the shadow a high offset.
-    if (ctx && this.ctx) {
-      ctx.shadowOffsetX = offset
-      ctx.shadowOffsetY = offset
-      ctx.shadowBlur = radius * 1
-      ctx.shadowColor = `rgba(${color},${0.2 * intensity})`
-
+    if (this.ctx) {
+      this.ctx.shadowOffsetX = offset
+      this.ctx.shadowOffsetY = offset
+      this.ctx.shadowBlur = radius * 1
+      this.ctx.shadowColor = `rgba(${color},${0.2 * intensity})`
       this.ctx.beginPath()
       this.ctx.fillStyle = 'rgba(255,0,0,1)'
       // 2. Move the circle to the other direction of the offset
