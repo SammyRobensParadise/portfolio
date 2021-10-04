@@ -19,3 +19,23 @@ export function animate(
     delay ? `delay-${delay}` : ''
   }`
 }
+
+export function easeOutSine(
+  t: number,
+  b: number,
+  c: number,
+  d: number
+): number {
+  return c * Math.sin((t / d) * (Math.PI / 2)) + b
+}
+
+export function easeOutQuad(
+  t: number,
+  b: number,
+  c: number,
+  d: number
+): number {
+  // eslint-disable-next-line no-param-reassign
+  t /= d
+  return -c * t * (t - 2) + b
+}
