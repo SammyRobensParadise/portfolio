@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import React, { useEffect, useRef, useState } from 'react'
-import { extend, useFrame, useThree, createPortal } from '@react-three/fiber'
+import { extend, useFrame, useThree, createPortal, ReactThreeFiber } from '@react-three/fiber'
 import {
   EffectComposer,
   ShaderPass,
@@ -12,6 +12,21 @@ import {
 import WaterPass from './WaterPass'
 import EffectPass from './EffectPass'
 import state from './Store'
+import { Vector2 } from 'three'
+
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      effectComposer: ReactThreeFiber.Object3DNode<EffectComposer, typeof EffectComposer>
+      renderPass: ReactThreeFiber.Object3DNode<RenderPass, typeof RenderPass>
+      unrealBloomPass: ReactThreeFiber.Object3DNode<UnrealBloomPass, typeof UnrealBloomPass>
+      effectPass: ReactThreeFiber.Object3DNode<EffectPass, typeof EffectPass>
+      waterPass: ReactThreeFiber.Object3DNode<WaterPass, typeof WaterPass>
+
+    }
+  }
+
 
 extend({
   EffectComposer,
@@ -25,29 +40,37 @@ extend({
 
 export default function Effects({ children }: { children: React.ReactNode }) {
   const [scene] = useState(() => new THREE.Scene())
-  const composer = useRef(null)
-  const effect = useRef(null)
-  const water = useRef(null)
-  const bloom = useRef(null)
+  const composer = useRef<ReactThreeFiber.Object3DNode<EffectComposer,typeof EffectComposer>>(null)
+  const effect = useRef<ReactThreeFiber.Object3DNode<EffectPass, typeof EffectPass>>(null)
+  const water = useRef<ReactThreeFiber.Object3DNode<WaterPass, typeof WaterPass>>(null)
+  const bloom = useRef<ReactThreeFiber.Object3DNode<UnrealBloomPass, typeof UnrealBloomPass>>(null)
   const { gl, size, camera } = useThree()
   let last = state.top.current
   useEffect(() => {
-    if (composer.current) {
+    if (composer.current && composer.current.setSize) {
       composer.current.setSize(size.width, size.height)
     }
   }, [size])
   useFrame(() => {
     const { top } = state
-    effect.current.factor = THREE.MathUtils.lerp(
-      effect.current.factor,
-      (top.current - last) / -30,
-      0.1
-    )
-    bloom.current.strength = THREE.MathUtils.lerp(
-      bloom.current.strength,
-      Math.abs((top.current - last) / 200),
-      0.1
-    )
+    if(effect.current){
+      effect.current.factor = THREE.MathUtils.lerp(
+        effect.current.factor,
+        (top.current - last) / -30,
+        0.1
+      );
+    }
+
+    if(bloom.current){
+      bloom.current.strength = THREE.MathUtils.lerp(
+        bloom.current.strength,
+        Math.abs((top.current - last) / 200),
+        0.1
+      )
+    }
+if(water.current){
+  
+}
     water.current.factor = THREE.MathUtils.lerp(
       water.current.factor,
       Math.abs((top.current - last) / 30),
@@ -65,7 +88,7 @@ export default function Effects({ children }: { children: React.ReactNode }) {
         <unrealBloomPass
           attachArray="passes"
           ref={bloom}
-          args={[undefined, 0.0, 1, 0.0]}
+          args={[new Vector2(), 0.0, 1, 0.0]}
         />
         <effectPass attachArray="passes" ref={effect} />
         <waterPass attachArray="passes" ref={water} />
