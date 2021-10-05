@@ -12,7 +12,7 @@ const LandingPage: NextPage = () => {
       <Head>
         <title>Sammy</title>
       </Head>
-      <Canvas orthographic>{/* */}</Canvas>
+      <Canvas>{/* */}</Canvas>
     </>
   )
 }
