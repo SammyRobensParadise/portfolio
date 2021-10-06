@@ -5,7 +5,7 @@ const state = {
   pages: 5,
   zoom: 75,
   ref: createRef<JSX.Element>(),
-  top: createRef<JSX.Element>()
+  top: createRef<number>()
 }
 
 export default state
