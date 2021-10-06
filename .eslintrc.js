@@ -64,12 +64,7 @@ module.exports = {
     'no-console': 'off',
     'no-param-reassign': ['error', { props: false }],
     'prettier/prettier': 'error',
-    'react/jsx-props-no-spreading': [
-      'error',
-      {
-        exceptions: ['Route', 'RouterLink']
-      }
-    ],
+    'react/jsx-props-no-spreading': 'off',
     /* NOTE: https://github.com/yannickcr/eslint-plugin-react/issues/2396 */
     'react/require-default-props': 'off'
   },
