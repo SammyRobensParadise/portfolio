@@ -1,31 +1,69 @@
 import * as THREE from 'three'
 import React, { forwardRef, useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
+import { MaterialProps, ReactThreeFiber, useFrame } from '@react-three/fiber'
 
 import './CustonMaterial'
-import { useBlock } from '../blocks'
+import { Material } from 'three'
 
+import { useBlock } from './Blocks'
 import state from './Store'
 
-export default forwardRef(
-  ({ color = 'white', shift = 100, opacity = 1, args, map, ...props }, ref) => {
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      customMaterial: ReactThreeFiber.MaterialProps
+    }
+  }
+}
+
+const Plane = forwardRef(
+  (
+    {
+      color = 'white',
+      shift = 100,
+      opacity = 1,
+      args,
+      map,
+      ...props
+    }: {
+      color?: string
+      shift?: number
+      opacity?: number
+      args: [
+        width?: number | undefined,
+        height?: number | undefined,
+        widthSegments?: number | undefined,
+        heightSegments?: number | undefined
+      ]
+      map: unknown
+    },
+    ref: React.Ref<React.ReactNode> | undefined
+  ) => {
     const { viewportWidth, offsetFactor } = useBlock()
-    const material = useRef()
+    const material = useRef<null | ReactThreeFiber.Object3DNode<
+      MaterialProps,
+      typeof ReactThreeFiber
+    >>(null)
     let last = state.top.current
     useFrame(() => {
       const { pages, top } = state
-      material.current.scale = THREE.MathUtils.lerp(
-        material.current.scale,
-        offsetFactor - top.current / ((pages - 1) * viewportWidth),
-        0.1
-      )
-      material.current.shift = THREE.MathUtils.lerp(
-        material.current.shift,
-        -(top.current - last) / shift,
-        0.1
-      )
+      if (material.current) {
+        material.current.scale = THREE.MathUtils.lerp(
+          material.current.scale,
+          offsetFactor - top.current / ((pages - 1) * viewportWidth),
+          0.1
+        )
+        material.current.shift = THREE.MathUtils.lerp(
+          material.current.shift,
+          -(top.current - last) / shift,
+          0.1
+        )
+      }
+
       last = top.current
     })
+
     return (
       <mesh ref={ref} {...props}>
         <planeGeometry args={args} />
@@ -41,3 +79,5 @@ export default forwardRef(
     )
   }
 )
+Plane.displayName = 'Plane'
+export default Plane
