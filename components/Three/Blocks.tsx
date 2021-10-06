@@ -5,9 +5,18 @@ import React, {
   useContext,
   PropsWithChildren
 } from 'react'
-import { useFrame, useThree } from '@react-three/fiber'
+import { ReactThreeFiber, useFrame, useThree } from '@react-three/fiber'
 
 import state from './Store'
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace JSX {
+    interface IntrinsicElements {
+      group: ReactThreeFiber.GroupProps
+    }
+  }
+}
 
 const offsetContext = createContext(0)
 
@@ -43,20 +52,29 @@ function Block({
   ...props
 }: PropsWithChildren<{ offset: number; factor: number }>): React.ReactNode {
   const { offset: parentOffset, sectionWidth } = useBlock()
-  const ref = useRef()
-  offset = offset !== undefined ? offset : parentOffset
+  const ref = useRef<ReactThreeFiber.GroupProps>()
+  const localOffset = offset !== undefined ? offset : parentOffset
   useFrame(() => {
-    const curY = ref.current.position.x
-    const curTop = state.top.current
-    ref.current.position.x = THREE.MathUtils.lerp(
-      curY,
-      (-curTop / state.zoom) * factor,
-      0.1
-    )
+    if (
+      ref.current &&
+      ref.current.position &&
+      ref.current.position &&
+      state.top.current
+    ) {
+      const typedVector = ref.current.position
+      const curY = typedVector as number
+      const curTop = state.top.current
+      // @ts-expect-error type mismatch
+      ref.current.position.x = THREE.MathUtils.lerp(
+        curY,
+        (-curTop / state.zoom) * factor,
+        0.1
+      )
+    }
   })
   return (
-    <offsetContext.Provider value={offset}>
-      <group {...props} position={[sectionWidth * offset * factor, 0, 0]}>
+    <offsetContext.Provider value={localOffset}>
+      <group {...props} position={[sectionWidth * localOffset * factor, 0, 0]}>
         <group ref={ref}>{children}</group>
       </group>
     </offsetContext.Provider>
