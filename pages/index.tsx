@@ -128,7 +128,7 @@ function Marker() {
     },
     {
       // @ts-expect-error undefined
-      initial: () => [(state.ref.scrollLeft * 0.5) / state.pages]
+      from: () => [(state.ref.scrollLeft * 0.5) / state.pages]
     }
   )
 
@@ -234,12 +234,10 @@ function Image({
 
 function Content() {
   const images = useTexture([
-    '/01.jpg',
-    '/ph1.jpg',
-    '/00.jpg',
-    '/03.jpg',
-    '/04.jpg',
-    '/05.jpg'
+    '/cat.jpeg',
+    '/cat.jpeg',
+    '/cat.jpeg',
+    '/cat.jpeg'
   ])
   return images.map((img, index) => (
     <Block key={Math.random() * 1000} factor={1} offset={index}>
@@ -249,14 +247,46 @@ function Content() {
 }
 
 const LandingPage: NextPage = () => {
-  const scrollRegion = useRef<HTMLDivElement>(null)
+  const scrollArea = useRef()
+  const onScroll = (e) => (state.top.current = e.target.scrollLeft)
+  useEffect(() => {
+    onScroll({ target: (state.ref = scrollArea.current) })
+  }, [])
 
   return (
     <>
       <Head>
         <title>Sammy</title>
       </Head>
-      <Canvas>{/* */}</Canvas>
+      <>
+        <Canvas
+          orthographic
+          dpr={[1, 1.5]}
+          mode="concurrent"
+          camera={{ zoom: 1, position: [0, 0, 500] }}
+          raycaster={{
+            computeOffsets: ({ offsetX, offsetY }) => ({
+              offsetX: offsetX - scrollArea.current.scrollLeft,
+              offsetY
+            })
+          }}
+          onCreated={(state) => state.events.connect(scrollArea.current)}
+        >
+          <Effects>
+            <Suspense fallback={null}>
+              <Content />
+              <HeadsUpDisplay>
+                <Map />
+                <Marker />
+              </HeadsUpDisplay>
+            </Suspense>
+          </Effects>
+        </Canvas>
+        <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
+          <div style={{ height: '100vh', width: `${state.pages * 100}vw` }} />
+        </div>
+        <Loader />
+      </>{' '}
     </>
   )
 }

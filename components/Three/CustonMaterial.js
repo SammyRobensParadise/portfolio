@@ -1,19 +1,17 @@
-import { ShaderMaterial, Color, IUniform } from 'three'
+import { ShaderMaterial, Color, IUniform, Texture } from 'three'
 import { extend } from '@react-three/fiber'
 
-export type CustomMaterialUniforms = {
-  tex: { value: null | number }
-  hasTexture: { value: boolean }
-  scale: { value: number }
-  shift: { value: number }
-  opacity: { value: number }
-  color: { value: Color }
-}
 class CustomMaterial extends ShaderMaterial {
-  uniforms: { [uniform: string]: IUniform<number> }
-
   constructor() {
     super({
+      uniforms: {
+        tex: { value: null },
+        hasTexture: { value: false },
+        scale: { value: 0 },
+        shift: { value: 0 },
+        opacity: { value: 1 },
+        color: { value: new Color('#fff') }
+      },
       vertexShader: `uniform float scale;
       uniform float shift;
       varying vec2 vUv;
@@ -39,23 +37,15 @@ class CustomMaterial extends ShaderMaterial {
         vec4 cb = texture2D(tex, p - offset);
         if (hasTexture == 1.0) gl_FragColor = vec4(cr.r, cga.g, cb.b, cga.a);
         else gl_FragColor = vec4(color, opacity);
-      }`,
-      uniforms: {
-        tex: { value: null },
-        hasTexture: { value: false },
-        scale: { value: 0 },
-        shift: { value: 0 },
-        opacity: { value: 1 },
-        color: { value: new Color('white') }
-      }
+      }`
     })
   }
 
-  set scale(value: number) {
+  set scale(value) {
     this.uniforms.scale.value = value
   }
 
-  get scale(): number {
+  get scale() {
     return this.uniforms.scale.value
   }
 
@@ -67,17 +57,21 @@ class CustomMaterial extends ShaderMaterial {
     return this.uniforms.shift.value
   }
 
-  set map(value: number) {
-    this.uniforms.hasTexture.value = value
+  set map(value) {
+    this.uniforms.hasTexture.value = !!value
     this.uniforms.tex.value = value
   }
 
   get map() {
-    return this.uniforms.tex.value
+    return this.uniforms ? this.uniforms.tex.value : new Texture()
+  }
+
+  set color(value) {
+    this.uniforms.color.value = value
   }
 
   get color() {
-    return this.uniforms.color.value
+    return this.uniforms ? this.uniforms.color.value : new Color('#ffffff')
   }
 
   get opacityUniforms() {
