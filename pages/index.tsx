@@ -1,11 +1,12 @@
 import React, {
   useEffect,
-  useCallback,
   Suspense,
   useRef,
   useState,
   PropsWithChildren,
-  MouseEventHandler
+  MouseEventHandler,
+  RefObject,
+  MouseEvent
 } from 'react'
 import * as THREE from 'three'
 import type { NextPage } from 'next'
@@ -17,7 +18,8 @@ import {
   ReactThreeFiber,
   MaterialProps,
   Euler,
-  GroupProps
+  GroupProps,
+  RootState
 } from '@react-three/fiber'
 import Head from 'next/head'
 import {
@@ -29,7 +31,6 @@ import {
   meshBounds
 } from '@react-three/drei'
 import { useDrag } from '@use-gesture/react'
-import { EventHandlers } from '@react-three/fiber/dist/declarations/src/core/events'
 import { Texture } from 'three'
 
 import Plane from '../components/Three/Plane'
@@ -54,7 +55,7 @@ function HeadsUpDisplay({
     gl.clearDepth()
     gl.render(scene, camera)
   }, 2)
-  return createPortal(children, scene)
+  return createPortal(children, scene) as unknown as JSX.Element
 }
 
 function Rect({
@@ -94,7 +95,10 @@ function Marker() {
     if (ref.current && ref.current.rotation && state.top.current) {
       ref.current.rotation.z = THREE.MathUtils.lerp(
         ref.current.rotation.z,
-        (state.top.current / state.zoom / sectionWidth / state.pages) *
+        ((state.top.current as number) /
+          state.zoom /
+          sectionWidth /
+          state.pages) *
           -Math.PI *
           2,
         0.1
@@ -168,15 +172,19 @@ function Dot() {
 }
 
 function Map() {
-  return new Array(6).fill('').map((_, index) => (
-    <Block
-      key={Math.random() * 1000}
-      factor={1 / state.sections / 2}
-      offset={index}
-    >
-      <Dot />
-    </Block>
-  ))
+  return (
+    <>
+      {new Array(6).fill('').map((_, index) => (
+        <Block
+          key={Math.random() * 1000}
+          factor={1 / state.sections / 2}
+          offset={index}
+        >
+          <Dot />
+        </Block>
+      ))}
+    </>
+  )
 }
 
 function Image({
@@ -193,7 +201,8 @@ function Image({
   useFrame(() => {
     if (state.top.current && ref?.current && ref.current.scale) {
       const scrollOffset =
-        state.top.current / (viewportWidth * state.pages - viewportWidth) +
+        (state.top.current as number) /
+          (viewportWidth * state.pages - viewportWidth) +
         1 / state.pages / 2
       const scale =
         1 -
@@ -232,25 +241,46 @@ function Image({
   )
 }
 
-function Content() {
+function Content(): JSX.Element {
   const images = useTexture([
     '/cat.jpeg',
     '/cat.jpeg',
     '/cat.jpeg',
     '/cat.jpeg'
   ])
-  return images.map((img, index) => (
-    <Block key={Math.random() * 1000} factor={1} offset={index}>
-      <Image key={Math.random() * 1000} index={index} img={img} alt="image" />
-    </Block>
-  ))
+  return (
+    <>
+      {images.map((img, index) => (
+        <Block key={Math.random() * 1000} factor={1} offset={index}>
+          <Image
+            key={Math.random() * 1000}
+            index={index}
+            img={img}
+            alt="image"
+          />
+        </Block>
+      ))}
+    </>
+  )
 }
 
 const LandingPage: NextPage = () => {
-  const scrollArea = useRef()
-  const onScroll = (e) => (state.top.current = e.target.scrollLeft)
+  const scrollArea = useRef<null | HTMLDivElement>(null)
+  const onScroll = (
+    e: { target: HTMLDivElement } | MouseEvent<HTMLDivElement>
+  ) => {
+    if (e?.target) {
+      // @ts-expect-error undefined
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      state.top.current = e.target.scrollLeft
+    }
+  }
   useEffect(() => {
-    onScroll({ target: (state.ref = scrollArea.current) })
+    if (scrollArea.current) {
+      state.ref = scrollArea as RefObject<JSX.Element | null>
+      const targRef = state.ref as unknown as HTMLDivElement
+      onScroll({ target: targRef })
+    }
   }, [])
 
   return (
@@ -265,12 +295,27 @@ const LandingPage: NextPage = () => {
           mode="concurrent"
           camera={{ zoom: 1, position: [0, 0, 500] }}
           raycaster={{
-            computeOffsets: ({ offsetX, offsetY }) => ({
-              offsetX: offsetX - scrollArea.current.scrollLeft,
+            computeOffsets: ({
+              offsetX,
               offsetY
-            })
+            }: {
+              offsetX: number
+              offsetY: number
+            }) => {
+              if (scrollArea.current) {
+                return {
+                  offsetX: offsetX - scrollArea.current.scrollLeft,
+                  offsetY
+                }
+              }
+              return { offsetX, offsetY }
+            }
           }}
-          onCreated={(state) => state.events.connect(scrollArea.current)}
+          onCreated={(cur: RootState) => {
+            if (cur?.events?.connect) {
+              cur.events.connect(scrollArea.current)
+            }
+          }}
         >
           <Effects>
             <Suspense fallback={null}>
@@ -282,11 +327,12 @@ const LandingPage: NextPage = () => {
             </Suspense>
           </Effects>
         </Canvas>
+        {/* @ts-expect-error undefined */}
         <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
           <div style={{ height: '100vh', width: `${state.pages * 100}vw` }} />
         </div>
         <Loader />
-      </>{' '}
+      </>
     </>
   )
 }

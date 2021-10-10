@@ -60,12 +60,13 @@ const Plane = forwardRef(
       if (material.current && material.current.scale && top.current && last) {
         material.current.scale = THREE.MathUtils.lerp(
           material.current.scale as number,
-          offsetFactor - top.current / ((pages - 1) * viewportWidth),
+          offsetFactor -
+            (top.current as number) / ((pages - 1) * viewportWidth),
           0.1
         )
         material.current.shift = THREE.MathUtils.lerp(
           material.current.shift,
-          -(top.current - last) / shift,
+          -((top.current as number) - (last as number)) / shift,
           0.1
         )
       }

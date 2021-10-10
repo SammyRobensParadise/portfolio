@@ -52,7 +52,7 @@ export default function Effects({
   children
 }: {
   children: React.ReactNode
-}): React.ReactNode {
+}): JSX.Element {
   const [scene] = useState<THREE.Scene>(() => new THREE.Scene())
   const composer =
     useRef<ReactThreeFiber.Object3DNode<EffectComposer, typeof EffectComposer>>(
@@ -80,7 +80,7 @@ export default function Effects({
       if (effect.current.factor && top.current && last) {
         effect.current.factor = THREE.MathUtils.lerp(
           effect.current.factor,
-          (top.current - last) / -30,
+          ((top.current as number) - (last as number)) / -30,
           0.1
         )
       }
@@ -90,7 +90,7 @@ export default function Effects({
       if (bloom.current.strength && top.current && last) {
         bloom.current.strength = THREE.MathUtils.lerp(
           bloom.current.strength,
-          Math.abs((top.current - last) / 200),
+          Math.abs(((top.current as number) - (last as number)) / 200),
           0.1
         )
       }
@@ -99,7 +99,7 @@ export default function Effects({
     if (water.current && water.current.factor && top.current && last) {
       water.current.factor = THREE.MathUtils.lerp(
         water.current.factor,
-        Math.abs((top.current - last) / 30),
+        Math.abs(((top.current as number) - (last as number)) / 30),
         0.1
       )
     }
@@ -127,5 +127,5 @@ export default function Effects({
       {children}
     </>,
     scene
-  )
+  ) as unknown as JSX.Element
 }
