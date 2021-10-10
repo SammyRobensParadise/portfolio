@@ -1,20 +1,27 @@
+import { ReactThreeFiber, MaterialProps, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 import React, { forwardRef, useRef } from 'react'
-import { MaterialProps, ReactThreeFiber, useFrame } from '@react-three/fiber'
-
 import './CustonMaterial'
-import { Material } from 'three'
 
 import { useBlock } from './Blocks'
 import state from './Store'
+
+export interface CustomMaterialInterface extends ReactThreeFiber.MaterialProps {
+  map: string
+}
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      customMaterial: ReactThreeFiber.MaterialProps
+      customMaterial: CustomMaterialInterface
     }
   }
+}
+
+export interface MaterialInterface
+  extends ReactThreeFiber.Object3DNode<MaterialProps, typeof ReactThreeFiber> {
+  shift: number
 }
 
 const Plane = forwardRef(
@@ -36,21 +43,18 @@ const Plane = forwardRef(
         widthSegments?: number | undefined,
         heightSegments?: number | undefined
       ]
-      map: unknown
+      map: string
     },
     ref: React.Ref<React.ReactNode> | undefined
   ) => {
     const { viewportWidth, offsetFactor } = useBlock()
-    const material = useRef<null | ReactThreeFiber.Object3DNode<
-      MaterialProps,
-      typeof ReactThreeFiber
-    >>(null)
+    const material = useRef<null | MaterialInterface>(null)
     let last = state.top.current
     useFrame(() => {
       const { pages, top } = state
-      if (material.current) {
+      if (material.current && material.current.scale && top.current && last) {
         material.current.scale = THREE.MathUtils.lerp(
-          material.current.scale,
+          material.current.scale as number,
           offsetFactor - top.current / ((pages - 1) * viewportWidth),
           0.1
         )
