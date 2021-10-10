@@ -24,11 +24,11 @@ declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      effectComposer: ReactThreeFiber.Object3DNode<
+      effectComposer: ReactThreeFiber.Node<
         EffectComposer,
         typeof EffectComposer
       >
-      renderPass: ReactThreeFiber.Object3DNode<RenderPass, typeof RenderPass>
+      renderPass: ReactThreeFiber.Node<RenderPass, typeof RenderPass>
       unrealBloomPass: ReactThreeFiber.Object3DNode<
         UnrealBloomPass,
         typeof UnrealBloomPass
