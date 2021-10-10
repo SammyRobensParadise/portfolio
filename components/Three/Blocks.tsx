@@ -50,7 +50,7 @@ function Block({
   offset,
   factor,
   ...props
-}: PropsWithChildren<{ offset: number; factor: number }>): React.ReactNode {
+}: PropsWithChildren<{ offset: number; factor: number }>): JSX.Element {
   const { offset: parentOffset, sectionWidth } = useBlock()
   const ref = useRef<ReactThreeFiber.GroupProps>()
   const localOffset = offset !== undefined ? offset : parentOffset

@@ -1,13 +1,14 @@
 import { ReactThreeFiber, MaterialProps, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import React, { forwardRef, useRef } from 'react'
 import './CustonMaterial'
+import { Texture } from 'three'
+import React, { forwardRef, useRef } from 'react'
 
 import { useBlock } from './Blocks'
 import state from './Store'
 
 export interface CustomMaterialInterface extends ReactThreeFiber.MaterialProps {
-  map: string
+  map: Texture
 }
 
 declare global {
@@ -43,7 +44,11 @@ const Plane = forwardRef(
         widthSegments?: number | undefined,
         heightSegments?: number | undefined
       ]
-      map: string
+      map: Texture
+      aspect?: number
+      scale?: number[]
+      frustumCulled?: boolean
+      alt: string
     },
     ref: React.Ref<React.ReactNode> | undefined
   ) => {
@@ -69,6 +74,7 @@ const Plane = forwardRef(
     })
 
     return (
+      // @ts-expect-error undefined
       <mesh ref={ref} {...props}>
         <planeGeometry args={args} />
         <customMaterial
