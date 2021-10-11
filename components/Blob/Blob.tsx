@@ -57,22 +57,29 @@ export function Point({
     solveWith
   }
 }
+const oldMousePoint = { x: 0, y: 0 }
 
 export default function Blob(): JSX.Element {
   const canvas = useRef<null | HTMLCanvasElement>(null)
   const [ctx, updateCtx] = useState<null | CanvasRenderingContext2D>(null)
-  const [numPoints] = useState<number>(32)
+  const [numPoints] = useState<number>(360)
   const [radius] = useState<number>(150)
   const [position] = useState<{ x: number; y: number }>({
     x: 200,
-    y: 20
+    y: 0
   })
-  const [divisional] = useState<number>(Math.PI / 2 / numPoints)
+  const [divisional] = useState<number>(Math.PI / numPoints)
   const [center, updateCenter] = useState<{ x: number; y: number }>({
     x: position.x,
     y: position.y
   })
   const [points, updatePoints] = useState<PointInterface[]>([])
+  const [mousePos, updateMousePos] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0
+  })
+
+  const [hover, updateHover] = useState<boolean>(false)
   useEffect(() => {
     if (canvas.current) {
       updateCenter({
@@ -128,12 +135,65 @@ export default function Blob(): JSX.Element {
     }
   }, [numPoints, points, center, ctx])
 
+  const mouseMove = (e: MouseEvent) => {
+    const pos = center
+    const diff = { x: e.clientX - pos.x, y: e.clientY - pos.y }
+    const dist = Math.sqrt(diff.x * diff.x + diff.y * diff.y)
+    let angle: number | null = null
+
+    updateMousePos({ x: pos.x - e.clientX, y: pos.y - e.clientY })
+
+    if (dist < radius && hover === false) {
+      const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
+      angle = Math.atan2(vector.y, vector.x)
+      updateHover(true)
+      // blob.color = '#77FF00';
+    } else if (dist > radius && hover === true) {
+      const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
+      angle = Math.atan2(vector.y, vector.x)
+      updateHover(false)
+      // color = null
+    }
+
+    if (typeof angle === 'number') {
+      let nearestPoint: PointInterface | null = null
+      let distanceFromPoint = 100
+
+      points.forEach((point) => {
+        if (angle && Math.abs(angle - point.azimuth) < distanceFromPoint) {
+          // console.log(point.azimuth, angle, distanceFromPoint);
+          nearestPoint = point
+          distanceFromPoint = Math.abs(angle - point.azimuth)
+        }
+      })
+
+      if (nearestPoint) {
+        const strength = {
+          x: oldMousePoint.x - e.clientX,
+          y: oldMousePoint.y - e.clientY
+        }
+        let magnitudeStrength =
+          Math.sqrt(strength.x * strength.x + strength.y * strength.y) * 10
+        if (magnitudeStrength > 100) magnitudeStrength = 100
+        // @ts-expect-error ubde
+        nearestPoint.acceleration = (magnitudeStrength / 100) * (hover ? -1 : 1)
+      }
+    }
+
+    oldMousePoint.x = e.clientX
+    oldMousePoint.y = e.clientY
+  }
+  useEffect(() => {
+    handleBlob()
+  }, [handleBlob])
   useEffect(() => {
     requestAnimationFrame(handleBlob)
   }, [handleBlob])
 
   useEffect(() => {
-    document.addEventListener('mousemove', handleBlob)
+    document.addEventListener('mousemove', () => {
+      console.log('ouse')
+    })
   }, [handleBlob])
   return (
     <canvas
