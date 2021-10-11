@@ -20,7 +20,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "components/Three/Effects.jsx"
+    "components/Flow/Flow.js"
   ],
   "exclude": ["node_modules"]
 }
