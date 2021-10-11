@@ -1,15 +1,16 @@
 import React from 'react'
-import * as THREE from 'three'
 import type { NextPage } from 'next'
+import { Text, Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
 
 import Flow from '../components/Flow/Flow'
+import Blob from '../components/Blob/Blob'
 
 const LandingPage: NextPage = () => (
-  <div>
-    <Flow />
-  </div>
+  <>
+    <Blob />
+  </>
 )
 
 export default LandingPage

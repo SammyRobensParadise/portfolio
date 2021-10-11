@@ -148,11 +148,13 @@ function Flow() {
         onRender={onRender}
         onAfterResize={onAfterResize}
       >
-        <img
-          src="https://unsplash.it/1920/1080?random=1"
-          data-sampler="simplePlaneTexture"
-          alt=""
-        />
+        {
+          <img
+            src="https://unsplash.it/1920/1080?random=1"
+            data-sampler="simplePlaneTexture"
+            alt=""
+          />
+        }
       </Plane>
     </>
   )
