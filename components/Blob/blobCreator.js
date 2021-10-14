@@ -58,13 +58,10 @@ export default class Blob {
     var xc = (p1.x + _p2.x) / 2
     var yc = (p1.y + _p2.y) / 2
     ctx.quadraticCurveTo(p1.x, p1.y, xc, yc)
-    // ctx.lineTo(_p2.x, _p2.y);
 
-    // ctx.closePath();
     ctx.fillStyle = this.color
     ctx.fill()
     ctx.strokeStyle = this.color
-    // ctx.stroke();
 
     /*
     if(this.mousePos) {
@@ -85,7 +82,7 @@ export default class Blob {
     this._color = value
   }
   get color() {
-    return this._color || '#2B2B2B'
+    return this._color
   }
 
   set mousePos(value) {
@@ -123,7 +120,7 @@ export default class Blob {
     }
   }
   get radius() {
-    return this._radius || 150
+    return this._radius
   }
 
   set position(value) {

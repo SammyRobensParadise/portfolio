@@ -5,11 +5,13 @@ import Blob, { Point } from './blobCreator'
 const BlobElement = ({
   width = window.innerWidth,
   height = window.innerHeight,
-  color = '#2B2B2B'
+  color = '#2B2B2B',
+  radius = 200
 }: {
-  width: number
-  height: number
-  color: string
+  width?: number
+  height?: number
+  color?: string
+  radius?: number
 }): JSX.Element => {
   const [blob, setBlob] = useState<Blob | null>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
@@ -89,10 +91,11 @@ const BlobElement = ({
     if (blob) {
       if (canvas.current) {
         blob.canvas = canvas.current
+        blob.radius = radius
         blob.color = color
       }
     }
-  }, [blob, color])
+  }, [blob, color, radius])
 
   useEffect(() => {
     if (blob?.canvas) {
