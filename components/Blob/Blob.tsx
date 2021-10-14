@@ -6,12 +6,14 @@ const BlobElement = ({
   width = window.innerWidth,
   height = window.innerHeight,
   color = '#2B2B2B',
-  radius = 200
+  radius = 200,
+  className = ''
 }: {
   width?: number
   height?: number
   color?: string
   radius?: number
+  className?: string
 }): JSX.Element => {
   const [blob, setBlob] = useState<Blob | null>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
@@ -117,7 +119,13 @@ const BlobElement = ({
     }
   }, [mouseMove])
   return (
-    <canvas touch-action="none" ref={canvas} width={width} height={height} />
+    <canvas
+      touch-action="none"
+      ref={canvas}
+      width={width}
+      height={height}
+      className={className}
+    />
   )
 }
 
