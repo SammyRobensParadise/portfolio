@@ -1,17 +1,36 @@
 import React from 'react'
 import type { NextPage } from 'next'
-import { Text, Html } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
 import Head from 'next/head'
 
-import Flow from '../components/Flow/Flow'
 import BlobElement from '../components/Blob/Blob'
 
 const LandingPage: NextPage = () => (
   <>
-    <div className="">
-      <BlobElement color="red" height={500} />
-      <BlobElement color="green" height={500} />
+    <Head>
+      <title>Sammy</title>
+    </Head>
+    <div className="flex justify-end">
+      <BlobElement
+        color="#2B2B2B"
+        //   height={600}
+        width={700}
+        className="absolute"
+        radius={250}
+      />
+      <BlobElement
+        color="#3F46F3"
+        //  height={600}
+        width={700}
+        className="absolute"
+        radius={200}
+      />
+      <BlobElement
+        color="#3FF3B2"
+        //  height={600}
+        width={700}
+        className="absolute"
+        radius={150}
+      />
     </div>
   </>
 )
