@@ -25,7 +25,7 @@ const BlobElement = ({
 
   const resize = useCallback((): void => {
     if (canvas.current) {
-      canvas.current.width = window.innerWidth
+      canvas.current.width = window.innerWidth / 2
       canvas.current.height = window.innerHeight
     }
   }, [canvas])
@@ -113,11 +113,12 @@ const BlobElement = ({
     }
   }, [resize])
   useEffect(() => {
-    window.addEventListener('mousemove', mouseMove)
+    document.addEventListener('mousemove', mouseMove)
     return () => {
-      window.removeEventListener('mousemove', mouseMove)
+      document.removeEventListener('mousemove', mouseMove)
     }
   }, [mouseMove])
+
   return (
     <canvas
       touch-action="none"

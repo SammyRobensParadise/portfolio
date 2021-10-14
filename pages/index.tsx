@@ -12,21 +12,18 @@ const LandingPage: NextPage = () => (
     <div className="flex justify-end">
       <BlobElement
         color="#2B2B2B"
-        //   height={600}
         width={700}
         className="absolute"
         radius={250}
       />
       <BlobElement
         color="#3F46F3"
-        //  height={600}
         width={700}
         className="absolute"
         radius={200}
       />
       <BlobElement
         color="#3FF3B2"
-        //  height={600}
         width={700}
         className="absolute"
         radius={150}
