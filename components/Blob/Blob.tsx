@@ -2,7 +2,19 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 
 import Blob, { Point } from './blobCreator'
 
-const BlobElement = (): JSX.Element => {
+const BlobElement = ({
+  width = window.innerWidth,
+  height = window.innerHeight,
+  color = '#2B2B2B',
+  radius = 200,
+  className = ''
+}: {
+  width?: number
+  height?: number
+  color?: string
+  radius?: number
+  className?: string
+}): JSX.Element => {
   const [blob, setBlob] = useState<Blob | null>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
   const [hover, updateHover] = useState<boolean>(false)
@@ -30,12 +42,11 @@ const BlobElement = (): JSX.Element => {
 
         if (dist < blob.radius && hover === false) {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
-          angle = Math.atan2(vector.y, vector.x)
+          angle = Math.atan2(vector.y, vector.x) + Math.random()
           updateHover(true)
-          // blob.color = '#77FF00';
         } else if (dist > blob.radius && hover === true) {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
-          angle = Math.atan2(vector.y, vector.x)
+          angle = Math.atan2(vector.y, vector.x) + Math.random()
           updateHover(false)
           blob.color = null
         }
@@ -82,9 +93,11 @@ const BlobElement = (): JSX.Element => {
     if (blob) {
       if (canvas.current) {
         blob.canvas = canvas.current
+        blob.radius = radius
+        blob.color = color
       }
     }
-  }, [blob])
+  }, [blob, color, radius])
 
   useEffect(() => {
     if (blob?.canvas) {
@@ -109,8 +122,9 @@ const BlobElement = (): JSX.Element => {
     <canvas
       touch-action="none"
       ref={canvas}
-      width={window.innerWidth}
-      height={window.innerHeight}
+      width={width}
+      height={height}
+      className={className}
     />
   )
 }

@@ -9,7 +9,10 @@ import BlobElement from '../components/Blob/Blob'
 
 const LandingPage: NextPage = () => (
   <>
-    <BlobElement />
+    <div className="">
+      <BlobElement color="red" height={500} />
+      <BlobElement color="green" height={500} />
+    </div>
   </>
 )
 
