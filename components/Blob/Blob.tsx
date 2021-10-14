@@ -42,11 +42,11 @@ const BlobElement = ({
 
         if (dist < blob.radius && hover === false) {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
-          angle = Math.atan2(vector.y, vector.x)
+          angle = Math.atan2(vector.y, vector.x) + Math.random()
           updateHover(true)
         } else if (dist > blob.radius && hover === true) {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
-          angle = Math.atan2(vector.y, vector.x)
+          angle = Math.atan2(vector.y, vector.x) + Math.random()
           updateHover(false)
           blob.color = null
         }
