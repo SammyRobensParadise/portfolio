@@ -2,7 +2,15 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 
 import Blob, { Point } from './blobCreator'
 
-const BlobElement = (): JSX.Element => {
+const BlobElement = ({
+  width = window.innerWidth,
+  height = window.innerHeight,
+  color = '#2B2B2B'
+}: {
+  width: number
+  height: number
+  color: string
+}): JSX.Element => {
   const [blob, setBlob] = useState<Blob | null>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
   const [hover, updateHover] = useState<boolean>(false)
@@ -32,7 +40,6 @@ const BlobElement = (): JSX.Element => {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
           angle = Math.atan2(vector.y, vector.x)
           updateHover(true)
-          // blob.color = '#77FF00';
         } else if (dist > blob.radius && hover === true) {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
           angle = Math.atan2(vector.y, vector.x)
@@ -82,9 +89,10 @@ const BlobElement = (): JSX.Element => {
     if (blob) {
       if (canvas.current) {
         blob.canvas = canvas.current
+        blob.color = color
       }
     }
-  }, [blob])
+  }, [blob, color])
 
   useEffect(() => {
     if (blob?.canvas) {
@@ -106,12 +114,7 @@ const BlobElement = (): JSX.Element => {
     }
   }, [mouseMove])
   return (
-    <canvas
-      touch-action="none"
-      ref={canvas}
-      width={window.innerWidth}
-      height={window.innerHeight}
-    />
+    <canvas touch-action="none" ref={canvas} width={width} height={height} />
   )
 }
 

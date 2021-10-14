@@ -49,7 +49,7 @@ export default class Blob {
       ctx.quadraticCurveTo(p1.x, p1.y, xc, yc)
       // ctx.lineTo(p2.x, p2.y);
 
-      ctx.fillStyle = '#000000'
+      ctx.fillStyle = this.color
       // ctx.fillRect(p1.x-2.5, p1.y-2.5, 5, 5);
 
       p1 = p2
@@ -63,11 +63,10 @@ export default class Blob {
     // ctx.closePath();
     ctx.fillStyle = this.color
     ctx.fill()
-    ctx.strokeStyle = '#000000'
+    ctx.strokeStyle = this.color
     // ctx.stroke();
 
     /*
-    ctx.fillStyle = '#000000';
     if(this.mousePos) {
       let angle = Math.atan2(this.mousePos.y, this.mousePos.x) + Math.PI;
       ctx.fillRect(center.x + Math.cos(angle) * this.radius, center.y + Math.sin(angle) * this.radius, 5, 5);
@@ -86,7 +85,7 @@ export default class Blob {
     this._color = value
   }
   get color() {
-    return this._color || '#000000'
+    return this._color || '#2B2B2B'
   }
 
   set mousePos(value) {
