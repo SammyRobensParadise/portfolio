@@ -2,7 +2,7 @@ let canvas, ctx
 let render, init
 let blob
 
-class Blob {
+export default class Blob {
   constructor() {
     this.points = []
   }
@@ -89,12 +89,19 @@ class Blob {
     return this._color || '#000000'
   }
 
+  set mousePos(value) {
+    this._mousePos = value
+  }
+  get mousePos() {
+    return this._mousePos
+  }
+
   set canvas(value) {
     if (
       value instanceof HTMLElement &&
       value.tagName.toLowerCase() === 'canvas'
     ) {
-      this._canvas = canvas
+      this._canvas = value
       this.ctx = this._canvas.getContext('2d')
     }
   }
@@ -148,7 +155,7 @@ class Blob {
   }
 }
 
-class Point {
+export class Point {
   constructor(azimuth, parent) {
     this.parent = parent
     this.azimuth = Math.PI - azimuth
@@ -230,7 +237,7 @@ class Point {
     return this._friction || 0.0085
   }
 }
-
+/*
 blob = new Blob()
 
 init = function () {
@@ -303,4 +310,4 @@ init = function () {
   blob.render()
 }
 
-init()
+init() */
