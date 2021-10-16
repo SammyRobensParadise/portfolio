@@ -11,7 +11,7 @@ import { animate, cubicBezier } from '../../global/helpers/animation'
 const NavigationBar = (): ReactElement => {
   const router = useRouter()
   return (
-    <div className="text-cerulaen dark:text-off-white grid grid-cols-3 gap-16 p-6 text-lg font-work font-normal">
+    <div className="text-cerulaen dark:text-off-white grid grid-cols-3 gap-16 p-6 text-lg font-work font-normal sticky top-0 z-50">
       <Transition
         className="flex flex-row"
         show
