@@ -7,6 +7,7 @@ const BlobElement = ({
   height = window.innerHeight,
   color = '#2B2B2B',
   radius = 200,
+  flowStrength = 0.75,
   className = ''
 }: {
   width?: number
@@ -14,6 +15,7 @@ const BlobElement = ({
   color?: string
   radius?: number
   className?: string
+  flowStrength?: number
 }): JSX.Element => {
   const [blob, setBlob] = useState<Blob | null>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
@@ -23,12 +25,21 @@ const BlobElement = ({
     y: 0
   })
 
-  const resize = useCallback((): void => {
+  const handleResize = useCallback(() => {
     if (canvas.current) {
-      canvas.current.width = window.innerWidth / 2
+      console.log(canvas.current.parentElement?.clientWidth)
+      canvas.current.width = window.innerWidth
       canvas.current.height = window.innerHeight
     }
   }, [canvas])
+
+  const resize = useCallback((): void => {
+    handleResize()
+  }, [handleResize])
+
+  useEffect(() => {
+    handleResize()
+  }, [handleResize])
 
   const mouseMove = useCallback(
     (e: MouseEvent) => {
@@ -40,11 +51,11 @@ const BlobElement = ({
 
         blob.mousePos = { x: pos.x - e.clientX, y: pos.y - e.clientY }
 
-        if (dist < blob.radius && hover === false) {
+        if (dist < blob.radius) {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
           angle = Math.atan2(vector.y, vector.x) + Math.random()
           updateHover(true)
-        } else if (dist > blob.radius && hover === true) {
+        } else if (dist > blob.radius) {
           const vector = { x: e.clientX - pos.x, y: e.clientY - pos.y }
           angle = Math.atan2(vector.y, vector.x) + Math.random()
           updateHover(false)
@@ -58,7 +69,6 @@ const BlobElement = ({
           blob.points.forEach((point: Point) => {
             if (angle) {
               if (Math.abs(angle - point.azimuth) < distanceFromPoint) {
-                // console.log(point.azimuth, angle, distanceFromPoint);
                 nearestPoint = point
                 distanceFromPoint = Math.abs(angle - point.azimuth)
               }
@@ -71,7 +81,8 @@ const BlobElement = ({
               y: oldMousePoint.y - e.clientY
             }
             strength =
-              Math.sqrt(strength.x * strength.x + strength.y * strength.y) * 10
+              Math.sqrt(strength.x * strength.x + strength.y * strength.y) *
+              flowStrength
             if (strength > 100) strength = 100
             nearestPoint = nearestPoint as Point
             nearestPoint.acceleration = (strength / 100) * (hover ? -1 : 1)
@@ -125,7 +136,7 @@ const BlobElement = ({
       ref={canvas}
       width={width}
       height={height}
-      className={className}
+      className={`${className} w-screen`}
     />
   )
 }
