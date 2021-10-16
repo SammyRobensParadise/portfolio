@@ -3,19 +3,17 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Blob, { Point } from './blobCreator'
 
 const BlobElement = ({
-  width = window.innerWidth,
-  height = window.innerHeight,
   color = '#2B2B2B',
   radius = 200,
   flowStrength = 0.75,
-  className = ''
+  className = '',
+  height = window.innerHeight
 }: {
-  width?: number
-  height?: number
   color?: string
   radius?: number
   className?: string
   flowStrength?: number
+  height?: number
 }): JSX.Element => {
   const [blob, setBlob] = useState<Blob | null>(null)
   const canvas = useRef<HTMLCanvasElement | null>(null)
@@ -26,9 +24,8 @@ const BlobElement = ({
   })
 
   const handleResize = useCallback(() => {
-    if (canvas.current) {
-      console.log(canvas.current.parentElement?.clientWidth)
-      canvas.current.width = window.innerWidth
+    if (canvas.current && canvas.current.parentElement) {
+      canvas.current.width = canvas.current.parentElement.clientWidth
       canvas.current.height = window.innerHeight
     }
   }, [canvas])
@@ -93,7 +90,7 @@ const BlobElement = ({
         oldMousePoint.y = e.clientY
       }
     },
-    [blob, hover, oldMousePoint]
+    [blob, hover, oldMousePoint, flowStrength]
   )
 
   useEffect(() => {
@@ -134,9 +131,8 @@ const BlobElement = ({
     <canvas
       touch-action="none"
       ref={canvas}
-      width={width}
+      className={`${className}`}
       height={height}
-      className={`${className} w-screen`}
     />
   )
 }
