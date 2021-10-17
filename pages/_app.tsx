@@ -13,6 +13,7 @@ import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
 import GlitchRenderer from '../theme/Glitch/GlitchStyle'
 import NavigationBar from '../components/Navigation/NavigationBar'
 import Footer from '../components/Footer/Footer'
+import Sidebar from '../components/Sidebar/Sidebar'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
@@ -41,6 +42,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
     return (
       <div className=" bg-off-white dark:bg-shadow">
         <NavigationBar />
+        <Sidebar />
         <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
           <Component {...pageProps} />
         </Curtains>
