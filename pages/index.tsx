@@ -18,25 +18,25 @@ const LandingPage: NextPage = (): JSX.Element => (
     <Head>
       <title>Sammy</title>
     </Head>
-    <div className="grid grid-cols-2 gap-4">
-      <Transition
-        className="p-24 pt-48"
-        show
-        appear
-        enter={`${animate(500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-        enterFrom="opacity-0 w-2/3"
-        enterTo="opaciy-100 w-2/3"
-      >
+    <Transition
+      className="grid grid-cols-2 gap-4"
+      show
+      appear
+      enter={`${animate(1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+      enterFrom="opacity-0"
+      enterTo="opaciy-100"
+    >
+      <div className="p-24 pt-48">
         <h1
-          className="text-off-white font-work font-extrabold w-2/3 absolute z-20"
+          className="text-off-white font-work font-extrabold w-2/3 absolute z-20 tracking-tighter"
           style={styleOffsetOverride}
         >
           {LANDING_MESSAGE}
         </h1>
-        <h1 className="text-cerulaen font-work font-extrabold text-7xl w-2/3 absolute z-20">
+        <h1 className="text-cerulaen font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter">
           {LANDING_MESSAGE}
         </h1>
-      </Transition>
+      </div>
       <div>
         <div className="flex">
           <BlobElement
@@ -59,7 +59,7 @@ const LandingPage: NextPage = (): JSX.Element => (
           />
         </div>
       </div>
-    </div>
+    </Transition>
   </>
 )
 
