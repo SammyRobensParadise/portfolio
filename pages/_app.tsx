@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import React, { ReactElement } from 'react'
 import { Curtains } from 'react-curtains'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
@@ -44,7 +45,9 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
         <NavigationBar />
         <Sidebar />
         <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
-          <Component {...pageProps} />
+          <ParallaxProvider>
+            <Component {...pageProps} />
+          </ParallaxProvider>
         </Curtains>
         <Footer />
       </div>
