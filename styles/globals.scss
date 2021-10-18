@@ -13,7 +13,9 @@ body{
   overflow-x: hidden;
 }
 
-
+::selection {
+  background: #3FF3B2;
+}
 
 @tailwind base;
 @tailwind components;

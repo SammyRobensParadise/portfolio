@@ -21,7 +21,10 @@ const constants = {
       }, [setResumeUrl])
       return resumeUrl
     },
-    GITHUB_REPO_URL: 'https://github.com/SammyRobensParadise/Portfolio'
+    GITHUB_REPO_URL: 'https://github.com/SammyRobensParadise/Portfolio',
+    GITHUB_URL: 'https://github.com/SammyRobensParadise',
+    DRIBBBLE_URL: 'https://dribbble.com/sammyrp',
+    MEDIUM_URL: 'https://medium.com/@srobensparadise'
   }
 }
 export default constants
