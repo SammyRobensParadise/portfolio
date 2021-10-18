@@ -5,15 +5,25 @@ const Table = ({
   children
 }: PropsWithChildren<Record<string, unknown>>): JSX.Element | null => {
   if (children) {
-    const childrens = children as React.ReactNode[]
+    const childrens = children as React.ReactElement[]
+    const thead = childrens.length
+      ? childrens.filter((child) => child?.type === 'thead')
+      : childrens
+    const trs = childrens.length
+      ? childrens.filter((child) => child?.type === 'tr')
+      : [childrens]
+
     return (
-      <table>
-        {childrens.map((child) => (
-          <div key={uuid()} className="child">
-            {child}
-          </div>
-        ))}
-      </table>
+      <div className="container text-cerulaen dark:text-off-white">
+        <table className="table-auto">
+          {thead}
+          <tbody>
+            {trs.map((tr) => (
+              <>{tr}</>
+            ))}
+          </tbody>
+        </table>
+      </div>
     )
   }
   return null
