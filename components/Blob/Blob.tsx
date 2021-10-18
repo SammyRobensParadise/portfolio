@@ -115,12 +115,6 @@ const BlobElement = ({
   }, [blob])
 
   useEffect(() => {
-    window.addEventListener('resize', resize)
-    return () => {
-      window.removeEventListener('resize', resize)
-    }
-  }, [resize])
-  useEffect(() => {
     document.addEventListener('mousemove', mouseMove)
     return () => {
       document.removeEventListener('mousemove', mouseMove)
