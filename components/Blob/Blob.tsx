@@ -23,6 +23,21 @@ const BlobElement = ({
     y: 0
   })
 
+  const handleResize = useCallback(() => {
+    if (canvas.current && canvas.current.parentElement) {
+      canvas.current.width = canvas.current.parentElement.clientWidth
+      canvas.current.height = window.innerHeight
+    }
+  }, [canvas])
+
+  const resize = useCallback((): void => {
+    handleResize()
+  }, [handleResize])
+
+  useEffect(() => {
+    handleResize()
+  }, [handleResize])
+
   const mouseMove = useCallback(
     (e: MouseEvent) => {
       if (blob) {
@@ -99,6 +114,12 @@ const BlobElement = ({
     }
   }, [blob])
 
+  useEffect(() => {
+    window.addEventListener('resize', resize)
+    return () => {
+      window.removeEventListener('resize', resize)
+    }
+  }, [resize])
   useEffect(() => {
     document.addEventListener('mousemove', mouseMove)
     return () => {

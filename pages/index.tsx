@@ -5,6 +5,7 @@ import { Transition } from '@headlessui/react'
 
 import BlobElement from '../components/Blob/Blob'
 import { animate, cubicBezier } from '../global/helpers/animation'
+import Table from '../components/Table/Table'
 
 const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
@@ -40,26 +41,34 @@ const LandingPage: NextPage = (): JSX.Element => (
       <div>
         <div className="flex">
           <BlobElement
-            color="#2B2B2B"
+            color="#2B2B2B black"
             className="absolute"
             radius={250}
             height={500}
           />
           <BlobElement
             color="#3F46F3"
-            className="absolute"
+            className="absolute blue"
             radius={200}
             height={500}
           />
           <BlobElement
             color="#3FF3B2"
-            className="absolute"
+            className="absolute green"
             radius={150}
             height={500}
           />
         </div>
       </div>
     </Transition>
+    <div>
+      <Table>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+        <p>1</p>
+      </Table>
+    </div>
   </>
 )
 
