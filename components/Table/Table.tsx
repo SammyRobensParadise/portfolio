@@ -1,5 +1,4 @@
 import React, { PropsWithChildren } from 'react'
-import { uuid } from 'uuidv4'
 
 const Table = ({
   children
@@ -14,10 +13,10 @@ const Table = ({
       : [childrens]
 
     return (
-      <div className="container text-cerulaen dark:text-off-white">
-        <table className="table-auto">
+      <div className="container text-cerulaen dark:text-off-white-24">
+        <table className="table-auto w-full">
           {thead}
-          <tbody>
+          <tbody className="border border-cerulaen p-4 border-collapse">
             {trs.map((tr) => (
               <>{tr}</>
             ))}

@@ -68,15 +68,30 @@ const LandingPage: NextPage = (): JSX.Element => (
         </Transition>
       </Parallax>
     </div>
-    <div className="relative pt-96 isolate p-36">
+    <div className="relative pt-96 isolate p-24">
       <Table>
-        <thead className="flex text-3xl justify-start">
+        <thead className="text-3xl justify-start">
           <tr>
-            <th>Work</th>
+            <th className="text-left w-2/12">Work</th>
           </tr>
         </thead>
-        <tr>
-          <td>Beacon BioSoignals</td>
+        <tr className="border border-b" key="beacon">
+          <td className="p-4 whitespace-nowrap w-36">
+            <p>Beacon Biosignals</p>
+          </td>
+          <td>
+            <div className="border-dashed border border-cerulaen h-0 w-full mt-2.5" />
+          </td>
+          <td className="p-4 text-right w-36">&apos;21 - Present</td>
+        </tr>
+        <tr className="border border-b" key="float">
+          <td className="p-4 whitespace-nowrap w-36">
+            <p>Float Card</p>
+          </td>
+          <td>
+            <div className="border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded" />
+          </td>
+          <td className="p-4 text-right w-36">&apos;20 - &apos;21</td>
         </tr>
       </Table>
     </div>
