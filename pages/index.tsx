@@ -69,31 +69,36 @@ const LandingPage: NextPage = (): JSX.Element => (
       </Parallax>
     </div>
     <div className="relative pt-96 isolate p-24">
-      <Table>
-        <thead className="text-3xl justify-start">
-          <tr>
-            <th className="text-left w-2/12">Work</th>
-          </tr>
-        </thead>
-        <tr className="border border-b" key="beacon">
-          <td className="p-4 whitespace-nowrap w-36">
-            <p>Beacon Biosignals</p>
-          </td>
-          <td>
-            <div className="border-dashed border border-cerulaen h-0 w-full mt-2.5" />
-          </td>
-          <td className="p-4 text-right w-36">&apos;21 - Present</td>
-        </tr>
-        <tr className="border border-b" key="float">
-          <td className="p-4 whitespace-nowrap w-36">
-            <p>Float Card</p>
-          </td>
-          <td>
-            <div className="border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded" />
-          </td>
-          <td className="p-4 text-right w-36">&apos;20 - &apos;21</td>
-        </tr>
-      </Table>
+      <Table
+        headers={['Work']}
+        rows={[
+          [
+            { name: 'Beacon Biosignals', type: 'text' },
+            { type: 'style' },
+            { name: "'21 - Present", type: 'text' }
+          ],
+          [
+            { name: 'Float Card', type: 'text' },
+            { type: 'style' },
+            { name: "'20 - '21", type: 'text' }
+          ],
+          [
+            { name: 'PUMA', type: 'text' },
+            { type: 'style' },
+            { name: "'20", type: 'text' }
+          ],
+          [
+            { name: 'Hootsuite', type: 'text' },
+            { type: 'style' },
+            { name: "'19", type: 'text' }
+          ],
+          [
+            { name: 'Unity, Finger Food', type: 'text' },
+            { type: 'style' },
+            { name: "'19", type: 'text' }
+          ]
+        ]}
+      />
     </div>
   </>
 )
