@@ -69,8 +69,9 @@ const LandingPage: NextPage = (): JSX.Element => (
         </Transition>
       </Parallax>
     </div>
-    <div className="relative pt-96 isolate p-24 mt-36">
+    <div className="relative pt-96 isolate p-24 mt-36 space-y-24" id="tables">
       <Table
+        id="work-table"
         headers={['Work']}
         footers={[
           <div
@@ -115,6 +116,7 @@ const LandingPage: NextPage = (): JSX.Element => (
         ]}
       />
       <Table
+        id="projects-table"
         headers={['Projects']}
         footers={[
           <div
@@ -153,6 +155,11 @@ const LandingPage: NextPage = (): JSX.Element => (
           ]
         ]}
       />
+    </div>
+    <div id="about" className="p-24 pt-0 container">
+      <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white-24 font-bold">
+        About
+      </h2>
     </div>
   </>
 )
