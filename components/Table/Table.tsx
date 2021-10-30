@@ -22,7 +22,7 @@ export interface TableInterface {
 }
 const Table = forwardRef(
   (props: TableInterface, ref: ForwardedRef<HTMLTableElement>): JSX.Element => (
-    <div className="container text-cerulaen dark:text-off-white-24">
+    <div className="container text-cerulaen dark:text-off-white-24 pb-16">
       <table className="table-auto w-full" ref={ref}>
         <thead className="text-3xl justify-start text-left pb-4 h-14 block">
           <tr>
@@ -69,7 +69,7 @@ const Table = forwardRef(
             </tr>
           ))}
         </tbody>
-        <thead className="text-xl justify-start text-left h-full block">
+        <thead className="text-xl justify-start text-left h-full block pt-6">
           <tr>
             {props?.footers?.map((headerItem: string | JSX.Element) => (
               <th key={generateUUID()}>{headerItem}</th>

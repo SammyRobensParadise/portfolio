@@ -100,15 +100,54 @@ const LandingPage: NextPage = (): JSX.Element => (
           [
             { name: 'PUMA', type: 'text' },
             { type: 'style' },
-            { name: "'20", type: 'text' }
+            { name: "'20 - '20", type: 'text' }
           ],
           [
             { name: 'Hootsuite', type: 'text' },
             { type: 'style' },
-            { name: "'19", type: 'text' }
+            { name: "'19 - '19", type: 'text' }
           ],
           [
             { name: 'Unity, Finger Foods', type: 'text' },
+            { type: 'style' },
+            { name: "'18 - '19", type: 'text' }
+          ]
+        ]}
+      />
+      <Table
+        headers={['Projects']}
+        footers={[
+          <div
+            key="view-more"
+            className="text-cerulaen inline-flex space-x-4 transform transition hover:scale-125 cursor-pointer"
+          >
+            <p className="leading-6 ">View More</p>
+            <div>
+              <RightArrow />
+            </div>
+          </div>
+        ]}
+        rows={[
+          [
+            {
+              name: 'Verify, Social Media',
+              type: 'text'
+            },
+            { type: 'style' },
+            { name: "'21 - Present", type: 'text' }
+          ],
+          [
+            { name: 'Github Stats', type: 'text' },
+            { type: 'style' },
+            { name: "'20 - Present", type: 'text' }
+          ],
+          [
+            { name: 'Intensif-Eye, AI', type: 'text' },
+            { type: 'style' },
+            { name: "'19'", type: 'text' }
+          ],
+          [
+            { name: 'Arduino Scream', type: 'text' },
             { type: 'style' },
             { name: "'19", type: 'text' }
           ]
