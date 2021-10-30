@@ -7,6 +7,7 @@ import { Parallax } from 'react-scroll-parallax'
 import BlobElement from '../components/Blob/Blob'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import Table from '../components/Table/Table'
+import RightArrow from '../global/assets/rightArrow.svg'
 
 const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
@@ -68,17 +69,51 @@ const LandingPage: NextPage = (): JSX.Element => (
         </Transition>
       </Parallax>
     </div>
-    <div className="relative pt-96 isolate p-36">
-      <Table>
-        <thead className="flex text-3xl justify-start">
-          <tr>
-            <th>Work</th>
-          </tr>
-        </thead>
-        <tr>
-          <td>Beacon BioSoignals</td>
-        </tr>
-      </Table>
+    <div className="relative pt-96 isolate p-24 mt-36">
+      <Table
+        headers={['Work']}
+        footers={[
+          <div
+            key="view-more"
+            className="text-cerulaen inline-flex space-x-4 transform transition hover:scale-125 cursor-pointer"
+          >
+            <p className="leading-6 ">View More</p>
+            <div>
+              <RightArrow />
+            </div>
+          </div>
+        ]}
+        rows={[
+          [
+            {
+              name: 'Beacon Biosignals',
+              type: 'text'
+            },
+            { type: 'style' },
+            { name: "'21 - Present", type: 'text' }
+          ],
+          [
+            { name: 'Float Card', type: 'text' },
+            { type: 'style' },
+            { name: "'20 - '21", type: 'text' }
+          ],
+          [
+            { name: 'PUMA', type: 'text' },
+            { type: 'style' },
+            { name: "'20", type: 'text' }
+          ],
+          [
+            { name: 'Hootsuite', type: 'text' },
+            { type: 'style' },
+            { name: "'19", type: 'text' }
+          ],
+          [
+            { name: 'Unity, Finger Foods', type: 'text' },
+            { type: 'style' },
+            { name: "'19", type: 'text' }
+          ]
+        ]}
+      />
     </div>
   </>
 )

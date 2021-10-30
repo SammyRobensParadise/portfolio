@@ -8,7 +8,7 @@ module.exports = {
         teal: 'teal'
       }
     },
-    scale: { 200: '2' },
+    scale: { 200: '2', 150: '1.5', 125: '1.25' },
     backgroundColor: (theme) => ({
       ...theme('colors'),
       'off-white': '#E5E5E5',
