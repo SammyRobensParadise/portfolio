@@ -10,6 +10,7 @@ import { animate, cubicBezier } from '../global/helpers/animation'
 import Table from '../components/Table/Table'
 import RightArrow from '../global/assets/rightArrow.svg'
 import { RESUME_FILE_NAME } from '../global/constants/constants'
+import Flow from '../components/Flow/Flow'
 
 const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
@@ -162,8 +163,8 @@ const LandingPage: NextPage = (): JSX.Element => (
       <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white-24 font-bold">
         About
       </h2>
-      <div className="grid grid-cols-2 text-cerulaen dark:text-off-white-24 text-lg">
-        <div className="space-y-8 pr-4">
+      <div className="grid grid-cols-3 gap-4 text-cerulaen dark:text-off-white-24 text-lg">
+        <div className="space-y-8 pr-4 col-span-2">
           <p>
             I study systems design engineering, a problem-based engineering
             approach to complex systems. I use principles of UX/UI design,
@@ -187,7 +188,9 @@ const LandingPage: NextPage = (): JSX.Element => (
             </p>
           </Link>
         </div>
-        <div className="pl-4">two</div>
+        <div className="pl-4 col-span-1">
+          <Flow />
+        </div>
       </div>
     </div>
   </>
