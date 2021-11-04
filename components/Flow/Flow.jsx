@@ -134,29 +134,25 @@ function Flow() {
   }
 
   return (
-    <>
-      <Plane
-        className="SimplePlane"
-        // plane init parameters
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        widthSegments={20}
-        heightSegments={20}
-        uniforms={uniforms}
-        // plane events
-        onReady={onReady}
-        onRender={onRender}
-        onAfterResize={onAfterResize}
-      >
-        {
-          <img
-            src="https://unsplash.it/1920/1080?random=1"
-            data-sampler="simplePlaneTexture"
-            alt=""
-          />
-        }
-      </Plane>
-    </>
+    <Plane
+      className="SimplePlane"
+      // plane init parameters
+      vertexShader={vertexShader}
+      fragmentShader={fragmentShader}
+      widthSegments={20}
+      heightSegments={20}
+      uniforms={uniforms}
+      // plane events
+      onReady={onReady}
+      onRender={onRender}
+      onAfterResize={onAfterResize}
+    >
+      <img
+        src="https://unsplash.it/1920/1080?random=1"
+        data-sampler="simplePlaneTexture"
+        alt=""
+      />
+    </Plane>
   )
 }
 

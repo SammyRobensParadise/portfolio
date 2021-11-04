@@ -19,11 +19,12 @@ export interface TableInterface {
   rows: TableRows
   headers?: TableHeaders
   footers?: TableFooters
+  id?: string
 }
 const Table = forwardRef(
   (props: TableInterface, ref: ForwardedRef<HTMLTableElement>): JSX.Element => (
-    <div className="container text-cerulaen dark:text-off-white-24 pb-16">
-      <table className="table-auto w-full" ref={ref}>
+    <div className="container text-cerulaen dark:text-off-white-24">
+      <table className="table-auto w-full" ref={ref} id={props.id}>
         <thead className="text-3xl justify-start text-left pb-4 h-14 block">
           <tr>
             {props?.headers?.map((headerItem: string | JSX.Element) => (
@@ -52,7 +53,7 @@ const Table = forwardRef(
                 }
                 const Item = () => (
                   <td
-                    className={clsx('p-4 whitespace-nowrap', {
+                    className={clsx('p-4 whitespace-nowrap text-xl', {
                       ' w-2/12': index === 0 || index === 2
                     })}
                     {...params}

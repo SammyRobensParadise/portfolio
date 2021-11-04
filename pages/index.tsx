@@ -1,5 +1,6 @@
 import React from 'react'
 import type { NextPage } from 'next'
+import Link from 'next/link'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
 import { Parallax } from 'react-scroll-parallax'
@@ -8,6 +9,8 @@ import BlobElement from '../components/Blob/Blob'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import Table from '../components/Table/Table'
 import RightArrow from '../global/assets/rightArrow.svg'
+import { RESUME_FILE_NAME } from '../global/constants/constants'
+import Flow from '../components/Flow/Flow'
 
 const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
@@ -69,8 +72,9 @@ const LandingPage: NextPage = (): JSX.Element => (
         </Transition>
       </Parallax>
     </div>
-    <div className="relative pt-96 isolate p-24 mt-36">
+    <div className="relative pt-96 isolate p-24 mt-36 space-y-24" id="tables">
       <Table
+        id="work-table"
         headers={['Work']}
         footers={[
           <div
@@ -115,6 +119,7 @@ const LandingPage: NextPage = (): JSX.Element => (
         ]}
       />
       <Table
+        id="projects-table"
         headers={['Projects']}
         footers={[
           <div
@@ -153,6 +158,40 @@ const LandingPage: NextPage = (): JSX.Element => (
           ]
         ]}
       />
+    </div>
+    <div id="about" className="p-24 pt-0 container">
+      <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white-24 font-bold">
+        About
+      </h2>
+      <div className="grid grid-cols-3 gap-4 text-cerulaen dark:text-off-white-24 text-lg">
+        <div className="space-y-8 pr-4 col-span-2">
+          <p>
+            I study systems design engineering, a problem-based engineering
+            approach to complex systems. I use principles of UX/UI design,
+            ergonomic design, and accessibility to engineer creative solutions
+            for our worlds most complex problems.
+          </p>
+          <p>
+            I have designed and developed dozens of solutions for the
+            biomedical, financial, gaming, social media, and energy industries
+            tackling complex usabililty and experential problems.
+          </p>
+          <p>
+            I work with a complete software stack to build beautiful
+            accessibility-driven experiences and am specializing in computing
+            and human-computer interaction including networking and machine
+            intelligence.
+          </p>
+          <Link href={RESUME_FILE_NAME} passHref>
+            <p className="underline transition-all cursor-pointer hover:font-semibold">
+              See my Résume...
+            </p>
+          </Link>
+        </div>
+        <div className="pl-4 col-span-1">
+          <Flow />
+        </div>
+      </div>
     </div>
   </>
 )

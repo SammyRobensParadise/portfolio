@@ -6,8 +6,8 @@ import '../styles/three.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import React, { ReactElement } from 'react'
-import { Curtains } from 'react-curtains'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import { Curtains } from 'react-curtains'
 
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
@@ -44,11 +44,11 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       <div className=" bg-off-white dark:bg-shadow">
         <NavigationBar />
         <Sidebar />
-        <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
-          <ParallaxProvider>
+        <ParallaxProvider>
+          <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
             <Component {...pageProps} />
-          </ParallaxProvider>
-        </Curtains>
+          </Curtains>
+        </ParallaxProvider>
         <Footer />
       </div>
     )
