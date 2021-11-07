@@ -10,7 +10,6 @@ import { animate, cubicBezier } from '../global/helpers/animation'
 import Table from '../components/Table/Table'
 import RightArrow from '../global/assets/rightArrow.svg'
 import { RESUME_FILE_NAME } from '../global/constants/constants'
-import Flow from '../components/Flow/Flow'
 import Headshot from '../components/Headshot/Headshot'
 
 const LANDING_MESSAGE =
@@ -31,11 +30,24 @@ const LandingPage: NextPage = (): JSX.Element => (
           className="grid grid-cols-2 gap-4 h-full relative"
           show
           appear
-          enter={`${animate(1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+          enter={`${animate(1000, 1000)} ${cubicBezier(
+            0.97,
+            0.03,
+            0.36,
+            0.45
+          )}`}
           enterFrom="opacity-0"
           enterTo="opaciy-100"
         >
-          <div className="p-24 pt-48">
+          <Transition.Child
+            className="p-24 pt-48"
+            enter="transition-opacity ease-linear duration-300 delay-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300 delay-300"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
             <h1
               className="text-off-white font-work font-extrabold w-2/3 absolute z-20 tracking-tighter"
               style={styleOffsetOverride}
@@ -45,7 +57,7 @@ const LandingPage: NextPage = (): JSX.Element => (
             <h1 className="text-cerulaen font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter">
               {LANDING_MESSAGE}
             </h1>
-          </div>
+          </Transition.Child>
           <div>
             <Parallax y={[-50, 50]}>
               <div className="flex">
