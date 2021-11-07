@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react'
 import { Plane, useCurtains } from 'react-curtains'
 import { Vec2 } from 'curtainsjs'
+import Image from 'next/image'
+
 import { vertexShader, fragmentShader } from '../../Shaders/Shaders'
 
-function Flow() {
+function Flow({ src, alt, height, width }) {
   const [plane, setPlane] = useState(null)
 
   const mousePosition = useRef(new Vec2())
@@ -146,11 +148,14 @@ function Flow() {
       onReady={onReady}
       onRender={onRender}
       onAfterResize={onAfterResize}
+      style={{ width, height }}
     >
       <img
-        src="https://unsplash.it/1920/1080?random=1"
+        src={src}
         data-sampler="simplePlaneTexture"
-        alt=""
+        alt={alt}
+        height={height}
+        width={width}
       />
     </Plane>
   )

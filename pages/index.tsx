@@ -11,6 +11,7 @@ import Table from '../components/Table/Table'
 import RightArrow from '../global/assets/rightArrow.svg'
 import { RESUME_FILE_NAME } from '../global/constants/constants'
 import Flow from '../components/Flow/Flow'
+import Headshot from '../components/Headshot/Headshot'
 
 const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
@@ -159,7 +160,7 @@ const LandingPage: NextPage = (): JSX.Element => (
         ]}
       />
     </div>
-    <div id="about" className="p-24 pt-0 container">
+    <div id="about" className="p-24 pt-0">
       <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white-24 font-bold">
         About
       </h2>
@@ -188,8 +189,8 @@ const LandingPage: NextPage = (): JSX.Element => (
             </p>
           </Link>
         </div>
-        <div className="pl-4 col-span-1">
-          <Flow />
+        <div className="pl-4 col-span-1 object-scale-down">
+          <Headshot />
         </div>
       </div>
     </div>
