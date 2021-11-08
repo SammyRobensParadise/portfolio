@@ -101,34 +101,52 @@ const LandingPage: NextPage = (): JSX.Element => (
           </div>
         ]}
         rows={[
-          [
-            {
-              name: 'Beacon Biosignals',
-              type: 'text'
+          {
+            onClick: (event: React.MouseEvent) => {},
+            onHover: (event: React.MouseEvent) => {
+              const centerItem =
+                event.currentTarget.children[1].firstElementChild
+              centerItem?.replaceWith(
+                (document.createElement('div').innerHTML = 'test')
+              )
             },
-            { type: 'style' },
-            { name: "'21 - Present", type: 'text' }
-          ],
-          [
-            { name: 'Float Card', type: 'text' },
-            { type: 'style' },
-            { name: "'20 - '21", type: 'text' }
-          ],
-          [
-            { name: 'PUMA', type: 'text' },
-            { type: 'style' },
-            { name: "'20 - '20", type: 'text' }
-          ],
-          [
-            { name: 'Hootsuite', type: 'text' },
-            { type: 'style' },
-            { name: "'19 - '19", type: 'text' }
-          ],
-          [
-            { name: 'Unity, Finger Foods', type: 'text' },
-            { type: 'style' },
-            { name: "'18 - '19", type: 'text' }
-          ]
+            elements: [
+              {
+                name: 'Beacon Biosignals',
+                type: 'text'
+              },
+              { type: 'style' },
+              { name: "'21 - Present", type: 'text' }
+            ]
+          },
+          {
+            elements: [
+              { name: 'Float Card', type: 'text' },
+              { type: 'style' },
+              { name: "'20 - '21", type: 'text' }
+            ]
+          },
+          {
+            elements: [
+              { name: 'PUMA', type: 'text' },
+              { type: 'style' },
+              { name: "'20 - '20", type: 'text' }
+            ]
+          },
+          {
+            elements: [
+              { name: 'Hootsuite', type: 'text' },
+              { type: 'style' },
+              { name: "'19 - '19", type: 'text' }
+            ]
+          },
+          {
+            elements: [
+              { name: 'Unity, Finger Foods', type: 'text' },
+              { type: 'style' },
+              { name: "'18 - '19", type: 'text' }
+            ]
+          }
         ]}
       />
       <Table
@@ -146,29 +164,37 @@ const LandingPage: NextPage = (): JSX.Element => (
           </div>
         ]}
         rows={[
-          [
-            {
-              name: 'Verify, Social Media',
-              type: 'text'
-            },
-            { type: 'style' },
-            { name: "'21 - Present", type: 'text' }
-          ],
-          [
-            { name: 'Github Stats', type: 'text' },
-            { type: 'style' },
-            { name: "'20 - Present", type: 'text' }
-          ],
-          [
-            { name: 'Intensif-Eye, AI', type: 'text' },
-            { type: 'style' },
-            { name: "'19'", type: 'text' }
-          ],
-          [
-            { name: 'Arduino Scream', type: 'text' },
-            { type: 'style' },
-            { name: "'19", type: 'text' }
-          ]
+          {
+            elements: [
+              {
+                name: 'Verify, Social Media',
+                type: 'text'
+              },
+              { type: 'style' },
+              { name: "'21 - Present", type: 'text' }
+            ]
+          },
+          {
+            elements: [
+              { name: 'Github Stats', type: 'text' },
+              { type: 'style' },
+              { name: "'20 - Present", type: 'text' }
+            ]
+          },
+          {
+            elements: [
+              { name: 'Intensif-Eye, AI', type: 'text' },
+              { type: 'style' },
+              { name: "'19'", type: 'text' }
+            ]
+          },
+          {
+            elements: [
+              { name: 'Arduino Scream', type: 'text' },
+              { type: 'style' },
+              { name: "'19", type: 'text' }
+            ]
+          }
         ]}
       />
     </div>
@@ -201,7 +227,7 @@ const LandingPage: NextPage = (): JSX.Element => (
             </p>
           </Link>
         </div>
-        <div className="pl-4 col-span-1 object-scale-down">
+        <div className="pl-4 col-span-1">
           <Headshot />
         </div>
       </div>

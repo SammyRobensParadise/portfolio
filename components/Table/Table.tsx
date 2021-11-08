@@ -12,7 +12,11 @@ export type TableRowItem = {
   type?: 'text' | 'style'
 }
 export type TableRowItems = TableRowItem[]
-export type TableRows = TableRowItems[]
+export type TableRows = {
+  elements: TableRowItems
+  onClick?: (event: React.MouseEvent) => void
+  onHover?: (event: Event) => void
+}[]
 
 export interface TableInterface {
   classNames?: string
@@ -23,7 +27,7 @@ export interface TableInterface {
 }
 const Table = forwardRef(
   (props: TableInterface, ref: ForwardedRef<HTMLTableElement>): JSX.Element => (
-    <div className="container text-cerulaen dark:text-off-white-24">
+    <div className="text-cerulaen dark:text-off-white-24">
       <table className="table-auto w-full" ref={ref} id={props.id}>
         <thead className="text-3xl justify-start text-left pb-4 h-14 block">
           <tr>
@@ -33,9 +37,16 @@ const Table = forwardRef(
           </tr>
         </thead>
         <tbody className="border border-cerulaen p-4 border-collapse">
-          {props?.rows?.map((tableRow: TableRowItems) => (
-            <tr key={generateUUID()} className="border border-b">
-              {tableRow.map((tableElement, index) => {
+          {props?.rows.map(({ elements, onClick, onHover }) => (
+            <tr
+              key={generateUUID()}
+              className="border border-b transition transform hover:shadow-grow focus:shadow-grow cursor-pointer focus:outline-none"
+              tabIndex={0}
+              onClick={onClick}
+              onMouseOver={onHover}
+              onFocus={onHover}
+            >
+              {elements.map((tableElement, index) => {
                 const { type, name, event } = tableElement
                 let params = {}
                 if (event) {
@@ -61,7 +72,7 @@ const Table = forwardRef(
                     {type === 'text' ? (
                       name
                     ) : (
-                      <div className="border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded" />
+                      <div className="decoration border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded" />
                     )}
                   </td>
                 )
@@ -71,9 +82,9 @@ const Table = forwardRef(
           ))}
         </tbody>
         <thead className="text-xl justify-start text-left h-full block pt-6">
-          <tr>
-            {props?.footers?.map((headerItem: string | JSX.Element) => (
-              <th key={generateUUID()}>{headerItem}</th>
+          <tr tabIndex={0}>
+            {props?.footers?.map((footerItem: string | JSX.Element) => (
+              <th key={generateUUID()}>{footerItem}</th>
             ))}
           </tr>
         </thead>
