@@ -102,20 +102,12 @@ const LandingPage: NextPage = (): JSX.Element => (
         ]}
         rows={[
           {
-            onClick: (event: React.MouseEvent) => {},
-            onHover: (event: React.MouseEvent) => {
-              const centerItem =
-                event.currentTarget.children[1].firstElementChild
-              centerItem?.replaceWith(
-                (document.createElement('div').innerHTML = 'test')
-              )
-            },
             elements: [
               {
                 name: 'Beacon Biosignals',
                 type: 'text'
               },
-              { type: 'style' },
+              { type: 'style', name: 'test' },
               { name: "'21 - Present", type: 'text' }
             ]
           },

@@ -15,7 +15,7 @@ export type TableRowItems = TableRowItem[]
 export type TableRows = {
   elements: TableRowItems
   onClick?: (event: React.MouseEvent) => void
-  onHover?: (event: Event) => void
+  onHover?: (event: React.MouseEvent) => void
 }[]
 
 export interface TableInterface {
@@ -44,7 +44,13 @@ const Table = forwardRef(
               tabIndex={0}
               onClick={onClick}
               onMouseOver={onHover}
-              onFocus={onHover}
+              onFocus={(event) => {
+                if (onHover) {
+                  onHover(
+                    event as unknown as React.MouseEvent<Element, MouseEvent>
+                  )
+                }
+              }}
             >
               {elements.map((tableElement, index) => {
                 const { type, name, event } = tableElement
