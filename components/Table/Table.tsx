@@ -25,6 +25,14 @@ export interface TableInterface {
   footers?: TableFooters
   id?: string
 }
+
+function handleMouseEnter(event: React.MouseEvent) {}
+
+function handleMouseLeave(event: React.MouseEvent) {
+  const { currentTarget } = event
+  console.log(currentTarget)
+}
+
 const Table = forwardRef(
   (props: TableInterface, ref: ForwardedRef<HTMLTableElement>): JSX.Element => (
     <div className="text-cerulaen dark:text-off-white-24">
@@ -37,20 +45,14 @@ const Table = forwardRef(
           </tr>
         </thead>
         <tbody className="border border-cerulaen p-4 border-collapse">
-          {props?.rows.map(({ elements, onClick, onHover }) => (
+          {props?.rows.map(({ elements, onClick }) => (
             <tr
               key={generateUUID()}
               className="border border-b transition transform hover:shadow-grow focus:shadow-grow cursor-pointer focus:outline-none"
               tabIndex={0}
               onClick={onClick}
-              onMouseOver={onHover}
-              onFocus={(event) => {
-                if (onHover) {
-                  onHover(
-                    event as unknown as React.MouseEvent<Element, MouseEvent>
-                  )
-                }
-              }}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               {elements.map((tableElement, index) => {
                 const { type, name, event } = tableElement
@@ -78,7 +80,13 @@ const Table = forwardRef(
                     {type === 'text' ? (
                       name
                     ) : (
-                      <div className="decoration border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded" />
+                      <>
+                        <div
+                          className="decoration border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded"
+                          title={name}
+                        />
+                        <div className="title hidden">{name}</div>
+                      </>
                     )}
                   </td>
                 )

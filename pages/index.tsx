@@ -107,7 +107,7 @@ const LandingPage: NextPage = (): JSX.Element => (
                 name: 'Beacon Biosignals',
                 type: 'text'
               },
-              { type: 'style', name: 'test' },
+              { type: 'style', name: 'text' },
               { name: "'21 - Present", type: 'text' }
             ]
           },
