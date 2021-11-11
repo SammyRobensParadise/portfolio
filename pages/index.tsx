@@ -24,7 +24,7 @@ const LandingPage: NextPage = (): JSX.Element => (
     <Head>
       <title>Sammy</title>
     </Head>
-    <div className="relative">
+    <div className="relative" title={LANDING_MESSAGE}>
       <Parallax y={[-20, 20]}>
         <Transition
           className="grid grid-cols-2 gap-4 h-full relative"
@@ -55,7 +55,11 @@ const LandingPage: NextPage = (): JSX.Element => (
               {LANDING_MESSAGE}
             </h1>
             <h1 className="text-cerulaen font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter">
-              {LANDING_MESSAGE}
+              {Array.from(LANDING_MESSAGE).map((letter: string) => (
+                <span key={letter} className="transition hover:text-highlight">
+                  {letter}
+                </span>
+              ))}
             </h1>
           </Transition.Child>
           <div>
@@ -92,7 +96,7 @@ const LandingPage: NextPage = (): JSX.Element => (
         footers={[
           <div
             key="view-more"
-            className="text-cerulaen inline-flex space-x-4 transform transition hover:scale-125 cursor-pointer"
+            className="text-cerulaen inline-flex space-x-4 transform transition focus:scale-125 outline-none hover:scale-125 cursor-pointer"
           >
             <p className="leading-6 ">View More</p>
             <div>
@@ -109,7 +113,7 @@ const LandingPage: NextPage = (): JSX.Element => (
               },
               {
                 type: 'style',
-                name: 'Revolutionizing end-to-end clinician workflows'
+                name: 'Revolutionizing end-to-end clinician workflows with interactive data visualization and machine learning.'
               },
               { name: "'21 - Present", type: 'text' }
             ]
@@ -117,28 +121,40 @@ const LandingPage: NextPage = (): JSX.Element => (
           {
             elements: [
               { name: 'Float Card', type: 'text' },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: 'Bringing expense managment to the future.'
+              },
               { name: "'20 - '21", type: 'text' }
             ]
           },
           {
             elements: [
               { name: 'PUMA', type: 'text' },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: 'Leading better design for data scientists'
+              },
               { name: "'20 - '20", type: 'text' }
             ]
           },
           {
             elements: [
               { name: 'Hootsuite', type: 'text' },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: "Kickstarting Hootsuite's W3C AA/AAA accessibility implementation strategy."
+              },
               { name: "'19 - '19", type: 'text' }
             ]
           },
           {
             elements: [
               { name: 'Unity, Finger Foods', type: 'text' },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: 'AR, VR, XR, computer vision and your childhood toys re-imagined '
+              },
               { name: "'18 - '19", type: 'text' }
             ]
           }
@@ -150,7 +166,7 @@ const LandingPage: NextPage = (): JSX.Element => (
         footers={[
           <div
             key="view-more"
-            className="text-cerulaen inline-flex space-x-4 transform transition hover:scale-125 cursor-pointer"
+            className="text-cerulaen inline-flex space-x-4 transform transition hover:scale-125 cursor-pointer focus:scale-125 outline-none"
           >
             <p className="leading-6 ">View More</p>
             <div>
@@ -165,28 +181,40 @@ const LandingPage: NextPage = (): JSX.Element => (
                 name: 'Verify, Social Media',
                 type: 'text'
               },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: 'Uncover mis-information right in your instagram feed.'
+              },
               { name: "'21 - Present", type: 'text' }
             ]
           },
           {
             elements: [
               { name: 'Github Stats', type: 'text' },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: 'Report Github contributions on your websites.'
+              },
               { name: "'20 - Present", type: 'text' }
             ]
           },
           {
             elements: [
               { name: 'Intensif-Eye, AI', type: 'text' },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: 'Information access for our visually impared.'
+              },
               { name: "'19'", type: 'text' }
             ]
           },
           {
             elements: [
               { name: 'Arduino Scream', type: 'text' },
-              { type: 'style' },
+              {
+                type: 'style',
+                name: 'Open a safe by screaming at it? Sure thing!'
+              },
               { name: "'19", type: 'text' }
             ]
           }
@@ -194,33 +222,38 @@ const LandingPage: NextPage = (): JSX.Element => (
       />
     </div>
     <div id="about" className="p-24 pt-0">
-      <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white-24 font-bold">
-        About
-      </h2>
+      <Parallax x={['-400px', '112px']}>
+        <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white-24 font-bold">
+          About
+        </h2>
+      </Parallax>
+
       <div className="grid grid-cols-3 gap-4 text-cerulaen dark:text-off-white-24 text-lg">
         <div className="space-y-8 pr-4 col-span-2">
-          <p>
-            I study systems design engineering, a problem-based engineering
-            approach to complex systems. I use principles of UX/UI design,
-            ergonomic design, and accessibility to engineer creative solutions
-            for our worlds most complex problems.
-          </p>
-          <p>
-            I have designed and developed dozens of solutions for the
-            biomedical, financial, gaming, social media, and energy industries
-            tackling complex usabililty and experential problems.
-          </p>
-          <p>
-            I work with a complete software stack to build beautiful
-            accessibility-driven experiences and am specializing in computing
-            and human-computer interaction including networking and machine
-            intelligence.
-          </p>
-          <Link href={RESUME_FILE_NAME} passHref>
-            <p className="underline transition-all cursor-pointer hover:font-semibold">
-              See my Résume...
+          <Parallax x={['-200px', '112px']}>
+            <p>
+              I study systems design engineering, a problem-based engineering
+              approach to complex systems. I use principles of UX/UI design,
+              ergonomic design, and accessibility to engineer creative solutions
+              for our worlds most complex problems.
             </p>
-          </Link>
+            <p>
+              I have designed and developed dozens of solutions for the
+              biomedical, financial, gaming, social media, and energy industries
+              tackling complex usabililty and experential problems.
+            </p>
+            <p>
+              I work with a complete software stack to build beautiful
+              accessibility-driven experiences and am specializing in computing
+              and human-computer interaction including networking and machine
+              intelligence.
+            </p>
+            <Link href={RESUME_FILE_NAME} passHref>
+              <p className="underline transition-all cursor-pointer hover:font-semibold">
+                See my Résume...
+              </p>
+            </Link>
+          </Parallax>
         </div>
         <div className="pl-4 col-span-1">
           <Headshot />
