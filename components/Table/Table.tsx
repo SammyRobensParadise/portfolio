@@ -28,7 +28,7 @@ export interface TableInterface {
 
 const Table = forwardRef(
   (props: TableInterface, ref: ForwardedRef<HTMLTableElement>): JSX.Element => (
-    <div className="text-cerulaen dark:text-off-white-24">
+    <div className="text-cerulaen dark:text-off-white">
       <table className="table-auto w-full" ref={ref} id={props.id}>
         <thead className="text-3xl justify-start text-left pb-4 h-14 block">
           <tr>
@@ -76,7 +76,7 @@ const Table = forwardRef(
                     ) : (
                       <>
                         <div
-                          className="transition transform-gpu opacity-100 border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded group-hover:translate-y-10 group-hover:opacity-0 group-focus:translate-y-10 group-focus:opacity-0"
+                          className="transition transform-gpu opacity-100 border-dashed border border-cerulaen dark:border-off-white h-0 w-full mt-2.5 rounded group-hover:translate-y-10 group-hover:opacity-0 group-focus:translate-y-10 group-focus:opacity-0"
                           title={name}
                         />
                         <div className="transition transform-gpu w-7/12 absolute opacity-0 -translate-y-10 group-hover:opacity-100 group-hover:-translate-y-5 group-focus:opacity-100 group-focus:-translate-y-5 overflow-ellipsis overflow-hidden">

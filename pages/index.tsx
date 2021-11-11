@@ -50,12 +50,12 @@ const LandingPage: NextPage = (): JSX.Element => (
             leaveTo="opacity-0"
           >
             <h1
-              className="text-off-white font-work font-extrabold w-2/3 absolute z-20 tracking-tighter"
+              className="text-off-white dark:text-cerulaen font-work font-extrabold w-2/3 absolute z-20 tracking-tighter"
               style={styleOffsetOverride}
             >
               {LANDING_MESSAGE}
             </h1>
-            <h1 className="text-cerulaen font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter">
               {Array.from(LANDING_MESSAGE).map((letter: string) => (
                 <span
                   key={generateUUID()}
@@ -100,7 +100,7 @@ const LandingPage: NextPage = (): JSX.Element => (
         footers={[
           <div
             key="view-more"
-            className="text-cerulaen inline-flex space-x-4 transform transition focus:scale-125 outline-none hover:scale-125 cursor-pointer"
+            className="text-cerulaen dark:text-off-white inline-flex space-x-4 transform transition focus:scale-125 outline-none hover:scale-125 cursor-pointer"
           >
             <p className="leading-6 ">View More</p>
             <div>
@@ -170,7 +170,7 @@ const LandingPage: NextPage = (): JSX.Element => (
         footers={[
           <div
             key="view-more"
-            className="text-cerulaen inline-flex space-x-4 transform transition hover:scale-125 cursor-pointer focus:scale-125 outline-none"
+            className="text-cerulaen dark:text-off-white inline-flex space-x-4 transform transition hover:scale-125 cursor-pointer focus:scale-125 outline-none"
           >
             <p className="leading-6 ">View More</p>
             <div>
@@ -227,12 +227,12 @@ const LandingPage: NextPage = (): JSX.Element => (
     </div>
     <div id="about" className="p-24 pt-0">
       <Parallax x={['-400px', '112px']}>
-        <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white-24 font-bold">
+        <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white font-bold">
           About
         </h2>
       </Parallax>
 
-      <div className="grid grid-cols-3 gap-4 text-cerulaen dark:text-off-white-24 text-lg">
+      <div className="grid grid-cols-3 gap-4 text-cerulaen dark:text-off-white text-lg">
         <div className="space-y-8 pr-4 col-span-2">
           <Parallax x={['-200px', '112px']}>
             <p>
