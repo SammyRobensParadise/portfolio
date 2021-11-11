@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
 import { Parallax } from 'react-scroll-parallax'
+import { generateUUID } from 'three/src/math/MathUtils'
 
 import BlobElement from '../components/Blob/Blob'
 import { animate, cubicBezier } from '../global/helpers/animation'
@@ -56,7 +57,10 @@ const LandingPage: NextPage = (): JSX.Element => (
             </h1>
             <h1 className="text-cerulaen font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter">
               {Array.from(LANDING_MESSAGE).map((letter: string) => (
-                <span key={letter} className="transition hover:text-highlight">
+                <span
+                  key={generateUUID()}
+                  className="transition hover:text-highlight"
+                >
                   {letter}
                 </span>
               ))}
