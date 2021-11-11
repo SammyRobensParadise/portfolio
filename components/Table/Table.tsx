@@ -63,9 +63,12 @@ const Table = forwardRef(
                 }
                 const Item = () => (
                   <td
-                    className={clsx('p-4 whitespace-nowrap text-xl group', {
-                      ' w-2/12': index === 0 || index === 2
-                    })}
+                    className={clsx(
+                      'p-4 whitespace-nowrap text-xl group overflow-y-hidden',
+                      {
+                        ' w-2/12': index === 0 || index === 2
+                      }
+                    )}
                     {...params}
                   >
                     {type === 'text' ? (
@@ -73,10 +76,10 @@ const Table = forwardRef(
                     ) : (
                       <>
                         <div
-                          className="decoration border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded group-hover:hidden"
+                          className="transition transform-gpu opacity-100 border-dashed border border-cerulaen h-0 w-full mt-2.5 rounded group-hover:translate-y-10 group-hover:opacity-0"
                           title={name}
                         />
-                        <div className="title hidden group-hover:block">
+                        <div className="transition transform-gpu  absolute opacity-0 -translate-y-10 group-hover:opacity-100 group-hover:-translate-y-5">
                           {name}
                         </div>
                       </>

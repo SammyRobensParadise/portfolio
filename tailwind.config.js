@@ -39,7 +39,10 @@ module.exports = {
   },
   variants: {
     extend: {
-      display: ['group-hover']
+      display: ['group-hover'],
+      transitionProperty: ['group-hover'],
+      transform: ['group-hover', 'hover', 'focus'],
+      translate: ['active', 'group-hover']
     }
   },
   plugins: []
