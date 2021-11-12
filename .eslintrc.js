@@ -66,7 +66,8 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     /* NOTE: https://github.com/yannickcr/eslint-plugin-react/issues/2396 */
     'react/require-default-props': 'off',
-    'react/display-name': ['off']
+    'react/display-name': ['off'],
+    '@typescript-eslint/no-floating-promises': ['off']
   },
   settings: {
     'import/resolver': {
