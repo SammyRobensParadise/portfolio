@@ -16,14 +16,14 @@ body{
 ::selection {
   background: #3FF3B2;
 }
-
+/*
 @media (prefers-color-scheme: dark) {
   ::selection {
     background: #3F46F3;
   }
   
 }
-
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
