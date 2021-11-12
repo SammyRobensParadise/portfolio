@@ -231,9 +231,8 @@ const LandingPage: NextPage = (): JSX.Element => (
           About
         </h2>
       </Parallax>
-
       <div className="grid grid-cols-3 gap-4 text-cerulaen dark:text-off-white text-lg">
-        <div className="space-y-8 pr-4 col-span-2">
+        <div className="space-y-8 pr-4 col-span-2 z-50">
           <Parallax x={['-200px', '112px']}>
             <p>
               I study systems design engineering, a problem-based engineering
@@ -258,7 +257,22 @@ const LandingPage: NextPage = (): JSX.Element => (
               </p>
             </Link>
           </Parallax>
+          <Parallax x={['60px', '0px']}>
+            <h2 className="text-3xl text-left pb-4 h-14 block text-cerulaen dark:text-off-white font-bold">
+              Focus
+            </h2>
+          </Parallax>
+          <Parallax x={['60px', '-60px']}>
+            <p>
+              UX and ergonomic design, software development, systems modeling
+              and analysis, prototyping and quantitative design patterns, HCI
+              design, signal processing, circuit design, data structures and
+              algorithms, system optimization, control systems, physical
+              ergonomics
+            </p>
+          </Parallax>
         </div>
+
         <div className="pl-4 col-span-1">
           <Headshot />
         </div>
