@@ -2,7 +2,7 @@ import { PropsWithChildren, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 
 export default function Stage(
-  props: PropsWithChildren<Record<string, string | number>>
+  props: PropsWithChildren<Record<string, unknown>>
 ): JSX.Element {
   const { children } = props
   return (

@@ -2,11 +2,9 @@ import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 
-useGLTF.preload('/shoe-draco.glb')
+useGLTF.preload('/brain.glb')
 
-export default function Brain({
-  ...props
-}: Record<string, string | number>): JSX.Element {
+export default function Brain({ ...props }) {
   const ref = useRef()
   const { nodes, materials } = useGLTF('/brain.glb')
   useFrame((state) => {
@@ -18,20 +16,21 @@ export default function Brain({
     )
     ref.current.position.y = (1 + Math.sin(t / 2)) / 10
   })
+  debugger
   return (
     <group {...props} dispose={null}>
       <group ref={ref}>
         <group position={[-0.16, 0, -0.22]} rotation={[0, -Math.PI / 2, 0]}>
           <mesh
             castShadow
-            geometry={nodes.Object_115.geometry}
-            material={materials['Material.002']}
+            geometry={nodes.human_brain_1123.geometry}
+            material={materials['Hampton']}
           />
           <mesh
             castShadow
             receiveShadow
-            geometry={nodes.Object_119.geometry}
-            material={materials['Material.001']}
+            geometry={nodes.human_brain_1123.geometry}
+            material={materials['Hampton']}
           />
         </group>
       </group>

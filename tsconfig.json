@@ -21,7 +21,8 @@
     "**/*.tsx",
     "**/*.js",
     "components/Flow/Flow.jsx",
-    "components/Blob/Blob.jsx"
+    "components/Blob/Blob.jsx",
+    "components/Brain/Brain.jsx"
   ],
   "exclude": ["node_modules"]
 }
