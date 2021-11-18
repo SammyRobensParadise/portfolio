@@ -20,7 +20,7 @@ export default function Brain({ ...props }) {
   return (
     <group {...props} dispose={null}>
       <group ref={ref}>
-        <group position={[-0.16, 0, -0.22]} rotation={[0, -Math.PI / 2, 0]}>
+        <group position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]}>
           <mesh
             castShadow
             geometry={nodes.human_brain_1123.geometry}

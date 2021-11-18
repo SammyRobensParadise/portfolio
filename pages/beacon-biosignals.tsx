@@ -12,7 +12,7 @@ const LandingPage: NextPage = (): JSX.Element => (
     </Head>
     <div>
       <Stage>
-        <Brain scale={0.225} position={[0, -0.09, 0]} />
+        <Brain scale={0.5} position={[0, 0, -10]} />
       </Stage>
     </div>
   </>
