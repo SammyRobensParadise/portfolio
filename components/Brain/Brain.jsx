@@ -16,11 +16,14 @@ export default function Brain({ ...props }) {
     )
     ref.current.position.y = (1 + Math.sin(t / 2)) / 10
   })
-  debugger
+
   return (
     <group {...props} dispose={null}>
       <group ref={ref}>
-        <group position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]}>
+        <group
+          position={[0, -4, 0]}
+          rotation={[-Math.PI / 2, Math.PI / 8, Math.PI / 2]}
+        >
           <mesh
             castShadow
             geometry={nodes.human_brain_1123.geometry}
