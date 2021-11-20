@@ -6,12 +6,13 @@ export interface ThreeState {
   height?: number
   width?: number
   attributes?: Record<string, unknown>
+  classNames?: string
 }
 
 export default function ThreeStage(
   props: PropsWithChildren<ThreeState>
 ): JSX.Element {
-  const { children, attributes, height, width } = props
+  const { children, attributes, height, width, classNames = '' } = props
   return (
     <Canvas
       dpr={[1, 2]}
@@ -19,6 +20,7 @@ export default function ThreeStage(
       shadows
       {...attributes}
       style={{ height, width }}
+      className={classNames}
     >
       <OrbitControls
         minPolarAngle={Math.PI / 2}
@@ -28,8 +30,8 @@ export default function ThreeStage(
       />
       <directionalLight
         castShadow
-        position={[3, 4, 10]}
-        intensity={0.5}
+        position={[3, 10, 10]}
+        intensity={1}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={20}

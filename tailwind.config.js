@@ -43,7 +43,8 @@ module.exports = {
       transitionProperty: ['group-hover', 'group-focus'],
       transform: ['group-hover', 'hover', 'focus', 'group-focus'],
       translate: ['active', 'group-hover', 'group-focus'],
-      opacity: ['group-hover', 'group-focus']
+      opacity: ['group-hover', 'group-focus'],
+      padding: ['group-hover', 'hover', 'focus', 'group-focus']
     }
   },
   plugins: []
