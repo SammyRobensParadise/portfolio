@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 
 import DownArrow from '../../global/assets/downArrow.svg'
 
@@ -11,18 +11,19 @@ export default function ScrollButton({
   name,
   handler
 }: ScrollButtonInterface): JSX.Element {
-  const handleTransitionAtBottom = () => {}
+  const handleTransitionAtBottom = useCallback(() => {
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+      console.log('bottom')
+    }
+  }, [])
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      if (
-        window.innerHeight + window.pageYOffset >=
-        document.body.offsetHeight
-      ) {
-        console.log('bottom')
-      }
-    })
-  })
+    window.addEventListener('scroll', handleTransitionAtBottom)
+    return () => {
+      window.removeEventListener('scroll', handleTransitionAtBottom)
+    }
+  }, [handleTransitionAtBottom])
+
   return (
     <button
       type="button"
