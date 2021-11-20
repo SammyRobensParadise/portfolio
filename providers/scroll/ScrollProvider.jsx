@@ -9,7 +9,7 @@ import {
 
 export const ScrollContext = React.createContext()
 
-export default (props) => {
+export default function ScrollProvider(props) {
   const spacer = useRef(null)
   const container = useRef(null)
   const blocks = useRef([])
