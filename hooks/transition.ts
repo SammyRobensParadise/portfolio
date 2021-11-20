@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 export type Hrefs =
@@ -27,6 +27,17 @@ export default function useTransition({
 }: UseTransitionInterface): UseTransition {
   const [visibility, setVisibility] = useState<boolean>(true)
   const router = useRouter()
+
+  useEffect(() => {
+    window.addEventListener('onpopstate', () => {
+      setVisibility(false)
+    })
+    return () => {
+      window.removeEventListener('popstate', () => {
+        setVisibility(false)
+      })
+    }
+  })
 
   function handlePageTransition(href: Hrefs) {
     setVisibility(!visibility)

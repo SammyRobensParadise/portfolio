@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Plane, useCurtains } from 'react-curtains'
 import { Vec2 } from 'curtainsjs'
-import Image from 'next/image'
 
 import { vertexShader, fragmentShader } from '../../Shaders/Shaders'
 

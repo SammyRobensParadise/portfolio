@@ -9,6 +9,7 @@ import React, { ReactElement } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { Curtains } from 'react-curtains'
 
+import Scroll from '../providers/scroll/ScrollProvider'
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
 import GlitchRenderer from '../theme/Glitch/GlitchStyle'
@@ -46,7 +47,9 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
         <Sidebar />
         <ParallaxProvider>
           <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
-            <Component {...pageProps} />
+            <Scroll>
+              <Component {...pageProps} />
+            </Scroll>
           </Curtains>
         </ParallaxProvider>
         <Footer />

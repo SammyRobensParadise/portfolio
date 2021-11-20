@@ -29,6 +29,7 @@ export default function ThreeStage(
         enablePan={false}
       />
       <directionalLight
+        color="#46ffc7"
         castShadow
         position={[3, 10, 10]}
         intensity={1}
@@ -40,7 +41,7 @@ export default function ThreeStage(
         shadow-camera-top={10}
         shadow-camera-bottom={-10}
       />
-      <Suspense fallback={null}>{children}</Suspense>
+      <Suspense fallback={<mesh />}>{children}</Suspense>
     </Canvas>
   )
 }
