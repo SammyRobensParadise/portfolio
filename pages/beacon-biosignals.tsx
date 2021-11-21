@@ -26,12 +26,7 @@ const LandingPage: NextPage = (): JSX.Element => {
             className="grid justify-items-center pb-48 pt-6 md:pb-64"
             show={visibility}
             appear
-            enter={`${animate(1000, 1000)} ${cubicBezier(
-              0.97,
-              0.03,
-              0.36,
-              0.45
-            )}`}
+            enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             enterFrom="opacity-0"
             enterTo="opaciy-100"
@@ -57,7 +52,7 @@ const LandingPage: NextPage = (): JSX.Element => {
           className="px-40 relative opacity-0"
           appear
           show={visibility}
-          enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+          enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           enterFrom="opacity-0"
           enterTo="opaciy-100"
