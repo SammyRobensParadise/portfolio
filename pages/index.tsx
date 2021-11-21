@@ -21,7 +21,7 @@ const styleOffsetOverride: {
 } = { fontSize: '4.51rem', lineHeight: '1' }
 
 const LandingPage: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 3000 })
+  const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
   return (
     <>
       <Head>
