@@ -234,7 +234,10 @@ const LandingPage: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <Parallax x={['-400px', '112px']}>
-            <h2 className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white font-bold">
+            <h2
+              id="about"
+              className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white font-bold"
+            >
               About
             </h2>
           </Parallax>

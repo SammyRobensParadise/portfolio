@@ -10,6 +10,7 @@ import { animate, cubicBezier } from '../../global/helpers/animation'
 
 const NavigationBar = (): ReactElement => {
   const router = useRouter()
+
   return (
     <div className="text-cerulaen dark:text-off-white grid grid-cols-3 gap-16 p-6 text-lg font-work font-normal sticky top-0 z-50">
       <Transition
@@ -57,13 +58,19 @@ const NavigationBar = (): ReactElement => {
             Résume
           </p>
         </Link>
-        <Link href="/projects" passHref>
+        <Link
+          href={{ pathname: router.route, query: { projects: true } }}
+          passHref
+        >
           <p className="hover:underline cursor-pointer">Projects</p>
         </Link>
-        <Link href="/work" passHref>
+        <Link
+          href={{ pathname: router.route, query: { works: true } }}
+          passHref
+        >
           <p className="hover:underline cursor-pointer">Work</p>
         </Link>
-        <Link href="/about" passHref>
+        <Link href="/#about" passHref>
           <p className="hover:underline cursor-pointer">About</p>
         </Link>
       </Transition>
