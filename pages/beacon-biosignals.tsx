@@ -3,12 +3,12 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
 import { Parallax } from 'react-scroll-parallax'
-import Image from 'next/image'
 
 import ThreeStage from '../components/Stage/ThreeStage'
 import Brain from '../components/Brain/Brain'
 import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
+import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 
 const LandingPage: NextPage = (): JSX.Element => {
@@ -17,13 +17,13 @@ const LandingPage: NextPage = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Sammy - Beacon</title>
+        <title>Sammy - Beacon 🧠</title>
       </Head>
 
       <div>
         <div id="beacon-biosignals-landing">
           <Transition
-            className="grid justify-items-center pb-48 pt-6"
+            className="grid justify-items-center pb-48 pt-6 md:pb-64"
             show={visibility}
             appear
             enter={`${animate(1000, 1000)} ${cubicBezier(
@@ -43,7 +43,7 @@ const LandingPage: NextPage = (): JSX.Element => {
               the brain and change lives while doing it.
             </h1>
           </Transition>
-          <div className="z-50 relative">
+          <div className="z-50 relative transition transform">
             <Parallax y={['0px', '100px']}>
               <ThreeStage height={400}>
                 <Brain scale={0.2} position={[0, 0, -10]} shadow />
@@ -158,14 +158,8 @@ const LandingPage: NextPage = (): JSX.Element => {
             </p>
           </div>
         </Transition>
-        <div className="grid justify-items-center py-16">
-          <Image
-            src="/portal.png"
-            height="291px"
-            width="450px"
-            alt="sammy"
-            layout="intrinsic"
-          />
+        <div className="grid transform justify-items-center py-16">
+          <Flow src="/portal.png" height="291px" width="450px" alt="sammy" />
         </div>
         <div className="grid justify-items-center py-6 items-center">
           <ScrollButton handler={() => {}} name="Float Card" />
