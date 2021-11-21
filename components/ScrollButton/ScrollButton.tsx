@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react'
 import useAnimationFrame from 'use-animation-frame'
 
 import DownArrow from '../../global/assets/downArrow.svg'
-import { Hrefs } from '../../hooks/transition'
 
 export interface ScrollButtonInterface {
   name: string

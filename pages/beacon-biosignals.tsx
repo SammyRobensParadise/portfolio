@@ -162,7 +162,12 @@ const LandingPage: NextPage = (): JSX.Element => {
           <Flow src="/portal.png" height="291px" width="450px" alt="sammy" />
         </div>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton handler={() => {}} name="Float Card" />
+          <ScrollButton
+            handler={() => {
+              handlePageTransition('/float-card')
+            }}
+            name="Float Card"
+          />
         </div>
       </div>
     </>
