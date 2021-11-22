@@ -59,13 +59,19 @@ const NavigationBar = (): ReactElement => {
           </p>
         </Link>
         <Link
-          href={{ pathname: router.route, query: { projects: true } }}
+          href={{
+            pathname: router.route,
+            query: { type: 'projects', overlay: true }
+          }}
           passHref
         >
           <p className="hover:underline cursor-pointer">Projects</p>
         </Link>
         <Link
-          href={{ pathname: router.route, query: { works: true } }}
+          href={{
+            pathname: router.route,
+            query: { type: 'work', overlay: true }
+          }}
           passHref
         >
           <p className="hover:underline cursor-pointer">Work</p>

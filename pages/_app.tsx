@@ -15,6 +15,7 @@ import GlitchRenderer from '../theme/Glitch/GlitchStyle'
 import NavigationBar from '../components/Navigation/NavigationBar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
+import OverlayDialog from '../components/Dialog/OverlayDialog'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
@@ -41,16 +42,19 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       )
     }
     return (
-      <div className=" bg-off-white dark:bg-shadow">
-        <NavigationBar />
-        <Sidebar />
-        <ParallaxProvider>
-          <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
-            <Component {...pageProps} />
-          </Curtains>
-        </ParallaxProvider>
-        <Footer />
-      </div>
+      <>
+        <OverlayDialog />
+        <div className=" bg-off-white dark:bg-shadow">
+          <NavigationBar />
+          <Sidebar />
+          <ParallaxProvider>
+            <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
+              <Component {...pageProps} />
+            </Curtains>
+          </ParallaxProvider>
+          <Footer />
+        </div>
+      </>
     )
   }
   return null
