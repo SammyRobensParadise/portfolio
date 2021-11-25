@@ -59,7 +59,7 @@ export default function OverlayDialog(): JSX.Element {
             leave="ease-in duration-200"
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
-            className="relative bg-off-white dark:bg-shadow rounded mx-auto inline-block shadow-lg mt-24 overflow-y-scroll"
+            className="relative bg-off-white dark:bg-shadow rounded mx-auto inline-block shadow-lg mt-24"
           >
             <Dialog.Description className=" p-12">
               {type === 'work' && (

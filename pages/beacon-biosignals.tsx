@@ -11,7 +11,7 @@ import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 
-const LandingPage: NextPage = (): JSX.Element => {
+const BeaconBiosignals: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
 
   return (
@@ -182,4 +182,4 @@ const LandingPage: NextPage = (): JSX.Element => {
   )
 }
 
-export default LandingPage
+export default BeaconBiosignals
