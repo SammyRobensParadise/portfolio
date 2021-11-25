@@ -1,6 +1,7 @@
 import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import { Parallax } from 'react-scroll-parallax'
 
@@ -8,6 +9,8 @@ import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
+
+const scale = { width: 600 / 1.5, height: 337.5 / 1.5 }
 
 const FloatCard: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
@@ -35,7 +38,31 @@ const FloatCard: NextPage = (): JSX.Element => {
             </h1>
           </Transition>
           <div className="relative transition transform">
-            <Parallax y={['0px', '100px']} />
+            <Parallax x={['600px', '-100px']}>
+              <div className="flex flex-row justify-center p-12">
+                <div>
+                  <Image
+                    src="/float-look.png"
+                    alt="woman teaching in front of art board"
+                    {...scale}
+                  />
+                </div>
+                <div>
+                  <Image
+                    src="/float-upload.png"
+                    alt="woman teaching in front of art board"
+                    {...scale}
+                  />
+                </div>
+                <div>
+                  <Image
+                    src="/float-card.png"
+                    alt="woman teaching in front of art board"
+                    {...scale}
+                  />
+                </div>
+              </div>
+            </Parallax>
           </div>
         </div>
         <Transition
@@ -70,10 +97,10 @@ const FloatCard: NextPage = (): JSX.Element => {
               </li>
             </ul>
 
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-5xl justify-start text-left h-14 block text-cerulaen dark:text-off-white font-bold">
               My Role
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-4 py-4">
               <p className="text-shadow dark:text-off-white text-lg">
                 As a product designer at Float, I have had the rare opportunity
                 to contribute to all aspects of the product lifecycle from
