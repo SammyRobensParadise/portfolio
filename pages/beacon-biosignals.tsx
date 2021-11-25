@@ -38,7 +38,7 @@ const LandingPage: NextPage = (): JSX.Element => {
               the brain and change lives while doing it.
             </h1>
           </Transition>
-          <div className="z-50 relative transition transform">
+          <div className="relative transition transform">
             <Parallax y={['0px', '100px']}>
               {visibility && (
                 <ThreeStage height={400}>
