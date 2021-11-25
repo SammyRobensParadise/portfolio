@@ -85,6 +85,10 @@ export default function OverlayDialog(): JSX.Element {
                       ]
                     },
                     {
+                      onClick: () => {
+                        closeModal()
+                        handlePageTransition('/float-card')
+                      },
                       elements: [
                         { name: 'Float Card', type: 'text' },
                         {
