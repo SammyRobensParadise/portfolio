@@ -5,11 +5,6 @@ import { useRouter } from 'next/router'
 import Table from '../Table/Table'
 import useTransition from '../../hooks/transition'
 
-export const Title: Record<string, string> = {
-  projects: 'Projects',
-  work: 'Work'
-}
-
 export default function OverlayDialog(): JSX.Element {
   const router = useRouter()
   const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
@@ -32,10 +27,10 @@ export default function OverlayDialog(): JSX.Element {
   const type: string = router?.query.type as string
 
   return (
-    <Transition appear show={isOpen} as={Fragment}>
+    <Transition appear show={isOpen && visibility} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed inset-0 z-50 mt-12"
+        className="fixed inset-0 z-50 self-center"
         open={isOpen}
         onClose={closeModal}
       >
@@ -49,10 +44,8 @@ export default function OverlayDialog(): JSX.Element {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Dialog.Overlay className="transition transform fixed inset-0 bg-off-white dark:bg-shadow" />
+            <Dialog.Overlay className="transition transform fixed inset-0 bg-off-white dark:bg-shadow opacity" />
           </Transition.Child>
-
-          {/* This element is to trick the browser into centering the modal contents. */}
           <span
             className="inline-block h-screen align-middle"
             aria-hidden="true"
@@ -66,72 +59,125 @@ export default function OverlayDialog(): JSX.Element {
             leave="ease-in duration-200"
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
-            className="relative bg-off-white dark:bg-shadow rounded mx-auto inline-block shadow"
+            className="relative bg-off-white dark:bg-shadow rounded mx-auto inline-block shadow-lg mt-24 overflow-y-scroll"
           >
             <Dialog.Description className=" p-12">
-              <Table
-                id="work-table"
-                headers={['Work']}
-                rows={[
-                  {
-                    onClick: () => {
-                      closeModal()
-                      handlePageTransition('/beacon-biosignals')
+              {type === 'work' && (
+                <Table
+                  id="work-table"
+                  headers={['Work']}
+                  rows={[
+                    {
+                      onClick: () => {
+                        closeModal()
+                        handlePageTransition('/beacon-biosignals')
+                      },
+                      elements: [
+                        {
+                          name: 'Beacon Biosignals',
+                          type: 'text'
+                        },
+                        {
+                          type: 'style',
+                          name: 'Revolutionizing end-to-end clinician workflows with interactive data visualization and machine learning.'
+                        },
+                        { name: "'21 - Present", type: 'text' }
+                      ]
                     },
-                    elements: [
-                      {
-                        name: 'Beacon Biosignals',
-                        type: 'text'
-                      },
-                      {
-                        type: 'style',
-                        name: 'Revolutionizing end-to-end clinician workflows with interactive data visualization and machine learning.'
-                      },
-                      { name: "'21 - Present", type: 'text' }
-                    ]
-                  },
-                  {
-                    elements: [
-                      { name: 'Float Card', type: 'text' },
-                      {
-                        type: 'style',
-                        name: 'Bringing expense managment to the future.'
-                      },
-                      { name: "'20 - '21", type: 'text' }
-                    ]
-                  },
-                  {
-                    elements: [
-                      { name: 'PUMA', type: 'text' },
-                      {
-                        type: 'style',
-                        name: 'Leading better design for data scientists'
-                      },
-                      { name: "'20 - '20", type: 'text' }
-                    ]
-                  },
-                  {
-                    elements: [
-                      { name: 'Hootsuite', type: 'text' },
-                      {
-                        type: 'style',
-                        name: "Kickstarting Hootsuite's W3C AA/AAA accessibility implementation strategy."
-                      },
-                      { name: "'19 - '19", type: 'text' }
-                    ]
-                  },
-                  {
-                    elements: [
-                      { name: 'Unity, Finger Foods', type: 'text' },
-                      {
-                        type: 'style',
-                        name: 'AR, VR, XR, computer vision and your childhood toys re-imagined '
-                      },
-                      { name: "'18 - '19", type: 'text' }
-                    ]
-                  }
-                ]}
-              />
+                    {
+                      elements: [
+                        { name: 'Float Card', type: 'text' },
+                        {
+                          type: 'style',
+                          name: 'Bringing expense managment to the future.'
+                        },
+                        { name: "'20 - '21", type: 'text' }
+                      ]
+                    },
+                    {
+                      elements: [
+                        { name: 'PUMA', type: 'text' },
+                        {
+                          type: 'style',
+                          name: 'Leading better design for data scientists'
+                        },
+                        { name: "'20 - '20", type: 'text' }
+                      ]
+                    },
+                    {
+                      elements: [
+                        { name: 'Hootsuite', type: 'text' },
+                        {
+                          type: 'style',
+                          name: "Kickstarting Hootsuite's W3C AA/AAA accessibility implementation strategy."
+                        },
+                        { name: "'19 - '19", type: 'text' }
+                      ]
+                    },
+                    {
+                      elements: [
+                        { name: 'Unity, Finger Foods', type: 'text' },
+                        {
+                          type: 'style',
+                          name: 'AR, VR, XR, computer vision and your childhood toys re-imagined '
+                        },
+                        { name: "'18 - '19", type: 'text' }
+                      ]
+                    }
+                  ]}
+                />
+              )}
+              {type === 'projects' && (
+                <Table
+                  id="projects-table"
+                  headers={['Projects']}
+                  rows={[
+                    {
+                      elements: [
+                        {
+                          name: 'Verify, Social Media',
+                          type: 'text'
+                        },
+                        {
+                          type: 'style',
+                          name: 'Uncover mis-information right in your instagram feed.'
+                        },
+                        { name: "'21 - Present", type: 'text' }
+                      ]
+                    },
+                    {
+                      elements: [
+                        { name: 'Github Stats', type: 'text' },
+                        {
+                          type: 'style',
+                          name: 'Report Github contributions on your websites.'
+                        },
+                        { name: "'20 - Present", type: 'text' }
+                      ]
+                    },
+                    {
+                      elements: [
+                        { name: 'Intensif-Eye, AI', type: 'text' },
+                        {
+                          type: 'style',
+                          name: 'Information access for our visually impared.'
+                        },
+                        { name: "'19'", type: 'text' }
+                      ]
+                    },
+                    {
+                      elements: [
+                        { name: 'Arduino Scream', type: 'text' },
+                        {
+                          type: 'style',
+                          name: 'Open a safe by screaming at it? Sure thing!'
+                        },
+                        { name: "'19", type: 'text' }
+                      ]
+                    }
+                  ]}
+                />
+              )}
             </Dialog.Description>
           </Transition.Child>
         </div>
