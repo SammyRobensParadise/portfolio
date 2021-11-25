@@ -38,7 +38,7 @@ const FloatCard: NextPage = (): JSX.Element => {
             </h1>
           </Transition>
           <div className="relative transition transform">
-            <Parallax x={['600px', '-100px']}>
+            <Parallax x={['400px', '-100px']}>
               <div className="flex flex-row justify-center p-12">
                 <div>
                   <Image
