@@ -130,6 +130,9 @@ const LandingPage: NextPage = (): JSX.Element => {
                 ]
               },
               {
+                onClick: () => {
+                  handlePageTransition('/float-card')
+                },
                 elements: [
                   { name: 'Float Card', type: 'text' },
                   {
