@@ -10,25 +10,25 @@ const Sidebar = (): JSX.Element => (
   <div className="fixed right-12 bottom-1/3 flex flex-col text-cerulaen dark:text-off-white space-y-8 z-50">
     <a
       href={constants.urls.LINKEDIN_URL}
-      className="transform transition hover:scale-200"
+      className="transform transition hover:scale-200 focus:scale-200 outline-none"
     >
       <Linkedin />
     </a>
     <a
       href={constants.urls.GITHUB_URL}
-      className="transform transition hover:scale-200"
+      className="transform transition hover:scale-200 focus:scale-200 outline-none"
     >
       <Github />
     </a>
     <a
       href={constants.urls.DRIBBBLE_URL}
-      className="transform transition hover:scale-200"
+      className="transform transition hover:scale-200 focus:scale-200 outline-none"
     >
       <Dribbble />
     </a>
     <a
       href={constants.urls.MEDIUM_URL}
-      className="transform transition hover:scale-200"
+      className="transform transition hover:scale-200 focus:scale-200 outline-none"
     >
       <Medium />
     </a>

@@ -62,7 +62,7 @@ export default function ScrollButton({
   return (
     <button
       type="button"
-      className="text-cerulaen dark:text-off-white grid justify-items-center"
+      className="transform transition text-cerulaen dark:text-off-white grid justify-items-center focus:ring-offset-shadow outline-none hover:scale-125 focus:scale-125"
       onClick={handler}
     >
       <h3 className="text-2xl justify-center text-center block py-4 text-cerulaen dark:text-off-white font-bold">

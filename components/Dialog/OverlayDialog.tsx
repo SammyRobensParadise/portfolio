@@ -17,10 +17,11 @@ export default function OverlayDialog(): JSX.Element {
   }
 
   useEffect(() => {
-    if (router?.query) {
-      if (router.query.overlay) {
-        setIsOpen(true)
-      }
+    if (router.query?.overlay) {
+      setIsOpen(true)
+    }
+    return () => {
+      setIsOpen(false)
     }
   }, [router, router.query])
 
