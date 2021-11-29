@@ -49,15 +49,12 @@ export default function ScrollButton({
     [loadingBuffer, percentage, setPercentage, setLastTime]
   )
 
-  const handleScrollWheel = useCallback(() => {}, [])
-
   useEffect(() => {
     window.addEventListener('scroll', handleTransitionAtBottom)
-    window.addEventListener('wheel', handleScrollWheel)
     return () => {
       window.removeEventListener('scroll', handleTransitionAtBottom)
     }
-  }, [handleScrollWheel, handleTransitionAtBottom])
+  }, [handleTransitionAtBottom])
 
   return (
     <button
