@@ -33,7 +33,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-center">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-left">
               Working with Beacon Biosignals to revolutionize the way we analyze
               the brain and change lives while doing it.
             </h1>

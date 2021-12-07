@@ -33,7 +33,7 @@ const FloatCard: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-center">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-left">
               Orchestrating the dream-to-design-to-build pipeline for Float Inc.
             </h1>
           </Transition>
