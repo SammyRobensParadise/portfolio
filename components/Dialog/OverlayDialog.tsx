@@ -7,7 +7,7 @@ import useTransition from '../../hooks/transition'
 
 export default function OverlayDialog(): JSX.Element {
   const router = useRouter()
-  const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
+  const { handlePageTransition } = useTransition({ timeout: 1000 })
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -26,9 +26,8 @@ export default function OverlayDialog(): JSX.Element {
   }, [router, router.query])
 
   const type: string = router?.query.type as string
-
   return (
-    <Transition appear show={isOpen && visibility} as={Fragment}>
+    <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as="div"
         className="fixed inset-0 z-50 self-center"
@@ -62,7 +61,7 @@ export default function OverlayDialog(): JSX.Element {
             leaveTo="opacity-0 scale-95"
             className="relative bg-off-white dark:bg-shadow rounded mx-auto inline-block shadow-lg mt-24"
           >
-            <Dialog.Description className=" p-12">
+            <Dialog.Description className=" p-12" as="div">
               {type === 'work' && (
                 <Table
                   id="work-table"
@@ -100,6 +99,10 @@ export default function OverlayDialog(): JSX.Element {
                       ]
                     },
                     {
+                      onClick: () => {
+                        closeModal()
+                        handlePageTransition('/puma')
+                      },
                       elements: [
                         { name: 'PUMA', type: 'text' },
                         {

@@ -23,7 +23,7 @@ export interface UseTransition {
 }
 
 export default function useTransition({
-  timeout = 1000
+  timeout = 250
 }: UseTransitionInterface): UseTransition {
   const [visibility, setVisibility] = useState<boolean>(true)
   const router = useRouter()

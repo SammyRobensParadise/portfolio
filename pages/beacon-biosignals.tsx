@@ -12,7 +12,7 @@ import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 
 const BeaconBiosignals: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
+  const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
 
   return (
     <>
@@ -23,17 +23,17 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
       <div>
         <div id="beacon-biosignals-landing">
           <Transition
-            className="grid justify-items-center pb-48 pt-6 md:pb-64"
+            className="px-40 pb-48 pt-6 md:pb-64"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-            leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+            leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             enterFrom="opacity-0"
             enterTo="opaciy-100"
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-left">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
               Working with Beacon Biosignals to revolutionize the way we analyze
               the brain and change lives while doing it.
             </h1>

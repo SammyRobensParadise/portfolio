@@ -21,7 +21,7 @@ const styleOffsetOverride: {
 } = { fontSize: '4.51rem', lineHeight: '1' }
 
 const LandingPage: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
+  const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
   return (
     <>
       <Head>
@@ -39,7 +39,7 @@ const LandingPage: NextPage = (): JSX.Element => {
               0.36,
               0.45
             )}`}
-            leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+            leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             enterFrom="opacity-0"
             enterTo="opaciy-100"
             leaveTo="opacity-0"
@@ -105,7 +105,7 @@ const LandingPage: NextPage = (): JSX.Element => {
           enter="transition-opacity ease-linear duration-300 delay-300"
           enterFrom="opacity-0"
           enterTo="opacity-100"
-          leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+          leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           leaveTo="opacity-0 -translate-x-full scale-150"
           leaveFrom="opacity-100"
         >
@@ -143,6 +143,9 @@ const LandingPage: NextPage = (): JSX.Element => {
                 ]
               },
               {
+                onClick: () => {
+                  handlePageTransition('/puma')
+                },
                 elements: [
                   { name: 'PUMA', type: 'text' },
                   {
