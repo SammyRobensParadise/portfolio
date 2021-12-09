@@ -53,11 +53,11 @@ const NavigationBar = (): ReactElement => {
         enterFrom="opacity-0"
         enterTo="opaciy-100"
       >
-        <Link href={RESUME_FILE_NAME} passHref>
+        <a href={`/${RESUME_FILE_NAME}`}>
           <p className="hover:underline transition-all cursor-pointer">
             Résume
           </p>
-        </Link>
+        </a>
         <Link
           href={{
             pathname: router.route,

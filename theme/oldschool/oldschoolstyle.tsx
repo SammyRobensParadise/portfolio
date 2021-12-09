@@ -16,7 +16,7 @@ import {
   LoadingIndicator
 } from 'react95'
 
-import constants from '../../global/constants/constants'
+import constants, { RESUME_FILE_NAME } from '../../global/constants/constants'
 import OldSchool from '../../providers/oldschool'
 import { animate, cubicBezier } from '../../global/helpers/animation'
 
@@ -30,7 +30,7 @@ const NavigationBar = (): ReactElement => (
   <AppBar className="font-mono bottom-0" style={{ top: 'auto' }}>
     <Toolbar>
       <Bar size={35} />
-      <a href={constants.urls.RESUME_URL()}>
+      <a href={`${RESUME_FILE_NAME}`}>
         <Button variant="menu">Resume</Button>
       </a>
       <a href={constants.urls.LINKEDIN_URL}>

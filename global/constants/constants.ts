@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 
 export const RESUME_FILE_NAME = 'SammyRPResume.pdf'
+export const ENGINEERING_PAPER_SOURCE_CONTROL_NAME = 'SammyRPScmPaper.pdf'
+export const ENGINEERING_PAPER_DESIGN_SYSTEM_NAME = 'SammyRPDesignPaper.pdf'
 
 const constants = {
   urls: {

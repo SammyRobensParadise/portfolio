@@ -10,6 +10,7 @@ import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
+import { ENGINEERING_PAPER_DESIGN_SYSTEM_NAME } from '../global/constants/constants'
 
 const BeaconBiosignals: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
@@ -87,6 +88,18 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
                 I spend my time co-developing brainwave data visualization
                 interfaces in React and Figma seeking continuious feedback and
                 iteration from key stakeholders.
+              </li>
+              <li>
+                Architected, and implemented the infrastructure behind the
+                Beacon design system and component library to meet the needs of
+                the component library&#39;s primary users, and I{' '}
+                <a
+                  href={`/${ENGINEERING_PAPER_DESIGN_SYSTEM_NAME}`}
+                  className="underline hover:text-cerulaen outline-none focus:text-cerulaen"
+                >
+                  wrote a paper about it
+                </a>{' '}
+                (you should give it a read 😉)!
               </li>
             </ul>
 

@@ -8,6 +8,7 @@ import Image from 'next/image'
 import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
+import { ENGINEERING_PAPER_SOURCE_CONTROL_NAME } from '../global/constants/constants'
 
 const scale = { width: 400, height: 300 }
 
@@ -78,23 +79,34 @@ const Puma: NextPage = (): JSX.Element => {
                 <li>
                   Conducted structured design walkthroughs with internal
                   environmental data scientists to diagnose task specific
-                  challeges
+                  challeges.
                 </li>
                 <li>
                   Developed heuristic signal detection theory evaluation to
-                  determine artifact stress
+                  determine artifact stress.
                 </li>
                 <li>
                   Designed a complete component design system and worked closely
                   with PUMA’s marketing team to curate a new W3C AAA accessible
-                  color palette
+                  color palette.
                 </li>
                 <li>
                   built a front-end component library to be used by PUMA to
                   increase UI consistency of user-facing code, improve
                   scalability, and improve accessibility throughout the product.
                   The design system reduced front-end infrastructure by over
-                  30,000 lines of code
+                  30,000 lines of code.
+                </li>
+                <li>
+                  Orchestracted migration from SVN to git and github for the
+                  PUMA engineering team, and{' '}
+                  <a
+                    href={`/${ENGINEERING_PAPER_SOURCE_CONTROL_NAME}`}
+                    className="underline hover:text-cerulaen outline-none focus:text-cerulaen"
+                  >
+                    wrote an engineering paper about it
+                  </a>
+                  .
                 </li>
               </ul>
             </Parallax>
