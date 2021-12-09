@@ -48,9 +48,9 @@ const Puma: NextPage = (): JSX.Element => {
               data scientists (and more)
             </h1>
           </Transition>
-          <div className="relative transition transform bg-cerulaen mb-16 overflow-x-visible">
+          <div className="relative transition transform bg-cerulaen dark:bg-highlight  mb-16 overflow-x-visible">
             <Parallax x={[10, -2]}>
-              <p className="py-4 px-4 bg-cerulaen dark:bg-off-white dark:text-shadow text-off-white text-2xl font-black uppercase flex flex-nowrap w-max transition-all hover:py-8">
+              <p className="py-4 px-4 bg-cerulaen dark:bg-highlight dark:text-shadow text-off-white text-2xl font-black uppercase flex flex-nowrap w-max transition-all hover:py-8">
                 Leading designer and systems engineer at PUMA, responsible for
                 user experience research, graphic and interface design
               </p>
