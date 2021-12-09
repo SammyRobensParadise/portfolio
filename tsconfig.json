@@ -15,6 +15,7 @@
     "jsx": "preserve",
     "strictPropertyInitialization": false
   },
+
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -25,5 +26,5 @@
     "components/Brain/Brain.jsx",
     "providers/scroll/ScrollProvider.jsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "components/Blob/blobCreator.js"]
 }
