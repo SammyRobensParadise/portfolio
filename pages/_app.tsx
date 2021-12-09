@@ -1,4 +1,4 @@
-import '../styles/globals.scss'
+import '../styles/globals.css'
 import '../styles/tv.scss'
 import '../styles/glitch.scss'
 import '../styles/three.scss'
