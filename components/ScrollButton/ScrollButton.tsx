@@ -29,7 +29,6 @@ export default function ScrollButton({
   function handleEvent() {
     handler()
   }
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   useAnimationFrame(
     ({ time }: { time: number; delta: number }) => {
       if (loadingBuffer) {

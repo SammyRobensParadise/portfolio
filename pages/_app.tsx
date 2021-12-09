@@ -23,7 +23,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
     const { state } = oldSchool
     if (state?.react95Visible && state?.glitchVisible) {
       return (
-        <div className="h-screen bg-shadow">
+        <div className="h-screen dark:bg-shadow bg-off-white">
           <Head>
             <title>💾</title>
           </Head>
@@ -33,7 +33,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
     }
     if (!state?.react95Visible && state?.glitchVisible) {
       return (
-        <div className="h-screen bg-off-white">
+        <div className="h-screen bg-off-white dark:bg-shadow">
           <Head>
             <title>🌩️</title>
           </Head>

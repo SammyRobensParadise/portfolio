@@ -5,4 +5,9 @@ declare module 'lerp'
 declare module 'react-curtains'
 declare module 'curtainsjs'
 declare module 'troika-three-text'
-declare module 'use-animation-frame'
+declare module 'use-animation-frame' {
+  export default function useAnimationFrame(
+    callback: ({ time, delta }: { time: number; delta: number }) => void,
+    dependencies: Array<T>
+  )
+}

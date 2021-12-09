@@ -16,7 +16,7 @@ const DEFAULT_INTERVAL_TIMEOUT = 100
  * Transition timeout
  */
 const TRANSITION_TIMEOUT: number =
-  DEFAULT_INTERVAL_TIMEOUT * MESSAGE.length + 1500
+  DEFAULT_INTERVAL_TIMEOUT * MESSAGE.length + 1000
 /**
  * Animation duration
  */
@@ -56,7 +56,7 @@ const GlitchRenderer = (): ReactElement => {
 
   return (
     <Transition
-      className="flex items-center justify-between align-center p-40 h-screen bg-shadow"
+      className="flex items-center justify-between align-center p-40 h-screen bg-off-white dark:bg-shadow "
       appear
       show={show}
       leave={`${animate(TRANSITION_DURATION)} ${cubicBezier(
@@ -65,15 +65,12 @@ const GlitchRenderer = (): ReactElement => {
         0.36,
         0.45
       )}`}
-      leaveFrom="scale-100 h-screen bg-shadow"
+      leaveFrom="scale-100 h-screen bg-off-white dark:bg-shadow"
       leaveTo="scale-200 opacity-0 h-screen bg-off-white dark:bg-shadow"
     >
-      <div className="gl-center">
-        <div className="glitch-effect" data-text={printMessage}>
-          {printMessage}
-        </div>
-        <div className="glow">{printMessage}</div>
-      </div>
+      <h1 className="text-4xl dark:text-off-white text-cerulaen">
+        {printMessage}
+      </h1>
     </Transition>
   )
 }

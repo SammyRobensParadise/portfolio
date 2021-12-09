@@ -129,16 +129,16 @@ const FloatCard: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <Transition
-          className="px-40 relative"
+          appear
           show={visibility}
-          enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-          leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+          enter="transition-opacity ease-linear duration-300 delay-300"
           enterFrom="opacity-0"
-          enterTo="opaciy-100"
-          leaveTo="opacity-0"
+          enterTo="opacity-100"
+          leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+          leaveTo="opacity-0 translate-x-full scale-150 h-full"
           leaveFrom="opacity-100"
         >
-          <div className="grid transform justify-items-center py-16">
+          <div className="grid justify-items-center py-16">
             <Flow
               src="/credit-card-render.png"
               height="408px"

@@ -18,7 +18,6 @@ import {
 
 import constants, { RESUME_FILE_NAME } from '../../global/constants/constants'
 import OldSchool from '../../providers/oldschool'
-import { animate, cubicBezier } from '../../global/helpers/animation'
 
 const GlobalStyles = createGlobalStyle`
   ${styleReset}
@@ -142,19 +141,19 @@ const OldSchoolRenderer = (): ReactElement => {
       setTimeout(() => {
         oldSchool.hideReact95()
         oldSchool.showGlitch()
-      }, 500)
+      }, 1000)
     }
   }
 
   return (
-    <div className="screen glitch pointer bg-shadow">
+    <div className="screen glitch pointer bg-off-white dark:bg-shadow">
       <Transition
-        className="bg-shadow"
+        className="dark:bg-shadow bg-off-white"
         appear
         show={transition}
-        leave={`${animate(250)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-        leaveFrom="scale-100 opacity-100 bg-teal"
-        leaveTo="scale-0 opacity-25 bg-white"
+        leave="transition-all ease-linear duration-1000"
+        leaveFrom="opacity-100 bg-teal"
+        leaveTo="opacity-0 bg-off-white"
       >
         <div className="h-screen bg-teal">
           <GlobalStyles />
