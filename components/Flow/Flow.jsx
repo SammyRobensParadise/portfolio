@@ -135,28 +135,30 @@ function Flow({ src, alt, height, width }) {
   }
 
   return (
-    <Plane
-      className="SimplePlane"
-      // plane init parameters
-      vertexShader={vertexShader}
-      fragmentShader={fragmentShader}
-      widthSegments={20}
-      heightSegments={20}
-      uniforms={uniforms}
-      // plane events
-      onReady={onReady}
-      onRender={onRender}
-      onAfterResize={onAfterResize}
-      style={{ width, height }}
-    >
-      <img
-        src={src}
-        data-sampler="simplePlaneTexture"
-        alt={alt}
-        height={height}
-        width={width}
-      />
-    </Plane>
+    <div>
+      <Plane
+        className="SimplePlane"
+        // plane init parameters
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+        widthSegments={20}
+        heightSegments={20}
+        uniforms={uniforms}
+        // plane events
+        onReady={onReady}
+        onRender={onRender}
+        onAfterResize={onAfterResize}
+        style={{ width, height }}
+      >
+        <img
+          src={src}
+          data-sampler="simplePlaneTexture"
+          alt={alt}
+          height={height}
+          width={width}
+        />
+      </Plane>
+    </div>
   )
 }
 

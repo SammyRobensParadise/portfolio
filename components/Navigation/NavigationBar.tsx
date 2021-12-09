@@ -8,6 +8,9 @@ import Icon from '../../global/assets/Icon.svg'
 import { RESUME_FILE_NAME } from '../../global/constants/constants'
 import { animate, cubicBezier } from '../../global/helpers/animation'
 
+const style =
+  'transform translate transition-all hover:underline cursor-pointer hover:skew-x-6 hover:skew-y-6 focus:skew-x-6 focus:skew-y-6 outline-none'
+
 const NavigationBar = (): ReactElement => {
   const router = useRouter()
 
@@ -54,9 +57,7 @@ const NavigationBar = (): ReactElement => {
         enterTo="opaciy-100"
       >
         <a href={`/${RESUME_FILE_NAME}`}>
-          <p className="hover:underline transition-all cursor-pointer">
-            Résume
-          </p>
+          <p className={style}>Résume</p>
         </a>
         <Link
           href={{
@@ -65,7 +66,7 @@ const NavigationBar = (): ReactElement => {
           }}
           passHref
         >
-          <p className="hover:underline cursor-pointer">Projects</p>
+          <p className={style}>Projects</p>
         </Link>
         <Link
           href={{
@@ -74,10 +75,10 @@ const NavigationBar = (): ReactElement => {
           }}
           passHref
         >
-          <p className="hover:underline cursor-pointer">Work</p>
+          <p className={style}>Work</p>
         </Link>
         <Link href="/#about" passHref>
-          <p className="hover:underline cursor-pointer">About</p>
+          <p className={style}>About</p>
         </Link>
       </Transition>
     </div>

@@ -46,7 +46,7 @@ const LandingPage: NextPage = (): JSX.Element => {
             leaveFrom="opacity-100"
           >
             <Transition.Child
-              className="p-24 pt-48"
+              className="p-24 pt-48 z-30"
               enter="transition-opacity ease-linear duration-300 delay-300"
               enterFrom="opacity-0"
               enterTo="opacity-100"
@@ -75,7 +75,7 @@ const LandingPage: NextPage = (): JSX.Element => {
               <Parallax y={[-50, 50]}>
                 <div className="flex">
                   <BlobElement
-                    color="#2B2B2B black"
+                    color="#2B2B2B"
                     className="absolute"
                     radius={250}
                     height={500}
