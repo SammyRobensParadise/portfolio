@@ -14,6 +14,10 @@ import ScrollButton from '../components/ScrollButton/ScrollButton'
 const BeaconBiosignals: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
 
+  function handleScrollButtonClick() {
+    handlePageTransition('/float-card')
+  }
+
   return (
     <>
       <Head>
@@ -170,12 +174,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton
-            handler={() => {
-              handlePageTransition('/float-card')
-            }}
-            name="Float Card"
-          />
+          <ScrollButton handler={handleScrollButtonClick} name="Float Card" />
         </div>
       </div>
     </>

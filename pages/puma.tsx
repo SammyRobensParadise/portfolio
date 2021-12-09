@@ -9,10 +9,14 @@ import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 
-const scale = { width: 600 / 1.5, height: 337.5 / 1.5 }
+const scale = { width: 400, height: 300 }
 
 const Puma: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
+
+  function handleScrollButtonClick() {
+    handlePageTransition('/puma')
+  }
 
   return (
     <>
@@ -121,25 +125,50 @@ const Puma: NextPage = (): JSX.Element => {
           leaveTo="opacity-0"
           leaveFrom="opacity-100"
         >
-          <Parallax x={['500px', '-100px']}>
+          <Parallax x={[20, -10]}>
             <div className="flex flex-row justify-center p-12">
               <div>
                 <Image
-                  src="/float-look.png"
+                  src="/puma-colors.png"
                   alt="woman teaching in front of art board"
                   {...scale}
                 />
               </div>
               <div>
                 <Image
-                  src="/float-upload.png"
+                  src="/puma-checkboxes.png"
                   alt="woman teaching in front of art board"
                   {...scale}
                 />
               </div>
               <div>
                 <Image
-                  src="/float-card.png"
+                  src="/puma-tooltip.png"
+                  alt="woman teaching in front of art board"
+                  {...scale}
+                />
+              </div>
+            </div>
+          </Parallax>
+          <Parallax x={[-10, 10]}>
+            <div className="flex flex-row justify-center p-12">
+              <div>
+                <Image
+                  src="/puma-badge.png"
+                  alt="woman teaching in front of art board"
+                  {...scale}
+                />
+              </div>
+              <div>
+                <Image
+                  src="/puma-dropdown.png"
+                  alt="woman teaching in front of art board"
+                  {...scale}
+                />
+              </div>
+              <div>
+                <Image
+                  src="/puma-tooltip.png"
                   alt="woman teaching in front of art board"
                   {...scale}
                 />
@@ -148,12 +177,7 @@ const Puma: NextPage = (): JSX.Element => {
           </Parallax>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton
-            handler={() => {
-              handlePageTransition('/puma')
-            }}
-            name="Float Card"
-          />
+          <ScrollButton handler={handleScrollButtonClick} name="Hootsuite" />
         </div>
       </div>
     </>

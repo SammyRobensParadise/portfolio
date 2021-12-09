@@ -14,7 +14,9 @@ const scale = { width: 600 / 1.5, height: 337.5 / 1.5 }
 
 const FloatCard: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
-
+  function handleScrollButtonClick() {
+    handlePageTransition('/puma')
+  }
   return (
     <>
       <Head>
@@ -37,33 +39,31 @@ const FloatCard: NextPage = (): JSX.Element => {
               Orchestrating the dream-to-design-to-build pipeline for Float Inc.
             </h1>
           </Transition>
-          <div className="relative transition transform">
-            <Parallax x={['500px', '-100px']}>
-              <div className="flex flex-row justify-center p-12">
-                <div>
-                  <Image
-                    src="/float-look.png"
-                    alt="woman teaching in front of art board"
-                    {...scale}
-                  />
-                </div>
-                <div>
-                  <Image
-                    src="/float-upload.png"
-                    alt="woman teaching in front of art board"
-                    {...scale}
-                  />
-                </div>
-                <div>
-                  <Image
-                    src="/float-card.png"
-                    alt="woman teaching in front of art board"
-                    {...scale}
-                  />
-                </div>
+          <Parallax x={['500px', '-100px']}>
+            <div className="flex flex-row justify-center p-12">
+              <div>
+                <Image
+                  src="/float-look.png"
+                  alt="woman teaching in front of art board"
+                  {...scale}
+                />
               </div>
-            </Parallax>
-          </div>
+              <div>
+                <Image
+                  src="/float-upload.png"
+                  alt="woman teaching in front of art board"
+                  {...scale}
+                />
+              </div>
+              <div>
+                <Image
+                  src="/float-card.png"
+                  alt="woman teaching in front of art board"
+                  {...scale}
+                />
+              </div>
+            </div>
+          </Parallax>
         </div>
         <Transition
           className="px-40 relative opacity-0"
@@ -148,12 +148,7 @@ const FloatCard: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton
-            handler={() => {
-              handlePageTransition('/float-card')
-            }}
-            name="Float Card"
-          />
+          <ScrollButton handler={handleScrollButtonClick} name="Puma" />
         </div>
       </div>
     </>

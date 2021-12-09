@@ -33,7 +33,7 @@ export default function ScrollButton({
   useAnimationFrame(
     ({ time }: { time: number; delta: number }) => {
       if (loadingBuffer) {
-        if (time > lastTime + 0.25) {
+        if (time > lastTime + 0.1) {
           const newPer = percentage + 1
           setPercentage(newPer)
           setLastTime(time)
@@ -62,11 +62,10 @@ export default function ScrollButton({
       className="transform transition text-cerulaen dark:text-off-white grid justify-items-center focus:ring-offset-shadow outline-none hover:scale-125 focus:scale-125"
       onClick={handler}
     >
-      <h3 className="text-2xl justify-center text-center block py-4 text-cerulaen dark:text-off-white font-bold">
-        Scroll
-      </h3>
-      {loadingBuffer && (
+      {loadingBuffer ? (
         <p className="pb-4 animate-pulse">{`${percentage.toString()}%`}</p>
+      ) : (
+        <div className="h-10" />
       )}
       <DownArrow className="animate-bounce" />
       <p className=" text-lg justify-center text-center py-2 text-cerulaen dark:text-off-white">
