@@ -146,7 +146,7 @@ const OldSchoolRenderer = (): ReactElement => {
   }
 
   return (
-    <div className="screen glitch pointer bg-off-white dark:bg-shadow">
+    <div className="glitch pointer bg-off-white dark:bg-shadow">
       <Transition
         className="dark:bg-shadow bg-off-white"
         appear
