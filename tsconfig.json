@@ -24,7 +24,7 @@
     "components/Flow/Flow.jsx",
     "components/Blob/Blob.jsx",
     "components/Brain/Brain.jsx",
-    "providers/scroll/ScrollProvider.jsx"
+    "providers/**/*.tsx"
   ],
   "exclude": ["node_modules", "components/Blob/blobCreator.js"]
 }

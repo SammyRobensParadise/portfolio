@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
 const initialSeconds = 30
 
 const NavigationBar = (): ReactElement => (
-  <AppBar className="font-mono bottom-0" style={{ top: 'auto' }}>
+  <AppBar style={{ top: 'auto', bottom: '0', fontFamily: 'Ms Sans' }}>
     <Toolbar>
       <Bar size={35} />
       <a href={`${RESUME_FILE_NAME}`}>
@@ -88,8 +88,17 @@ const WindowElement = ({
   })
 
   return (
-    <Window className="font-mono w-64 flex items-center justify-between window">
-      <WindowHeader className="window-header cursor-move">
+    <Window
+      className="window"
+      style={{
+        fontFamily: 'Ms Sans',
+        width: '16rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContet: 'space-between'
+      }}
+    >
+      <WindowHeader className="window-header" style={{ cursor: 'move' }}>
         <span>s_robens_paradise.exe</span>
       </WindowHeader>
       <Toolbar>
@@ -104,10 +113,14 @@ const WindowElement = ({
         </Tooltip>
       </Toolbar>
       <WindowContent>
-        <p className="pb-4">Press the Enter Key or Click the Button to Begin</p>
+        <p style={{ paddingBottom: '1rem' }}>
+          Press the Enter Key or Click the Button to Begin
+        </p>
         {seconds === 0 || showLoading ? (
           <>
-            <p className="text-center mb-2">Loading...</p>
+            <p style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+              Loading...
+            </p>
             <LoadingIndicator isLoading />
           </>
         ) : (
@@ -118,7 +131,7 @@ const WindowElement = ({
           </>
         )}
 
-        <Button className="mt-4" onClick={handleTransition}>
+        <Button style={{ marginTop: '1rem' }} onClick={handleTransition}>
           Begin Viewing Portfolio
         </Button>
       </WindowContent>
@@ -155,11 +168,17 @@ const OldSchoolRenderer = (): ReactElement => {
         leaveFrom="opacity-100 bg-teal"
         leaveTo="opacity-0 bg-off-white"
       >
-        <div className="h-screen bg-teal">
+        <div
+          className="h-screen bg-teal"
+          style={{ backgroundColor: 'rgba(0, 128, 128, 1)' }}
+        >
           <GlobalStyles />
           <ThemeProvider theme={original as unknown}>
             <NavigationBar />
-            <div className="grid justify-items-center p-16  bg-teal">
+            <div
+              className="grid justify-items-center p-16  bg-teal"
+              style={{ backgroundColor: 'rgba(0, 128, 128, 1)' }}
+            >
               <div>
                 <WindowElement forwardedEvent={handleSetTransition} />
               </div>
