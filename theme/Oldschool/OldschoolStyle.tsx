@@ -93,9 +93,11 @@ const WindowElement = ({
       style={{
         fontFamily: 'Ms Sans',
         width: '16rem',
-        display: 'flex',
+        display: 'block',
         alignItems: 'center',
-        justifyContet: 'space-between'
+        justifyContet: 'space-between',
+        marginTop: '2rem',
+        padding: '0.5rem'
       }}
     >
       <WindowHeader className="window-header" style={{ cursor: 'move' }}>
@@ -169,16 +171,12 @@ const OldSchoolRenderer = (): ReactElement => {
         leaveTo="opacity-0 bg-off-white"
       >
         <div
-          className="h-screen bg-teal"
-          style={{ backgroundColor: 'rgba(0, 128, 128, 1)' }}
+          style={{ backgroundColor: 'rgba(0, 128, 128, 1)', height: '100vh' }}
         >
           <GlobalStyles />
           <ThemeProvider theme={original as unknown}>
             <NavigationBar />
-            <div
-              className="grid justify-items-center p-16  bg-teal"
-              style={{ backgroundColor: 'rgba(0, 128, 128, 1)' }}
-            >
+            <div className="grid justify-items-center p-16  bg-teal">
               <div>
                 <WindowElement forwardedEvent={handleSetTransition} />
               </div>

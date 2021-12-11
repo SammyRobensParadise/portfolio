@@ -56,7 +56,14 @@ const GlitchRenderer = (): ReactElement => {
 
   return (
     <Transition
-      className="flex items-center justify-between align-center p-40 h-screen bg-off-white dark:bg-shadow "
+      className="flex items-center justify-between align-center p-40 h-screen bg-off-white dark:bg-shadow"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '10rem',
+        backgroundColor: 'rgba(229, 229, 229, 1)'
+      }}
       appear
       show={show}
       leave={`${animate(TRANSITION_DURATION)} ${cubicBezier(
@@ -68,7 +75,14 @@ const GlitchRenderer = (): ReactElement => {
       leaveFrom="scale-100 h-screen bg-off-white dark:bg-shadow"
       leaveTo="scale-200 opacity-0 h-screen bg-off-white dark:bg-shadow"
     >
-      <h1 className="text-4xl dark:text-off-white text-cerulaen">
+      <h1
+        className="text-4xl dark:text-off-white text-cerulaen"
+        style={{
+          fontSize: '2.25rem',
+          lineHeight: '2.5rem',
+          color: 'color: rgba(63, 70, 243, 1)'
+        }}
+      >
         {printMessage}
       </h1>
     </Transition>
