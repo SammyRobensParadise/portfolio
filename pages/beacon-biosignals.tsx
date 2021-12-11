@@ -111,13 +111,13 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             </h3>
             <div className="space-y-4">
               <p className="text-shadow dark:text-off-white text-lg">
-                Beacon Biosignals’ brainwave, and biometric detection models
+                Beacon Biosignals&#39; brainwave, and biometric detection models
                 accelerate clinical trials and enable new treatments for
                 patients with neurological and psychiatric disease. By using
                 advanced machine learning to quicly identify critical biomarkers
                 Beacon can surface only the most critical information for
                 neurologists to make life altering decisions. The problem?
-                Looking at brain data isn’t exactly straight forward, and as a
+                Looking at brain data isn&#39;t exactly straight forward, and as a
                 result, neither are the tools we need to do it.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
@@ -128,7 +128,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
                 information is required. More data means more processing time,
                 and when it comes to the world wide web, this means more
                 latency. Data latency proves detremental to the workflow of
-                neurologists and data scientists who rely on Beacon’s portal to
+                neurologists and data scientists who rely on Beacon&#39;s portal to
                 adjudicate brainwave data. A solution bringing post-processed
                 data to the client without latency was needed.
               </p>
@@ -144,7 +144,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
                 threaded. Meaning that although asyncronous and done via web
                 socket, loading brainwave data into the browser would block the
                 main thread. This inhibited renders and additional processes
-                degrading the platform’s UX.
+                degrading the platform&#39;s UX.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
                 The remedy was the Web Worker, a browser feature that allowed us
