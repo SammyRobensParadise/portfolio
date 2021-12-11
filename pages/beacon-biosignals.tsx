@@ -43,7 +43,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
               the brain and change lives while doing it.
             </h1>
           </Transition>
-          <div className="relative transition transform z-50">
+          <div className="relative transition transform z-30">
             <Parallax y={['0px', '100px']}>
               {visibility && (
                 <ThreeStage height={400}>
@@ -117,8 +117,8 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
                 advanced machine learning to quicly identify critical biomarkers
                 Beacon can surface only the most critical information for
                 neurologists to make life altering decisions. The problem?
-                Looking at brain data isn&#39;t exactly straight forward, and as a
-                result, neither are the tools we need to do it.
+                Looking at brain data isn&#39;t exactly straight forward, and as
+                a result, neither are the tools we need to do it.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
                 In order to analyze EEG data, the signals are examined in a
@@ -128,8 +128,8 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
                 information is required. More data means more processing time,
                 and when it comes to the world wide web, this means more
                 latency. Data latency proves detremental to the workflow of
-                neurologists and data scientists who rely on Beacon&#39;s portal to
-                adjudicate brainwave data. A solution bringing post-processed
+                neurologists and data scientists who rely on Beacon&#39;s portal
+                to adjudicate brainwave data. A solution bringing post-processed
                 data to the client without latency was needed.
               </p>
             </div>
