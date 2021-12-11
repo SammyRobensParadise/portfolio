@@ -4,13 +4,12 @@ import Head from 'next/head'
 import { Transition } from '@headlessui/react'
 import { Parallax } from 'react-scroll-parallax'
 
-import ThreeStage from '../components/Stage/ThreeStage'
-import Brain from '../components/Brain/Brain'
 import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 import { ENGINEERING_PAPER_DESIGN_SYSTEM_NAME } from '../global/constants/constants'
+import HootsuiteMac from '../components/Mac/Mac'
 
 const Hootsuite: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
@@ -28,7 +27,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
       <div>
         <div id="beacon-biosignals-landing">
           <Transition
-            className="px-40 pb-48 pt-6 md:pb-64"
+            className="px-40 pb-24 pt-6 md:pb-64"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -39,16 +38,12 @@ const Hootsuite: NextPage = (): JSX.Element => {
             leaveFrom="opacity-100"
           >
             <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
-            Software Developer @Hootsuite
+              Software Developer @Hootsuite
             </h1>
           </Transition>
           <div className="relative transition transform z-50">
             <Parallax y={['0px', '100px']}>
-              {visibility && (
-                <ThreeStage height={400}>
-                  <Brain scale={0.2} position={[0, 0, -10]} shadow />
-                </ThreeStage>
-              )}
+              {visibility && <HootsuiteMac />}
             </Parallax>
           </div>
         </div>

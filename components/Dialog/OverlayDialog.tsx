@@ -113,6 +113,10 @@ export default function OverlayDialog(): JSX.Element {
                       ]
                     },
                     {
+                      onClick: () => {
+                        closeModal()
+                        handlePageTransition('/hootsuite')
+                      },
                       elements: [
                         { name: 'Hootsuite', type: 'text' },
                         {

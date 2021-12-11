@@ -156,6 +156,9 @@ const LandingPage: NextPage = (): JSX.Element => {
                 ]
               },
               {
+                onClick: () => {
+                  handlePageTransition('/hootsuite')
+                },
                 elements: [
                   { name: 'Hootsuite', type: 'text' },
                   {
