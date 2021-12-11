@@ -12,15 +12,15 @@ import ScrollButton from '../components/ScrollButton/ScrollButton'
 
 const scale = { width: 600 / 1.5, height: 337.5 / 1.5 }
 
-const FloatCard: NextPage = (): JSX.Element => {
+const FingerFood: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
   function handleScrollButtonClick() {
-    handlePageTransition('/puma')
+    handlePageTransition('/')
   }
   return (
     <>
       <Head>
-        <title>Sammy - Float 💳</title>
+        <title>Sammy - Finger Food 🎂</title>
       </Head>
       <div>
         <div id="float-card-landing">
@@ -36,7 +36,7 @@ const FloatCard: NextPage = (): JSX.Element => {
             leaveFrom="opacity-100"
           >
             <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
-              Orchestrating the dream-to-design-to-build pipeline for Float Inc.
+              QA Lead and UX Developer<span className="text-highlight">.</span>
             </h1>
           </Transition>
           <Parallax x={['500px', '-100px']}>
@@ -77,8 +77,8 @@ const FloatCard: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div>
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
-              Product at Float
+            <h2 className=" relative text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+              Product and Quanity at Finger Food
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
               <li>
@@ -148,11 +148,11 @@ const FloatCard: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton handler={handleScrollButtonClick} name="Puma" />
+          <ScrollButton handler={handleScrollButtonClick} name="Home" />
         </div>
       </div>
     </>
   )
 }
 
-export default FloatCard
+export default FingerFood

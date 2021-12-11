@@ -70,7 +70,7 @@ const Puma: NextPage = (): JSX.Element => {
         >
           <div>
             <Parallax x={[-2, 2]}>
-              <h2 className="text-5xl justify-start text-left h-14 block text-cerulaen dark:text-off-white font-bold">
+              <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
                 My Contributions
               </h2>
             </Parallax>
@@ -111,7 +111,7 @@ const Puma: NextPage = (): JSX.Element => {
               </ul>
             </Parallax>
             <Parallax x={[-2, 2]}>
-              <h2 className="text-5xl justify-start text-left h-14 block text-cerulaen dark:text-off-white font-bold">
+              <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
                 Design System ™️
               </h2>
             </Parallax>

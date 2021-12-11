@@ -245,7 +245,7 @@ const LandingPage: NextPage = (): JSX.Element => {
           <Parallax x={['-400px', '112px']}>
             <h2
               id="about"
-              className="text-3xl justify-start text-left pb-4 h-14 block text-cerulaen dark:text-off-white font-bold"
+              className="text-3xl justify-start text-left pb-4 block text-cerulaen dark:text-off-white font-bold"
             >
               About
             </h2>
@@ -278,7 +278,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                 </Link>
               </Parallax>
               <Parallax x={['60px', '0px']}>
-                <h2 className="text-3xl text-left pb-4 h-14 block text-cerulaen dark:text-off-white font-bold">
+                <h2 className="text-3xl text-left pb-4 block text-cerulaen dark:text-off-white font-bold">
                   Focus
                 </h2>
               </Parallax>

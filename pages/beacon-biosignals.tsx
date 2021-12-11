@@ -65,7 +65,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div>
-            <h2 className="text-5xl justify-start text-left h-14 block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               What I do at Beacon
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">

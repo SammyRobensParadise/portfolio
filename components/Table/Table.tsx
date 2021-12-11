@@ -30,7 +30,7 @@ const Table = forwardRef(
   (props: TableInterface, ref: ForwardedRef<HTMLTableElement>): JSX.Element => (
     <div className="text-cerulaen dark:text-off-white">
       <table className="table-auto w-full" ref={ref} id={props.id}>
-        <thead className="text-3xl justify-start text-left pb-4 h-14 block">
+        <thead className="text-3xl justify-start text-left pb-4 block">
           <tr>
             {props?.headers?.map((headerItem: string | JSX.Element) => (
               <th key={generateUUID()}>{headerItem}</th>

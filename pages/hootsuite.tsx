@@ -13,7 +13,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
 
   function handleScrollButtonClick() {
-    handlePageTransition('/verify')
+    handlePageTransition('/unity-finger-foods')
   }
 
   return (
@@ -23,7 +23,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
       </Head>
 
       <div>
-        <div id="beacon-biosignals-landing">
+        <div id="hootsuite-landing">
           <Transition
             className="px-40 pt-6"
             show={visibility}
@@ -53,7 +53,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div>
-            <h2 className="text-5xl justify-start text-left h-14 block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               My Contributions
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
@@ -70,17 +70,17 @@ const Hootsuite: NextPage = (): JSX.Element => {
                 Hootsuite!
               </li>
             </ul>
-            <h2 className="text-5xl justify-start text-left h-14 block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               A Deeper Dive
             </h2>
             <div className="space-y-4 py-4">
               <p className="text-shadow dark:text-off-white text-lg">
-                I had the tremendous opportunity to work on multiple projects
-                while at Hootsuite, and was able to contribute to all aspects of
-                the software development lifecycle. I Implemented front-end
-                calendar service redesign to meet marketing needs of
-                Hootsuite&#39;s global clients in react.js, allowing users to
-                customize how they view a week&#39;s content schedule.
+                I had the opportunity to work on multiple projects while at
+                Hootsuite, and was able to contribute to all aspects of the
+                software development lifecycle. I Implemented front-end calendar
+                service redesign to meet marketing needs of Hootsuite&#39;s
+                global clients in react.js, allowing users to customize how they
+                view a week&#39;s content schedule.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
                 I championed efforts along with a team of front-end developers
@@ -120,7 +120,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <div className="grid justify-items-center pt-3 pb-6 items-center">
-          <ScrollButton handler={handleScrollButtonClick} name="Verify" />
+          <ScrollButton handler={handleScrollButtonClick} name="Finger Foods" />
         </div>
       </div>
     </>
