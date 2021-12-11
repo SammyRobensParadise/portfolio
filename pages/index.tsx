@@ -169,6 +169,9 @@ const LandingPage: NextPage = (): JSX.Element => {
                 ]
               },
               {
+                onClick: () => {
+                  handlePageTransition('/unity-finger-foods')
+                },
                 elements: [
                   { name: 'Unity, Finger Foods', type: 'text' },
                   {

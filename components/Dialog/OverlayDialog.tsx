@@ -127,6 +127,10 @@ export default function OverlayDialog(): JSX.Element {
                       ]
                     },
                     {
+                      onClick: () => {
+                        closeModal()
+                        handlePageTransition('/unity-finger-foods')
+                      },
                       elements: [
                         { name: 'Unity, Finger Foods', type: 'text' },
                         {

@@ -1,16 +1,11 @@
 import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import { Transition } from '@headlessui/react'
-import { Parallax } from 'react-scroll-parallax'
 
 import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
-import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
-
-const scale = { width: 600 / 1.5, height: 337.5 / 1.5 }
 
 const FingerFood: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
@@ -25,7 +20,7 @@ const FingerFood: NextPage = (): JSX.Element => {
       <div>
         <div id="float-card-landing">
           <Transition
-            className="px-40 pb-48 pt-6 md:pb-64"
+            className="px-40 pb-48 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -39,31 +34,6 @@ const FingerFood: NextPage = (): JSX.Element => {
               QA Lead and UX Developer<span className="text-highlight">.</span>
             </h1>
           </Transition>
-          <Parallax x={['500px', '-100px']}>
-            <div className="flex flex-row justify-center p-12">
-              <div>
-                <Image
-                  src="/float-look.png"
-                  alt="woman teaching in front of art board"
-                  {...scale}
-                />
-              </div>
-              <div>
-                <Image
-                  src="/float-upload.png"
-                  alt="woman teaching in front of art board"
-                  {...scale}
-                />
-              </div>
-              <div>
-                <Image
-                  src="/float-card.png"
-                  alt="woman teaching in front of art board"
-                  {...scale}
-                />
-              </div>
-            </div>
-          </Parallax>
         </div>
         <Transition
           className="px-40 relative opacity-0"
@@ -82,71 +52,53 @@ const FingerFood: NextPage = (): JSX.Element => {
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
               <li>
-                I designed and implemented comprehensive design process
-                introducing a cradle-to-the-grave product lifecycle.
+                Designed and implemented data-driven UX analysis forLEGO App to
+                quantify engagement growthpotential.
               </li>
               <li>
-                Designed and developed application interface for Journal. Worked
-                closely with stakeholders to capture user needs and develop a
-                prduct experience matching the mental model of users in a timely
-                manner.
+                Led 3 project QA groups and lean infrastructuredevelopment from
+                concept design to product delivery. Increased web project test
+                efficiency 50%.
               </li>
               <li>
-                Created custom illustrations and assets to enhase product feel
-                and help build empathy with users and their product main points.
+                Designed and developed python automated testinfrastructure to
+                quantify accuracy of computer visionsystem.
               </li>
             </ul>
 
             <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
-              My Role
+              Some Contributions
             </h2>
             <div className="space-y-4 py-4">
               <p className="text-shadow dark:text-off-white text-lg">
-                As a product designer at Float, I have had the rare opportunity
-                to contribute to all aspects of the product lifecycle from
-                concept ideation and user-experience research, through wireframe
-                and mockup design, development, and finally user-feedback and
-                iteration. As a developer and web designer, I fit well into the
-                multi-faceted role that Float required, with the ability to
-                deliver on both software and design. I worked on both Journal’s
-                Front-end and backend, and provided graphic illustrations for
-                product and marketing purposes.
+                I designed and implemented data-driven UX analysis for a
+                bluetooth connected experience app to quantify engagement growth
+                potential. I was given the opportunity to work with an
+                international design team to quantify core product design
+                decisions based on the receptivity and understanding users
+                showed during a series of user testing sessions. These sessions
+                involved tree testing, as well as cognitive walkthroughs of the
+                product prototypes.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
-                During my time at Float I designed and developed numerous
-                features delivering a never-before-seen corporate expense
-                managment experience. I designed (and developed) Float’s
-                application navigation infrastructure and interface, accounting
-                for quick scalability, sub-pages, and multi-user roles. I have
-                also had a hand in designing Float’s, virtual credit card
-                experience, branding, transaction management experience, and
-                settings flow. I also championed accessible design practices,
-                and work to enforce a coherent and consistent design process,
-                optimizing product delivery by implementing a structured Figma
-                design workflow and quality assurance process.
+                I developed a system to quantify the accuracy of a computer
+                vision system designed to automate mining processes. I wrote
+                code to analyse hours of video recorded of automated gantry
+                movement to determine if the tracking system could accurately
+                determine the location of a target in 3D space over long periods
+                of time
+              </p>
+              <p className="text-shadow dark:text-off-white text-lg">
+                During my time at Finger Food ATG, in total, I led the QA
+                Initiatives for more than 3 projects from ideation through to
+                product delivery working with all kinds of clients, and was able
+                to reduce test infrastructure overhead by 50% for web-based
+                projects!
               </p>
             </div>
           </div>
         </Transition>
-        <Transition
-          appear
-          show={visibility}
-          enter="transition-opacity ease-linear duration-300 delay-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-          leaveTo="opacity-0 translate-x-full scale-150 h-full"
-          leaveFrom="opacity-100"
-        >
-          <div className="grid justify-items-center py-16">
-            <Flow
-              src="/credit-card-render.png"
-              height="408px"
-              width="544px"
-              alt="sammy"
-            />
-          </div>
-        </Transition>
+
         <div className="grid justify-items-center py-6 items-center">
           <ScrollButton handler={handleScrollButtonClick} name="Home" />
         </div>
