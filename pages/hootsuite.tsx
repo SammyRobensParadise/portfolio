@@ -22,7 +22,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
   return (
     <>
       <Head>
-        <title>Sammy - Hootsuite 🧠</title>
+        <title>Sammy - Hootsuite 🦉</title>
       </Head>
 
       <div>
@@ -39,8 +39,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
             leaveFrom="opacity-100"
           >
             <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
-              Working with Beacon Biosignals to revolutionize the way we analyze
-              the brain and change lives while doing it.
+            Software Developer @Hootsuite
             </h1>
           </Transition>
           <div className="relative transition transform z-50">
@@ -117,8 +116,8 @@ const Hootsuite: NextPage = (): JSX.Element => {
                 advanced machine learning to quicly identify critical biomarkers
                 Beacon can surface only the most critical information for
                 neurologists to make life altering decisions. The problem?
-                Looking at brain data isn&#39;t exactly straight forward, and as a
-                result, neither are the tools we need to do it.
+                Looking at brain data isn&#39;t exactly straight forward, and as
+                a result, neither are the tools we need to do it.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
                 In order to analyze EEG data, the signals are examined in a
@@ -128,8 +127,8 @@ const Hootsuite: NextPage = (): JSX.Element => {
                 information is required. More data means more processing time,
                 and when it comes to the world wide web, this means more
                 latency. Data latency proves detremental to the workflow of
-                neurologists and data scientists who rely on Beacon&#39;s portal to
-                adjudicate brainwave data. A solution bringing post-processed
+                neurologists and data scientists who rely on Beacon&#39;s portal
+                to adjudicate brainwave data. A solution bringing post-processed
                 data to the client without latency was needed.
               </p>
             </div>
