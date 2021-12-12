@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, Html } from '@react-three/drei'
 
-useGLTF.preload('/brain.glb')
+useGLTF.preload('/vr.glb')
 
 export default function Brain({ ...props }) {
   const ref = useRef()
