@@ -45,7 +45,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
     return (
       <>
         <OverlayDialog />
-        <div className=" bg-off-white dark:bg-shadow">
+        <div className=" bg-off-white dark:bg-shadow w-screen">
           <NavigationBar />
           <Sidebar />
           <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>

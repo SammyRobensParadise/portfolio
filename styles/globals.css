@@ -8,11 +8,19 @@
 * > .font-work {
   font-family: 'Work Sans', sans-serif;
 }
+html {
+  overflow-x: hidden;
+  --scrollbarBGDark: #000000;
+  --thumbBGDark: #2b2b2b;
+  --scrollbarBGDLight: #ffffff;
+  --thumbBGLight: #3f46f3;
+}
 
 body {
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  min-width: 100vw;
 }
 
 ::selection {
@@ -21,6 +29,38 @@ body {
 
 body.dark ::selection {
   background: #3f46f3;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBGLight) var(--scrollbarBGLight);
+}
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBGLight);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBGLight);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarLight);
+}
+
+body.dark::-webkit-scrollbar {
+  width: 11px;
+}
+body.dark {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBGDark) var(--scrollbarBGDark);
+}
+body.dark::-webkit-scrollbar-track {
+  background: var(--scrollbarBGDark);
+}
+body.dark::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBGDark);
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBGDark);
 }
 
 @tailwind base;

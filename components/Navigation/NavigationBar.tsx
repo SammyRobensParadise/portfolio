@@ -38,10 +38,16 @@ const NavigationBar = (): ReactElement => {
   useEffect(() => {
     if (darkMode) {
       document.body.classList.add('dark')
+      document.documentElement.classList.remove('bg-off-white')
+
+      document.documentElement.classList.add('bg-shadow')
       window.localStorage.setItem('dark_mode', 'true')
     }
     if (!darkMode) {
       document.body.classList.remove('dark')
+      document.documentElement.classList.remove('bg-shadow')
+      document.documentElement.classList.add('bg-off-white')
+
       window.localStorage.setItem('dark_mode', 'false')
     }
   }, [darkMode])
@@ -49,7 +55,6 @@ const NavigationBar = (): ReactElement => {
   return (
     <div className="text-cerulaen dark:text-off-white grid grid-cols-3 gap-16 p-6 text-lg font-work font-normal sticky top-0 z-50">
       <Transition
-        className="flex flex-row"
         show
         appear
         enter={`${animate(1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -81,7 +86,7 @@ const NavigationBar = (): ReactElement => {
         </Link>
       </Transition>
       <Transition
-        className="flex flex-row justify-end space-x-4 pt-2"
+        className="flex flex-row justify-end space-x-4 pt-2 pr-2"
         show
         appear
         enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}

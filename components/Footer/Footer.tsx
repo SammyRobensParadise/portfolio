@@ -61,7 +61,7 @@ const Footer = (): ReactElement => (
       <div className="flex flex-row justify-center">
         <p>
           {`© ${new Date().getFullYear().toString()} Designed & Developed by
-          Sammy R-Paradise ❤️`}
+          Sammy Robens-Paradise 🤠`}
         </p>
       </div>
       <div className="flex flex-row justify-end">

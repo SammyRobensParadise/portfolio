@@ -63,7 +63,7 @@ const LandingPage: NextPage = (): JSX.Element => {
               >
                 {LANDING_MESSAGE}
               </h1>
-              <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter">
+              <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl sm:text-7xl w-2/3 absolute z-20 tracking-tighter">
                 {Array.from(LANDING_MESSAGE).map((letter: string) => (
                   <span
                     key={generateUUID()}
@@ -74,7 +74,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                 ))}
               </h1>
             </Transition.Child>
-            <div>
+            <div className="hidden sm:block">
               <Parallax y={[-50, 50]}>
                 <div className="flex">
                   <BlobElement
