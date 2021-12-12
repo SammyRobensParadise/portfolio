@@ -7,7 +7,7 @@ import useTransition from '../../hooks/transition'
 
 export default function OverlayDialog(): JSX.Element {
   const router = useRouter()
-  const { handlePageTransition } = useTransition({ timeout: 1000 })
+  const { handlePageTransition } = useTransition({ timeout: 0 })
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
@@ -156,7 +156,7 @@ export default function OverlayDialog(): JSX.Element {
                         },
                         {
                           type: 'style',
-                          name: 'Uncover mis-information right in your instagram feed.'
+                          name: '(Coming Soon) Uncover mis-information right in your instagram feed.'
                         },
                         { name: "'21 - Present", type: 'text' }
                       ]
@@ -166,7 +166,7 @@ export default function OverlayDialog(): JSX.Element {
                         { name: 'Github Stats', type: 'text' },
                         {
                           type: 'style',
-                          name: 'Report Github contributions on your websites.'
+                          name: ' (Coming Soon) Report Github contributions on your websites.'
                         },
                         { name: "'20 - Present", type: 'text' }
                       ]
@@ -176,7 +176,7 @@ export default function OverlayDialog(): JSX.Element {
                         { name: 'Intensif-Eye, AI', type: 'text' },
                         {
                           type: 'style',
-                          name: 'Information access for our visually impared.'
+                          name: '(Coming Soon) Information access for our visually impared.'
                         },
                         { name: "'19'", type: 'text' }
                       ]
@@ -186,7 +186,7 @@ export default function OverlayDialog(): JSX.Element {
                         { name: 'Arduino Scream', type: 'text' },
                         {
                           type: 'style',
-                          name: 'Open a safe by screaming at it? Sure thing!'
+                          name: '(Coming Soon) Open a safe by screaming at it? Sure thing!'
                         },
                         { name: "'19", type: 'text' }
                       ]

@@ -33,7 +33,7 @@ export default function useTransition({
       setVisibility(false)
     })
     return () => {
-      window.removeEventListener('popstate', () => {
+      window.removeEventListener('onpopstate', () => {
         setVisibility(false)
       })
     }

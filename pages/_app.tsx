@@ -19,6 +19,7 @@ import OverlayDialog from '../components/Dialog/OverlayDialog'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
+
   if (oldSchool) {
     const { state } = oldSchool
     if (state?.react95Visible && state?.glitchVisible) {
@@ -47,11 +48,9 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
         <div className=" bg-off-white dark:bg-shadow">
           <NavigationBar />
           <Sidebar />
-          <ParallaxProvider>
-            <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
-              <Component {...pageProps} />
-            </Curtains>
-          </ParallaxProvider>
+          <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
+            <Component {...pageProps} />
+          </Curtains>
           <Footer />
         </div>
       </>
@@ -63,8 +62,10 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
 function Portfolio({ Component, pageProps, router }: AppProps): ReactElement {
   return (
     <OldSchool.Provider>
-      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-      <Wrapper Component={Component} pageProps={pageProps} router={router} />
+      <ParallaxProvider>
+        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+        <Wrapper Component={Component} pageProps={pageProps} router={router} />
+      </ParallaxProvider>
     </OldSchool.Provider>
   )
 }

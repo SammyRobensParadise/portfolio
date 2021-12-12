@@ -8,9 +8,11 @@ import { animate, cubicBezier } from '../global/helpers/animation'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 import ThreeStage from '../components/Stage/ThreeStage'
 import Vr from '../components/Renders/Vr'
+import useResizeParalax from '../hooks/resize'
 
 const FingerFood: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
+  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  useResizeParalax()
   function handleScrollButtonClick() {
     handlePageTransition('/')
   }

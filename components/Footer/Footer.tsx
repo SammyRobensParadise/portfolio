@@ -8,7 +8,7 @@ import Chat from '../../global/assets/chat.svg'
 
 const Footer = (): ReactElement => (
   <Transition
-    className="text-off-white dark:text-cerulaen bg-cerulaen dark:bg-off-white p-6 text-lg font-work font-normal"
+    className="text-off-white bg-cerulaen dark:bg-shadow dark:border-t-2 dark:border-off-white  p-6 text-lg font-work font-normal"
     show
     appear
     enter={`${animate(1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}

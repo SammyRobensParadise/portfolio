@@ -11,9 +11,11 @@ import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 import { ENGINEERING_PAPER_DESIGN_SYSTEM_NAME } from '../global/constants/constants'
+import useResizeParalax from '../hooks/resize'
 
 const BeaconBiosignals: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
+  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  useResizeParalax()
 
   function handleScrollButtonClick() {
     handlePageTransition('/float-card')

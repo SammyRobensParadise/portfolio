@@ -8,10 +8,11 @@ import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 import HootsuiteMac from '../components/Mac/Mac'
+import useResizeParalax from '../hooks/resize'
 
 const Hootsuite: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
-
+  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  useResizeParalax()
   function handleScrollButtonClick() {
     handlePageTransition('/unity-finger-foods')
   }

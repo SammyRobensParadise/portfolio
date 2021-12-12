@@ -9,14 +9,15 @@ import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 import { ENGINEERING_PAPER_SOURCE_CONTROL_NAME } from '../global/constants/constants'
+import useResizeParalax from '../hooks/resize'
 
 const scale = { width: 400, height: 300 }
 
 const Puma: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 1000 })
-
+  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  useResizeParalax()
   function handleScrollButtonClick() {
-    handlePageTransition('/puma')
+    handlePageTransition('/hootsuite')
   }
 
   return (

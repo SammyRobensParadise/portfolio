@@ -9,11 +9,13 @@ import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
+import useResizeParalax from '../hooks/resize'
 
 const scale = { width: 600 / 1.5, height: 337.5 / 1.5 }
 
 const FloatCard: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
+  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  useResizeParalax()
   function handleScrollButtonClick() {
     handlePageTransition('/puma')
   }

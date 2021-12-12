@@ -12,6 +12,7 @@ import Table from '../components/Table/Table'
 import { RESUME_FILE_NAME } from '../global/constants/constants'
 import Headshot from '../components/Headshot/Headshot'
 import useTransition from '../hooks/transition'
+import useResizeParalax from '../hooks/resize'
 
 const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
@@ -21,7 +22,9 @@ const styleOffsetOverride: {
 } = { fontSize: '4.51rem', lineHeight: '1' }
 
 const LandingPage: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
+  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  useResizeParalax()
+
   return (
     <>
       <Head>
@@ -195,7 +198,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                   },
                   {
                     type: 'style',
-                    name: 'Uncover mis-information right in your instagram feed.'
+                    name: '(Coming Soon) Uncover mis-information right in your instagram feed.'
                   },
                   { name: "'21 - Present", type: 'text' }
                 ]
@@ -205,7 +208,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                   { name: 'Github Stats', type: 'text' },
                   {
                     type: 'style',
-                    name: 'Report Github contributions on your websites.'
+                    name: '(Coming Soon) Report Github contributions on your websites.'
                   },
                   { name: "'20 - Present", type: 'text' }
                 ]
@@ -215,7 +218,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                   { name: 'Intensif-Eye, AI', type: 'text' },
                   {
                     type: 'style',
-                    name: 'Information access for our visually impared.'
+                    name: '(Coming Soon) Information access for our visually impared.'
                   },
                   { name: "'19'", type: 'text' }
                 ]
@@ -225,7 +228,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                   { name: 'Arduino Scream', type: 'text' },
                   {
                     type: 'style',
-                    name: 'Open a safe by screaming at it? Sure thing!'
+                    name: '(Coming Soon) Open a safe by screaming at it? Sure thing!'
                   },
                   { name: "'19", type: 'text' }
                 ]
