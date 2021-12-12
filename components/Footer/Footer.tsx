@@ -21,7 +21,7 @@ const Footer = (): ReactElement => (
       enterFrom="opacity-0"
       enterTo="opaciy-100"
     >
-      <div className="font-extralight hover:underline hover:cursor-pointer">
+      <div className="font-extralight hover:underline ">
         <a href={constants?.urls?.LINKEDIN_URL}>linkedin.com/sammy</a>
       </div>
       <div className="font-bold flex flex-row ">
@@ -29,13 +29,13 @@ const Footer = (): ReactElement => (
           href="mailto:srobensparadise@gmail.com"
           target="_blank"
           rel="noreferrer"
-          className="font-bold flex flex-row space-x-4 text-xl hover:underline transition-all cursor-pointer"
+          className="font-bold flex flex-row space-x-4 text-xl hover:underline transition-all "
         >
-          <div>GET IN TOUCH</div>
+          <div className="uppercase">Hire Me</div>
           <Chat />
         </a>
       </div>
-      <div className="font-extralight hover:underline hover:cursor-pointer">
+      <div className="font-extralight hover:underline">
         <a
           href="mailto:srobensparadise@gmail.com"
           target="_blank"
@@ -53,9 +53,7 @@ const Footer = (): ReactElement => (
     >
       <div className="flex flex-row">
         <Link href="/policy" passHref>
-          <p className="hover:underline transition-all cursor-pointer">
-            Policy
-          </p>
+          <p className="hover:underline transition-all ">Policy</p>
         </Link>
       </div>
       <div className="flex flex-row justify-center">
@@ -66,10 +64,10 @@ const Footer = (): ReactElement => (
       </div>
       <div className="flex flex-row justify-end">
         <a
-          className="hover:underline transition-all cursor-pointer"
+          className="hover:underline transition-all "
           href={constants.urls.GITHUB_REPO_URL}
         >
-          Source Code
+          Website Source Code
         </a>
       </div>
     </Transition.Child>

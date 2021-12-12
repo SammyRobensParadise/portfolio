@@ -40,8 +40,9 @@ const Table = forwardRef(
         <tbody className="border border-cerulaen p-4 border-collapse">
           {props?.rows.map(({ elements, onClick }) => (
             <tr
+              role="button"
               key={generateUUID()}
-              className="group border border-b transition transform hover:shadow-grow focus:shadow-grow cursor-pointer focus:outline-none"
+              className="group border border-b transition transform hover:shadow-grow focus:shadow-grow focus:outline-none"
               tabIndex={0}
               onClick={onClick}
             >

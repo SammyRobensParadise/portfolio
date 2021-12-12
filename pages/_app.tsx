@@ -5,7 +5,8 @@ import '../styles/three.scss'
 
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import React, { ReactElement } from 'react'
+import dynamic from 'next/dynamic'
+import React, { ComponentType, ReactElement, useState } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { Curtains } from 'react-curtains'
 
@@ -17,8 +18,16 @@ import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import OverlayDialog from '../components/Dialog/OverlayDialog'
 
+const AnimatedCursor: ComponentType<Record<string, number | string>> = dynamic(
+  () => import('react-animated-cursor'),
+  {
+    ssr: false
+  }
+)
+
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
+  const [darkTheme, setIsDarkTheme] = useState<boolean>(false)
 
   if (oldSchool) {
     const { state } = oldSchool
@@ -46,9 +55,18 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       <>
         <OverlayDialog />
         <div className=" bg-off-white dark:bg-shadow w-screen">
-          <NavigationBar />
+          <NavigationBar handleDarkTheme={setIsDarkTheme} />
           <Sidebar />
           <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
+            <AnimatedCursor
+              innerSize={12}
+              outerSize={8}
+              color={darkTheme ? '63, 243, 178' : '43,43,43'}
+              outerAlpha={0.5}
+              innerScale={0.7}
+              outerScale={5}
+              trailingSpeed={2}
+            />
             <Component {...pageProps} />
           </Curtains>
           <Footer />

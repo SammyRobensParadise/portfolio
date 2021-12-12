@@ -67,7 +67,8 @@ module.exports = {
     /* NOTE: https://github.com/yannickcr/eslint-plugin-react/issues/2396 */
     'react/require-default-props': 'off',
     'react/display-name': ['off'],
-    '@typescript-eslint/no-floating-promises': ['off']
+    '@typescript-eslint/no-floating-promises': ['off'],
+    'jsx-a11y/anchor-is-valid': ['off']
   },
   settings: {
     'import/resolver': {

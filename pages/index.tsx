@@ -278,7 +278,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                   and machine intelligence.
                 </p>
                 <Link href={RESUME_FILE_NAME} passHref>
-                  <p className="underline transition-all cursor-pointer hover:font-semibold">
+                  <p className="underline transition-all hover:font-semibold">
                     See my Résume...
                   </p>
                 </Link>

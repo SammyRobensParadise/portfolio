@@ -68,7 +68,7 @@ export default function HootsuiteMac() {
       dpr={[1, 2]}
       camera={{ position: [-10, 0, -80], fov: 35 }}
       style={{ height: '600px', position: 'relative' }}
-      className="cursor-pointer"
+      className=""
     >
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       <Suspense fallback={null}>
