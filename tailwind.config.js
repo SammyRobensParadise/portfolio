@@ -4,7 +4,7 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
     './providers/**/*.{js,ts,jsx,tsx}'
   ],
-  darkMode: false, //'media', //or 'class'
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: { mono: ['Ms\\ Sans'] },

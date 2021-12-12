@@ -1,10 +1,12 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Transition } from '@headlessui/react'
+import { Transition, Switch } from '@headlessui/react'
 
 import Puzzle from '../../global/assets/puzzle.svg'
 import Icon from '../../global/assets/Icon.svg'
+import Sun from '../../global/assets/sun.svg'
+import Moon from '../../global/assets/moon.svg'
 import { RESUME_FILE_NAME } from '../../global/constants/constants'
 import { animate, cubicBezier } from '../../global/helpers/animation'
 
@@ -13,6 +15,36 @@ const style =
 
 const NavigationBar = (): ReactElement => {
   const router = useRouter()
+  const [darkMode, setDarkMode] = useState(false)
+
+  useEffect(() => {
+    const hasDarkMode = window.localStorage.getItem('dark_mode')
+    switch (hasDarkMode) {
+      case 'true': {
+        setDarkMode(true)
+        break
+      }
+      case 'false': {
+        setDarkMode(false)
+        break
+      }
+      default: {
+        setDarkMode(false)
+        window.localStorage.setItem('dark_mode', 'false')
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark')
+      window.localStorage.setItem('dark_mode', 'true')
+    }
+    if (!darkMode) {
+      document.body.classList.remove('dark')
+      window.localStorage.setItem('dark_mode', 'false')
+    }
+  }, [darkMode])
 
   return (
     <div className="text-cerulaen dark:text-off-white grid grid-cols-3 gap-16 p-6 text-lg font-work font-normal sticky top-0 z-50">
@@ -56,6 +88,22 @@ const NavigationBar = (): ReactElement => {
         enterFrom="opacity-0"
         enterTo="opaciy-100"
       >
+        <div className="flex space-x-4 pt-1 pr-4">
+          <Sun />
+          <Switch
+            checked={darkMode}
+            onChange={setDarkMode}
+            className="bg-cerulaen relative inline-flex items-center h-6 rounded-full w-11"
+          >
+            <span className="sr-only">Enable Dark Mode</span>
+            <span
+              className={`${
+                darkMode ? 'translate-x-6' : 'translate-x-1'
+              } inline-block w-4 h-4 transform transition-all bg-off-white rounded-full`}
+            />
+          </Switch>
+          <Moon />
+        </div>
         <a href={`/${RESUME_FILE_NAME}`}>
           <p className={style}>Résume</p>
         </a>
