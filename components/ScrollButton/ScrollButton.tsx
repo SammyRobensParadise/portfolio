@@ -16,11 +16,14 @@ export default function ScrollButton({
   const [percentage, setPercentage] = useState<number>(0)
   const [lastTime, setLastTime] = useState<number>(0)
   const handleTransitionAtBottom = useCallback(() => {
-    const scrollHeight = window.innerHeight + window.pageYOffset
-    if (scrollHeight >= document.body.offsetHeight) {
+    const scrollHeight = window.innerHeight + window.scrollY
+    if (scrollHeight >= document.body.offsetHeight && window.scrollY !== 0) {
       setLoadingBuffer(true)
     }
-    if (scrollHeight <= document.body.offsetHeight - 100) {
+    if (
+      scrollHeight <= document.body.offsetHeight - 100 ||
+      window.scrollY === 0
+    ) {
       setLoadingBuffer(false)
       setPercentage(0)
     }

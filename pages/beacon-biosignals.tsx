@@ -5,7 +5,7 @@ import { Transition } from '@headlessui/react'
 import { Parallax } from 'react-scroll-parallax'
 
 import ThreeStage from '../components/Stage/ThreeStage'
-import Brain from '../components/Brain/Brain'
+import Brain from '../components/Renders/Brain'
 import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import Flow from '../components/Flow/Flow'

@@ -23,7 +23,7 @@
     "**/*.js",
     "components/Flow/Flow.jsx",
     "components/Blob/Blob.jsx",
-    "components/Brain/Brain.jsx",
+    "components/Renders/*.jsx",
     "providers/**/*.tsx"
   ],
   "exclude": ["node_modules", "components/Blob/blobCreator.js"]

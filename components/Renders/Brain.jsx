@@ -8,7 +8,7 @@ export default function Brain({ ...props }) {
   const ref = useRef()
   const { nodes, materials } = useGLTF('/brain.glb')
   useFrame((state) => {
-    const t = state.clock.getElapsedTime()
+    const t = state.clock.getElapsedTime() * 2
     ref.current.rotation.set(
       0.1 + Math.cos(t / 4.5) / 10,
       Math.sin(t / 4) / 4,

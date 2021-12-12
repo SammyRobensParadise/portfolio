@@ -6,6 +6,8 @@ import { Transition } from '@headlessui/react'
 import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
+import ThreeStage from '../components/Stage/ThreeStage'
+import Vr from '../components/Renders/Vr'
 
 const FingerFood: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 250 })
@@ -35,7 +37,9 @@ const FingerFood: NextPage = (): JSX.Element => {
             </h1>
           </Transition>
         </div>
-
+        <ThreeStage height={400}>
+          <Vr scale={1} position={[0, 0, -10]} shadow />
+        </ThreeStage>
         <Transition
           className="px-40 relative opacity-0"
           appear
