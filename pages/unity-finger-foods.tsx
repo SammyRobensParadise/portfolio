@@ -35,6 +35,7 @@ const FingerFood: NextPage = (): JSX.Element => {
             </h1>
           </Transition>
         </div>
+
         <Transition
           className="px-40 relative opacity-0"
           appear
