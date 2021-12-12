@@ -20,7 +20,7 @@ const FingerFood: NextPage = (): JSX.Element => {
       <div>
         <div id="float-card-landing">
           <Transition
-            className="px-40 pb-48 pt-6"
+            className="px-40 pb-28 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -49,7 +49,13 @@ const FingerFood: NextPage = (): JSX.Element => {
         >
           <div>
             <h2 className=" relative text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
-              Product and Quanity at Finger Food
+              Product and Quanity at{' '}
+              <a
+                href="https://unity.com/solutions/accelerate-solutions-industry"
+                className="hover:underline"
+              >
+                Finger Food
+              </a>
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
               <li>
