@@ -25,13 +25,15 @@ const Footer = (): ReactElement => (
         <a href={constants?.urls?.LINKEDIN_URL}>linkedin.com/sammy</a>
       </div>
       <div className="font-bold flex flex-row ">
-        <button
-          type="button"
+        <a
+          href="mailto:srobensparadise@gmail.com"
+          target="_blank"
+          rel="noreferrer"
           className="font-bold flex flex-row space-x-4 text-xl hover:underline transition-all cursor-pointer"
         >
           <div>GET IN TOUCH</div>
           <Chat />
-        </button>
+        </a>
       </div>
       <div className="font-extralight hover:underline hover:cursor-pointer">
         <a
@@ -59,7 +61,7 @@ const Footer = (): ReactElement => (
       <div className="flex flex-row justify-center">
         <p>
           {`© ${new Date().getFullYear().toString()} Designed & Developed by
-          Sammy R-Paradise `}
+          Sammy R-Paradise ❤️`}
         </p>
       </div>
       <div className="flex flex-row justify-end">

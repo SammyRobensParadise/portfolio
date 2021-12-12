@@ -6,30 +6,23 @@
   src: local('Ms Sans'), url(../global/fonts/ms_sans.woff) format('woff');
 }
 * > .font-work {
-  font-family: 'Work Sans', sans-serif
+  font-family: 'Work Sans', sans-serif;
 }
 
-body{
+body {
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
 ::selection {
-  background: #3FF3B2;
+  background: #3ff3b2;
 }
-/*
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background: #3F46F3;
-  }
-  
-}
-*/
 
+body.dark ::selection {
+  background: #3f46f3;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
