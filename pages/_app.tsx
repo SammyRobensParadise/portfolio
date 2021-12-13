@@ -60,12 +60,12 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
           <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
             <AnimatedCursor
               innerSize={12}
-              outerSize={8}
+              outerSize={14}
               color={darkTheme ? '63, 243, 178' : '43,43,43'}
-              outerAlpha={0.5}
+              outerAlpha={0.2}
               innerScale={0.7}
               outerScale={5}
-              trailingSpeed={2}
+              trailingSpeed={6}
             />
             <Component {...pageProps} />
           </Curtains>

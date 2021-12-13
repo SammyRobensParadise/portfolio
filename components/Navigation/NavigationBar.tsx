@@ -62,7 +62,7 @@ const NavigationBar = ({
   }, [darkMode, handleDarkTheme])
 
   return (
-    <div className="text-cerulaen dark:text-off-white grid grid-cols-2 xl:grid-cols-3 gap-16 p-6 text-lg font-work font-normal sticky top-0 z-50">
+    <div className="text-cerulaen dark:text-off-white grid grid-cols-2 xl:grid-cols-3 gap-16 p-6 text-lg font-work font-normal z-50 sticky top-0">
       <Transition
         show
         appear
@@ -88,10 +88,10 @@ const NavigationBar = ({
         enterTo="opaciy-100"
       >
         <Link href="/" passHref>
-          <>
+          <a className="flex flex-row space-x-4">
             <Puzzle />
             <p>Sammy Robens-Paradise</p>
-          </>
+          </a>
         </Link>
       </Transition>
       <Transition

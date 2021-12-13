@@ -40,7 +40,7 @@ const Table = forwardRef(
         <tbody className="border border-cerulaen p-4 border-collapse">
           {props?.rows.map(({ elements, onClick }) => (
             <tr
-              role="button"
+              role="link"
               key={generateUUID()}
               className="group border border-b transition transform hover:shadow-grow focus:shadow-grow focus:outline-none"
               tabIndex={0}
@@ -51,7 +51,7 @@ const Table = forwardRef(
                 let params = {}
                 if (event) {
                   params = {
-                    role: 'button',
+                    role: 'link',
                     tabIndex: 0,
                     onKeyPress: (e: KeyboardEvent) => {
                       if (e.key === 'Enter') {
@@ -72,19 +72,21 @@ const Table = forwardRef(
                     )}
                     {...params}
                   >
-                    {type === 'text' ? (
-                      name
-                    ) : (
-                      <>
-                        <div
-                          className="transition transform-gpu opacity-100 border-dashed border border-cerulaen dark:border-off-white h-0 w-full mt-2.5 rounded group-hover:translate-y-10 group-hover:opacity-0 group-focus:translate-y-10 group-focus:opacity-0"
-                          title={name}
-                        />
-                        <div className="transition transform-gpu w-7/12 absolute opacity-0 -translate-y-10 group-hover:opacity-100 group-hover:-translate-y-5 group-focus:opacity-100 group-focus:-translate-y-5 overflow-ellipsis overflow-hidden">
-                          {name}
-                        </div>
-                      </>
-                    )}
+                    <a>
+                      {type === 'text' ? (
+                        <div>{name}</div>
+                      ) : (
+                        <>
+                          <div
+                            className="transition transform-gpu opacity-100 border-dashed border border-cerulaen dark:border-off-white h-0 w-full mt-2.5 rounded group-hover:translate-y-10 group-hover:opacity-0 group-focus:translate-y-10 group-focus:opacity-0"
+                            title={name}
+                          />
+                          <div className="transition transform-gpu w-7/12 absolute opacity-0 -translate-y-10 group-hover:opacity-100 group-hover:-translate-y-5 group-focus:opacity-100 group-focus:-translate-y-5 overflow-ellipsis overflow-hidden">
+                            {name}
+                          </div>
+                        </>
+                      )}
+                    </a>
                   </td>
                 )
                 return <Item key={generateUUID()} />
