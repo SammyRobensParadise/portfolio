@@ -48,8 +48,8 @@ export default function MobileWarning(): JSX.Element {
               as="div"
             >
               <p>
-                This website is best viewed on a computer. Some stuff may be a
-                little messy! Full support for mobile is coming soon!
+                My portfolio is best viewed on a computer 😬. Some stuff may be
+                a little messy! Full support for mobile is coming soon!
               </p>
               <p>
                 P.S, checkout my{' '}

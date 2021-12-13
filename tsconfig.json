@@ -24,7 +24,8 @@
     "components/Flow/Flow.jsx",
     "components/Blob/Blob.jsx",
     "components/Renders/*.jsx",
-    "providers/**/*.tsx"
+    "providers/**/*.tsx",
+    "components/Mac/Mac.jsx"
   ],
   "exclude": ["node_modules", "components/Blob/blobCreator.js"]
 }
