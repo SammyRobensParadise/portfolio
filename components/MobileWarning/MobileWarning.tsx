@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
 
-import constants from '../../global/constants/constants'
+import constants, { RESUME_FILE_NAME } from '../../global/constants/constants'
 
 import { mobileCheck } from './MobileCheckUtil'
 
@@ -67,7 +67,15 @@ export default function MobileWarning(): JSX.Element {
                   className="underline outline-none"
                 >
                   github.
+                </a>{' '}
+                and my{' '}
+                <a
+                  href={`/${RESUME_FILE_NAME}`}
+                  className="underline outline-none"
+                >
+                  Résume
                 </a>
+                .
               </p>
               <button
                 onClick={() => {
