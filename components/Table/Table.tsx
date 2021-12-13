@@ -65,7 +65,7 @@ const Table = forwardRef(
                 const Item = () => (
                   <td
                     className={clsx(
-                      'p-4 whitespace-nowrap text-xl group overflow-y-hidden',
+                      'p-4 whitespace-nowrap text-xl group overflow-y-hidden text-left',
                       {
                         ' w-2/12': index === 0 || index === 2
                       }
@@ -74,7 +74,7 @@ const Table = forwardRef(
                   >
                     <a>
                       {type === 'text' ? (
-                        <div>{name}</div>
+                        name
                       ) : (
                         <>
                           <div
