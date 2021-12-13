@@ -82,7 +82,7 @@ export default function MobileWarning(): JSX.Element {
                   setShow(false)
                 }}
                 type="button"
-                className=" p-2 rounded bg-cerulaen outline-none"
+                className=" p-2 rounded bg-cerulaen outline-none text-off-white"
               >
                 Got it!
               </button>
