@@ -17,6 +17,7 @@ import NavigationBar from '../components/Navigation/NavigationBar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import OverlayDialog from '../components/Dialog/OverlayDialog'
+import MobileWarning from '../components/MobileWarning/MobileWarning'
 
 const AnimatedCursor: ComponentType<Record<string, number | string>> = dynamic(
   () => import('react-animated-cursor'),
@@ -54,6 +55,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
     return (
       <>
         <OverlayDialog />
+        <MobileWarning />
         <div className=" bg-off-white dark:bg-shadow w-screen">
           <NavigationBar handleDarkTheme={setIsDarkTheme} />
           <Sidebar />
