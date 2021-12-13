@@ -66,7 +66,7 @@ const FingerFood: NextPage = (): JSX.Element => {
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
               <li>
                 Designed and implemented data-driven UX analysis forLEGO App to
-                quantify engagement growthpotential.
+                quantify engagement growth potential.
               </li>
               <li>
                 Led 3 project QA groups and lean infrastructuredevelopment from
