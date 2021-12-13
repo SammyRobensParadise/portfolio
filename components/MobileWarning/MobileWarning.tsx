@@ -1,5 +1,6 @@
 import React, { useState, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import Image from 'next/image'
 
 import constants from '../../global/constants/constants'
 
@@ -47,6 +48,14 @@ export default function MobileWarning(): JSX.Element {
               className="p-12 dark:text-off-white text-cerulaen space-y-4"
               as="div"
             >
+              <div className="grid justify-items-center items-center">
+                <Image
+                  src="/Cones.png"
+                  alt="caution cones"
+                  height="200"
+                  width="300"
+                />
+              </div>
               <p>
                 My portfolio is best viewed on a computer 😬. Some stuff may be
                 a little messy! Full support for mobile is coming soon!
