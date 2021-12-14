@@ -53,7 +53,7 @@ const Footer = (): ReactElement => (
     >
       <div className="flex flex-row">
         <Link href="/policy" passHref>
-          <p className="hover:underline transition-all ">Policy</p>
+          <a className="hover:underline transition-all ">Policy</a>
         </Link>
       </div>
       <div className="flex flex-row justify-center">
