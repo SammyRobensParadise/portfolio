@@ -30,78 +30,76 @@ const LandingPage: NextPage = (): JSX.Element => {
       <Head>
         <title>Sammy</title>
       </Head>
-      <div className="relative" title={LANDING_MESSAGE}>
-        <Parallax y={[-20, 20]}>
-          <Transition
-            className="grid grid-cols-2 gap-4 h-full relative"
-            show={visibility}
-            appear
-            enter={`${animate(1000, 1000)} ${cubicBezier(
-              0.97,
-              0.03,
-              0.36,
-              0.45
-            )}`}
-            leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+      <div className="" title={LANDING_MESSAGE}>
+        <Transition
+          className="grid grid-cols-2 gap-4 h-full relative"
+          show={visibility}
+          appear
+          enter={`${animate(1000, 1000)} ${cubicBezier(
+            0.97,
+            0.03,
+            0.36,
+            0.45
+          )}`}
+          leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+          enterFrom="opacity-0"
+          enterTo="opaciy-100"
+          leaveTo="opacity-0"
+          leaveFrom="opacity-100"
+        >
+          <Transition.Child
+            className="p-24 pt-48 z-30"
+            enter="transition-opacity ease-linear duration-300 delay-300"
             enterFrom="opacity-0"
-            enterTo="opaciy-100"
-            leaveTo="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity ease-linear duration-300 delay-300"
             leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <Transition.Child
-              className="p-24 pt-48 z-30"
-              enter="transition-opacity ease-linear duration-300 delay-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity ease-linear duration-300 delay-300"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+            <h1
+              className="text-off-white dark:text-cerulaen font-work font-extrabold w-2/3 absolute z-20 tracking-tighter"
+              style={styleOffsetOverride}
             >
-              <h1
-                className="text-off-white dark:text-cerulaen font-work font-extrabold w-2/3 absolute z-20 tracking-tighter"
-                style={styleOffsetOverride}
-              >
-                {LANDING_MESSAGE}
-              </h1>
-              <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl sm:text-7xl w-2/3 absolute z-20 tracking-tighter">
-                {Array.from(LANDING_MESSAGE).map((letter: string) => (
-                  <span
-                    key={generateUUID()}
-                    className="transition hover:text-highlight"
-                  >
-                    {letter}
-                  </span>
-                ))}
-              </h1>
-            </Transition.Child>
-            <div className="hidden sm:block">
-              <Parallax y={[-50, 50]}>
-                <div className="flex">
-                  <BlobElement
-                    color="#2B2B2B"
-                    className="absolute"
-                    radius={250}
-                    height={500}
-                  />
-                  <BlobElement
-                    color="#3F46F3"
-                    className="absolute blue"
-                    radius={200}
-                    height={500}
-                  />
-                  <BlobElement
-                    color="#3FF3B2"
-                    className="absolute green"
-                    radius={150}
-                    height={500}
-                  />
-                </div>
-              </Parallax>
-            </div>
-          </Transition>
-        </Parallax>
+              {LANDING_MESSAGE}
+            </h1>
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl sm:text-7xl w-2/3 absolute z-50 tracking-tighter">
+              {Array.from(LANDING_MESSAGE).map((letter: string) => (
+                <span
+                  key={generateUUID()}
+                  className="transition transform hover:text-highlight z-50"
+                >
+                  {letter}
+                </span>
+              ))}
+            </h1>
+          </Transition.Child>
+          <div className="hidden sm:block">
+            <Parallax y={[-50, 50]}>
+              <div className="flex">
+                <BlobElement
+                  color="#2B2B2B"
+                  className="absolute"
+                  radius={250}
+                  height={500}
+                />
+                <BlobElement
+                  color="#3F46F3"
+                  className="absolute blue"
+                  radius={200}
+                  height={500}
+                />
+                <BlobElement
+                  color="#3FF3B2"
+                  className="absolute green"
+                  radius={150}
+                  height={500}
+                />
+              </div>
+            </Parallax>
+          </div>
+        </Transition>
       </div>
-      <div className="relative pt-96 isolate p-24 mt-36 space-y-24" id="tables">
+      <div className="relative pt-96 isolate p-24  space-y-24" id="tables">
         <Transition
           appear
           show={visibility}
