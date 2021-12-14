@@ -56,11 +56,19 @@ const Footer = (): ReactElement => (
           <a className="hover:underline transition-all ">Policy</a>
         </Link>
       </div>
-      <div className="flex flex-row justify-center">
+      <div className="flex flex-col justify-center text-center">
         <p>
           {`© ${new Date().getFullYear().toString()} Designed & Developed by
           Sammy Robens-Paradise 🤠`}
         </p>
+        <div className=" text-sm">
+          <p>
+            Looking for my previous website? It is available{' '}
+            <a href="https://website-2020-host.web.app/" className="underline">
+              here.
+            </a>
+          </p>
+        </div>
       </div>
       <div className="flex flex-row justify-end">
         <a
