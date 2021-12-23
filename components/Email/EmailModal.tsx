@@ -63,34 +63,36 @@ export default function EmailModal({
                 className="flex flex-col space-y-4"
               >
                 <label htmlFor="name" className="space-x-2 flex flex-row">
-                  <p className="text-cerulaen dark:text-off-white text-sm text-left">
+                  <p className="text-cerulaen dark:text-off-white text-sm text-left p-2">
                     Full Name
                   </p>
                   <input
                     {...register('name', { required: true })}
                     name="name"
                     type="text"
+                    className="flex-1 rounded px-2 py-2 text-cerulaen dark:text-off-white text-sm text-left p-2 bg-off-white dark:bg-shadow border focus:outline-white"
                   />
                 </label>
                 {errors.name && <p>Name is required.</p>}
                 <label htmlFor="email" className="space-x-2 flex flex-row">
-                  <p className="text-cerulaen dark:text-off-white text-sm text-left">
+                  <p className="text-cerulaen dark:text-off-white text-sm text-left p-2 pr-9">
                     Email
                   </p>
                   <input
                     {...register('email', { required: true })}
                     name="email"
                     type="email"
+                    className="flex-1 rounded px-2 py-2 text-cerulaen dark:text-off-white text-sm text-left p-2 bg-off-white dark:bg-shadow border focus:outline-white"
                   />
                 </label>
                 <label htmlFor="message" className="space-x-2 flex flex-row">
-                  <p className="text-cerulaen dark:text-off-white text-sm text-left">
+                  <p className="text-cerulaen dark:text-off-white text-sm text-left p-2 pr-3">
                     Message
                   </p>
-                  <input
+                  <textarea
                     {...register('message', { required: false })}
                     name="message"
-                    type="text"
+                    className="flex-1 rounded px-2 py-2 text-cerulaen dark:text-off-white text-sm text-left p-2 bg-off-white dark:bg-shadow border focus:outline-white resize-y"
                   />
                 </label>
                 <input type="submit" />
