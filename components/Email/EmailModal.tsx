@@ -14,7 +14,7 @@ export default function EmailModal({
     handleSubmit,
     formState: { errors }
   } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data: any) => console.log(data)
 
   return (
     <Transition appear show={show} as={Fragment}>
@@ -69,9 +69,30 @@ export default function EmailModal({
                   <input
                     {...register('name', { required: true })}
                     name="name"
+                    type="text"
                   />
                 </label>
                 {errors.name && <p>Name is required.</p>}
+                <label htmlFor="email" className="space-x-2 flex flex-row">
+                  <p className="text-cerulaen dark:text-off-white text-sm text-left">
+                    Email
+                  </p>
+                  <input
+                    {...register('email', { required: true })}
+                    name="email"
+                    type="email"
+                  />
+                </label>
+                <label htmlFor="message" className="space-x-2 flex flex-row">
+                  <p className="text-cerulaen dark:text-off-white text-sm text-left">
+                    Message
+                  </p>
+                  <input
+                    {...register('message', { required: false })}
+                    name="message"
+                    type="text"
+                  />
+                </label>
                 <input type="submit" />
               </form>
             </Dialog.Description>
