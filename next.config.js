@@ -9,5 +9,8 @@ module.exports = withTM({
       use: ['@svgr/webpack']
     })
     return config
+  },
+  images: {
+    domains: ['camo.githubusercontent.com']
   }
 })

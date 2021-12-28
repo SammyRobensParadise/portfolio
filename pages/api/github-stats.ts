@@ -1,15 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getGithubContributions } from 'github-contributions-counter'
+import { AxiosError } from 'axios'
 
 interface ApiRequest extends NextApiRequest {
   body: {
     name: string
   }
-}
-
-type ResponseData = {
-  message: string
-  status: 'success' | 'error'
 }
 
 export default async function handler(
@@ -19,15 +15,20 @@ export default async function handler(
   const {
     body: { name }
   } = req
-  await getGithubContributions({ username: '', token: '' })
-    .then((response: string) => {
-      console.log(response)
+  await getGithubContributions({
+    username: name,
+    token: process.env.GITHUB_STATS_PAT || ''
+  })
+    .then((response) => {
       res.status(200).json({
-        data: response,
+        data: response.data.data,
         status: 'success'
       })
     })
-    .catch((err) => {
-      console.log(err)
+    .catch((err: AxiosError) => {
+      res.status(500).json({
+        data: err,
+        status: 'error'
+      })
     })
 }
