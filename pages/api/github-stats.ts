@@ -1,11 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getGithubContributions } from 'github-contributions-counter'
-import { Partitions } from 'github-contributions-counter/dist/core/main'
 
 interface ApiRequest extends NextApiRequest {
   body: {
     name: string
-    partition: Partitions
   }
 }
 
@@ -19,15 +17,9 @@ export default async function handler(
   res: NextApiResponse
 ): Promise<void> {
   const {
-    body: { name, partition }
+    body: { name }
   } = req
-  await getGithubContributions({
-    username: name,
-    config: {
-      partition: 'current',
-      proxy: 'https://glacial-citadel-92798.herokuapp.com/'
-    }
-  })
+  await getGithubContributions({ username: '', token: '' })
     .then((response: string) => {
       console.log(response)
       res.status(200).json({
