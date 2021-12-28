@@ -47,6 +47,7 @@ const GithubStats: NextPage = (): JSX.Element => {
 
   const onSubmit = (data: FormValues) => {
     axios.post('/api/github-stats', data).then((response) => {
+      console.log(response)
       if (response.status === 200) {
         setApiResponse(JSON.stringify(response.data))
       }

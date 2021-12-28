@@ -14,19 +14,28 @@ type ResponseData = {
   status: 'success' | 'error'
 }
 
-export default function handler(req: ApiRequest, res: NextApiResponse): void {
+export default async function handler(
+  req: ApiRequest,
+  res: NextApiResponse
+): Promise<void> {
   const {
     body: { name, partition }
   } = req
-  getGithubContributions({
+  await getGithubContributions({
     username: name,
     config: {
-      partition
+      partition: 'current',
+      proxy: 'https://glacial-citadel-92798.herokuapp.com/'
     }
-  }).then((response) => {
-    res.status(200).json({
-      message: 'success',
-      status: 'success'
-    } as ResponseData)
   })
+    .then((response: string) => {
+      console.log(response)
+      res.status(200).json({
+        data: response,
+        status: 'success'
+      })
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
