@@ -148,7 +148,7 @@ export default function OverlayDialog(): JSX.Element {
                   id="projects-table"
                   headers={['Projects']}
                   rows={[
-                    {
+                    /* {
                       elements: [
                         {
                           name: 'Verify, Social Media',
@@ -160,13 +160,16 @@ export default function OverlayDialog(): JSX.Element {
                         },
                         { name: "'21 - Present", type: 'text' }
                       ]
-                    },
+                    }, */
                     {
+                      onClick: () => {
+                        handlePageTransition('/github-stats')
+                      },
                       elements: [
                         { name: 'Github Stats', type: 'text' },
                         {
                           type: 'style',
-                          name: ' (Coming Soon) Report Github contributions on your websites.'
+                          name: 'Report Github contributions on your websites.'
                         },
                         { name: "'20 - Present", type: 'text' }
                       ]
