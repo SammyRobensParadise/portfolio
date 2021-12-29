@@ -10,8 +10,8 @@ export type Hrefs =
   | '/unity-finger-foods'
   | '/verify'
   | '/github-stats'
-  | 'intensif-eye'
-  | 'arduino-scream'
+  | '/intensif-eye'
+  | '/arduino-scream'
 
 export interface UseTransitionInterface {
   timeout?: number
