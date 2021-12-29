@@ -8,7 +8,6 @@ import Image from 'next/image'
 import useTransition from '../hooks/transition'
 import { animate, cubicBezier } from '../global/helpers/animation'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
-import { ENGINEERING_PAPER_SOURCE_CONTROL_NAME } from '../global/constants/constants'
 import useResizeParalax from '../hooks/resize'
 
 const scale = { width: 400, height: 300 }
