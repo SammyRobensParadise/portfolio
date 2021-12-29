@@ -32,17 +32,23 @@ export default function EmailModal({
   }
   const onSubmit = (data: FormValues) => {
     setIsWaiting(true)
-    axios.post('/api/email', data).then((response) => {
-      setIsWaiting(false)
-      if (response.status === 200) {
-        setResult('SUCCESS')
-        setTimeout(() => {
-          close()
-        }, 3000)
-      } else {
+    axios
+      .post('/api/email', data)
+      .then((response) => {
+        setIsWaiting(false)
+        if (response.status === 200) {
+          setResult('SUCCESS')
+          setTimeout(() => {
+            close()
+          }, 3000)
+        } else {
+          setResult('ERROR')
+        }
+      })
+      .catch(() => {
+        setIsWaiting(false)
         setResult('ERROR')
-      }
-    })
+      })
   }
 
   const Form = () => (
@@ -159,7 +165,7 @@ export default function EmailModal({
               )}
               {!isWaiting && result === 'ERROR' && (
                 <p style={{ color: 'red' }} className=" text-2xl">
-                  Your message was not send successfully. Please try again
+                  Your message was not sent successfully. Please try again
                   later.
                 </p>
               )}

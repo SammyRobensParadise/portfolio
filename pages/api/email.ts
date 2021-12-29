@@ -37,9 +37,6 @@ export default function handler(req: ApiRequest, res: NextApiResponse): void {
     <div
     style="
       margin: 0;
-      padding: 0;
-      width: 100%;
-      word-break: break-word;
       -webkit-font-smoothing: antialiased;
       font-family: 'Inter', sans-serif;
       font-weight: 400;
@@ -48,7 +45,7 @@ export default function handler(req: ApiRequest, res: NextApiResponse): void {
     "
   >
     <h2 style="color: #3f46f3">
-      Hey ${name}! I have gotten your message, and will reach out sortly! 🕐
+      Hey ${name}! I have gotten your message, and will reach out shortly! 🕐
     </h2>
     <h4 style="color: #3f46f3">Your message:</h4>
     <p>${message || 'No message 😀'}</p>
