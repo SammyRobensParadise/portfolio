@@ -16,7 +16,7 @@ const IntensifEye: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
   useResizeParalax()
   function handleScrollButtonClick() {
-    handlePageTransition('/hootsuite')
+    handlePageTransition('/')
   }
 
   return (
@@ -38,11 +38,13 @@ const IntensifEye: NextPage = (): JSX.Element => {
             leaveFrom="opacity-100"
           >
             <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-left">
-              Intensif-Eye; Google Vision AI
+              <a href="https://github.com/SammyRobensParadise/dubhacks-19">
+                Intensif-Eye; Google Vision AI
+              </a>
             </h1>
           </Transition>
           <div className="relative transition transform bg-cerulaen dark:bg-highlight  mb-16 overflow-x-visible">
-            <Parallax x={[10, -2]}>
+            <Parallax x={[20, -2]}>
               <p className="py-4 px-4 bg-cerulaen dark:bg-highlight dark:text-shadow text-off-white text-2xl font-black uppercase flex flex-nowrap w-max transition-all hover:py-8">
                 A story about a hackathon project aiming for a more accessible
                 world
@@ -176,7 +178,7 @@ const IntensifEye: NextPage = (): JSX.Element => {
               <div>
                 <Image
                   src="/intensif-eye-render.png"
-                  alt="woman teaching in front of art board"
+                  alt="intensif-eye application"
                   {...scale}
                 />
               </div>
@@ -187,7 +189,7 @@ const IntensifEye: NextPage = (): JSX.Element => {
               <div>
                 <Image
                   src="/intensif-eye-render-single.png"
-                  alt="woman teaching in front of art board"
+                  alt="intensif-eye application"
                   {...scale}
                 />
               </div>
@@ -198,19 +200,19 @@ const IntensifEye: NextPage = (): JSX.Element => {
               <li>
                 Github:{' '}
                 <a
-                  href="https://github.com/SammyRobensParadise/github-contributions-counter"
+                  href="https://github.com/SammyRobensParadise/dubhacks-19"
                   className="underline"
                 >
-                  github.com/SammyRobensParadise/github-contributions-counter
+                  github.com/SammyRobensParadise/dubhacks-19
                 </a>
               </li>
               <li>
-                Npm:{' '}
+                DevPost:{' '}
                 <a
-                  href="https://www.npmjs.com/package/github-contributions-counter"
+                  href="https://devpost.com/software/intensif-eye"
                   className="underline"
                 >
-                  npmjs.com/package/github-contributions-counter
+                  devpost.com/software/intensif-eye
                 </a>
               </li>
             </ul>

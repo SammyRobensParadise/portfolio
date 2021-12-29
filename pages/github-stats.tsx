@@ -35,7 +35,7 @@ const GithubStats: NextPage = (): JSX.Element => {
     formState: { errors }
   } = useForm<FormValues>()
   function handleScrollButtonClick() {
-    handlePageTransition('/')
+    handlePageTransition('/intensif-eye')
   }
 
   const codeBlockText = `
@@ -254,7 +254,7 @@ const GithubStats: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton handler={handleScrollButtonClick} name="Home" />
+          <ScrollButton handler={handleScrollButtonClick} name="Intensif-eye" />
         </div>
       </div>
     </>
