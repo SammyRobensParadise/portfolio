@@ -19,6 +19,7 @@ const FloatCard: NextPage = (): JSX.Element => {
   function handleScrollButtonClick() {
     handlePageTransition('/puma')
   }
+
   return (
     <>
       <Head>
@@ -88,7 +89,7 @@ const FloatCard: NextPage = (): JSX.Element => {
                 introducing a cradle-to-the-grave product lifecycle.
               </li>
               <li>
-                Designed and developed application interface for Journal. Worked
+                Designed and developed application interface for Float. Worked
                 closely with stakeholders to capture user needs and develop a
                 prduct experience matching the mental model of users in a timely
                 manner.
@@ -110,17 +111,17 @@ const FloatCard: NextPage = (): JSX.Element => {
                 and mockup design, development, and finally user-feedback and
                 iteration. As a developer and web designer, I fit well into the
                 multi-faceted role that Float required, with the ability to
-                deliver on both software and design. I worked on both Journal’s
-                Front-end and backend, and provided graphic illustrations for
-                product and marketing purposes.
+                deliver on both software and design. I worked on both
+                Float&apos;s Front-end and backend, and provided graphic
+                illustrations for product and marketing purposes.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
                 During my time at Float I designed and developed numerous
                 features delivering a never-before-seen corporate expense
-                managment experience. I designed (and developed) Float’s
+                managment experience. I designed (and developed) Float&apos;s
                 application navigation infrastructure and interface, accounting
                 for quick scalability, sub-pages, and multi-user roles. I have
-                also had a hand in designing Float’s, virtual credit card
+                also had a hand in designing Float&apos;s, virtual credit card
                 experience, branding, transaction management experience, and
                 settings flow. I also championed accessible design practices,
                 and work to enforce a coherent and consistent design process,
