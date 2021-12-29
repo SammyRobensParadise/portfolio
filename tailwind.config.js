@@ -7,7 +7,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: { mono: ['Ms\\ Sans'] },
+      fontFamily: { mono: ['monospace'] },
       backgroundColor: {
         teal: 'teal'
       }

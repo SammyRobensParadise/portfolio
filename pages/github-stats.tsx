@@ -180,7 +180,7 @@ const GithubStats: NextPage = (): JSX.Element => {
                 )}
               </form>
             </div>
-            <div className="shadow-inner">
+            <div className="shadow-inner font-mono">
               <CopyBlock
                 language="javascript"
                 text={codeBlockText}
@@ -194,7 +194,7 @@ const GithubStats: NextPage = (): JSX.Element => {
             <h3 className="text-lg justify-start text-left block text-cerulaen dark:text-off-white font-bold pb-8">
               Response
             </h3>
-            <div className="max-h-64 overflow-y-scroll rounded shadow-inner">
+            <div className="max-h-64 overflow-y-scroll rounded shadow-inner font-mono">
               <CopyBlock
                 language="json"
                 text={apiResponse}

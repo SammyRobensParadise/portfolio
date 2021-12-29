@@ -142,6 +142,8 @@ const Puma: NextPage = (): JSX.Element => {
             <div className="flex flex-row justify-center p-12">
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/puma-colors.png"
                   src="/puma-colors.png"
                   alt="woman teaching in front of art board"
                   {...scale}
@@ -149,6 +151,8 @@ const Puma: NextPage = (): JSX.Element => {
               </div>
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/puma-checkboxes.png"
                   src="/puma-checkboxes.png"
                   alt="woman teaching in front of art board"
                   {...scale}
@@ -156,6 +160,8 @@ const Puma: NextPage = (): JSX.Element => {
               </div>
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/puma-tooltip.png"
                   src="/puma-tooltip.png"
                   alt="woman teaching in front of art board"
                   {...scale}
@@ -167,6 +173,8 @@ const Puma: NextPage = (): JSX.Element => {
             <div className="flex flex-row justify-center p-12">
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/puma-badge.png"
                   src="/puma-badge.png"
                   alt="woman teaching in front of art board"
                   {...scale}
@@ -174,6 +182,8 @@ const Puma: NextPage = (): JSX.Element => {
               </div>
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/puma-dropdown.png"
                   src="/puma-dropdown.png"
                   alt="woman teaching in front of art board"
                   {...scale}
@@ -181,6 +191,8 @@ const Puma: NextPage = (): JSX.Element => {
               </div>
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/puma-tooltip.png"
                   src="/puma-tooltip.png"
                   alt="woman teaching in front of art board"
                   {...scale}

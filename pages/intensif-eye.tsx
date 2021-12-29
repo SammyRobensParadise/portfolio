@@ -16,7 +16,7 @@ const IntensifEye: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
   useResizeParalax()
   function handleScrollButtonClick() {
-    handlePageTransition('/')
+    handlePageTransition('/arduino-scream')
   }
 
   return (
@@ -177,6 +177,8 @@ const IntensifEye: NextPage = (): JSX.Element => {
             <div className="flex flex-row justify-center">
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/intensif-eye-render.png"
                   src="/intensif-eye-render.png"
                   alt="intensif-eye application"
                   {...scale}
@@ -188,6 +190,8 @@ const IntensifEye: NextPage = (): JSX.Element => {
             <div className="flex flex-row justify-center">
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/intensif-eye-render-single.png"
                   src="/intensif-eye-render-single.png"
                   alt="intensif-eye application"
                   {...scale}
@@ -219,7 +223,10 @@ const IntensifEye: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton handler={handleScrollButtonClick} name="Home" />
+          <ScrollButton
+            handler={handleScrollButtonClick}
+            name="Arduino Scream"
+          />
         </div>
       </div>
     </>
