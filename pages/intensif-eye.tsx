@@ -10,7 +10,7 @@ import { animate, cubicBezier } from '../global/helpers/animation'
 import ScrollButton from '../components/ScrollButton/ScrollButton'
 import useResizeParalax from '../hooks/resize'
 
-const scale = { width: 400, height: 300 }
+const scale = { width: 960, height: 720 }
 
 const IntensifEye: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
@@ -171,69 +171,53 @@ const IntensifEye: NextPage = (): JSX.Element => {
               </div>
             </Parallax>
           </div>
-        </Transition>
-        <Transition
-          show={visibility}
-          enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-          leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-          enterFrom="opacity-0"
-          enterTo="opaciy-100"
-          leaveTo="opacity-0"
-          leaveFrom="opacity-100"
-        >
-          <Parallax x={[20, -10]}>
-            <div className="flex flex-row justify-center p-12">
+          <Parallax x={[20, -10]} y={[20, -10]}>
+            <div className="flex flex-row justify-center">
               <div>
                 <Image
-                  src="/puma-colors.png"
-                  alt="woman teaching in front of art board"
-                  {...scale}
-                />
-              </div>
-              <div>
-                <Image
-                  src="/puma-checkboxes.png"
-                  alt="woman teaching in front of art board"
-                  {...scale}
-                />
-              </div>
-              <div>
-                <Image
-                  src="/puma-tooltip.png"
+                  src="/intensif-eye-render.png"
                   alt="woman teaching in front of art board"
                   {...scale}
                 />
               </div>
             </div>
           </Parallax>
-          <Parallax x={[-10, 10]}>
-            <div className="flex flex-row justify-center p-12">
+          <Parallax x={[-10, 20]} y={[20, -20]}>
+            <div className="flex flex-row justify-center">
               <div>
                 <Image
-                  src="/puma-badge.png"
-                  alt="woman teaching in front of art board"
-                  {...scale}
-                />
-              </div>
-              <div>
-                <Image
-                  src="/puma-dropdown.png"
-                  alt="woman teaching in front of art board"
-                  {...scale}
-                />
-              </div>
-              <div>
-                <Image
-                  src="/puma-tooltip.png"
+                  src="/intensif-eye-render-single.png"
                   alt="woman teaching in front of art board"
                   {...scale}
                 />
               </div>
             </div>
           </Parallax>
+          <div className="space-y-4 py-4">
+            <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
+              <li>
+                Github:{' '}
+                <a
+                  href="https://github.com/SammyRobensParadise/github-contributions-counter"
+                  className="underline"
+                >
+                  github.com/SammyRobensParadise/github-contributions-counter
+                </a>
+              </li>
+              <li>
+                Npm:{' '}
+                <a
+                  href="https://www.npmjs.com/package/github-contributions-counter"
+                  className="underline"
+                >
+                  npmjs.com/package/github-contributions-counter
+                </a>
+              </li>
+            </ul>
+          </div>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
-          <ScrollButton handler={handleScrollButtonClick} name="Hootsuite" />
+          <ScrollButton handler={handleScrollButtonClick} name="Home" />
         </div>
       </div>
     </>
