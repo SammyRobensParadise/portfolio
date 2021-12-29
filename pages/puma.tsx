@@ -88,8 +88,8 @@ const Puma: NextPage = (): JSX.Element => {
                 </li>
                 <li>
                   Designed a complete component design system and worked closely
-                  with PUMA’s marketing team to curate a new W3C AAA accessible
-                  color palette.
+                  with PUMA&apos;`s marketing team to curate a new W3C AAA
+                  accessible color palette.
                 </li>
                 <li>
                   built a front-end component library to be used by PUMA to

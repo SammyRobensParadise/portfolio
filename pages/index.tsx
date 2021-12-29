@@ -215,11 +215,14 @@ const LandingPage: NextPage = (): JSX.Element => {
                 ]
               },
               {
+                onClick: () => {
+                  handlePageTransition('/intensif-eye')
+                },
                 elements: [
                   { name: 'Intensif-Eye, AI', type: 'text' },
                   {
                     type: 'style',
-                    name: '(Coming Soon) Information access for our visually impared.'
+                    name: 'Information access for our visually impared.'
                   },
                   { name: "'19'", type: 'text' }
                 ]
