@@ -151,6 +151,7 @@ function Flow({ src, alt, height, width }) {
         style={{ width, height }}
       >
         <img
+          loading="eager"
           src={src}
           data-sampler="simplePlaneTexture"
           alt={alt}

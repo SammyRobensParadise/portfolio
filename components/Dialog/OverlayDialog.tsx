@@ -188,11 +188,14 @@ export default function OverlayDialog(): JSX.Element {
                       ]
                     },
                     {
+                      onClick: () => {
+                        handlePageTransition('/arduino-scream')
+                      },
                       elements: [
                         { name: 'Arduino Scream', type: 'text' },
                         {
                           type: 'style',
-                          name: '(Coming Soon) Open a safe by screaming at it? Sure thing!'
+                          name: 'Open a safe by screaming at it? Sure thing!'
                         },
                         { name: "'19", type: 'text' }
                       ]

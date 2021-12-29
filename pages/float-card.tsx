@@ -46,6 +46,8 @@ const FloatCard: NextPage = (): JSX.Element => {
             <div className="flex flex-row justify-center p-12">
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/float-look.png"
                   src="/float-look.png"
                   alt="woman teaching in front of art board"
                   {...scale}
@@ -53,6 +55,8 @@ const FloatCard: NextPage = (): JSX.Element => {
               </div>
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/float-upload.png"
                   src="/float-upload.png"
                   alt="woman teaching in front of art board"
                   {...scale}
@@ -60,6 +64,8 @@ const FloatCard: NextPage = (): JSX.Element => {
               </div>
               <div>
                 <Image
+                  placeholder="blur"
+                  blurDataURL="/float-card.png"
                   src="/float-card.png"
                   alt="woman teaching in front of art board"
                   {...scale}
