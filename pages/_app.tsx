@@ -56,7 +56,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       <>
         <OverlayDialog />
         <MobileWarning />
-        <div className=" bg-off-white dark:bg-shadow w-screen">
+        <div className="bg-off-white dark:bg-shadow">
           <NavigationBar handleDarkTheme={setIsDarkTheme} />
           <Sidebar />
           <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>

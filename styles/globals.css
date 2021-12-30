@@ -9,7 +9,7 @@
   font-family: 'Work Sans', sans-serif;
 }
 html {
-  overflow-x: hidden;
+  overflow-x: auto;
   --scrollbarBGDark: #000000;
   --thumbBGDark: #2b2b2b;
   --scrollbarBGDLight: #ffffff;
@@ -21,6 +21,7 @@ body {
   overflow-y: scroll;
   scroll-behavior: smooth;
   min-width: 100vw;
+  display: initial;
 }
 
 ::selection {
