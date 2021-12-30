@@ -53,7 +53,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       )
     }
     return (
-      <>
+      <div className="application">
         <OverlayDialog />
         <MobileWarning />
         <div className="bg-off-white dark:bg-shadow">
@@ -73,7 +73,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
           </Curtains>
           <Footer />
         </div>
-      </>
+      </div>
     )
   }
   return null

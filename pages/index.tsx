@@ -30,9 +30,9 @@ const LandingPage: NextPage = (): JSX.Element => {
       <Head>
         <title>Sammy</title>
       </Head>
-      <div className="" title={LANDING_MESSAGE}>
+      <div title={LANDING_MESSAGE}>
         <Transition
-          className="grid grid-cols-2 gap-4 h-full relative"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           show={visibility}
           appear
           enter={`${animate(1000, 1000)} ${cubicBezier(
