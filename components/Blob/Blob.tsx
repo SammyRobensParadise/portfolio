@@ -26,12 +26,12 @@ const BlobElement = ({
   const handleResize = useCallback(() => {
     if (canvas.current && canvas.current.parentElement) {
       canvas.current.width = canvas.current.parentElement.clientWidth
-      canvas.current.height = window.innerHeight
+      canvas.current.height = height
       if (blob) {
         blob.color = color
       }
     }
-  }, [blob, color])
+  }, [blob, color, height])
 
   const resize = useCallback((): void => {
     handleResize()

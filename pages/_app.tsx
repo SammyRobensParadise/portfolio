@@ -52,8 +52,9 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
         </div>
       )
     }
+
     return (
-      <div className="application">
+      <div>
         <OverlayDialog />
         <MobileWarning />
         <div className="bg-off-white dark:bg-shadow">

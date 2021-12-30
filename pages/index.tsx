@@ -16,10 +16,6 @@ import useResizeParalax from '../hooks/resize'
 
 const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
-const styleOffsetOverride: {
-  fontSize: string
-  lineHeight: string
-} = { fontSize: '4.51rem', lineHeight: '1' }
 
 const LandingPage: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
@@ -30,51 +26,47 @@ const LandingPage: NextPage = (): JSX.Element => {
       <Head>
         <title>Sammy</title>
       </Head>
-      <div title={LANDING_MESSAGE}>
-        <Transition
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-          show={visibility}
-          appear
-          enter={`${animate(1000, 1000)} ${cubicBezier(
-            0.97,
-            0.03,
-            0.36,
-            0.45
-          )}`}
-          leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-          enterFrom="opacity-0"
-          enterTo="opaciy-100"
-          leaveTo="opacity-0"
-          leaveFrom="opacity-100"
-        >
-          <Transition.Child
-            className="p-24 pt-48 z-30"
-            enter="transition-opacity ease-linear duration-300 delay-300"
+      <div>
+        <div title={LANDING_MESSAGE}>
+          <Transition
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            show={visibility}
+            appear
+            enter={`${animate(1000, 1000)} ${cubicBezier(
+              0.97,
+              0.03,
+              0.36,
+              0.45
+            )}`}
+            leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300 delay-300"
-            leaveFrom="opacity-100"
+            enterTo="opaciy-100"
             leaveTo="opacity-0"
+            leaveFrom="opacity-100"
           >
-            <h1
-              className="text-off-white dark:text-cerulaen font-work font-extrabold w-2/3 absolute z-20 tracking-tighter"
-              style={styleOffsetOverride}
+            <Transition.Child
+              className="px-8 sm:pl-24 sm:pr-0 z-30"
+              enter="transition-opacity ease-linear duration-300 delay-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity ease-linear duration-300 delay-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
             >
-              {LANDING_MESSAGE}
-            </h1>
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl sm:text-7xl w-2/3 absolute z-50 tracking-tighter">
-              {Array.from(LANDING_MESSAGE).map((letter: string) => (
-                <span
-                  key={generateUUID()}
-                  className="transition transform hover:text-highlight z-50"
-                >
-                  {letter}
-                </span>
-              ))}
-            </h1>
-          </Transition.Child>
-          <div className="hidden sm:block">
-            <Parallax y={[-50, 50]}>
+              <div>
+                <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl sm:text-7xl sm:pl-6 z-50 tracking-tighter">
+                  {Array.from(LANDING_MESSAGE).map((letter: string) => (
+                    <span
+                      key={generateUUID()}
+                      className="transition transform hover:text-highlight z-50"
+                    >
+                      {letter}
+                    </span>
+                  ))}
+                </h1>
+              </div>
+            </Transition.Child>
+            <div className="hidden sm:block z-0">
               <div className="flex">
                 <BlobElement
                   color="#2B2B2B"
@@ -95,13 +87,13 @@ const LandingPage: NextPage = (): JSX.Element => {
                   height={500}
                 />
               </div>
-            </Parallax>
-          </div>
-        </Transition>
-      </div>
-      <div className="relative pt-96 isolate p-24  space-y-24" id="tables">
+            </div>
+          </Transition>
+        </div>
         <Transition
           appear
+          className="space-y-24 px-8 md:px-32 z-40 pt-32"
+          id="tables"
           show={visibility}
           enter="transition-opacity ease-linear duration-300 delay-300"
           enterFrom="opacity-0"
@@ -120,7 +112,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                 },
                 elements: [
                   {
-                    name: 'Beacon Biosignals',
+                    name: 'Beacon.bio',
                     type: 'text'
                   },
                   {
@@ -174,7 +166,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                   handlePageTransition('/unity-finger-foods')
                 },
                 elements: [
-                  { name: 'Unity, Finger Foods', type: 'text' },
+                  { name: 'Unity, FF', type: 'text' },
                   {
                     type: 'style',
                     name: 'AR, VR, XR, computer vision and your childhood toys re-imagined '
@@ -188,19 +180,6 @@ const LandingPage: NextPage = (): JSX.Element => {
             id="projects-table"
             headers={['Projects']}
             rows={[
-              /* {
-                elements: [
-                  {
-                    name: 'Verify, Social Media',
-                    type: 'text'
-                  },
-                  {
-                    type: 'style',
-                    name: '(Coming Soon) Uncover mis-information right in your instagram feed.'
-                  },
-                  { name: "'21 - Present", type: 'text' }
-                ]
-              }, */
               {
                 onClick: () => {
                   handlePageTransition('/github-stats')
@@ -243,74 +222,75 @@ const LandingPage: NextPage = (): JSX.Element => {
             ]}
           />
         </Transition>
-      </div>
-      <div id="about" className="p-24 pt-0">
-        <Transition
-          appear
-          show={visibility}
-          enter="transition-opacity ease-linear duration-300 delay-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
-          leaveTo="opacity-0 translate-x-full scale-150 h-full"
-          leaveFrom="opacity-100"
-        >
-          <Parallax x={['-400px', '112px']}>
-            <h2
-              id="about"
-              className="text-3xl justify-start text-left pb-4 block text-cerulaen dark:text-off-white font-bold"
-            >
-              About
-            </h2>
-          </Parallax>
-          <div className="grid grid-cols-3 gap-4 text-cerulaen dark:text-off-white text-lg">
-            <div className="space-y-8 pr-4 col-span-2 z-50">
-              <Parallax x={['-200px', '112px']}>
-                <p>
-                  I study systems design engineering, a problem-based
-                  engineering approach to complex systems. I use principles of
-                  UX/UI design, ergonomic design, and accessibility to engineer
-                  creative solutions for our worlds most complex problems.
-                </p>
-                <p>
-                  I have designed and developed dozens of solutions for the
-                  biomedical, financial, gaming, social media, and energy
-                  industries tackling complex usabililty and experential
-                  problems.
-                </p>
-                <p>
-                  I work with a complete software stack to build beautiful
-                  accessibility-driven experiences and am specializing in
-                  computing and human-computer interaction including networking
-                  and machine intelligence.
-                </p>
-                <Link href={RESUME_FILE_NAME} passHref>
-                  <p className="underline transition-all hover:font-semibold">
-                    See my Résume...
-                  </p>
-                </Link>
-              </Parallax>
-              <Parallax x={['60px', '0px']}>
-                <h2 className="text-3xl text-left pb-4 block text-cerulaen dark:text-off-white font-bold">
-                  Focus
-                </h2>
-              </Parallax>
-              <Parallax x={['60px', '-60px']}>
-                <p>
-                  UX and ergonomic design, software development, systems
-                  modeling and analysis, prototyping and quantitative design
-                  patterns, HCI design, signal processing, circuit design, data
-                  structures and algorithms, system optimization, control
-                  systems, physical ergonomics
-                </p>
-              </Parallax>
-            </div>
 
-            <div className="pl-4 col-span-1">
-              <Headshot />
+        <div id="about" className="px-8 pt-8 pb-24 sm:p-24">
+          <Transition
+            appear
+            show={visibility}
+            enter="transition-opacity ease-linear duration-300 delay-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
+            leaveTo="opacity-0 translate-x-full scale-150 h-full"
+            leaveFrom="opacity-100"
+          >
+            <Parallax x={[-10, 5]}>
+              <h2
+                id="about"
+                className="text-3xl justify-start text-left pb-4 block text-cerulaen dark:text-off-white font-bold"
+              >
+                About
+              </h2>
+            </Parallax>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-cerulaen dark:text-off-white text-lg">
+              <div className="space-y-8 pr-4 sm:col-span-2 z-50">
+                <Parallax x={[-5, 2]}>
+                  <p>
+                    I study systems design engineering, a problem-based
+                    engineering approach to complex systems. I use principles of
+                    UX/UI design, ergonomic design, and accessibility to
+                    engineer creative solutions for our worlds most complex
+                    problems.
+                  </p>
+                  <p>
+                    I have designed and developed dozens of solutions for the
+                    biomedical, financial, gaming, social media, and energy
+                    industries tackling complex usabililty and experential
+                    problems.
+                  </p>
+                  <p>
+                    I work with a complete software stack to build beautiful
+                    accessibility-driven experiences and am specializing in
+                    computing and human-computer interaction including
+                    networking and machine intelligence.
+                  </p>
+                  <Link href={RESUME_FILE_NAME} passHref>
+                    <p className="underline transition-all hover:font-semibold">
+                      See my Résume...
+                    </p>
+                  </Link>
+                </Parallax>
+                <Parallax x={[-10, 10]}>
+                  <h2 className="text-3xl text-left pb-4 block text-cerulaen dark:text-off-white font-bold">
+                    Focus
+                  </h2>
+                </Parallax>
+                <Parallax x={[10, -5]}>
+                  <p>
+                    UX and ergonomic design, software development, systems
+                    modeling and analysis, prototyping and quantitative design
+                    patterns, HCI design, signal processing, circuit design,
+                    data structures and algorithms, system optimization, control
+                    systems, physical ergonomics
+                  </p>
+                </Parallax>
+              </div>
+              <div className=" pl-4 sm:col-span-1">
+                <Headshot />
+              </div>
             </div>
-          </div>
-        </Transition>
+          </Transition>
+        </div>
       </div>
     </>
   )

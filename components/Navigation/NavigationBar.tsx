@@ -62,7 +62,10 @@ const NavigationBar = ({
   }, [darkMode, handleDarkTheme])
 
   return (
-    <div className="text-cerulaen dark:text-off-white grid grid-cols-2 xl:grid-cols-3 gap-16 p-6 text-lg font-work font-normal z-50 sticky top-0">
+    <div
+      id="navigation"
+      className="text-cerulaen dark:text-off-white grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-3 sm:gap-16 p-6 text-lg font-work font-normal z-50  sm:sticky top-0"
+    >
       <Transition
         show
         appear
@@ -71,6 +74,7 @@ const NavigationBar = ({
         enterTo="opaciy-100"
       >
         <button
+          className="hidden sm:block"
           type="button"
           onClick={() => {
             router?.push('/')
@@ -80,7 +84,7 @@ const NavigationBar = ({
         </button>
       </Transition>
       <Transition
-        className="transition transform text-center hidden xl:flex flex-row space-x-4 justify-center hover:underline pt-2"
+        className="transition transform text-center hidden xl:flex flex-col space-x-4 justify-center hover:underline pt-2"
         show
         appear
         enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -95,7 +99,7 @@ const NavigationBar = ({
         </Link>
       </Transition>
       <Transition
-        className="flex flex-row justify-end space-x-4 pt-2 pr-2"
+        className="flex flex-col sm:flex-row sm:justify-end  space-y-2 sm:space-x-4 sm:space-y-0 pt-2 pr-2"
         show
         appear
         enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}

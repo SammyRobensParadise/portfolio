@@ -37,6 +37,7 @@ const Table = forwardRef(
             ))}
           </tr>
         </thead>
+
         <tbody className="border border-cerulaen p-4 border-collapse">
           {props?.rows.map(({ elements, onClick }) => (
             <tr
@@ -67,7 +68,8 @@ const Table = forwardRef(
                     className={clsx(
                       'p-4 whitespace-nowrap text-xl group overflow-y-hidden text-left',
                       {
-                        ' w-2/12': index === 0 || index === 2
+                        'w-1/2 sm:w-2/12': index === 0 || index === 2,
+                        'hidden sm:block': index === 1
                       }
                     )}
                     {...params}
@@ -76,15 +78,15 @@ const Table = forwardRef(
                       {type === 'text' ? (
                         name
                       ) : (
-                        <>
+                        <div className="hidden sm:block">
                           <div
                             className="transition transform-gpu opacity-100 border-dashed border border-cerulaen dark:border-off-white h-0 w-full mt-2.5 rounded group-hover:translate-y-10 group-hover:opacity-0 group-focus:translate-y-10 group-focus:opacity-0"
                             title={name}
                           />
-                          <div className="transition transform-gpu w-7/12 absolute opacity-0 -translate-y-10 group-hover:opacity-100 group-hover:-translate-y-5 group-focus:opacity-100 group-focus:-translate-y-5 overflow-ellipsis overflow-hidden">
+                          <div className="transition transform-gpu w-7/12 absolute opacity-0 -translate-y-10 group-hover:opacity-100 group-hover:-translate-y-3 group-focus:opacity-100 group-focus:-translate-y-3 overflow-ellipsis overflow-hidden">
                             {name}
                           </div>
-                        </>
+                        </div>
                       )}
                     </a>
                   </td>
