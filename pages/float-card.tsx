@@ -27,9 +27,9 @@ const FloatCard: NextPage = (): JSX.Element => {
         <title>Sammy - Float 💳</title>
       </Head>
       <div>
-        <div id="float-card-landing">
+        <div id="float-card-landing" className="overflow-x-hidden">
           <Transition
-            className="px-8 md:px-40 pt-6 md:pb-64"
+            className="px-8 md:px-40 pt-6 md:pb-40"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -43,7 +43,7 @@ const FloatCard: NextPage = (): JSX.Element => {
               Orchestrating the dream-to-design-to-build pipeline for Float Inc.
             </h1>
           </Transition>
-          <Parallax x={['500px', '-100px']}>
+          <Parallax x={[50, -20]}>
             <div className="flex flex-row justify-center p-12">
               <div>
                 <Image
