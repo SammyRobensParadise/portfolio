@@ -11,14 +11,17 @@ import ScrollButton from '../components/ScrollButton/ScrollButton'
 import useResizeParalax from '../hooks/resize'
 import Arduino from '../global/assets/arduino.svg'
 
-const scale = { width: 800, height: 600 }
-
 const ArduinoScream: NextPage = (): JSX.Element => {
   const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+
   useResizeParalax()
+
   function handleScrollButtonClick() {
     handlePageTransition('/')
   }
+  const ratio = 600 / 800
+  const width = window.innerWidth < 800 + 20 ? window.innerWidth - 100 : 800
+  const scale = { width, height: width * ratio }
 
   return (
     <>
@@ -26,9 +29,9 @@ const ArduinoScream: NextPage = (): JSX.Element => {
         <title>Sammy - Arduino Scream 😱</title>
       </Head>
       <div>
-        <div id="puma-landing">
+        <div id="puma-landing" className="overflow-x-hidden">
           <Transition
-            className=" px-40 pb-48 pt-6"
+            className="px-8 md:px-40 pb-16 md:pb-48 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -38,22 +41,22 @@ const ArduinoScream: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-left">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left">
               <a href="https://github.com/SammyRobensParadise/arduino-screaming">
                 Arduino-Screaming
               </a>
             </h1>
           </Transition>
-          <div className="relative transition transform bg-cerulaen dark:bg-highlight  mb-16 overflow-x-visible">
+          <div className="relative transition transform bg-cerulaen dark:bg-highlight mb-16">
             <Parallax x={[20, -2]}>
-              <p className="py-4 px-4 bg-cerulaen dark:bg-highlight dark:text-shadow text-off-white text-2xl font-black uppercase flex flex-nowrap w-max transition-all hover:py-8">
+              <p className="py-4 bg-cerulaen dark:bg-highlight dark:text-shadow text-off-white text-2xl font-black uppercase flex flex-nowrap w-max transition-all hover:py-8">
                 A hardware project to (yes) open a safe by screaming at it!
               </p>
             </Parallax>
           </div>
         </div>
         <Transition
-          className="px-40 relative opacity-0"
+          className="px-8 md:px-40 relative opacity-0"
           appear
           show={visibility}
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -91,7 +94,7 @@ const ArduinoScream: NextPage = (): JSX.Element => {
               </div>
             </Parallax>
             <Parallax x={[-2, 2]}>
-              <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+              <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
                 Opening a Safe With Your Voice!
               </h2>
             </Parallax>
@@ -112,7 +115,7 @@ const ArduinoScream: NextPage = (): JSX.Element => {
               </div>
             </Parallax>
             <Parallax x={[-2, 4]}>
-              <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+              <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
                 How Arduino Screaming Works
               </h2>
             </Parallax>
@@ -141,7 +144,7 @@ const ArduinoScream: NextPage = (): JSX.Element => {
             </Parallax>
           </div>
           <div className="space-y-4 py-4">
-            <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
+            <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4 break-words">
               <li>
                 Github:{' '}
                 <a
