@@ -72,7 +72,7 @@ const GithubStats: NextPage = (): JSX.Element => {
       <div>
         <div id="float-card-landing">
           <Transition
-            className="px-40 pb-28 pt-6"
+            className="px-8 md:px-40 pb-28 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -82,14 +82,14 @@ const GithubStats: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left pr-28">
               Github Stats
             </h1>
           </Transition>
         </div>
 
         <Transition
-          className="px-40 relative opacity-0"
+          className="px-8 md:px-40 relative opacity-0"
           appear
           show={visibility}
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -100,7 +100,7 @@ const GithubStats: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div className="pb-8">
-            <h2 className=" font-mono relative text-3xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="font-mono relative text-xl md:text-3xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               <TextLoop interval={1000}>
                 <span>npm install</span>
                 <span>yarn add</span>
@@ -231,7 +231,7 @@ const GithubStats: NextPage = (): JSX.Element => {
               Since V4, this package serves as a REST API wrapper around the
               GraphQL API.
             </p>
-            <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
+            <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4 break-words">
               <li>
                 Github:{' '}
                 <a

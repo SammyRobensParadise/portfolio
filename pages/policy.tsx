@@ -11,9 +11,9 @@ const Policy: NextPage = (): JSX.Element => (
       <title>Policy</title>
     </Head>
     <div>
-      <div className="w-screen bg-off-white dark:bg-shadow relative space-y-6 pb-12 h-screen">
+      <div className="bg-off-white dark:bg-shadow space-y-6 pb-12">
         <Transition
-          className="px-40 relative block"
+          className="px-8 md:px-40 relative block"
           show
           appear
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -23,12 +23,12 @@ const Policy: NextPage = (): JSX.Element => (
           leaveTo="opacity-0"
           leaveFrom="opacity-100"
         >
-          <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 z-20 tracking-tighter text-left relative">
+          <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left relative">
             Policy
           </h1>
         </Transition>
         <Transition
-          className="px-40"
+          className="px-8 md:px-40"
           show
           appear
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}

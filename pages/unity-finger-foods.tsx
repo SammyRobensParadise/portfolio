@@ -24,7 +24,7 @@ const FingerFood: NextPage = (): JSX.Element => {
       <div>
         <div id="float-card-landing">
           <Transition
-            className="px-40 pb-28 pt-6"
+            className="px-8 md:px-40 pb-16 md:pb-28 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -34,7 +34,7 @@ const FingerFood: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left pr-28">
               QA Lead and UX Developer<span className="text-highlight">.</span>
             </h1>
           </Transition>
@@ -43,7 +43,7 @@ const FingerFood: NextPage = (): JSX.Element => {
           <Vr scale={1} position={[0, 0, -10]} shadow />
         </ThreeStage>
         <Transition
-          className="px-40 relative opacity-0"
+          className="px-8 md:px-40 relative opacity-0"
           appear
           show={visibility}
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -54,7 +54,7 @@ const FingerFood: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div>
-            <h2 className=" relative text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className=" relative text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               Product and Quanity at{' '}
               <a
                 href="https://unity.com/solutions/accelerate-solutions-industry"
@@ -79,7 +79,7 @@ const FingerFood: NextPage = (): JSX.Element => {
               </li>
             </ul>
 
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               Some Contributions
             </h2>
             <div className="space-y-4 py-4">
