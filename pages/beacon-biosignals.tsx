@@ -189,7 +189,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
               src="/portal.png"
               height={`${flowHeight}px`}
               width={`${flowWidth}px`}
-              alt="sammy"
+              alt="web platform"
             />
           </div>
         </Transition>

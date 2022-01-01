@@ -19,7 +19,8 @@ const FloatCard: NextPage = (): JSX.Element => {
   function handleScrollButtonClick() {
     handlePageTransition('/puma')
   }
-
+  const flowWidth = window.innerWidth < 544 ? window.innerWidth - 40 : 544
+  const flowHeight = flowWidth * (408 / 544)
   return (
     <>
       <Head>
@@ -28,7 +29,7 @@ const FloatCard: NextPage = (): JSX.Element => {
       <div>
         <div id="float-card-landing">
           <Transition
-            className="px-40 pb-48 pt-6 md:pb-64"
+            className="px-8 md:px-40 pt-6 md:pb-64"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -38,7 +39,7 @@ const FloatCard: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left pr-28">
               Orchestrating the dream-to-design-to-build pipeline for Float Inc.
             </h1>
           </Transition>
@@ -75,7 +76,7 @@ const FloatCard: NextPage = (): JSX.Element => {
           </Parallax>
         </div>
         <Transition
-          className="px-40 relative opacity-0"
+          className="px-8 md:px-40 relative opacity-0"
           appear
           show={visibility}
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -150,9 +151,9 @@ const FloatCard: NextPage = (): JSX.Element => {
           <div className="grid justify-items-center py-16">
             <Flow
               src="/credit-card-render.png"
-              height="408px"
-              width="544px"
-              alt="sammy"
+              height={`${flowHeight}px`}
+              width={`${flowWidth}px`}
+              alt="float credit card"
             />
           </div>
         </Transition>

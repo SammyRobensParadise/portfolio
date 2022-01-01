@@ -16,12 +16,13 @@ export default function ScrollButton({
   const [percentage, setPercentage] = useState<number>(0)
   const [lastTime, setLastTime] = useState<number>(0)
   const handleTransitionAtBottom = useCallback(() => {
-    const scrollHeight = window.innerHeight + window.scrollY
-    if (scrollHeight >= document.body.offsetHeight && window.scrollY !== 0) {
+    const scrollHeight = window.innerHeight + window.pageYOffset
+    const appHeight = document.getElementById('__next')?.offsetHeight
+    if (appHeight && scrollHeight >= appHeight && window.pageYOffset !== 0) {
       setLoadingBuffer(true)
     }
     if (
-      scrollHeight <= document.body.offsetHeight - 150 ||
+      (appHeight && scrollHeight <= appHeight - 100) ||
       window.scrollY === 0
     ) {
       setLoadingBuffer(false)
@@ -32,6 +33,7 @@ export default function ScrollButton({
   function handleEvent() {
     handler()
   }
+
   useAnimationFrame(
     ({ time }: { time: number; delta: number }) => {
       if (loadingBuffer) {
