@@ -16,7 +16,8 @@ const Hootsuite: NextPage = (): JSX.Element => {
   function handleScrollButtonClick() {
     handlePageTransition('/unity-finger-foods')
   }
-
+  const flowWidth = window.innerWidth < 374 + 12 ? window.innerWidth - 100 : 374
+  const flowHeight = flowWidth * (281 / 374)
   return (
     <>
       <Head>
@@ -26,7 +27,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
       <div>
         <div id="hootsuite-landing">
           <Transition
-            className="px-40 pt-6"
+            className="px-8 md:px-40 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -36,14 +37,14 @@ const Hootsuite: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left pr-28">
               Software Developer @Hootsuite
             </h1>
           </Transition>
           <div className="relative z-30">{visibility && <HootsuiteMac />}</div>
         </div>
         <Transition
-          className="px-40 relative opacity-0"
+          className="px-8 md:px-40 relative opacity-0"
           appear
           show={visibility}
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -54,7 +55,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div>
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               My Contributions
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
@@ -71,7 +72,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
                 Hootsuite!
               </li>
             </ul>
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               A Deeper Dive
             </h2>
             <div className="space-y-4 py-4">
@@ -102,7 +103,7 @@ const Hootsuite: NextPage = (): JSX.Element => {
           </div>
         </Transition>
         <Transition
-          className="px-40 relative"
+          className="px-8 md:px-40 relative"
           show={visibility}
           enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -114,8 +115,8 @@ const Hootsuite: NextPage = (): JSX.Element => {
           <div className="grid transform justify-items-center py-16">
             <Flow
               src="/hs-logo.png"
-              height="281px"
-              width="374px"
+              height={`${flowHeight}px`}
+              width={`${flowWidth}px`}
               alt="hootsuite art"
             />
           </div>
