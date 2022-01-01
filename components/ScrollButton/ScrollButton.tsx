@@ -21,7 +21,7 @@ export default function ScrollButton({
       setLoadingBuffer(true)
     }
     if (
-      scrollHeight <= document.body.offsetHeight - 100 ||
+      scrollHeight <= document.body.offsetHeight - 150 ||
       window.scrollY === 0
     ) {
       setLoadingBuffer(false)

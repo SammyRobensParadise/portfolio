@@ -2,7 +2,6 @@ import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
-import { Parallax } from 'react-scroll-parallax'
 
 import ThreeStage from '../components/Stage/ThreeStage'
 import Brain from '../components/Renders/Brain'
@@ -14,6 +13,8 @@ import { ENGINEERING_PAPER_DESIGN_SYSTEM_NAME } from '../global/constants/consta
 import useResizeParalax from '../hooks/resize'
 
 const BeaconBiosignals: NextPage = (): JSX.Element => {
+  const flowWidth = window.innerWidth < 450 ? window.innerWidth - 40 : 450
+  const flowHeight = flowWidth * (291 / 450)
   const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
   useResizeParalax()
 
@@ -26,11 +27,10 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
       <Head>
         <title>Sammy - Beacon 🧠</title>
       </Head>
-
       <div>
         <div id="beacon-biosignals-landing">
           <Transition
-            className="px-40 pb-48 pt-6 md:pb-64"
+            className="px-8 md:px-40 md:pb-48 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -40,23 +40,22 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl absolute z-20 tracking-tighter text-left pr-28">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left pr-28">
               Working with Beacon Biosignals to revolutionize the way we analyze
               the brain and change lives while doing it.
             </h1>
           </Transition>
           <div className="relative transition transform z-30">
-            <Parallax y={['0px', '100px']}>
-              {visibility && (
-                <ThreeStage height={400}>
-                  <Brain scale={0.2} position={[0, 0, -10]} shadow />
-                </ThreeStage>
-              )}
-            </Parallax>
+            {visibility && (
+              <ThreeStage height={400}>
+                <Brain scale={0.2} position={[0, 0, -10]} shadow />
+              </ThreeStage>
+            )}
           </div>
         </div>
+
         <Transition
-          className="px-40 relative opacity-0"
+          className="px-8 md:px-40 relative opacity-0"
           appear
           show={visibility}
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -67,7 +66,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div>
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               What I do at Beacon
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
@@ -105,7 +104,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
               </li>
             </ul>
 
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               A Case Study in Web Engineering
             </h2>
             <h3 className="text-2xl justify-start text-left block py-4 text-cerulaen dark:text-off-white font-bold">
@@ -174,8 +173,9 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             </div>
           </div>
         </Transition>
+
         <Transition
-          className="px-40 relative"
+          className="md:px-40"
           show={visibility}
           enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -184,8 +184,13 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
           leaveTo="opacity-0"
           leaveFrom="opacity-100"
         >
-          <div className="grid transform justify-items-center py-16">
-            <Flow src="/portal.png" height="291px" width="450px" alt="sammy" />
+          <div className="grid justify-items-center py-16">
+            <Flow
+              src="/portal.png"
+              height={`${flowHeight}px`}
+              width={`${flowWidth}px`}
+              alt="sammy"
+            />
           </div>
         </Transition>
         <div className="grid justify-items-center py-6 items-center">
