@@ -26,9 +26,9 @@ const Puma: NextPage = (): JSX.Element => {
         <title>Sammy - Puma 🏢</title>
       </Head>
       <div>
-        <div id="puma-landing">
+        <div id="puma-landing" className="overflow-x-hidden">
           <Transition
-            className=" px-40 pb-48 pt-6"
+            className="px-8 md:px-40 pb-16 md:pb-48 pt-6"
             show={visibility}
             appear
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -38,7 +38,7 @@ const Puma: NextPage = (): JSX.Element => {
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
-            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-7xl w-2/3 absolute z-20 tracking-tighter text-left">
+            <h1 className="text-cerulaen dark:text-off-white font-work font-extrabold text-5xl md:text-7xl z-20 tracking-tighter text-left">
               Better design for{' '}
               <a
                 href="https://www.pumautilitymonitoring.ca/"
@@ -49,9 +49,9 @@ const Puma: NextPage = (): JSX.Element => {
               data scientists (and more)
             </h1>
           </Transition>
-          <div className="relative transition transform bg-cerulaen dark:bg-highlight  mb-16 overflow-x-visible">
+          <div className="relative transition transform bg-cerulaen dark:bg-highlight mb-16 overflow-x-hidden">
             <Parallax x={[10, -2]}>
-              <p className="py-4 px-4 bg-cerulaen dark:bg-highlight dark:text-shadow text-off-white text-2xl font-black uppercase flex flex-nowrap w-max transition-all hover:py-8">
+              <p className="py-4 bg-cerulaen dark:bg-highlight dark:text-shadow text-off-white text-2xl font-black uppercase flex flex-nowrap w-max transition-all hover:py-8">
                 Leading designer and systems engineer at PUMA, responsible for
                 user experience research, graphic and interface design
               </p>
@@ -59,7 +59,7 @@ const Puma: NextPage = (): JSX.Element => {
           </div>
         </div>
         <Transition
-          className="px-40 relative opacity-0"
+          className="px-8 md:px-40 relative opacity-0"
           appear
           show={visibility}
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
@@ -71,7 +71,7 @@ const Puma: NextPage = (): JSX.Element => {
         >
           <div>
             <Parallax x={[-2, 2]}>
-              <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+              <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
                 My Contributions
               </h2>
             </Parallax>
@@ -112,7 +112,7 @@ const Puma: NextPage = (): JSX.Element => {
               </ul>
             </Parallax>
             <Parallax x={[-2, 2]}>
-              <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+              <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
                 Design System ™️
               </h2>
             </Parallax>
@@ -139,7 +139,7 @@ const Puma: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <Parallax x={[20, -10]}>
-            <div className="flex flex-row justify-center p-12">
+            <div className="flex flex-row justify-center p-2 md:p-12">
               <div>
                 <Image
                   placeholder="blur"
@@ -170,7 +170,7 @@ const Puma: NextPage = (): JSX.Element => {
             </div>
           </Parallax>
           <Parallax x={[-10, 10]}>
-            <div className="flex flex-row justify-center p-12">
+            <div className="flex flex-row justify-center p-2 md:p-12">
               <div>
                 <Image
                   placeholder="blur"

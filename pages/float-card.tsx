@@ -87,7 +87,7 @@ const FloatCard: NextPage = (): JSX.Element => {
           leaveFrom="opacity-100"
         >
           <div>
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               Product at Float
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
@@ -107,7 +107,7 @@ const FloatCard: NextPage = (): JSX.Element => {
               </li>
             </ul>
 
-            <h2 className="text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
+            <h2 className="text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
               My Role
             </h2>
             <div className="space-y-4 py-4">
