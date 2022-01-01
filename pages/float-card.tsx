@@ -19,7 +19,7 @@ const FloatCard: NextPage = (): JSX.Element => {
   function handleScrollButtonClick() {
     handlePageTransition('/puma')
   }
-  const flowWidth = window.innerWidth < 544 ? window.innerWidth - 40 : 544
+  const flowWidth = window.innerWidth < 544 ? window.innerWidth - 100 : 544
   const flowHeight = flowWidth * (408 / 544)
   return (
     <>
