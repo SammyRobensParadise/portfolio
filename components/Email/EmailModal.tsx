@@ -130,7 +130,7 @@ export default function EmailModal({
             <Dialog.Overlay className="transition transform fixed inset-0 bg-off-white dark:bg-shadow opacity" />
           </Transition.Child>
           <span
-            className="inline-block h-screen align-middle"
+            className="hidden sm:inline-block h-screen align-middle"
             aria-hidden="true"
           >
             &#8203;
@@ -143,8 +143,9 @@ export default function EmailModal({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
             className="relative bg-off-white dark:bg-shadow rounded mx-auto inline-block shadow-lg mt-24"
+            style={{ zIndex: 100 }}
           >
-            <Dialog.Description className="p-12 space-y-4" as="div">
+            <Dialog.Description className="p-1 sm:p-12 space-y-4" as="div">
               <h1 className="text-cerulaen dark:text-off-white text-2xl text-left">
                 Let&apos;s get in touch!
               </h1>

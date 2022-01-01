@@ -47,7 +47,7 @@ export default function OverlayDialog(): JSX.Element {
             <Dialog.Overlay className="transition transform fixed inset-0 bg-off-white dark:bg-shadow opacity" />
           </Transition.Child>
           <span
-            className="inline-block h-screen align-middle"
+            className="hidden sm:inline-block h-screen align-middle"
             aria-hidden="true"
           >
             &#8203;
@@ -61,7 +61,7 @@ export default function OverlayDialog(): JSX.Element {
             leaveTo="opacity-0 scale-95"
             className="relative bg-off-white dark:bg-shadow rounded mx-auto inline-block shadow-lg mt-24"
           >
-            <Dialog.Description className=" p-12" as="div">
+            <Dialog.Description className="p-1 sm:p-12" as="div">
               {type === 'work' && (
                 <Table
                   id="work-table"

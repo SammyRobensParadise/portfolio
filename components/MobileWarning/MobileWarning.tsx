@@ -17,7 +17,7 @@ export default function MobileWarning(): JSX.Element {
         open={show}
         onClose={setShow}
       >
-        <div className="min-h-screen px-4 ">
+        <div className="min-h-screen px-4">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
