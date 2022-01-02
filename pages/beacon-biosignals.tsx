@@ -36,7 +36,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             enterFrom="opacity-0"
-            enterTo="opaciy-100"
+            enterTo="opacity-100"
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
@@ -61,7 +61,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           enterFrom="opacity-0"
-          enterTo="opaciy-100"
+          enterTo="opacity-100"
           leaveTo="opacity-0"
           leaveFrom="opacity-100"
         >
@@ -112,23 +112,23 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             </h3>
             <div className="space-y-4">
               <p className="text-shadow dark:text-off-white text-lg">
-                Beacon Biosignals&#39; brainwave, and biometric detection models
+                Beacon Biosignals&#39; brainwave and biometric detection models
                 accelerate clinical trials and enable new treatments for
-                patients with neurological and psychiatric disease. By using
-                advanced machine learning to quicly identify critical biomarkers
-                Beacon can surface only the most critical information for
-                neurologists to make life altering decisions. The problem?
-                Looking at brain data isn&#39;t exactly straight forward, and as
+                patients with neurological and psychiatric diseases. By using
+                advanced machine learning to quickly identify critical
+                biomarkers Beacon can surface only the most critical information
+                for neurologists to make life-altering decisions. The problem?
+                Looking at brain data isn&#39;t exactly straightforward, and as
                 a result, neither are the tools we need to do it.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
                 In order to analyze EEG data, the signals are examined in a
                 multitude of ways. By filtering, applying signal montages, or
-                adjusting the gain, these often illusive biomarkers can become
+                adjusting the gain, these often elusive biomarkers can become
                 clearer. In order to facilitate such analysis, lots of detailed
                 information is required. More data means more processing time,
                 and when it comes to the world wide web, this means more
-                latency. Data latency proves detremental to the workflow of
+                latency. Data latency proves detrimental to the workflow of
                 neurologists and data scientists who rely on Beacon&#39;s portal
                 to adjudicate brainwave data. A solution bringing post-processed
                 data to the client without latency was needed.
@@ -140,11 +140,11 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             <div className="space-y-4">
               <p className="text-shadow dark:text-off-white text-lg">
                 To increase the speed at which processed data could be sent to
-                the client, the bottleneck needed to be itentified. On the
-                frontend, I did not need to look far. Javascript is single
-                threaded. Meaning that although asyncronous and done via web
-                socket, loading brainwave data into the browser would block the
-                main thread. This inhibited renders and additional processes
+                the client, the bottleneck needed to be identified. On the front
+                end, I did not need to look far. Javascript is single-threaded.
+                Meaning that although asynchronous and done via web socket,
+                loading brainwave data into the browser would block the main
+                thread. This inhibited renders and additional processes
                 degrading the platform&#39;s UX.
               </p>
               <p className="text-shadow dark:text-off-white text-lg">
@@ -162,7 +162,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             </h3>
             <div className="space-y-4">
               <p className="text-shadow dark:text-off-white text-lg">
-                Initial benchmarks shwed an average speed increase of 300%, and
+                Initial benchmarks showed an average speed increase of 300%, and
                 up to 1000% increases in cases where data had been cached in the
                 backends data layer. The results were 1-2 second load-times for
                 EEG recordings up to 24 minutes with logarithmic scaling for
@@ -180,7 +180,7 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
           enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           enterFrom="opacity-0"
-          enterTo="opaciy-100"
+          enterTo="opacity-100"
           leaveTo="opacity-0"
           leaveFrom="opacity-100"
         >

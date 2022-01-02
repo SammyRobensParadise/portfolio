@@ -37,7 +37,7 @@ const ArduinoScream: NextPage = (): JSX.Element => {
             enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             enterFrom="opacity-0"
-            enterTo="opaciy-100"
+            enterTo="opacity-100"
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
@@ -62,7 +62,7 @@ const ArduinoScream: NextPage = (): JSX.Element => {
           enter={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           leave={`${animate(1000, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           enterFrom="opacity-0"
-          enterTo="opaciy-100"
+          enterTo="opacity-100"
           leaveTo="opacity-0"
           leaveFrom="opacity-100"
         >

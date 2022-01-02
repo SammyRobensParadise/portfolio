@@ -19,7 +19,7 @@ const Footer = (): ReactElement => {
         appear
         enter={`${animate(1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
         enterFrom="opacity-0"
-        enterTo="opaciy-100"
+        enterTo="opacity-100"
       >
         <Transition.Child
           className="justify-center text-center flex flex-col items-center md:flex-row space-x-8 p-4"
@@ -30,7 +30,7 @@ const Footer = (): ReactElement => {
             0.45
           )}`}
           enterFrom="opacity-0"
-          enterTo="opaciy-100"
+          enterTo="opacity-100"
         >
           <div className="font-extralight hover:underline ">
             <a href={constants?.urls?.LINKEDIN_URL}>linkedin.com/sammy</a>
@@ -59,7 +59,7 @@ const Footer = (): ReactElement => {
           className="grid grid-cols-1 text-center sm:grid-cols-3 col p-4 text-lg font-extralight"
           enter={`${animate(500, 1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
           enterFrom="opacity-0"
-          enterTo="opaciy-100"
+          enterTo="opacity-100"
         >
           <div className="flex flex-row justify-center sm:justify-start">
             <Link href="/policy" passHref>

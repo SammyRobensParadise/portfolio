@@ -71,7 +71,7 @@ const NavigationBar = ({
         appear
         enter={`${animate(1000)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
         enterFrom="opacity-0"
-        enterTo="opaciy-100"
+        enterTo="opacity-100"
       >
         <button
           className="hidden sm:block"
@@ -89,7 +89,7 @@ const NavigationBar = ({
         appear
         enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
         enterFrom="opacity-0"
-        enterTo="opaciy-100"
+        enterTo="opacity-100"
       >
         <Link href="/" passHref>
           <a className="flex flex-row space-x-4">
@@ -104,7 +104,7 @@ const NavigationBar = ({
         appear
         enter={`${animate(1000, 500)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
         enterFrom="opacity-0"
-        enterTo="opaciy-100"
+        enterTo="opacity-100"
       >
         <div className="flex space-x-4 pt-1 pr-4">
           <Sun />

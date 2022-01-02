@@ -40,7 +40,7 @@ const LandingPage: NextPage = (): JSX.Element => {
             )}`}
             leave={`${animate(250, 0)} ${cubicBezier(0.97, 0.03, 0.36, 0.45)}`}
             enterFrom="opacity-0"
-            enterTo="opaciy-100"
+            enterTo="opacity-100"
             leaveTo="opacity-0"
             leaveFrom="opacity-100"
           >
@@ -245,30 +245,32 @@ const LandingPage: NextPage = (): JSX.Element => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-cerulaen dark:text-off-white text-lg">
               <div className="space-y-8 pr-4 sm:col-span-2 z-50">
                 <Parallax x={[-5, 2]}>
-                  <p>
-                    I study systems design engineering, a problem-based
-                    engineering approach to complex systems. I use principles of
-                    UX/UI design, ergonomic design, and accessibility to
-                    engineer creative solutions for our worlds most complex
-                    problems.
-                  </p>
-                  <p>
-                    I have designed and developed dozens of solutions for the
-                    biomedical, financial, gaming, social media, and energy
-                    industries tackling complex usabililty and experential
-                    problems.
-                  </p>
-                  <p>
-                    I work with a complete software stack to build beautiful
-                    accessibility-driven experiences and am specializing in
-                    computing and human-computer interaction including
-                    networking and machine intelligence.
-                  </p>
-                  <Link href={RESUME_FILE_NAME} passHref>
-                    <p className="underline transition-all hover:font-semibold">
-                      See my Résume...
+                  <div className="space-y-4">
+                    <p>
+                      I study systems design engineering, a problem-based
+                      engineering approach to complex systems. I use principles
+                      of UX/UI design, ergonomic design, and accessibility to
+                      engineer creative solutions for our world&apos;s most
+                      complex problems.
                     </p>
-                  </Link>
+                    <p>
+                      I have designed and developed dozens of solutions for the
+                      biomedical, financial, gaming, social media, and energy
+                      industries tackling complex usability and experiential
+                      problems.
+                    </p>
+                    <p>
+                      I work with a complete software stack to build beautiful
+                      accessibility-driven experiences and am specializing in
+                      computing and human-computer interaction including
+                      networking and machine intelligence.
+                    </p>
+                    <Link href={RESUME_FILE_NAME} passHref>
+                      <p className="underline transition-all hover:font-semibold">
+                        See my Résume...
+                      </p>
+                    </Link>
+                  </div>
                 </Parallax>
                 <Parallax x={[-10, 10]}>
                   <h2 className="text-3xl text-left pb-4 block text-cerulaen dark:text-off-white font-bold">
