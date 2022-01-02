@@ -162,10 +162,10 @@ const BeaconBiosignals: NextPage = (): JSX.Element => {
             </h3>
             <div className="space-y-4">
               <p className="text-shadow dark:text-off-white text-lg">
-                Initial benchmarks showed an average speed increase of 300%, and
-                up to 1000% increases in cases where data had been cached in the
-                backends data layer. The results were 1-2 second load-times for
-                EEG recordings up to 24 minutes with logarithmic scaling for
+                The initial benchmarks showed an average speed increase of 300%,
+                and up to 1000% increases in cases where data had been cached in
+                the backends data layer. The results were 1-2 second load-times
+                for EEG recordings up to 24 minutes with logarithmic scaling for
                 larger datasets. The work is paving the way for near-instant EEG
                 processing in the browser. A first for the world of
                 neuroscience.
