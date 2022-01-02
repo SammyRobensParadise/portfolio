@@ -96,10 +96,10 @@ const FloatCard: NextPage = (): JSX.Element => {
                 introducing a cradle-to-the-grave product lifecycle.
               </li>
               <li>
-                Designed and developed application interface for Float. Worked
+                Designed and developed application interface for Float, working
                 closely with stakeholders to capture user needs and develop a
-                prduct experience matching the mental model of users in a timely
-                manner.
+                product experience matching the mental model of users in a
+                timely manner.
               </li>
               <li>
                 Created custom illustrations and assets to enhase product feel
