@@ -219,7 +219,7 @@ const GithubStats: NextPage = (): JSX.Element => {
               single function allowing users to easily get the GitHub
               contributions history for a user based on their username and
               GitHub PAT. It can be used on the server, or client-side. I
-              created, and open-sourced the package because I wanted a way to
+              created and open-sourced the package because I wanted a way to
               share my contribution history on my website, and I felt that the
               library could be useful for other developers who wanted to access
               the contribution history for various users.
@@ -227,7 +227,7 @@ const GithubStats: NextPage = (): JSX.Element => {
             <p className="text-shadow dark:text-off-white text-lg">
               Before GitHub&apos;s GraphQL V4 API, there was no API dedicated to
               user contributions. Originally this package scraped GitHub user
-              profiles and retreived data relating to GitHub Contributions.
+              profiles and retrieved data relating to GitHub Contributions.
               Since V4, this package serves as a REST API wrapper around the
               GraphQL API.
             </p>

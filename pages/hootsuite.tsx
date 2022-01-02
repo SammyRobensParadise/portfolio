@@ -60,14 +60,14 @@ const Hootsuite: NextPage = (): JSX.Element => {
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
               <li>
-                Owned, maintainied and built all parts of Hootsuite that dealt
+                Owned, maintained, and built all parts of Hootsuite that dealt
                 with the scheduling, and creation of content, used by 18 million
                 users, and shared with hundreds of millions of users across
                 multiple social media platforms
               </li>
               <li>
-                I worked primarily with Hootsuite&#39;s react-based frontend
-                building features that enhanced user&#39;s abilities to schedule
+                I worked primarily with Hootsuite&#39;s React-based frontend
+                building features that enhanced users&#39; abilities to schedule
                 content across multiple timezones. Much love for the team at
                 Hootsuite!
               </li>
@@ -78,9 +78,9 @@ const Hootsuite: NextPage = (): JSX.Element => {
             <div className="space-y-4 py-4">
               <p className="text-shadow dark:text-off-white text-lg">
                 I had the opportunity to work on multiple projects while at
-                Hootsuite, and was able to contribute to all aspects of the
+                Hootsuite and was able to contribute to all aspects of the
                 software development lifecycle. I Implemented front-end calendar
-                service redesign to meet marketing needs of Hootsuite&#39;s
+                service redesign to meet the marketing needs of Hootsuite&#39;s
                 global clients in react.js, allowing users to customize how they
                 view a week&#39;s content schedule.
               </p>

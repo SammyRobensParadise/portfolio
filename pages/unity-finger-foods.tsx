@@ -55,7 +55,7 @@ const FingerFood: NextPage = (): JSX.Element => {
         >
           <div>
             <h2 className=" relative text-3xl md:text-5xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
-              Product and Quanity at{' '}
+              Product and Quality at{' '}
               <a
                 href="https://unity.com/solutions/accelerate-solutions-industry"
                 className="hover:underline"
@@ -69,13 +69,13 @@ const FingerFood: NextPage = (): JSX.Element => {
                 quantify engagement growth potential.
               </li>
               <li>
-                Led 3 project QA groups and lean infrastructuredevelopment from
+                Led 3 project QA groups and lean infrastructure development from
                 concept design to product delivery. Increased web project test
-                efficiency 50%.
+                efficiency by 50%.
               </li>
               <li>
-                Designed and developed python automated testinfrastructure to
-                quantify accuracy of computer visionsystem.
+                Designed and developed python automated test infrastructure to
+                quantify the accuracy of computer vision system.
               </li>
             </ul>
 
@@ -85,7 +85,7 @@ const FingerFood: NextPage = (): JSX.Element => {
             <div className="space-y-4 py-4">
               <p className="text-shadow dark:text-off-white text-lg">
                 I designed and implemented data-driven UX analysis for a
-                bluetooth connected experience app to quantify engagement growth
+                Bluetooth-connected experience app to quantify engagement growth
                 potential. I was given the opportunity to work with an
                 international design team to quantify core product design
                 decisions based on the receptivity and understanding users
@@ -96,7 +96,7 @@ const FingerFood: NextPage = (): JSX.Element => {
               <p className="text-shadow dark:text-off-white text-lg">
                 I developed a system to quantify the accuracy of a computer
                 vision system designed to automate mining processes. I wrote
-                code to analyse hours of video recorded of automated gantry
+                code to analyze hours of video recorded of automated gantry
                 movement to determine if the tracking system could accurately
                 determine the location of a target in 3D space over long periods
                 of time

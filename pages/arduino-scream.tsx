@@ -101,12 +101,12 @@ const ArduinoScream: NextPage = (): JSX.Element => {
             <Parallax x={[2, -2]}>
               <div className="space-y-4 py-4">
                 <p className="text-shadow dark:text-off-white text-lg">
-                  The arduino screaming safe is, yes, safe that will only open
+                  The Arduino screaming safe is, yes, safe that will only open
                   if you scream the correct combination. Arduino Screaming is a
                   final project for SYDE 192. To open the safe you must “scream”
                   at the safe at the correct times (in seconds) corresponding to
                   the combination that you set. if the screaming times are
-                  correct, the safe will open! The safe uses an arduino uno, a
+                  correct, the safe will open! The safe uses an Arduino Uno, a
                   liquid-crystal display, a sound sensor, a number of different
                   buttons, potentiometers, and a step-motor to control the
                   safe&apos;s open and closed states. The original prototype was
@@ -122,7 +122,7 @@ const ArduinoScream: NextPage = (): JSX.Element => {
             <Parallax x={[2, -2]}>
               <div className="space-y-4 py-4">
                 <p className="text-shadow dark:text-off-white text-lg">
-                  The safe contains an arduino board that is programmed to
+                  The safe contains an Arduino board that is programmed to
                   detect a signal sent from the sound sensor whenever a sound
                   above a specific threshold is detected by the speaker. when a
                   sound is detected a software interrupt{' '}
@@ -137,7 +137,7 @@ const ArduinoScream: NextPage = (): JSX.Element => {
                     href="https://github.com/SammyRobensParadise/arduino-screaming"
                     className="underline"
                   >
-                    check it out on github!
+                    check it out on GitHub!
                   </a>
                 </p>
               </div>

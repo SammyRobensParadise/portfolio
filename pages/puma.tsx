@@ -79,8 +79,8 @@ const Puma: NextPage = (): JSX.Element => {
               <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
                 <li>
                   Conducted structured design walkthroughs with internal
-                  environmental data scientists to diagnose task specific
-                  challeges.
+                  environmental data scientists to diagnose task-specific
+                  challenges.
                 </li>
                 <li>
                   Developed heuristic signal detection theory evaluation to
@@ -99,8 +99,8 @@ const Puma: NextPage = (): JSX.Element => {
                   30,000 lines of code.
                 </li>
                 <li>
-                  Orchestracted migration from SVN to git and github for the
-                  PUMA engineering team, and{' '}
+                  Orchestrated migration from SVN to git and GitHub for the PUMA
+                  engineering team, and{' '}
                   <a
                     href={`/${ENGINEERING_PAPER_SOURCE_CONTROL_NAME}`}
                     className="underline hover:text-cerulaen outline-none focus:text-cerulaen"
@@ -119,11 +119,11 @@ const Puma: NextPage = (): JSX.Element => {
             <Parallax x={[2, -2]}>
               <div className="space-y-4 py-4">
                 <p className="text-shadow dark:text-off-white text-lg">
-                  The PUMA design system was custom made to address issues
+                  The PUMA design system was custom-made to address issues
                   specific to the display of energy information. Design
-                  decisions were motived by feedback gathered during card
+                  decisions were motivated by feedback gathered during card
                   sorting and design walkthroughs with data scientists at PUMA,
-                  who are the primay application users.
+                  who are the primary application users.
                 </p>
               </div>
             </Parallax>

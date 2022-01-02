@@ -92,17 +92,17 @@ const FloatCard: NextPage = (): JSX.Element => {
             </h2>
             <ul className="list-inside list-disc space-y-2 text-shadow dark:text-off-white text-lg py-4">
               <li>
-                I designed and implemented comprehensive design process
+                I designed and implemented a comprehensive design process
                 introducing a cradle-to-the-grave product lifecycle.
               </li>
               <li>
-                Designed and developed application interface for Float, working
-                closely with stakeholders to capture user needs and develop a
-                product experience matching the mental model of users in a
-                timely manner.
+                Designed and developed an application interface for Float,
+                working closely with stakeholders to capture user needs and
+                develop a product experience matching the mental model of users
+                in a timely manner
               </li>
               <li>
-                Created custom illustrations and assets to enhase product feel
+                Created custom illustrations and assets to enhance product feel
                 and help build empathy with users and their product main points.
               </li>
             </ul>
@@ -125,7 +125,7 @@ const FloatCard: NextPage = (): JSX.Element => {
               <p className="text-shadow dark:text-off-white text-lg">
                 During my time at Float I designed and developed numerous
                 features delivering a never-before-seen corporate expense
-                managment experience. I designed (and developed) Float&apos;s
+                management experience. I designed (and developed) Float&apos;s
                 application navigation infrastructure and interface, accounting
                 for quick scalability, sub-pages, and multi-user roles. I have
                 also had a hand in designing Float&apos;s, virtual credit card
