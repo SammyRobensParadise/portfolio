@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
@@ -15,12 +15,17 @@ import useResizeParalax from '../hooks/resize'
 const BeaconBiosignals: NextPage = (): JSX.Element => {
   const flowWidth = window.innerWidth < 450 ? window.innerWidth - 40 : 450
   const flowHeight = flowWidth * (291 / 450)
-  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  const { visibility, handlePageTransition, paint } = useTransition({
+    timeout: 0
+  })
   useResizeParalax()
 
   function handleScrollButtonClick() {
     handlePageTransition('/float-card')
   }
+  useEffect(() => {
+    paint()
+  }, [paint])
 
   return (
     <>

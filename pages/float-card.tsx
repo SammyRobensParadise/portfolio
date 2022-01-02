@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -14,11 +14,17 @@ import useResizeParalax from '../hooks/resize'
 const scale = { width: 600 / 1.5, height: 337.5 / 1.5 }
 
 const FloatCard: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  const { visibility, handlePageTransition, paint } = useTransition({
+    timeout: 0
+  })
   useResizeParalax()
   function handleScrollButtonClick() {
     handlePageTransition('/puma')
   }
+  useEffect(() => {
+    paint()
+  }, [paint])
+
   const flowWidth = window.innerWidth < 544 ? window.innerWidth - 100 : 544
   const flowHeight = flowWidth * (408 / 544)
   return (

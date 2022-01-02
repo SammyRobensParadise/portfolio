@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: { mono: ['monospace'] },
       backgroundColor: {
         teal: 'teal'
+      },
+      transitionProperty: {
+        height: 'height'
       }
     },
     scale: { 200: '2', 150: '1.5', 125: '1.25' },

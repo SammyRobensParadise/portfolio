@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
@@ -12,16 +12,23 @@ import useResizeParalax from '../hooks/resize'
 import Arduino from '../global/assets/arduino.svg'
 
 const ArduinoScream: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  const { visibility, handlePageTransition, paint } = useTransition({
+    timeout: 0
+  })
 
   useResizeParalax()
 
   function handleScrollButtonClick() {
     handlePageTransition('/')
   }
+
   const ratio = 600 / 800
   const width = window.innerWidth < 800 + 20 ? window.innerWidth - 100 : 800
   const scale = { width, height: width * ratio }
+
+  useEffect(() => {
+    paint()
+  }, [paint])
 
   return (
     <>

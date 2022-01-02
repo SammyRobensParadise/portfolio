@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
@@ -14,11 +14,16 @@ import useResizeParalax from '../hooks/resize'
 const scale = { width: 400, height: 300 }
 
 const Puma: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  const { visibility, handlePageTransition, paint } = useTransition({
+    timeout: 0
+  })
   useResizeParalax()
   function handleScrollButtonClick() {
     handlePageTransition('/hootsuite')
   }
+  useEffect(() => {
+    paint()
+  }, [paint])
 
   return (
     <>

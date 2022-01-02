@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
@@ -20,7 +20,9 @@ interface FormValues {
 }
 
 const GithubStats: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  const { visibility, handlePageTransition, paint } = useTransition({
+    timeout: 0
+  })
   const [currentUsername, setCurrentUsername] = useState<string>(
     'SammyRobensParadise'
   )
@@ -64,6 +66,9 @@ const GithubStats: NextPage = (): JSX.Element => {
       })
   }
 
+  useEffect(() => {
+    paint()
+  }, [paint])
   return (
     <>
       <Head>
