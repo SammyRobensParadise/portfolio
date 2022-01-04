@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic'
 import React, { ComponentType, ReactElement, useState } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { Curtains } from 'react-curtains'
+import { Provider, atom, useAtom } from 'jotai'
 
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
@@ -18,6 +19,7 @@ import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import OverlayDialog from '../components/Dialog/OverlayDialog'
 import MobileWarning from '../components/MobileWarning/MobileWarning'
+import Overlay from '../components/Overlay/Overlay'
 
 const AnimatedCursor: ComponentType<Record<string, number | string>> = dynamic(
   () => import('react-animated-cursor'),
@@ -54,9 +56,10 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
     }
 
     return (
-      <div>
+      <Provider>
         <OverlayDialog />
         <MobileWarning />
+        <Overlay />
         <div className="bg-off-white dark:bg-shadow">
           <NavigationBar handleDarkTheme={setIsDarkTheme} />
           <Sidebar />
@@ -74,7 +77,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
           </Curtains>
           <Footer />
         </div>
-      </div>
+      </Provider>
     )
   }
   return null

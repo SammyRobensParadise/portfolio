@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import Head from 'next/head'
@@ -18,8 +18,14 @@ const LANDING_MESSAGE =
   'I AM SAMMY ROBENS-PARADISE, DESIGNER AND FULL-STACK WEB DEVELOPER'
 
 const LandingPage: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  const { visibility, handlePageTransition, paint } = useTransition({
+    timeout: 0
+  })
   useResizeParalax()
+
+  useEffect(() => {
+    paint()
+  }, [paint])
 
   return (
     <>

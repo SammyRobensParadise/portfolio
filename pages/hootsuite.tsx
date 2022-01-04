@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
@@ -11,13 +11,20 @@ import HootsuiteMac from '../components/Mac/Mac'
 import useResizeParalax from '../hooks/resize'
 
 const Hootsuite: NextPage = (): JSX.Element => {
-  const { visibility, handlePageTransition } = useTransition({ timeout: 0 })
+  const { visibility, handlePageTransition, paint } = useTransition({
+    timeout: 0
+  })
   useResizeParalax()
   function handleScrollButtonClick() {
     handlePageTransition('/unity-finger-foods')
   }
   const flowWidth = window.innerWidth < 374 + 12 ? window.innerWidth - 100 : 374
   const flowHeight = flowWidth * (281 / 374)
+
+  useEffect(() => {
+    paint()
+  }, [paint])
+
   return (
     <>
       <Head>

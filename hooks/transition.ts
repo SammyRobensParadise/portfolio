@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { useAtom } from 'jotai'
+
+import { overlay } from '../components/Overlay/Overlay'
 
 export type Hrefs =
   | '/'
@@ -20,6 +23,7 @@ export interface UseTransitionInterface {
 export interface UseTransition {
   visibility: boolean
   handlePageTransition: (href: Hrefs) => void
+  paint: () => void
 }
 
 export default function useTransition({
@@ -27,7 +31,7 @@ export default function useTransition({
 }: UseTransitionInterface): UseTransition {
   const [visibility, setVisibility] = useState<boolean>(true)
   const router = useRouter()
-
+  const [, setOverlay] = useAtom(overlay)
   useEffect(() => {
     window.addEventListener('onpopstate', () => {
       setVisibility(false)
@@ -40,10 +44,20 @@ export default function useTransition({
   })
 
   function handlePageTransition(href: Hrefs) {
-    setVisibility(!visibility)
+    setOverlay(true)
     setTimeout(() => {
-      router.push(href)
-    }, timeout)
+      setVisibility(!visibility)
+      setTimeout(() => {
+        router.push(href)
+      }, timeout)
+    }, 100)
   }
-  return { visibility, handlePageTransition }
+
+  function paint() {
+    setTimeout(() => {
+      setOverlay(false)
+    }, 1500)
+  }
+
+  return { visibility, handlePageTransition, paint }
 }
