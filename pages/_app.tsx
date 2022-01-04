@@ -38,7 +38,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       return (
         <div className="h-screen dark:bg-shadow bg-off-white">
           <Head>
-            <title>💾</title>
+            <title>Sammy Robens-Paradise 💾</title>
           </Head>
           <OldSchoolRenderer />
         </div>
@@ -48,7 +48,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       return (
         <div className="h-screen bg-off-white dark:bg-shadow">
           <Head>
-            <title>🌩️</title>
+            <title>Sammy Robens-Paradise 🌩️</title>
           </Head>
           <GlitchRenderer />
         </div>
