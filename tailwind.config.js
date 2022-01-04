@@ -12,7 +12,8 @@ module.exports = {
         teal: 'teal'
       },
       transitionProperty: {
-        height: 'height'
+        height: 'height',
+        spacing: 'margin, padding'
       }
     },
     scale: { 200: '2', 150: '1.5', 125: '1.25' },

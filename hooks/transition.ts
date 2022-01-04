@@ -50,7 +50,7 @@ export default function useTransition({
       setTimeout(() => {
         router.push(href)
       }, timeout)
-    }, 10)
+    }, 100)
   }
 
   function paint() {
