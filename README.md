@@ -2,7 +2,7 @@
 
 My Portfolio built with: `React`, `Next.js`, `Express.js`, `TypeScript`, `Three.js` and `TailwindCSS`!
 
-<img src="https://i.ibb.co/GtVgcdv/Sammy-Biking-Grey.png" alt="Sammy-Biking-Grey" border="0" height="500">
+<img src="https://i.ibb.co/GtVgcdv/Sammy-Biking-Grey.png" alt="Sammy-Biking-Grey" border="0" width="500" height="auto">
 
 ### URL: [sammy.world](https://sammy.world)
 
