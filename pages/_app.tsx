@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import React, { ComponentType, ReactElement, useState } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { Curtains } from 'react-curtains'
-import { Provider, atom, useAtom } from 'jotai'
+import { Provider } from 'jotai'
 
 import OldSchool from '../providers/oldschool'
 import OldSchoolRenderer from '../theme/Oldschool/OldschoolStyle'
@@ -83,11 +83,14 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   return null
 }
 
-function Portfolio({ Component, pageProps, router }: AppProps): ReactElement {
+interface App extends AppProps {
+  pageProps: Record<string, unknown>
+}
+
+function Portfolio({ Component, pageProps, router }: App): ReactElement {
   return (
     <OldSchool.Provider>
       <ParallaxProvider>
-        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
         <Wrapper Component={Component} pageProps={pageProps} router={router} />
       </ParallaxProvider>
     </OldSchool.Provider>
