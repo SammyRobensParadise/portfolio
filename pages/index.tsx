@@ -253,11 +253,12 @@ const LandingPage: NextPage = (): JSX.Element => {
                 <Parallax x={[-5, 2]}>
                   <div className="space-y-4">
                     <p>
-                      I study systems design engineering, a problem-based
-                      engineering approach to complex systems. I use principles
-                      of UX/UI design, ergonomic design, and accessibility to
-                      engineer creative solutions for our world&apos;s most
-                      complex problems.
+                      I study Systems Design Engineering, a problem-based
+                      engineering approach to complex systems. How is a Design
+                      Engineer different from a classical designer? I apply
+                      rigorous scientific principles of UX/UI design, ergonomic
+                      design, and accessibility to engineer creative solutions
+                      for our world&apos;s most complex problems.
                     </p>
                     <p>
                       I have designed and developed dozens of solutions for the
