@@ -6,6 +6,7 @@ import '../styles/three.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
+import Script from 'next/script'
 import React, { ComponentType, ReactElement, useState } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { Curtains } from 'react-curtains'
@@ -89,11 +90,32 @@ interface App extends AppProps {
 
 function Portfolio({ Component, pageProps, router }: App): ReactElement {
   return (
-    <OldSchool.Provider>
-      <ParallaxProvider>
-        <Wrapper Component={Component} pageProps={pageProps} router={router} />
-      </ParallaxProvider>
-    </OldSchool.Provider>
+    <>
+      <Script
+        strategy="lazyOnload"
+        src={`https://www.googletagmanager.com/gtag/js?id=${
+          process.env.GOOGLE_ANALYTICS_API_KEY as string
+        }`}
+      />
+      <Script strategy="lazyOnload">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', ${process.env.GOOGLE_ANALYTICS_API_KEY as string});
+        `}
+      </Script>
+      <OldSchool.Provider>
+        <ParallaxProvider>
+          <Wrapper
+            Component={Component}
+            pageProps={pageProps}
+            router={router}
+          />
+        </ParallaxProvider>
+      </OldSchool.Provider>
+    </>
   )
 }
 
