@@ -25,20 +25,49 @@ const GlobalStyles = createGlobalStyle`
 
 const initialSeconds = 30
 
-const NavigationBar = (): ReactElement => (
-  <AppBar style={{ top: 'auto', bottom: '0', fontFamily: 'Ms Sans' }}>
-    <Toolbar>
-      <Bar size={35} />
-      <a href={`${RESUME_FILE_NAME}`}>
-        <Button variant="menu">Resume</Button>
-      </a>
-      <a href={constants.urls.LINKEDIN_URL}>
-        <Button variant="menu">Linkedin</Button>
-      </a>
-      <Bar size={35} />
-    </Toolbar>
-  </AppBar>
-)
+const NavigationBar = (): ReactElement => {
+  const oldSchool = OldSchool.useOldSchool()
+
+  const handleSkip = useCallback(() => {
+    if (oldSchool) {
+      oldSchool.hideReact95()
+      oldSchool.hideGlitch()
+    }
+  }, [oldSchool])
+
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent): void => {
+      if (event.key === 's') {
+        handleSkip()
+      }
+    },
+    [handleSkip]
+  )
+
+  useEffect(() => {
+    window?.addEventListener('keydown', handleKeyPress)
+    return () => {
+      window?.removeEventListener('keydown', handleKeyPress)
+    }
+  })
+  return (
+    <AppBar style={{ top: 'auto', bottom: '0', fontFamily: 'Ms Sans' }}>
+      <Toolbar>
+        <Bar size={35} />
+        <a href={`${RESUME_FILE_NAME}`}>
+          <Button variant="menu">Resume</Button>
+        </a>
+        <a href={constants.urls.LINKEDIN_URL}>
+          <Button variant="menu">Linkedin</Button>
+        </a>
+        <Bar size={35} />
+        <Button variant="menu" onClick={handleSkip}>
+          Skip Intro (&quot;s&quot; key)
+        </Button>
+      </Toolbar>
+    </AppBar>
+  )
+}
 
 const WindowElement = ({
   forwardedEvent
