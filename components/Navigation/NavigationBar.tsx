@@ -91,7 +91,7 @@ const NavigationBar = ({
         enterFrom="opacity-0"
         enterTo="opacity-100"
       >
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <a className="flex flex-row space-x-4">
             <Puzzle />
             <p>Sammy Robens-Paradise</p>
@@ -131,6 +131,7 @@ const NavigationBar = ({
             query: { type: 'projects', overlay: true }
           }}
           passHref
+          legacyBehavior
         >
           <a className={style}>Projects</a>
         </Link>
@@ -139,11 +140,12 @@ const NavigationBar = ({
             pathname: router.route,
             query: { type: 'work', overlay: true }
           }}
+          legacyBehavior
           passHref
         >
           <a className={style}>Work</a>
         </Link>
-        <Link href="/#about" passHref>
+        <Link href="/#about" passHref legacyBehavior>
           <a className={style}>About</a>
         </Link>
       </Transition>

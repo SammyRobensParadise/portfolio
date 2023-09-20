@@ -1,8 +1,8 @@
+/* eslint-disable react/jsx-no-bind */
 import React, { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
-import TextLoop from 'react-text-loop'
 import { CopyBlock, railscast } from 'react-code-blocks'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
@@ -106,10 +106,7 @@ const GithubStats: NextPage = (): JSX.Element => {
         >
           <div className="pb-8">
             <h2 className="font-mono relative text-xl md:text-3xl justify-start text-left block text-cerulaen dark:text-off-white font-bold">
-              <TextLoop interval={1000}>
-                <span>npm install</span>
-                <span>yarn add</span>
-              </TextLoop>{' '}
+              <span>npm install</span>
               github-contributions-counter
             </h2>
           </div>
@@ -117,8 +114,8 @@ const GithubStats: NextPage = (): JSX.Element => {
             <span>Example</span>{' '}
             <span className="pt-1">
               <Image
-                width="120px"
-                height="30px"
+                width={120}
+                height={30}
                 alt="npm-version-tag "
                 src="https://camo.githubusercontent.com/cc9befdb424c66059c64f97720c72aa4a12a3261cce0d3e8c9a610f43d46459b/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f6769746875622d636f6e747269627574696f6e732d636f756e7465723f7374796c653d666f722d7468652d6261646765"
               />
@@ -187,11 +184,11 @@ const GithubStats: NextPage = (): JSX.Element => {
             </div>
             <div className="shadow-inner font-mono">
               <CopyBlock
-                language="javascript"
+              /*      language="javascript"
                 text={codeBlockText}
                 theme={railscast}
                 wrapLines
-                codeBlock
+                codeBlock */
               />
             </div>
           </div>
@@ -201,11 +198,11 @@ const GithubStats: NextPage = (): JSX.Element => {
             </h3>
             <div className="max-h-64 overflow-y-scroll rounded shadow-inner font-mono">
               <CopyBlock
-                language="json"
+              /*  language="json"
                 text={apiResponse}
                 theme={railscast}
                 wrapLines
-                codeBlock
+                codeBlock */
               />
             </div>
           </div>
