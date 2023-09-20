@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,9 +17,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "incremental": true
   },
-
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -27,5 +31,8 @@
     "providers/**/*.tsx",
     "components/Mac/Mac.jsx"
   ],
-  "exclude": ["node_modules", "components/Blob/blobCreator.js"]
+  "exclude": [
+    "node_modules",
+    "components/Blob/blobCreator.js"
+  ]
 }

@@ -25,6 +25,7 @@ module.exports = {
     'testing-library'
   ],
   rules: {
+    '@typescript-eslint/naming-convention': 'off',
     /* NOTE: https://github.com/facebook/create-react-app/pull/8177 */
     '@typescript-eslint/ban-types': [
       'error',

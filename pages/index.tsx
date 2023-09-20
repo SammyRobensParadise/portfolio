@@ -272,7 +272,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                       computing and human-computer interaction including
                       networking and machine intelligence.
                     </p>
-                    <Link href={RESUME_FILE_NAME} passHref>
+                    <Link href={RESUME_FILE_NAME} passHref legacyBehavior>
                       <p className="underline transition-all hover:font-semibold">
                         See my Résume...
                       </p>

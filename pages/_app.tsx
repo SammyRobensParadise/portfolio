@@ -5,9 +5,8 @@ import '../styles/three.scss'
 
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import dynamic from 'next/dynamic'
 import Script from 'next/script'
-import React, { ComponentType, ReactElement, useState } from 'react'
+import React, { ReactElement, useState } from 'react'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { Curtains } from 'react-curtains'
 import { Provider } from 'jotai'
@@ -21,13 +20,6 @@ import Sidebar from '../components/Sidebar/Sidebar'
 import OverlayDialog from '../components/Dialog/OverlayDialog'
 import MobileWarning from '../components/MobileWarning/MobileWarning'
 import Overlay from '../components/Overlay/Overlay'
-
-const AnimatedCursor: ComponentType<Record<string, number | string>> = dynamic(
-  () => import('react-animated-cursor'),
-  {
-    ssr: false
-  }
-)
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
@@ -65,7 +57,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
           <NavigationBar handleDarkTheme={setIsDarkTheme} />
           <Sidebar />
           <Curtains pixelRatio={Math.min(1.5, window.devicePixelRatio)}>
-            <AnimatedCursor
+            {/* }   <AnimatedCursor
               innerSize={12}
               outerSize={14}
               color={darkTheme ? '63, 243, 178' : '43,43,43'}
@@ -73,7 +65,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
               innerScale={0.7}
               outerScale={5}
               trailingSpeed={6}
-            />
+    /> */}
             <Component {...pageProps} />
           </Curtains>
           <Footer />
@@ -97,7 +89,7 @@ function Portfolio({ Component, pageProps, router }: App): ReactElement {
           process.env.GOOGLE_ANALYTICS_API_KEY as string
         }`}
       />
-      <Script strategy="lazyOnload">
+      <Script strategy="lazyOnload" id="script">
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}

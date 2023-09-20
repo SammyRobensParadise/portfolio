@@ -5,7 +5,7 @@ import React, { PropsWithChildren } from 'react'
 
 import OldSchoolProvider, { useOldSchool } from './oldschool'
 
-const OldSchool = (props: PropsWithChildren<React.ReactNode>): JSX.Element => (
+const OldSchool = (props: PropsWithChildren<unknown>): JSX.Element => (
   // eslint-disable-next-line react/jsx-props-no-spreading
   <div {...props} className="oldschool-wrapper" />
 )
