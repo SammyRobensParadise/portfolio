@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Transition } from '@headlessui/react'
-import { CopyBlock, railscast } from 'react-code-blocks'
+import { CodeBlock, railscast } from 'react-code-blocks'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import Image from 'next/image'
@@ -183,12 +183,10 @@ const GithubStats: NextPage = (): JSX.Element => {
               </form>
             </div>
             <div className="shadow-inner font-mono">
-              <CopyBlock
-              /*      language="javascript"
+              <CodeBlock
+                language="javascript"
                 text={codeBlockText}
                 theme={railscast}
-                wrapLines
-                codeBlock */
               />
             </div>
           </div>
@@ -197,13 +195,7 @@ const GithubStats: NextPage = (): JSX.Element => {
               Response
             </h3>
             <div className="max-h-64 overflow-y-scroll rounded shadow-inner font-mono">
-              <CopyBlock
-              /*  language="json"
-                text={apiResponse}
-                theme={railscast}
-                wrapLines
-                codeBlock */
-              />
+              <CodeBlock language="json" text={apiResponse} theme={railscast} />
             </div>
           </div>
           <h2 className="text-3xl justify-start text-left block text-cerulaen dark:text-off-white font-bold pt-8">

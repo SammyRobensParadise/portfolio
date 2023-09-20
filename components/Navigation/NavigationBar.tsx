@@ -140,8 +140,8 @@ const NavigationBar = ({
             pathname: router.route,
             query: { type: 'work', overlay: true }
           }}
-          legacyBehavior
           passHref
+          legacyBehavior
         >
           <a className={style}>Work</a>
         </Link>

@@ -62,14 +62,18 @@ const Footer = (): ReactElement => {
           enterTo="opacity-100"
         >
           <div className="flex flex-row justify-center sm:justify-start">
-            <Link href="/policy" passHref>
-              <a className="hover:underline transition-all ">Policy</a>
+            <Link
+              href="/policy"
+              passHref
+              className="hover:underline transition-all "
+            >
+              Policy
             </Link>
           </div>
           <div className="flex flex-col justify-center text-center">
             <p>
               {`© ${new Date().getFullYear().toString()} Designed & Developed by
-          Sammy Robens-Paradise 🤠`}
+        Sammy Robens-Paradise 🤠`}
             </p>
             <div className=" text-sm">
               <p>
