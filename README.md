@@ -1,10 +1,8 @@
 # Portfolio
 
-My Portfolio built with: `React`, `Next.js`, `Express.js`, `TypeScript`, `Three.js` and `TailwindCSS`!
+My Portfolio built with: `React`, `Next.js`, `Express.js`, `TypeScript`, `Three.js`
 
-<img src="https://i.ibb.co/GtVgcdv/Sammy-Biking-Grey.png" alt="Sammy-Biking-Grey" border="0">
-
-### URL: [sammy.world](https://sammy.world)
+### URL: [`sammy.world`](https://sammy.world)
 
 ## Local Development
 
@@ -25,9 +23,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Deployment
-
-The easiest way to deploy Next.js apps is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
