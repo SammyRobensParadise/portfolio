@@ -4,9 +4,15 @@ import Head from 'next/head'
 import { uniqueId } from 'lodash'
 import clsx from 'clsx'
 
+import Button from '../components/button'
+
 const LandingPage: NextPage = (): JSX.Element => {
   const [idx, setIdx] = useState(1)
   const [idx2, setIdx2] = useState(0)
+  const [idx3, setIdx3] = useState(0)
+
+  const timeout = 200
+
   const introText = [
     'I',
     'AM',
@@ -19,12 +25,27 @@ const LandingPage: NextPage = (): JSX.Element => {
     'PRODUCTS'
   ]
   const introText2 = ['THESE', 'ARE', 'YOUR', 'OPTIONS']
-  const timeout = 200
+  const options = [
+    <Button key="see-work" anchor>
+      SEE WORK
+    </Button>,
+    <Button key="view resume" anchor href="/SammyRPResume.pdf">
+      VIEW RESUME
+    </Button>,
+    <Button key="see-work" anchor>
+      ABOUT ME
+    </Button>
+  ]
 
   useEffect(() => {
     let secInterval: NodeJS.Timeout
     let interval: NodeJS.Timeout
-    if (idx <= introText.length + 1 && idx2 <= introText2.length + 1) {
+    let thirdInterval: NodeJS.Timeout
+    if (
+      idx <= introText.length + 1 &&
+      idx2 <= introText2.length + 1 &&
+      idx3 <= options.length + 1
+    ) {
       interval = setInterval(() => {
         setIdx((s) => s + 1)
       }, timeout)
@@ -35,6 +56,14 @@ const LandingPage: NextPage = (): JSX.Element => {
           if (idx2 >= introText2.length + 1) {
             clearInterval(secInterval)
             clearInterval(interval)
+            thirdInterval = setInterval(() => {
+              setIdx3((s) => s + 1)
+              if (idx3 >= options.length + 1) {
+                clearInterval(secInterval)
+                clearInterval(interval)
+                clearInterval(thirdInterval)
+              }
+            }, timeout)
           }
         }, timeout)
       }
@@ -42,9 +71,11 @@ const LandingPage: NextPage = (): JSX.Element => {
     return () => {
       clearInterval(interval)
       clearInterval(secInterval)
+      clearInterval(thirdInterval)
     }
-  }, [idx, idx2, introText.length, introText2.length])
+  }, [idx, idx2, idx3, introText.length, introText2.length, options.length])
 
+  console.log(idx3)
   return (
     <>
       <Head>
@@ -74,6 +105,11 @@ const LandingPage: NextPage = (): JSX.Element => {
               </span>
             ))}
           </h2>
+          <div className="">
+            {options.slice(0, idx3).map((option) => (
+              <span key={`${uniqueId()}`}>{option}</span>
+            ))}
+          </div>
         </div>
       </div>
     </>
