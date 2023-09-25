@@ -19,9 +19,9 @@ export default function Button({
       <span className="h-16">
         <Link
           href={href}
-          className={`px-8 py-5 text-xl transition ease-in-out duration-200 bg-prussian-blue rounded-sm${clsx(
+          className={`px-8 py-5 text-xl font-semibold transition ease-in-out duration-200 rounded-sm ${clsx(
             {
-              'bg-canary text-prussian-blue hover:bg-prussian-blue hover:text-prussian-blue':
+              'bg-canary text-prussian-blue hover:bg-prussian-blue hover:text-canary':
                 variant === 'secondary',
               'bg-prussian-blue text-canary hover:bg-canary hover:text-prussian-blue':
                 variant === 'primary'
@@ -38,9 +38,9 @@ export default function Button({
       <button
         onClick={onClick}
         type="button"
-        className={`px-8 py-5 text-xl transition ease-in-out duration-200 rounded-sm ${clsx(
+        className={`px-8 py-5 text-xl font-semibold transition ease-in-out duration-200 rounded-sm ${clsx(
           {
-            'bg-canary text-prussian-blue hover:bg-prussian-blue hover:text-prussian-blue':
+            'bg-canary text-prussian-blue hover:bg-prussian-blue hover:text-canary':
               variant === 'secondary',
             'bg-prussian-blue text-canary hover:bg-canary hover:text-prussian-blue':
               variant === 'primary'

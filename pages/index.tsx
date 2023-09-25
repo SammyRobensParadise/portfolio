@@ -25,16 +25,15 @@ const LandingPage: NextPage = (): JSX.Element => {
     'PRODUCTS'
   ]
   const introText2 = ['THESE', 'ARE', 'YOUR', 'CHOICES']
-  const options = [
-    <Button key="see-work" anchor>
-      SEE WORK
-    </Button>,
-    <Button key="view resume" anchor href="/SammyRPResume.pdf">
-      VIEW RESUME
-    </Button>,
-    <Button key="see-work" anchor>
-      ABOUT ME
-    </Button>
+  const options: Array<{
+    label: string
+    variant: 'primary' | 'secondary'
+    anchor: boolean
+    href: string
+  }> = [
+    { label: 'SEE WORK', anchor: true, variant: 'secondary', href: '/work' },
+    { label: 'VIEW RESUME', anchor: true, variant: 'secondary', href: '/work' },
+    { label: 'ABOUT ME', anchor: true, variant: 'secondary', href: '/work' }
   ]
 
   useEffect(() => {
@@ -107,8 +106,21 @@ const LandingPage: NextPage = (): JSX.Element => {
               ))}
             </h2>
             <div className="space-x-24 py-16">
-              {options.slice(0, idx3).map((option) => (
-                <span key={`${uniqueId()}`}>{option}</span>
+              {options.slice(0, idx3).map(({ label, href }, index) => (
+                <span key={`${uniqueId()}`}>
+                  <Button
+                    anchor
+                    href={href}
+                    variant={
+                      clsx({
+                        secondary: index === idx3 - 1,
+                        primary: index !== idx3 - 1
+                      }) as 'primary' | 'secondary'
+                    }
+                  >
+                    {label}
+                  </Button>
+                </span>
               ))}
             </div>
           </div>
