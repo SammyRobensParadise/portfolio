@@ -105,7 +105,7 @@ const LandingPage: NextPage = (): JSX.Element => {
                 </span>
               ))}
             </h2>
-            <div className="space-x-24 py-16">
+            <div className="flex flex-col space-y-24 py-16 lg:space-x-24 lg:py-16 lg:block ">
               {options.slice(0, idx3).map(({ label, href }, index) => (
                 <span key={`${uniqueId()}`}>
                   <Button
