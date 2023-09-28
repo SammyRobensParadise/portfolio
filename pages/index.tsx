@@ -80,7 +80,7 @@ const LandingPage: NextPage = (): JSX.Element => {
       </Head>
       <div className=" bg-ocrean-green min-h-screen">
         <div className="text-center p-16  flex flex-col justify-center gap-16 items-center">
-          <h1 className="text-6xl font-bold text-prussian-blue tracking-tight  text-center leading-[78px] max-w-7xl">
+          <h1 className="text-6xl font-bold text-prussian-blue tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
             {introText.slice(0, idx).map((word, index) => (
               <span
                 key={`${uniqueId()}`}
@@ -92,7 +92,7 @@ const LandingPage: NextPage = (): JSX.Element => {
             ))}
           </h1>
           <div className="gap-12">
-            <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl">
+            <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
               {introText2.slice(0, idx2).map((word, index) => (
                 <span
                   key={`${uniqueId()}`}
