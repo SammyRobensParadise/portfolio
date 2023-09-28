@@ -32,8 +32,13 @@ const LandingPage: NextPage = (): JSX.Element => {
     href: string
   }> = [
     { label: 'SEE WORK', anchor: true, variant: 'secondary', href: '/work' },
-    { label: 'VIEW RESUME', anchor: true, variant: 'secondary', href: '/work' },
-    { label: 'ABOUT ME', anchor: true, variant: 'secondary', href: '/work' }
+    {
+      label: 'VIEW RESUME',
+      anchor: true,
+      variant: 'secondary',
+      href: '/SammyRPResume.pdf'
+    },
+    { label: 'ABOUT ME', anchor: true, variant: 'secondary', href: '/about' }
   ]
 
   useEffect(() => {
