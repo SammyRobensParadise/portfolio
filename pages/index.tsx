@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { uniqueId } from 'lodash'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 import Button from '../components/button'
 
@@ -88,11 +89,22 @@ const LandingPage: NextPage = (): JSX.Element => {
           <h1 className="text-6xl font-bold text-prussian-blue tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
             {introText.slice(0, idx).map((word, index) => (
               <span
-                key={`${uniqueId()}`}
+                key={`${word}-${uniqueId()}`}
                 data-label={word.toLowerCase()}
                 className={clsx(index === idx - 1 && 'text-canary')}
               >
-                {`${word} `}
+                {word.split('').map((letter) => (
+                  <motion.span
+                    key={`${letter}-${uniqueId()}`}
+                    whileHover={{
+                      fontSize: '86px',
+                      lineHeight: '60px',
+                      letterSpacing: '-5px'
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}{' '}
               </span>
             ))}
           </h1>
@@ -106,7 +118,18 @@ const LandingPage: NextPage = (): JSX.Element => {
                     index === idx2 - 1 && idx3 <= 0 && 'text-canary'
                   )}
                 >
-                  {`${word} `}
+                  {word.split('').map((letter) => (
+                    <motion.span
+                      key={`${letter}-${uniqueId()}`}
+                      whileHover={{
+                        fontSize: '64px',
+                        lineHeight: '48px',
+                        letterSpacing: '-2.5px'
+                      }}
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}{' '}
                 </span>
               ))}
             </h2>
