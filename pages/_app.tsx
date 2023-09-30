@@ -5,6 +5,7 @@ import { Provider as State } from 'jotai'
 import '../styles/globals.css'
 import AnimatedCursor from 'react-animated-cursor'
 import { AnimatePresence } from 'framer-motion'
+import { v4 as uuid } from 'uuid'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   return (

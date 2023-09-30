@@ -35,6 +35,7 @@ module.exports = {
         }
       }
     ],
+    'react/no-array-index-key': 'off',
     '@typescript-eslint/naming-convention': [
       'error',
       {

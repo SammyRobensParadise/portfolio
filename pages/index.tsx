@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { uniqueId } from 'lodash'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
@@ -89,13 +88,13 @@ const LandingPage: NextPage = (): JSX.Element => {
           <h1 className="text-6xl font-bold text-prussian-blue tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
             {introText.slice(0, idx).map((word, index) => (
               <span
-                key={`${word}-${uniqueId()}`}
+                key={`${word}-${index}`}
                 data-label={word.toLowerCase()}
                 className={clsx(index === idx - 1 && 'text-canary')}
               >
-                {word.split('').map((letter) => (
+                {word.split('').map((letter, i) => (
                   <motion.span
-                    key={`${letter}-${uniqueId()}`}
+                    key={`${word}-${letter}-${i}-${index}`}
                     whileHover={{
                       fontSize: '86px',
                       lineHeight: '60px',
@@ -112,43 +111,46 @@ const LandingPage: NextPage = (): JSX.Element => {
             <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
               {introText2.slice(0, idx2).map((word, index) => (
                 <span
-                  key={`${uniqueId()}`}
+                  key={`two-${word}-${index}`}
                   data-label={word.toLowerCase()}
                   className={clsx(
                     index === idx2 - 1 && idx3 <= 0 && 'text-canary'
                   )}
                 >
-                  {word.split('').map((letter) => (
-                    <motion.span
-                      key={`${letter}-${uniqueId()}`}
-                      whileHover={{
-                        fontSize: '64px',
-                        lineHeight: '48px',
-                        letterSpacing: '-2.5px'
-                      }}
-                    >
-                      {letter}
-                    </motion.span>
+                  {word.split('').map((letter, i) => (
+                    <span key={`two-${word}-${letter}-${i}-${index}`}>
+                      <motion.span
+                        whileHover={{
+                          fontSize: '64px',
+                          lineHeight: '48px',
+                          letterSpacing: '-2.5px'
+                        }}
+                      >
+                        {letter}
+                      </motion.span>
+                    </span>
                   ))}{' '}
                 </span>
               ))}
             </h2>
             <div className="flex flex-col space-y-24 py-16 lg:space-x-24 lg:py-16 lg:block ">
               {options.slice(0, idx3).map(({ label, href }, index) => (
-                <motion.span key={`${uniqueId()}`}>
-                  <Button
-                    anchor
-                    href={href}
-                    variant={
-                      clsx({
-                        secondary: index === idx3 - 1,
-                        primary: index !== idx3 - 1
-                      }) as 'primary' | 'secondary'
-                    }
-                  >
-                    {label}
-                  </Button>
-                </motion.span>
+                <span key={`button-${label}-${index}`}>
+                  <motion.span>
+                    <Button
+                      anchor
+                      href={href}
+                      variant={
+                        clsx({
+                          secondary: index === idx3 - 1,
+                          primary: index !== idx3 - 1
+                        }) as 'primary' | 'secondary'
+                      }
+                    >
+                      {label}
+                    </Button>
+                  </motion.span>
+                </span>
               ))}
             </div>
           </div>
