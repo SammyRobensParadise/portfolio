@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { uniqueId } from 'lodash'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
-const LandingPage: NextPage = (): JSX.Element => {
+const LandingPage: NextPage = forwardRef((): JSX.Element => {
   const [idx, setIdx] = useState(1)
   const [idx2, setIdx2] = useState(0)
   const timeout = 200
@@ -70,33 +70,9 @@ const LandingPage: NextPage = (): JSX.Element => {
               </span>
             ))}
           </h1>
-          <div className="gap-12">
-            <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
-              {introText2.slice(0, idx2).map((word, index) => (
-                <span
-                  key={`${uniqueId()}`}
-                  data-label={word.toLowerCase()}
-                  className={clsx(index === idx2 - 1 && 'text-canary')}
-                >
-                  {word.split('').map((letter) => (
-                    <motion.span
-                      key={`${letter}-${uniqueId()}`}
-                      whileHover={{
-                        fontSize: '64px',
-                        lineHeight: '48px',
-                        letterSpacing: '-2.5px'
-                      }}
-                    >
-                      {letter}
-                    </motion.span>
-                  ))}{' '}
-                </span>
-              ))}
-            </h2>
-          </div>
         </div>
       </div>
     </>
   )
-}
+})
 export default LandingPage
