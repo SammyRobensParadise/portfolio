@@ -15,6 +15,7 @@ const LandingPage: NextPage = forwardRef(
     const [idx, setIdx] = useState(1)
     const [idx2, setIdx2] = useState(0)
     const [idx3, setIdx3] = useState(0)
+    const [idx4, setIdx4] = useState(0)
 
     const timeout = 200
 
@@ -45,15 +46,18 @@ const LandingPage: NextPage = forwardRef(
       },
       { label: 'ABOUT ME', anchor: true, variant: 'secondary', href: '/about' }
     ]
+    const introText4 = ['JOIN', 'THE', 'PARTY.']
 
     useEffect(() => {
       let secInterval: NodeJS.Timeout
       let interval: NodeJS.Timeout
       let thirdInterval: NodeJS.Timeout
+      let fourthInterval: NodeJS.Timeout
       const condition =
         idx <= introText.length + 1 &&
         idx2 <= introText2.length + 1 &&
-        idx3 <= options.length + 1
+        idx3 <= options.length + 1 &&
+        idx4 <= options.length + 1
 
       if (condition) {
         interval = setInterval(() => {
@@ -68,6 +72,12 @@ const LandingPage: NextPage = forwardRef(
                 setIdx3((s) => s + 1)
                 if (idx3 >= options.length) {
                   clearInterval(thirdInterval)
+                  fourthInterval = setInterval(() => {
+                    setIdx4((s) => s + 1)
+                    if (idx4 >= introText4.length) {
+                      clearInterval(fourthInterval)
+                    }
+                  }, timeout * 1.5)
                 }
               }, timeout)
             } else {
@@ -81,7 +91,16 @@ const LandingPage: NextPage = forwardRef(
         clearInterval(secInterval)
         clearInterval(thirdInterval)
       }
-    }, [idx, idx2, idx3, introText.length, introText2.length, options.length])
+    }, [
+      idx,
+      idx2,
+      idx3,
+      idx4,
+      introText.length,
+      introText2.length,
+      introText4.length,
+      options.length
+    ])
 
     return (
       <PageTransition ref={ref}>
@@ -167,6 +186,32 @@ const LandingPage: NextPage = forwardRef(
                     </span>
                   ))}
                 </div>
+                <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
+                  {introText4.slice(0, idx4).map((word, index) => (
+                    <span
+                      key={`two-${word}-${index}`}
+                      data-label={`two-${word}-${index}`}
+                      className={clsx(index === idx4 - 1 && 'text-canary')}
+                    >
+                      {word.split('').map((letter, i) => (
+                        <span
+                          key={`two-${word}-${letter}-${i}-${index}`}
+                          data-label={`two-${word}-${letter}-${i}-${index}`}
+                        >
+                          <motion.span
+                            whileHover={{
+                              fontSize: '64px',
+                              lineHeight: '48px',
+                              letterSpacing: '-2.5px'
+                            }}
+                          >
+                            {letter}
+                          </motion.span>
+                        </span>
+                      ))}{' '}
+                    </span>
+                  ))}
+                </h2>
               </div>
             </div>
           </div>
