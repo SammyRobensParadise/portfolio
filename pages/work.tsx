@@ -7,7 +7,7 @@ import { uniqueId } from 'lodash'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import * as THREE from 'three'
-import { useFrame, useThree } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Image, ScrollControls, Scroll, useScroll } from '@react-three/drei'
 import { proxy, useSnapshot } from 'valtio'
 
@@ -19,9 +19,7 @@ const geometry = new THREE.BufferGeometry().setFromPoints([
 ])
 const state = proxy<{ clicked: number | null; urls: string[] }>({
   clicked: null,
-  urls: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 5, 7, 8, 2, 4, 9, 6].map(
-    (u) => `/${u}.jpg`
-  )
+  urls: [1, 1, 1, 1, 1, 1, 1, 1].map((u) => `/${u}.png`)
 })
 
 function Minimap() {
@@ -62,15 +60,12 @@ function Item({
   index,
   position,
   scale,
-  c = new THREE.Color(),
   url,
   ...props
 }: {
   index: number
-  position:
-    | THREE.Vector3
-    | [x: number, y: number, z: number]
-    | readonly [x: number, y: number, z: number]
+  position: number[]
+
   scale: number | [number, number]
   c?: THREE.ColorRepresentation
   url: string
@@ -78,7 +73,7 @@ function Item({
   const ref = useRef<THREE.Mesh | null>(null)
   const scroll = useScroll()
   const { clicked, urls } = useSnapshot(state)
-  const [hovered, hover] = useState(false)
+  const [, hover] = useState(false)
   function click() {
     state.clicked = index === clicked ? null : index
   }
@@ -90,17 +85,17 @@ function Item({
       4 / urls.length
     )
     if (ref.current) {
-      // @ts-expect-error err
+      // @ts-expect-error: map
       ref.current.material.scale[1] = ref.current.scale.y = damp(
         ref.current.scale.y,
         clicked === index ? 5 : 4 + y,
         8,
         delta
       )
-      // @ts-expect-error err
+      // @ts-expect-error: map
       ref.current.material.scale[0] = ref.current.scale.x = damp(
         ref.current.scale.x,
-        // @ts-expect-error err
+        // @ts-expect-error: map
         clicked === index ? 4.7 : scale[0],
         6,
         delta
@@ -127,25 +122,16 @@ function Item({
         6,
         delta
       )
-    if (ref.current) {
-      ref.current.material.grayscale = damp(
-        ref.current.material.grayscale,
-        hovered || clicked === index ? 0 : Math.max(0, 1 - y),
-        6,
-        delta
-      )
-      ref.current.material.color.lerp(
-        c.set(hovered || clicked === index ? 'white' : '#aaa'),
-        hovered ? 0.3 : 0.1
-      )
-    }
   })
   return (
     <Image
+      // @ts-expect-error mapping
       ref={ref}
       {...props}
+      // @ts-expect-error mapping
       position={position}
       scale={scale}
+      url={url}
       // eslint-disable-next-line react/jsx-no-bind
       onClick={click}
       onPointerOver={over}
@@ -172,7 +158,7 @@ function Items({ w = 0.7, gap = 0.15 }) {
             key={i}
             index={i}
             position={[i * xW, 0, 0]}
-            scale={[w, 4]}
+            scale={[w, 10]}
             url={url}
           />
         ))}
@@ -235,6 +221,16 @@ const LandingPage: NextPage = forwardRef((): JSX.Element => {
               </span>
             ))}
           </h1>
+          <Canvas
+            style={{ height: '600px' }}
+            gl={{ antialias: false }}
+            dpr={[1, 1.5]}
+            onPointerMissed={() => {
+              state.clicked = null
+            }}
+          >
+            <Items />
+          </Canvas>
         </div>
       </div>
     </>
