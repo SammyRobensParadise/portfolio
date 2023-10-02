@@ -39,6 +39,7 @@
     "react-scroll-parallax": "^2.4.0",
     "react-spring": "^9.3.0",
     "react95": "^3.8.0",
+    "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.41.1",
     "styled-components": "^5.3.11",
     "three": "^0.156.1",
