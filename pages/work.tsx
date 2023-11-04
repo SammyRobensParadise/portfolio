@@ -14,6 +14,72 @@ const LandingPage: NextPage = forwardRef((): JSX.Element => {
   const timeout = 200
 
   const introText = ['THIS', 'IS', 'MY', 'WORK']
+  const workItems: {
+    title: string
+    description: string
+    children: JSX.Element
+  }[] = [
+    {
+      title: 'Beacon Biosignals',
+      description:
+        'Designing the world’s AI neurobiomarker platform accelerating clinical trials and powering new treatments for patients with neurological and psychiatric diseases',
+      children: (
+        <div className="align-center inline-block">
+          <Image
+            src="/beacon-render.png"
+            alt="Beacon Render"
+            width={460}
+            height={460}
+          />
+        </div>
+      )
+    },
+    {
+      title: 'Float Card',
+      description:
+        'Orchestrating the dream-to-design-to-build pipeline for Float Inc on a mission to redesign business spending',
+      children: (
+        <div className="align-center inline-block">
+          <Image
+            src="/float-render.png"
+            alt="Float Render"
+            width={460}
+            height={460}
+          />
+        </div>
+      )
+    },
+    {
+      title: 'Puma',
+      description:
+        'Leading designer and systems engineer at PUMA Utilites, responsible for user experience research, graphic and interface design',
+      children: (
+        <div className="align-center inline-block">
+          <Image
+            src="/puma-render.png"
+            alt="Puma Render"
+            width={600}
+            height={600}
+          />
+        </div>
+      )
+    },
+    {
+      title: 'Pharmabox',
+      description:
+        'A capstone project to deliver accessible prescription pickup for Canadians',
+      children: (
+        <div className="align-center inline-block">
+          <Image
+            src="/pharmabox-render.png"
+            alt="Puma Render"
+            width={1400}
+            height={600}
+          />
+        </div>
+      )
+    }
+  ]
 
   function handleWheel(event: WheelEvent) {
     window.scrollTo({ top: 0 })
@@ -85,32 +151,15 @@ const LandingPage: NextPage = forwardRef((): JSX.Element => {
             style={{ transform: `translateX(${x}px)` }}
           >
             <div className="px-5 flex flex-row space-x-5 min-w-fit">
-              <WorkSegment
-                title="Beacon Biosignals"
-                description="Designing the world’s AI neurobiomarker platform accelerating clinical trials and powering new treatments for patients with neurological and psychiatric diseases"
-              >
-                <div className="align-center inline-block">
-                  <Image
-                    src="/beacon-render.png"
-                    alt="Beacon Render"
-                    width={460}
-                    height={460}
-                  />
-                </div>
-              </WorkSegment>
-              <WorkSegment
-                title="Float Card"
-                description="Orchestrating the dream-to-design-to-build pipeline for Float Inc on a mission to redesign business spending"
-              >
-                <div className="align-center inline-block">
-                  <Image
-                    src="/float-render.png"
-                    alt="Float Render"
-                    width={460}
-                    height={460}
-                  />
-                </div>
-              </WorkSegment>
+              {workItems.map((workItem) => (
+                <WorkSegment
+                  key={workItem.title}
+                  title={workItem.title}
+                  description={workItem.description}
+                >
+                  {workItem.children}
+                </WorkSegment>
+              ))}
             </div>
           </div>
         </div>
