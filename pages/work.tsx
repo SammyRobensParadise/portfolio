@@ -4,6 +4,9 @@ import Head from 'next/head'
 import { uniqueId } from 'lodash'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+
+import WorkSegment from '../components/workSegment'
 
 const LandingPage: NextPage = forwardRef((): JSX.Element => {
   const [idx, setIdx] = useState(1)
@@ -15,7 +18,7 @@ const LandingPage: NextPage = forwardRef((): JSX.Element => {
   function handleWheel(event: WheelEvent) {
     window.scrollTo({ top: 0 })
     const { deltaY } = event
-    const reverseY = (-1 * deltaY) / 3
+    const reverseY = (-1 * deltaY) / 2
     setX((cur) => cur + reverseY)
   }
 
@@ -45,7 +48,6 @@ const LandingPage: NextPage = forwardRef((): JSX.Element => {
       clearInterval(thirdInterval)
     }
   }, [idx, introText.length])
-  console.log(x)
 
   return (
     <>
@@ -83,24 +85,32 @@ const LandingPage: NextPage = forwardRef((): JSX.Element => {
             style={{ transform: `translateX(${x}px)` }}
           >
             <div className="px-5 flex flex-row space-x-5 min-w-fit">
-              <div className="h-24 w-24 bg-ruby">Text 1</div>
-              <div className="h-24 w-24 bg-ruby">Text 2</div>
-              <div className="h-24 w-24 bg-ruby">Text 3</div>
-              <div className="h-24 w-24 bg-ruby">Text 4</div>
-              <div className="h-24 w-24 bg-ruby">Text 5</div>
-              <div className="h-24 w-24 bg-ruby">Text 6</div>
-              <div className="h-24 w-24 bg-ruby">Text 7</div>
-              <div className="h-24 w-24 bg-ruby">Text 8</div>
-              <div className="h-24 w-24 bg-ruby">Text 9</div>
-              <div className="h-24 w-24 bg-ruby">Text 10</div>
-              <div className="h-24 w-24 bg-ruby">Text 11</div>
-              <div className="h-24 w-24 bg-ruby">Text 12</div>
-              <div className="h-24 w-24 bg-ruby">Text 13</div>
-              <div className="h-24 w-24 bg-ruby">Text 14</div>
-              <div className="h-24 w-24 bg-ruby">Text 15</div>
-              <div className="h-24 w-24 bg-ruby">Text 16</div>
-              <div className="h-24 w-24 bg-ruby">Text 17</div>
-              <div className="h-24 w-24 bg-ruby">Text 18</div>
+              <WorkSegment
+                title="Beacon Biosignals"
+                description="Designing the world’s AI neurobiomarker platform accelerating clinical trials and powering new treatments for patients with neurological and psychiatric diseases"
+              >
+                <div className="align-center inline-block">
+                  <Image
+                    src="/beacon-render.png"
+                    alt="Beacon Render"
+                    width={460}
+                    height={460}
+                  />
+                </div>
+              </WorkSegment>
+              <WorkSegment
+                title="Float Card"
+                description="Orchestrating the dream-to-design-to-build pipeline for Float Inc on a mission to redesign business spending"
+              >
+                <div className="align-center inline-block">
+                  <Image
+                    src="/float-render.png"
+                    alt="Float Render"
+                    width={460}
+                    height={460}
+                  />
+                </div>
+              </WorkSegment>
             </div>
           </div>
         </div>
