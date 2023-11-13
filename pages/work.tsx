@@ -11,6 +11,8 @@ import WorkSegment from '../components/workSegment'
 const Work = forwardRef((): JSX.Element => {
   const [idx, setIdx] = useState(1)
   const [x, setX] = useState(0)
+  const [scroll, setScrolling] = useState(true)
+  const [showWorkSegments, setShowWorkSegments] = useState(false)
   const timeout = 200
 
   const introText = ['THIS', 'IS', 'MY', 'WORK']
@@ -143,25 +145,45 @@ const Work = forwardRef((): JSX.Element => {
   }, [])
 
   useEffect(() => {
-    let secInterval: NodeJS.Timeout
-    let interval: NodeJS.Timeout
-    let thirdInterval: NodeJS.Timeout
     const condition = idx <= introText.length + 1
+    let interval: NodeJS.Timeout
     if (condition) {
-      interval = setInterval(() => {
-        setIdx((s) => s + 1)
-      }, timeout)
-      if (idx >= introText.length + 1) {
-        clearInterval(interval)
-      }
+      setTimeout(() => {
+        if (condition) {
+          interval = setInterval(() => {
+            console.log(idx, showWorkSegments)
+            setIdx((s) => s + 1)
+            if (idx >= introText.length + 1) {
+              clearInterval(interval)
+            }
+          }, timeout)
+          if (idx >= introText.length + 1) {
+            clearInterval(interval)
+            setTimeout(() => {
+              setShowWorkSegments(true)
+            }, 500)
+          }
+        }
+      }, 250)
     }
     return () => {
       clearInterval(interval)
-      clearInterval(secInterval)
-      clearInterval(thirdInterval)
     }
-  }, [idx, introText.length])
+  })
 
+  const WorkSegments = () => (
+    <>
+      {workItems.map((workItem) => (
+        <WorkSegment
+          key={workItem.title}
+          title={workItem.title}
+          description={workItem.description}
+        >
+          {workItem.children}
+        </WorkSegment>
+      ))}
+    </>
+  )
   return (
     <>
       <Head>
@@ -198,15 +220,7 @@ const Work = forwardRef((): JSX.Element => {
             style={{ transform: `translateX(${x}px)` }}
           >
             <div className="px-5 flex flex-row space-x-5 min-w-fit">
-              {workItems.map((workItem) => (
-                <WorkSegment
-                  key={workItem.title}
-                  title={workItem.title}
-                  description={workItem.description}
-                >
-                  {workItem.children}
-                </WorkSegment>
-              ))}
+              {showWorkSegments && <WorkSegments />}
             </div>
           </div>
         </div>

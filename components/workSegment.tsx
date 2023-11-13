@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function WorkSegment({
   title,
@@ -11,15 +12,17 @@ export default function WorkSegment({
   inFocus?: boolean
 }>): JSX.Element {
   return (
-    <div
-      className="space-y-8 text-center min-w-fit"
-      id={`${inFocus ? `${title}-in-focus` : title}`}
-    >
-      <div>{children}</div>
-      <h2 className="text-canary text-5xl font-semibold">
-        {title.toUpperCase()}
-      </h2>
-      <p className="text-canary text-3xl px-48">{description}</p>
-    </div>
+    <AnimatePresence>
+      <motion.div
+        className="space-y-8 text-center min-w-fit"
+        id={`${inFocus ? `${title}-in-focus` : title}`}
+      >
+        <div className=" h-80">{children}</div>
+        <h2 className="text-canary text-5xl font-semibold max-w-7xl">
+          {title.toUpperCase()}
+        </h2>
+        <p className="text-canary text-3xl px-48 max-w-7xl">{description}</p>
+      </motion.div>
+    </AnimatePresence>
   )
 }
