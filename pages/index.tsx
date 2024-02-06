@@ -1,13 +1,12 @@
-import React, { forwardRef, Ref, useEffect, useState } from 'react'
+import React, { forwardRef, useEffect, useState } from 'react'
 import Head from 'next/head'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { NextPage } from 'next'
 
 import Button from '../components/button'
-import PageTransition from '../components/PageTransition'
 
-const LandingPage = forwardRef((_props, ref): JSX.Element => {
+const LandingPage = forwardRef((): JSX.Element => {
   const [idx, setIdx] = useState(1)
   const [idx2, setIdx2] = useState(0)
   const [idx3, setIdx3] = useState(0)
@@ -99,7 +98,7 @@ const LandingPage = forwardRef((_props, ref): JSX.Element => {
   ])
 
   return (
-    <PageTransition ref={(ref as Ref<HTMLDivElement>) ?? undefined}>
+    <>
       <div>
         <Head>
           <title>Sammy Robens-Paradise</title>
@@ -212,7 +211,7 @@ const LandingPage = forwardRef((_props, ref): JSX.Element => {
           </div>
         </div>
       </div>
-    </PageTransition>
+    </>
   )
 })
 
