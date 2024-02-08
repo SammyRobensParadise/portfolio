@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { NextPage } from 'next'
 
 import Button from '../components/button'
+import Layout from '../components/Layout'
 
 const LandingPage = forwardRef((): JSX.Element => {
   const [idx, setIdx] = useState(1)
@@ -216,9 +217,9 @@ const LandingPage = forwardRef((): JSX.Element => {
 })
 
 const Page: NextPage = () => (
-  <>
+  <Layout>
     <LandingPage />
-  </>
+  </Layout>
 )
 
 export default Page

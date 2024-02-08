@@ -18,7 +18,7 @@ function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
       <AnimatePresence
         onExitComplete={onExitComplete}
         initial={false}
-        mode="popLayout"
+        mode="wait"
       >
         <Component {...pageProps} key={pageKey} />
       </AnimatePresence>
