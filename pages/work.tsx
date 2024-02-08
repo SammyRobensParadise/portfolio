@@ -36,7 +36,7 @@ const Work = forwardRef((): JSX.Element => {
       clearInterval(interval)
     }
   })
-
+  console.log('render')
   return (
     <>
       <Head>
@@ -55,9 +55,9 @@ const Work = forwardRef((): JSX.Element => {
                   <motion.span
                     key={`${letter}-${uniqueId()}`}
                     whileHover={{
-                      fontSize: '86px',
-                      lineHeight: '60px',
-                      letterSpacing: '-5px'
+                      fontSize: '64px',
+                      lineHeight: '48px',
+                      letterSpacing: '-2.5px'
                     }}
                   >
                     {letter}

@@ -1,8 +1,9 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef, useLayoutEffect, useState } from 'react'
 import Head from 'next/head'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { NextPage } from 'next'
+import { useInterval } from 'usehooks-ts'
 
 import Button from '../components/button'
 import Layout from '../components/Layout'
@@ -15,7 +16,7 @@ const LandingPage = forwardRef((): JSX.Element => {
 
   const timeout = 200
 
-  const introText = [
+  const txt1 = [
     'I',
     'AM',
     'SAMMY',
@@ -26,7 +27,7 @@ const LandingPage = forwardRef((): JSX.Element => {
     'BEAUTIFUL',
     'PRODUCTS'
   ]
-  const introText2 = ['THESE', 'ARE', 'YOUR', 'CHOICES']
+  const txt2 = ['THESE', 'ARE', 'YOUR', 'CHOICES']
   const options: Array<{
     label: string
     variant: 'primary' | 'secondary'
@@ -42,36 +43,35 @@ const LandingPage = forwardRef((): JSX.Element => {
     },
     { label: 'ABOUT ME', anchor: true, variant: 'secondary', href: '/about' }
   ]
-  const introText4 = ['JOIN', 'THE', 'PARTY.']
+  const txt3 = ['JOIN', 'THE', 'PARTY.']
 
-  useEffect(() => {
-    let secInterval: NodeJS.Timeout
-    let interval: NodeJS.Timeout
-    let thirdInterval: NodeJS.Timeout
-    let fourthInterval: NodeJS.Timeout
+  useLayoutEffect(() => {
+    let intv1: NodeJS.Timeout | number = 0
+    let intv2: NodeJS.Timeout | number = 0
+    let intv3: NodeJS.Timeout | number = 0
+    let intv4: NodeJS.Timeout | number = 0
     const condition =
-      idx <= introText.length + 1 &&
-      idx2 <= introText2.length + 1 &&
+      idx <= txt1.length + 1 &&
+      idx2 <= txt2.length + 1 &&
       idx3 <= options.length + 1 &&
       idx4 <= options.length + 1
-
     if (condition) {
-      interval = setInterval(() => {
+      intv1 = setInterval(() => {
         setIdx((s) => s + 1)
       }, timeout)
-      if (idx >= introText.length + 1) {
-        clearInterval(interval)
-        secInterval = setInterval(() => {
-          if (idx2 >= introText2.length) {
-            clearInterval(secInterval)
-            thirdInterval = setInterval(() => {
+      if (idx >= txt1.length + 1) {
+        clearInterval(intv1)
+        intv2 = setInterval(() => {
+          if (idx2 >= txt2.length) {
+            clearInterval(intv2)
+            intv3 = setInterval(() => {
               setIdx3((s) => s + 1)
               if (idx3 >= options.length) {
-                clearInterval(thirdInterval)
-                fourthInterval = setInterval(() => {
+                clearInterval(intv3)
+                intv4 = setInterval(() => {
                   setIdx4((s) => s + 1)
-                  if (idx4 >= introText4.length) {
-                    clearInterval(fourthInterval)
+                  if (idx4 >= txt3.length) {
+                    clearInterval(intv4)
                   }
                 }, timeout * 1.5)
               }
@@ -83,20 +83,11 @@ const LandingPage = forwardRef((): JSX.Element => {
       }
     }
     return () => {
-      clearInterval(interval)
-      clearInterval(secInterval)
-      clearInterval(thirdInterval)
+      clearInterval(intv1)
+      clearInterval(intv2)
+      clearInterval(intv3)
     }
-  }, [
-    idx,
-    idx2,
-    idx3,
-    idx4,
-    introText.length,
-    introText2.length,
-    introText4.length,
-    options.length
-  ])
+  })
 
   return (
     <>
@@ -107,7 +98,7 @@ const LandingPage = forwardRef((): JSX.Element => {
         <div className=" bg-ocrean-green min-h-screen">
           <div className="text-center p-16  flex flex-col justify-center gap-16 items-center">
             <h1 className="text-6xl font-bold text-prussian-blue tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
-              {introText.slice(0, idx).map((word, index) => (
+              {txt1.slice(0, idx).map((word, index) => (
                 <span
                   key={`${word}-${index}`}
                   data-label={`${word}-${index}`}
@@ -132,7 +123,7 @@ const LandingPage = forwardRef((): JSX.Element => {
             </h1>
             <div className="gap-12">
               <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
-                {introText2.slice(0, idx2).map((word, index) => (
+                {txt2.slice(0, idx2).map((word, index) => (
                   <span
                     key={`two-${word}-${index}`}
                     data-label={`two-${word}-${index}`}
@@ -183,7 +174,7 @@ const LandingPage = forwardRef((): JSX.Element => {
                 ))}
               </div>
               <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
-                {introText4.slice(0, idx4).map((word, index) => (
+                {txt3.slice(0, idx4).map((word, index) => (
                   <span
                     key={`two-${word}-${index}`}
                     data-label={`two-${word}-${index}`}

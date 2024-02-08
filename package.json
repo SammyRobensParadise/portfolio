@@ -46,7 +46,7 @@
     "three-stdlib": "^2.4.2",
     "troika-three-text": "^0.43.0",
     "use-animation-frame": "^0.1.1",
-    "usehooks-ts": "^2.0.2",
+    "usehooks-ts": "^2.13.0",
     "uuid": "^8.3.2",
     "valtio": "^1.11.2"
   },
