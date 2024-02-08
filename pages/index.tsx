@@ -1,4 +1,4 @@
-import React, { forwardRef, useLayoutEffect, useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 import Head from 'next/head'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
@@ -8,86 +8,90 @@ import { useInterval } from 'usehooks-ts'
 import Button from '../components/button'
 import Layout from '../components/Layout'
 
+const timeout = 200
+
+const txt1 = [
+  'I',
+  'AM',
+  'SAMMY',
+  'ROBENS-PARADISE',
+  'AND',
+  'I',
+  'BUILD',
+  'BEAUTIFUL',
+  'PRODUCTS'
+]
+const txt2 = ['THESE', 'ARE', 'YOUR', 'CHOICES']
+const options: Array<{
+  label: string
+  variant: 'primary' | 'secondary'
+  anchor: boolean
+  href: string
+}> = [
+  { label: 'SEE WORK', anchor: true, variant: 'secondary', href: '/work' },
+  {
+    label: 'VIEW RESUME',
+    anchor: true,
+    variant: 'secondary',
+    href: '/SammyRPResume.pdf'
+  },
+  { label: 'ABOUT ME', anchor: true, variant: 'secondary', href: '/about' }
+]
+const txt3 = ['JOIN', 'THE', 'PARTY.']
+
 const LandingPage = forwardRef((): JSX.Element => {
-  const [idx, setIdx] = useState(1)
-  const [idx2, setIdx2] = useState(0)
-  const [idx3, setIdx3] = useState(0)
-  const [idx4, setIdx4] = useState(0)
+  const [txt1Index, setText1Index] = useState(1)
+  const [txt2Index, setText2Index] = useState(0)
+  const [optionsIndex, setOptionsIndex] = useState(0)
+  const [text3Index, setText3Index] = useState(0)
 
-  const timeout = 200
+  const [playText1, setPlayText1] = useState(true)
+  const [playText2, setPlayText2] = useState(false)
+  const [playOptions, setPlayOptions] = useState(false)
+  const [playText3, setPlayText3] = useState(false)
 
-  const txt1 = [
-    'I',
-    'AM',
-    'SAMMY',
-    'ROBENS-PARADISE',
-    'AND',
-    'I',
-    'BUILD',
-    'BEAUTIFUL',
-    'PRODUCTS'
-  ]
-  const txt2 = ['THESE', 'ARE', 'YOUR', 'CHOICES']
-  const options: Array<{
-    label: string
-    variant: 'primary' | 'secondary'
-    anchor: boolean
-    href: string
-  }> = [
-    { label: 'SEE WORK', anchor: true, variant: 'secondary', href: '/work' },
-    {
-      label: 'VIEW RESUME',
-      anchor: true,
-      variant: 'secondary',
-      href: '/SammyRPResume.pdf'
-    },
-    { label: 'ABOUT ME', anchor: true, variant: 'secondary', href: '/about' }
-  ]
-  const txt3 = ['JOIN', 'THE', 'PARTY.']
-
-  useLayoutEffect(() => {
-    let intv1: NodeJS.Timeout | number = 0
-    let intv2: NodeJS.Timeout | number = 0
-    let intv3: NodeJS.Timeout | number = 0
-    let intv4: NodeJS.Timeout | number = 0
-    const condition =
-      idx <= txt1.length + 1 &&
-      idx2 <= txt2.length + 1 &&
-      idx3 <= options.length + 1 &&
-      idx4 <= options.length + 1
-    if (condition) {
-      intv1 = setInterval(() => {
-        setIdx((s) => s + 1)
-      }, timeout)
-      if (idx >= txt1.length + 1) {
-        clearInterval(intv1)
-        intv2 = setInterval(() => {
-          if (idx2 >= txt2.length) {
-            clearInterval(intv2)
-            intv3 = setInterval(() => {
-              setIdx3((s) => s + 1)
-              if (idx3 >= options.length) {
-                clearInterval(intv3)
-                intv4 = setInterval(() => {
-                  setIdx4((s) => s + 1)
-                  if (idx4 >= txt3.length) {
-                    clearInterval(intv4)
-                  }
-                }, timeout * 1.5)
-              }
-            }, timeout)
-          } else {
-            setIdx2((s) => s + 1)
-          }
-        }, timeout)
+  useInterval(
+    () => {
+      setText1Index((i) => i + 1)
+      if (txt1Index >= txt1.length) {
+        setPlayText1(false)
+        setPlayText2(true)
       }
-    }
-    return () => {
-      clearInterval(intv1)
-      clearInterval(intv2)
-      clearInterval(intv3)
-    }
-  })
+    },
+    playText1 ? timeout : null
+  )
+
+  useInterval(
+    () => {
+      setText2Index((j) => j + 1)
+      if (txt2Index >= txt2.length) {
+        setPlayText2(false)
+        setPlayOptions(true)
+      }
+    },
+    playText2 ? timeout : null
+  )
+
+  useInterval(
+    () => {
+      setOptionsIndex((k) => k + 1)
+      if (optionsIndex >= txt3.length) {
+        setPlayOptions(false)
+        setPlayText3(true)
+      }
+    },
+    playOptions ? timeout : null
+  )
+
+  useInterval(
+    () => {
+      setText3Index((l) => l + 1)
+      if (text3Index >= txt3.length) {
+        setPlayText3(false)
+      }
+    },
+    playText3 ? timeout * 2 : null
+  )
 
   return (
     <>
@@ -98,11 +102,11 @@ const LandingPage = forwardRef((): JSX.Element => {
         <div className=" bg-ocrean-green min-h-screen">
           <div className="text-center p-16  flex flex-col justify-center gap-16 items-center">
             <h1 className="text-6xl font-bold text-prussian-blue tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
-              {txt1.slice(0, idx).map((word, index) => (
+              {txt1.slice(0, txt1Index).map((word, index) => (
                 <span
                   key={`${word}-${index}`}
                   data-label={`${word}-${index}`}
-                  className={clsx(index === idx - 1 && 'text-canary')}
+                  className={clsx(index === txt1Index - 1 && 'text-canary')}
                 >
                   {word.split('').map((letter, i) => (
                     <motion.span
@@ -123,12 +127,14 @@ const LandingPage = forwardRef((): JSX.Element => {
             </h1>
             <div className="gap-12">
               <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
-                {txt2.slice(0, idx2).map((word, index) => (
+                {txt2.slice(0, txt2Index).map((word, index) => (
                   <span
                     key={`two-${word}-${index}`}
                     data-label={`two-${word}-${index}`}
                     className={clsx(
-                      index === idx2 - 1 && idx3 <= 0 && 'text-canary'
+                      index === txt2Index - 1 &&
+                        optionsIndex <= 0 &&
+                        'text-canary'
                     )}
                   >
                     {word.split('').map((letter, i) => (
@@ -151,34 +157,36 @@ const LandingPage = forwardRef((): JSX.Element => {
                 ))}
               </h2>
               <div className="flex flex-col space-y-24 py-16 lg:space-x-24 lg:py-16 lg:block ">
-                {options.slice(0, idx3).map(({ label, href }, index) => (
-                  <span
-                    key={`button-${label}-${index}`}
-                    data-label={`button-${label}-${index}`}
-                  >
-                    <motion.span>
-                      <Button
-                        anchor
-                        href={href}
-                        variant={
-                          clsx({
-                            secondary: index === idx3 - 1,
-                            primary: index !== idx3 - 1
-                          }) as 'primary' | 'secondary'
-                        }
-                      >
-                        {label}
-                      </Button>
-                    </motion.span>
-                  </span>
-                ))}
+                {options
+                  .slice(0, optionsIndex)
+                  .map(({ label, href }, index) => (
+                    <span
+                      key={`button-${label}-${index}`}
+                      data-label={`button-${label}-${index}`}
+                    >
+                      <motion.span>
+                        <Button
+                          anchor
+                          href={href}
+                          variant={
+                            clsx({
+                              secondary: index === optionsIndex - 1,
+                              primary: index !== optionsIndex - 1
+                            }) as 'primary' | 'secondary'
+                          }
+                        >
+                          {label}
+                        </Button>
+                      </motion.span>
+                    </span>
+                  ))}
               </div>
               <h2 className=" text-5xl font-bold text-prussian-blue tracking-tight  text-center leading-[60px] max-w-6xl  selection:bg-ruby selection:text-prussian-blue">
-                {txt3.slice(0, idx4).map((word, index) => (
+                {txt3.slice(0, text3Index).map((word, index) => (
                   <span
                     key={`two-${word}-${index}`}
                     data-label={`two-${word}-${index}`}
-                    className={clsx(index === idx4 - 1 && 'text-canary')}
+                    className={clsx(index === text3Index - 1 && 'text-canary')}
                   >
                     {word.split('').map((letter, i) => (
                       <span
