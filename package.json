@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
+    "@react-spring/web": "^9.7.3",
     "@react-three/drei": "^9.84.1",
     "@react-three/fiber": "^8.14.3",
     "@react-three/postprocessing": "^2.15.1",
