@@ -96,6 +96,7 @@ const Work = forwardRef((): JSX.Element => {
                 key={`${word}-${uniqueId()}`}
                 data-label={word.toLowerCase()}
                 className={clsx(index === txt1Index - 1 && 'text-ocrean-green')}
+                aria-label={word}
               >
                 {word.split('').map((letter) => (
                   <motion.span
@@ -115,10 +116,10 @@ const Work = forwardRef((): JSX.Element => {
         </div>
         {optionsIndex > 0 && (
           <div className="text-center z-20">
-            <div className="text-6xl py-8 relative font-bold text-canary tracking-tight text-center leading-[78px]  selection:text-ruby selection:bg-ocean-green bg-prussian-blue ">
+            <div className="text-6xl py-8 relative font-bold text-canary tracking-tight text-center leading-[78px]  selection:text-ruby selection:bg-ocean-green bg-prussian-blue border-y-4">
               {workOptions
                 .slice(0, optionsIndex)
-                .map(({ label, href }, index) => (
+                .map(({ label, href, subtext }, index) => (
                   <motion.div
                     whileHover={{
                       borderBottom: '4px solid',
@@ -127,11 +128,15 @@ const Work = forwardRef((): JSX.Element => {
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     key={`${label}-${uniqueId()}`}
                     data-label={label.toLowerCase()}
-                    className={` py-1 border-prussian-blue border-4 ${clsx(
+                    className={` py-1 border-prussian-blue border-4 hover:bg-canary hover:text-prussian-blue ${clsx(
                       index === optionsIndex - 1 && 'text-ocrean-green'
                     )}`}
                   >
-                    <Link href={href}>
+                    <Link
+                      href={href}
+                      aria-label={label.toLowerCase()}
+                      aria-details={subtext}
+                    >
                       {label.split('').map((letter) => (
                         <motion.span
                           key={`${letter}-${uniqueId()}`}
