@@ -123,7 +123,9 @@ const Work = forwardRef((): JSX.Element => {
                   <motion.div
                     whileHover={{
                       borderBottom: '4px solid',
-                      borderTop: '4px solid'
+                      borderTop: '4px solid',
+                      fontStyle: 'italic',
+                      transition: { duration: 1, ease: 'easeIn' }
                     }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     key={`${label}-${uniqueId()}`}
@@ -141,7 +143,7 @@ const Work = forwardRef((): JSX.Element => {
                         <motion.span
                           key={`${letter}-${uniqueId()}`}
                           whileHover={{
-                            fontSize: '64px',
+                            fontSize: '72px',
                             lineHeight: '48px',
                             letterSpacing: '-2.5px'
                           }}
