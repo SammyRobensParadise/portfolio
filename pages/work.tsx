@@ -22,21 +22,21 @@ const workOptions: Array<{
   {
     label: 'BEACON BIOSIGNALS',
     subtext:
-      "Designing the world's AI neurobiomarker platform accelerating clinical trials and powering new treatments for patients with neurological and psychiatric diseases",
+      "Designing the world's AI neurobiomarker platform accelerating clinical trials and powering new treatments for patients with neurological and psychiatric diseases. ",
     anchor: true,
     href: '/beacon-biosignals'
   },
   {
     label: 'FLOAT',
     subtext:
-      'Orchestrating the dream-to-design-to-build pipeline for Float Inc on a mission to redesign business spending',
+      'Orchestrating the dream-to-design-to-build pipeline for Float Inc on a mission to redesign business spending. ',
     anchor: true,
     href: '/float'
   },
   {
     label: 'PHARMABOX',
     subtext:
-      'A capstone project to deliver accessible prescription pickup for Canadians',
+      'A capstone project to deliver accessible prescription pickup for Canadians. ',
     anchor: true,
     href: '/pharmabox'
   },
@@ -50,7 +50,7 @@ const workOptions: Array<{
   {
     label: 'FINGER FOOD STUDIOS',
     subtext:
-      'I developed a system to quantify UX for world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects',
+      'I developed a system to quantify UX for world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects. ',
     anchor: true,
     href: '/finger-food-studios'
   }
@@ -61,6 +61,7 @@ const Work = forwardRef((): JSX.Element => {
   const [optionsIndex, setOptionsIndex] = useState(0)
   const [playText1, setPlayText1] = useState(true)
   const [playOptions, setPlayOptions] = useState(false)
+  const [subtext, setSubtext] = useState<string>('')
 
   useInterval(
     () => {
@@ -83,35 +84,52 @@ const Work = forwardRef((): JSX.Element => {
     playOptions ? timeout : null
   )
 
+  const showSubtext = !!subtext?.length
+
+  const Marquee = () => (
+    <div className="relative flex overflow-x-hidden">
+      <div className="py-12 mx-7 px-7 animate-marquee whitespace-nowrap">
+        <span>{subtext}</span>
+      </div>
+
+      <div className="absolute mx-7 px-7 top-0 py-12 animate-marquee2 whitespace-nowrap">
+        <span>{subtext}</span>
+      </div>
+    </div>
+  )
+
   return (
     <>
       <Head>
         <title>Work</title>
       </Head>
       <div className=" bg-prussian-blue min-h-screen overflow-y-hidden">
-        <div className="text-center p-16 z-10 flex flex-col justify-center gap-16 items-center">
-          <h1 className="text-6xl font-bold text-canary tracking-tight text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-ocean-green fixed">
-            {txt1.slice(0, txt1Index).map((word, index) => (
-              <span
-                key={`${word}-${uniqueId()}`}
-                data-label={word.toLowerCase()}
-                className={clsx(index === txt1Index - 1 && 'text-ocrean-green')}
-                aria-label={word}
-              >
-                {word.split('').map((letter) => (
-                  <motion.span
-                    key={`${letter}-${uniqueId()}`}
-                    whileHover={{
-                      fontSize: '64px',
-                      lineHeight: '48px',
-                      letterSpacing: '-2.5px'
-                    }}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}{' '}
-              </span>
-            ))}
+        <div className="text-center p-16 z-10 flex justify-center gap-16 items-center">
+          <h1
+            className={`text-6xl font-bold text-canary tracking-tight text-center max-w-7xl selection:text-ruby selection:bg-ocean-green fixed ${clsx(
+              showSubtext && 'max-w-full'
+            )}`}
+          >
+            {showSubtext ? (
+              <Marquee />
+            ) : (
+              txt1.slice(0, txt1Index).map((word, index) => (
+                <span
+                  key={`${word}-${uniqueId()}`}
+                  data-label={word.toLowerCase()}
+                  className={clsx(
+                    index === txt1Index - 1 && 'text-ocrean-green'
+                  )}
+                  aria-label={word}
+                >
+                  {word.split('').map((letter) => (
+                    <motion.span key={`${letter}-${uniqueId()}`}>
+                      {letter}
+                    </motion.span>
+                  ))}{' '}
+                </span>
+              ))
+            )}
           </h1>
         </div>
         {optionsIndex > 0 && (
@@ -119,7 +137,7 @@ const Work = forwardRef((): JSX.Element => {
             <div className="text-6xl py-8 relative font-bold text-canary tracking-tight text-center leading-[78px]  selection:text-ruby selection:bg-ocean-green bg-prussian-blue border-y-4">
               {workOptions
                 .slice(0, optionsIndex)
-                .map(({ label, href, subtext }, index) => (
+                .map(({ label, href, subtext: currentSubtext }, index) => (
                   <motion.div
                     whileHover={{
                       borderBottom: '4px solid',
@@ -127,6 +145,8 @@ const Work = forwardRef((): JSX.Element => {
                       fontStyle: 'italic',
                       transition: { duration: 1, ease: 'easeIn' }
                     }}
+                    onHoverStart={() => setSubtext(currentSubtext)}
+                    onHoverEnd={() => setSubtext('')}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     key={`${label}-${uniqueId()}`}
                     data-label={label.toLowerCase()}
@@ -137,7 +157,7 @@ const Work = forwardRef((): JSX.Element => {
                     <Link
                       href={href}
                       aria-label={label.toLowerCase()}
-                      aria-details={subtext}
+                      aria-details={currentSubtext}
                     >
                       {label.split('').map((letter) => (
                         <motion.span
