@@ -35,6 +35,7 @@ module.exports = {
         }
       }
     ],
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'react/no-array-index-key': 'off',
     '@typescript-eslint/naming-convention': [
       'error',

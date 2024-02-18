@@ -8,6 +8,10 @@ module.exports = withTM({
       test: /\.svg$/,
       use: ['@svgr/webpack']
     })
+    config.module.rules.push({
+      test: /\.glsl/,
+      use: ['raw-loader']
+    })
     return config
   },
   images: {
