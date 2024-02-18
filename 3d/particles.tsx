@@ -134,7 +134,7 @@ const FBOParticles = () => {
   )
 }
 
-const Scene = (): JSX.Element => (
+const Particles = (): JSX.Element => (
   <Canvas camera={{ position: [1.5, 1.5, 2.5] }}>
     <ambientLight intensity={0.5} />
     <FBOParticles />
@@ -142,4 +142,4 @@ const Scene = (): JSX.Element => (
   </Canvas>
 )
 
-export default Scene
+export default Particles

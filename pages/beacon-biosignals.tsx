@@ -6,6 +6,7 @@ import { NextPage } from 'next'
 import { useInterval } from 'usehooks-ts'
 
 import Layout from '../components/Layout'
+import Particles from '../3d/particles'
 
 const timeout = 200
 
@@ -58,6 +59,7 @@ const LandingPage = forwardRef((): JSX.Element => {
                 </span>
               ))}
             </h1>
+            <Particles />
           </div>
         </div>
       </div>
