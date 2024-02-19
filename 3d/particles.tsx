@@ -135,7 +135,7 @@ const FBOParticles = () => {
 }
 
 const Particles = (): JSX.Element => (
-  <Canvas camera={{ position: [1.5, 1.5, 2.5] }}>
+  <Canvas camera={{ position: [1.5, 1.5, 0] }} className="particles">
     <ambientLight intensity={0.5} />
     <FBOParticles />
     <OrbitControls />

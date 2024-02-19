@@ -430,3 +430,8 @@ html {
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+
+.particles canvas {
+  width: 100vw;
+  height: 100vh;
+}
