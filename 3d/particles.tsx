@@ -14,6 +14,7 @@ import vertexShader from '../shaders/vertexShader.glsl'
 import fragmentShader from '../shaders/fragments.glsl'
 
 import SimulationMaterial from './simulationMaterial'
+import Brain from './brain'
 
 extend({ SimulationMaterial })
 
@@ -136,7 +137,21 @@ const FBOParticles = () => {
 
 const Particles = (): JSX.Element => (
   <Canvas camera={{ position: [1.5, 1.5, 0] }} className="particles">
-    <ambientLight intensity={0.5} />
+    <ambientLight intensity={0.25} />
+    <directionalLight
+      color="#FFFCA5"
+      castShadow
+      position={[3, 10, 25]}
+      intensity={2.5}
+      shadow-mapSize-width={500}
+      shadow-mapSize-height={500}
+      shadow-camera-far={20}
+      shadow-camera-left={-10}
+      shadow-camera-right={10}
+      shadow-camera-top={10}
+      shadow-camera-bottom={0}
+    />
+    <Brain scale={0.08} position={[0, 0, 0]} shadow />
     <FBOParticles />
     <OrbitControls />
   </Canvas>
