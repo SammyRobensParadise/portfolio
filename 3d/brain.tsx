@@ -2,7 +2,7 @@
 import React, { Ref, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
-import { Group } from 'three'
+import { Color, Group } from 'three'
 
 useGLTF.preload('/brain.glb')
 
@@ -24,6 +24,9 @@ export default function Brain(props: {
       ref.current.position.y = (1 + Math.sin(t / 2)) / 10
     }
   })
+
+  // @ts-expect-error type mismatch
+  materials.Hampton.color = new Color('#FFFCA5')
 
   return (
     <group {...props} dispose={null}>
