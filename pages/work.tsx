@@ -8,6 +8,7 @@ import { useInterval } from 'usehooks-ts'
 import Link from 'next/link'
 
 import Layout from '../components/Layout'
+import Button from '../components/button'
 
 const timeout = 200
 
@@ -61,6 +62,7 @@ const Work = forwardRef((): JSX.Element => {
   const [optionsIndex, setOptionsIndex] = useState(0)
   const [playText1, setPlayText1] = useState(true)
   const [playOptions, setPlayOptions] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   const [subtext, setSubtext] = useState<string>('')
 
   useInterval(
@@ -79,6 +81,7 @@ const Work = forwardRef((): JSX.Element => {
       setOptionsIndex((j) => j + 1)
       if (optionsIndex >= workOptions.length) {
         setPlayOptions(false)
+        setLoaded(true)
       }
     },
     playOptions ? timeout : null
@@ -133,49 +136,62 @@ const Work = forwardRef((): JSX.Element => {
           </h1>
         </div>
         {optionsIndex > 0 && (
-          <div className="text-center z-20">
-            <div className="text-6xl py-8 relative font-bold text-canary tracking-tight text-center leading-[78px]  selection:text-ruby selection:bg-ocean-green bg-prussian-blue border-y-4">
-              {workOptions
-                .slice(0, optionsIndex)
-                .map(({ label, href, subtext: currentSubtext }, index) => (
-                  <motion.div
-                    whileHover={{
-                      borderBottom: '4px solid',
-                      borderTop: '4px solid',
-                      fontStyle: 'italic',
-                      transition: { duration: 1, ease: 'easeIn' }
-                    }}
-                    onHoverStart={() => setSubtext(currentSubtext)}
-                    onHoverEnd={() => setSubtext('')}
-                    transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                    key={`${label}-${uniqueId()}`}
-                    data-label={label.toLowerCase()}
-                    className={` py-1 border-prussian-blue border-4 hover:bg-canary hover:text-prussian-blue ${clsx(
-                      index === optionsIndex - 1 && 'text-ocrean-green'
-                    )}`}
-                  >
-                    <Link
-                      href={href}
-                      aria-label={label.toLowerCase()}
-                      aria-details={currentSubtext}
+          <>
+            <div className="text-center z-20">
+              <div className="text-6xl py-8 relative font-bold text-canary tracking-tight text-center leading-[78px]  selection:text-ruby selection:bg-ocean-green bg-prussian-blue border-y-4">
+                {workOptions
+                  .slice(0, optionsIndex)
+                  .map(({ label, href, subtext: currentSubtext }, index) => (
+                    <motion.div
+                      whileHover={{
+                        borderBottom: '4px solid',
+                        borderTop: '4px solid',
+                        fontStyle: 'italic',
+                        transition: { duration: 1, ease: 'easeIn' }
+                      }}
+                      onHoverStart={() => setSubtext(currentSubtext)}
+                      onHoverEnd={() => setSubtext('')}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 10
+                      }}
+                      key={`${label}-${uniqueId()}`}
+                      data-label={label.toLowerCase()}
+                      className={` py-1 border-prussian-blue border-4 hover:bg-canary hover:text-prussian-blue ${clsx(
+                        index === optionsIndex - 1 && 'text-ocrean-green'
+                      )}`}
                     >
-                      {label.split('').map((letter) => (
-                        <motion.span
-                          key={`${letter}-${uniqueId()}`}
-                          whileHover={{
-                            fontSize: '72px',
-                            lineHeight: '48px',
-                            letterSpacing: '-2.5px'
-                          }}
-                        >
-                          {letter}
-                        </motion.span>
-                      ))}{' '}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={href}
+                        aria-label={label.toLowerCase()}
+                        aria-details={currentSubtext}
+                      >
+                        {label.split('').map((letter) => (
+                          <motion.span
+                            key={`${letter}-${uniqueId()}`}
+                            whileHover={{
+                              fontSize: '72px',
+                              lineHeight: '48px',
+                              letterSpacing: '-2.5px'
+                            }}
+                          >
+                            {letter}
+                          </motion.span>
+                        ))}{' '}
+                      </Link>
+                    </motion.div>
+                  ))}
+              </div>
             </div>
-          </div>
+            {loaded && (
+              <div className="p-8">
+                <Button href="/" anchor>
+                  Back
+                </Button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </>
