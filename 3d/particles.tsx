@@ -138,7 +138,7 @@ const FBOParticles = () => {
 const Particles = (): JSX.Element => (
   <Canvas camera={{ position: [1.5, 1.5, 0] }} shadows className="particles">
     <ambientLight intensity={2} color="#273958" />
-    <directionalLight color="#FFFCA5" position={[3, 10, 25]} intensity={2.5} />
+    <directionalLight color="#FFFCA5" position={[3, 10, -25]} intensity={5} />
     <Brain scale={0.08} position={[0, 0, 0]} shadow />
     <FBOParticles />
     <OrbitControls enableZoom={false} enablePan={false} />

@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react'
+import React, { Suspense, forwardRef, useState } from 'react'
 import Head from 'next/head'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
@@ -16,12 +16,14 @@ const LandingPage = forwardRef((): JSX.Element => {
   const [txt1Index, setText1Index] = useState(1)
 
   const [playText1, setPlayText1] = useState(true)
+  const [loaded, setLoaded] = useState(false)
 
   useInterval(
     () => {
       setText1Index((i) => i + 1)
       if (txt1Index >= txt1.length) {
         setPlayText1(false)
+        setLoaded(true)
       }
     },
     playText1 ? timeout : null
@@ -34,7 +36,7 @@ const LandingPage = forwardRef((): JSX.Element => {
           <title>Sammy Robens-Paradise</title>
         </Head>
         <div className=" bg-prussian-blue min-h-screen">
-          <div className="text-center p-16  flex flex-col justify-center gap-16 items-center">
+          <div className="text-center p-16  flex flex-col justify-center gap-8 items-center">
             <h1 className="text-6xl font-bold text-canary tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
               {txt1.slice(0, txt1Index).map((word, index) => (
                 <span
@@ -59,8 +61,11 @@ const LandingPage = forwardRef((): JSX.Element => {
                 </span>
               ))}
             </h1>
-            <Particles />
+            <Suspense fallback={<p>Loading...</p>}>
+              <Particles />
+            </Suspense>
           </div>
+          <div className="p-16">{loaded && <div>Content</div>}</div>
         </div>
       </div>
     </>
