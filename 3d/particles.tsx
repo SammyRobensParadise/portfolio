@@ -145,7 +145,7 @@ const Particles = (): JSX.Element => (
       intensity={2.5}
       shadow-mapSize-width={500}
       shadow-mapSize-height={500}
-      shadow-camera-far={20}
+      shadow-camera-far={0}
       shadow-camera-left={-10}
       shadow-camera-right={10}
       shadow-camera-top={10}
