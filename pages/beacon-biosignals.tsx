@@ -7,6 +7,7 @@ import { useInterval } from 'usehooks-ts'
 
 import Layout from '../components/Layout'
 import Particles from '../3d/particles'
+import Button from '../components/button'
 
 const timeout = 200
 
@@ -65,7 +66,34 @@ const LandingPage = forwardRef((): JSX.Element => {
               <Particles />
             </Suspense>
           </div>
-          <div className="p-16">{loaded && <div>Content</div>}</div>
+          <div className="p-16 space-y-4">
+            {loaded && (
+              <div className="bg-canary p-16 rounded-sm">
+                <h3 className=" text-prussian-blue text-4xl font-bold">
+                  Product Design at Beacon
+                </h3>
+                <p className="py-8 text-prussian-blue text-lg selection:bg-ruby selection:text-canary">
+                  Product design at Beacon involves a number of things, lorem
+                  impsum etc Product design at Beacon involves a number of
+                  things, lorem impsum etc Product design at Beacon involves a
+                  number of things, lorem impsum etc Product design at Beacon
+                  involves a number of things, lorem impsum etc Product design
+                  at Beacon involves a number of things, lorem impsum etc
+                  Product design at Beacon involves a number of things, lorem
+                  impsum etc Product design at Beacon involves a number of
+                  things, lorem impsum etc Product design at Beacon involves a
+                  number of things, lorem impsum etc Product design at Beacon
+                  involves a number of things, lorem impsum etc Product design
+                  at Beacon involves a number of things, lorem impsum etc
+                </p>
+              </div>
+            )}
+            <div className="py-8">
+              <Button href="/work" anchor>
+                Back to Work
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </>
