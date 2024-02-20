@@ -18,7 +18,9 @@ export default function ParalaxBlock({
   const y = useParallax(scrollYProgress, speed)
   return (
     <div className={`paralax-section ${className}`}>
-      <div ref={ref}>{children}</div>
+      <motion.div className="in-range:animate-fade" ref={ref}>
+        {children}
+      </motion.div>
       <motion.div style={{ y }}>{paralaxComponent}</motion.div>
     </div>
   )
