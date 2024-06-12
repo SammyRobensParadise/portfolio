@@ -1,4 +1,4 @@
-import React, { Suspense, forwardRef, useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 import Head from 'next/head'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
@@ -6,7 +6,6 @@ import { NextPage } from 'next'
 import { useInterval } from 'usehooks-ts'
 
 import Layout from '../components/Layout'
-import Particles from '../3d/particles'
 import Button from '../components/button'
 import ParalaxBlock from '../components/paralax'
 
@@ -35,7 +34,7 @@ const LandingPage = forwardRef((): JSX.Element => {
     <>
       <div>
         <Head>
-          <title>Sammy Robens-Paradise</title>
+          <title>Sammy Robens-Paradise | Beacon Biosignals</title>
         </Head>
         <div className=" bg-prussian-blue min-h-screen">
           <div className="text-center p-16  flex flex-col justify-center gap-8 items-center">
@@ -63,11 +62,8 @@ const LandingPage = forwardRef((): JSX.Element => {
                 </span>
               ))}
             </h1>
-            <Suspense fallback={<p>Loading...</p>}>
-              <Particles />
-            </Suspense>
           </div>
-          <div className="p-16 space-y-16">
+          <div className="px-16 space-y-16">
             {loaded && (
               <>
                 <div className="bg-canary p-16 rounded-sm">
