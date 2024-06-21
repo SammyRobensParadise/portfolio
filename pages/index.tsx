@@ -28,7 +28,14 @@ const options: Array<{
   anchor: boolean
   href: string
 }> = [
-  { label: 'SEE WORK', anchor: true, variant: 'secondary', href: '/work' },
+  { label: 'CASE STUDIES', anchor: true, variant: 'secondary', href: '/work' },
+  {
+    label: 'CURRICULUM VITAE',
+    anchor: true,
+    variant: 'secondary',
+    href: '/work'
+  },
+
   {
     label: 'VIEW RESUME',
     anchor: true,
@@ -75,12 +82,12 @@ const LandingPage = forwardRef((): JSX.Element => {
   useInterval(
     () => {
       setOptionsIndex((k) => k + 1)
-      if (optionsIndex >= txt3.length) {
+      if (optionsIndex >= txt3.length + 1) {
         setPlayOptions(false)
         setPlayText3(true)
       }
     },
-    playOptions ? timeout : null
+    playOptions ? timeout * 1.5 : null
   )
 
   useInterval(
