@@ -163,7 +163,7 @@ const LandingPage = forwardRef((): JSX.Element => {
                   </span>
                 ))}
               </h2>
-              <div className="flex flex-col space-y-24 py-16 lg:space-x-24 lg:py-16 lg:block ">
+              <div className="flex flex-col space-y-16 py-16  xl:space-x-24 xl:py-16 xl:block ">
                 {options
                   .slice(0, optionsIndex)
                   .map(({ label, href }, index) => (

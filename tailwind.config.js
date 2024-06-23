@@ -11,7 +11,9 @@ module.exports = {
       ruby: '#C6365C',
       canary: '#FFFCA5',
       'ocrean-green': '#77C6A7',
-      turquoise: '#C1E1C8'
+      turquoise: '#C1E1C8',
+      'off-white': '#F8F8F8',
+      gray: '#2B2B2B'
     },
     fontFamily: {
       sans: ['Hevetica', 'sans-serif']
