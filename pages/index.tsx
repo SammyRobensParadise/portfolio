@@ -30,13 +30,6 @@ const options: Array<{
 }> = [
   { label: 'CASE STUDIES', anchor: true, variant: 'secondary', href: '/work' },
   {
-    label: 'CURRICULUM VITAE',
-    anchor: true,
-    variant: 'secondary',
-    href: '/work'
-  },
-
-  {
     label: 'VIEW RESUME',
     anchor: true,
     variant: 'secondary',
