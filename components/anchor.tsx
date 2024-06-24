@@ -25,7 +25,7 @@ export default function Anchor({
         <span>
           <Link
             href={href}
-            className={`font-semibold underline transition ease-in-out duration-200 rounded-sm selection:bg-ruby ${clsx(
+            className={`font-semibold transition ease-in-out duration-200 rounded-sm selection:bg-ruby underline text-prussian-blue ${clsx(
               {
                 'text-canary selection:text-prussian-blue':
                   variant === 'secondary',

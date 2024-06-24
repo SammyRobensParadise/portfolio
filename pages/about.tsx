@@ -7,20 +7,20 @@ import Layout from '../components/Layout'
 import Button from '../components/button'
 import Anchor from '../components/anchor'
 
-const Work = forwardRef(
+const About = forwardRef(
   (): JSX.Element => (
     <>
       <Head>
         <title>About Me: Sammy</title>
       </Head>
       <div className="bg-off-white  min-h-screen overflow-y-hidden">
-        <div className="p-16 flex justify-center gap-16 items-center">
+        <div className="py-8 md:p-16 flex gap-16 items-center">
           <h1 className="text-5xl px-24 font-bold text-prussian-blue leading-tight max-w-7xl selection:text-ruby selection:bg-prussian-blue">
             I’m Sammy Robens-Paradise, a product designer who weaves engineering
             principles and beautiful design to solve problems for people.
           </h1>
         </div>
-        <div className="px-16">
+        <div className="md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 px-24">
             <div className="col-span-2 text-gray text-xl space-y-6">
               <p>
@@ -58,7 +58,7 @@ const Work = forwardRef(
             </div>
           </div>
         </div>
-        <div className=" px-16 pt-16 pb-12">
+        <div className="md:px-16 pt-16 pb-12">
           <div className="px-24 space-y-12 flex flex-col">
             <div>
               <Button
@@ -71,12 +71,12 @@ const Work = forwardRef(
             </div>
             <div className="text-xl">
               <Anchor anchor href="/work">
-                See my work
+                Case Studies
               </Anchor>
             </div>
           </div>
         </div>
-        <div className="px-16 pb-16">
+        <div className="md:px-16 pb-16">
           <div className="px-24 space-y-6">
             <h2 className="text-prussian-blue text-4xl">Other things</h2>
             <p className="text-gray text-xl">
@@ -88,6 +88,24 @@ const Work = forwardRef(
                 See my photos on Lightroom
               </Anchor>
             </div>
+            <div className="text-xl">
+              <Anchor anchor href="https://github.com/SammyRobensParadise">
+                My GitHub
+              </Anchor>
+            </div>
+            <div className="text-xl">
+              <Anchor
+                anchor
+                href="https://www.linkedin.com/in/sammy-robens-paradise/"
+              >
+                LinkedIn
+              </Anchor>
+            </div>
+            <div className="text-xl">
+              <Anchor anchor href="https://dribbble.com/sammyrp">
+                Dribbble
+              </Anchor>
+            </div>
           </div>
         </div>
       </div>
@@ -97,7 +115,7 @@ const Work = forwardRef(
 
 const WorkPage: NextPage = () => (
   <Layout>
-    <Work />
+    <About />
   </Layout>
 )
 export default WorkPage
