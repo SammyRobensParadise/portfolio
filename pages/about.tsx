@@ -76,6 +76,20 @@ const Work = forwardRef(
             </div>
           </div>
         </div>
+        <div className="px-16 pb-16">
+          <div className="px-24 space-y-6">
+            <h2 className="text-prussian-blue text-4xl">Other things</h2>
+            <p className="text-gray text-xl">
+              I also love to take photos and do some art here and there! Check
+              out some of those things.
+            </p>
+            <div className="text-xl">
+              <Anchor anchor href="https://adobe.ly/3sqNQrd">
+                See my photos on Lightroom
+              </Anchor>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
