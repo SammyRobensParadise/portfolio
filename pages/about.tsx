@@ -58,7 +58,7 @@ const Work = forwardRef(
             </div>
           </div>
         </div>
-        <div className="p-16">
+        <div className=" px-16 pt-16 pb-12">
           <div className="px-24 space-y-12 flex flex-col">
             <div>
               <Button
