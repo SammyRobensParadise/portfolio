@@ -6,16 +6,13 @@ import { NextPage } from 'next'
 import { useInterval } from 'usehooks-ts'
 
 import Layout from '../components/Layout'
-import Button from '../components/button'
-import ParalaxBlock from '../components/paralax'
 
 const timeout = 200
 
-const txt1 = ['BEACON', 'BIOSIGNALS']
+const txt1 = ['Digital', 'Companion']
 
 const LandingPage = forwardRef((): JSX.Element => {
   const [txt1Index, setText1Index] = useState(1)
-
   const [playText1, setPlayText1] = useState(true)
   const [loaded, setLoaded] = useState(false)
 
@@ -34,11 +31,11 @@ const LandingPage = forwardRef((): JSX.Element => {
     <>
       <div>
         <Head>
-          <title>Sammy Robens-Paradise | Beacon Biosignals</title>
+          <title>Digital Companion</title>
         </Head>
-        <div className=" bg-prussian-blue min-h-screen">
-          <div className="text-center p-16  flex flex-col justify-center gap-8 items-center">
-            <h1 className="text-6xl font-bold text-canary tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
+        <div className=" bg-off-white min-h-screen">
+          <div className="py-16 md:p-16 flex flex-col gap-8">
+            <h1 className="text-6xl px-24 font-bold text-prussian-blue tracking-tight leading-[78px] selection:text-ruby selection:bg-prussian-blue">
               {txt1.slice(0, txt1Index).map((word, index) => (
                 <span
                   key={`${word}-${index}`}
@@ -63,59 +60,7 @@ const LandingPage = forwardRef((): JSX.Element => {
               ))}
             </h1>
           </div>
-          <div className="px-16 space-y-16">
-            {loaded && (
-              <>
-                <div className="bg-canary p-16 rounded-sm">
-                  <h3 className=" text-prussian-blue text-4xl font-bold">
-                    Product Design at Beacon
-                  </h3>
-                  <p className="py-8 text-prussian-blue text-lg selection:bg-ruby selection:text-canary">
-                    Product design at Beacon involves a number of things, lorem
-                    impsum etc Product design at Beacon involves a number of
-                    things, lorem impsum etc Product design at Beacon involves a
-                    number of things, lorem impsum etc Product design at Beacon
-                    involves a number of things, lorem impsum etc Product design
-                    at Beacon involves a number of things, lorem impsum etc
-                    Product design at Beacon involves a number of things, lorem
-                    impsum etc Product design at Beacon involves a number of
-                    things, lorem impsum etc Product design at Beacon involves a
-                    number of things, lorem impsum etc Product design at Beacon
-                    involves a number of things, lorem impsum etc Product design
-                    at Beacon involves a number of things, lorem impsum etc
-                  </p>
-                </div>
-                <ParalaxBlock
-                  speed={300}
-                  paralaxComponent={
-                    <h3 className=" text-canary text-4xl font-bold">
-                      Product Design at Beacon
-                    </h3>
-                  }
-                >
-                  <p className="py-8 text-canary text-lg selection:bg-ruby selection:text-canary">
-                    Product design at Beacon involves a number of things, lorem
-                    impsum etc Product design at Beacon involves a number of
-                    things, lorem impsum etc Product design at Beacon involves a
-                    number of things, lorem impsum etc Product design at Beacon
-                    involves a number of things, lorem impsum etc Product design
-                    at Beacon involves a number of things, lorem impsum etc
-                    Product design at Beacon involves a number of things, lorem
-                    impsum etc Product design at Beacon involves a number of
-                    things, lorem impsum etc Product design at Beacon involves a
-                    number of things, lorem impsum etc Product design at Beacon
-                    involves a number of things, lorem impsum etc Product design
-                    at Beacon involves a number of things, lorem impsum etc
-                  </p>
-                </ParalaxBlock>
-              </>
-            )}
-            <div className="py-8">
-              <Button href="/case-studies" anchor>
-                Back to Work
-              </Button>
-            </div>
-          </div>
+          <div className="px-16 space-y-16">{loaded && <></>}</div>
         </div>
       </div>
     </>
