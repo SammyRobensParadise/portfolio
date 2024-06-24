@@ -28,7 +28,12 @@ const options: Array<{
   anchor: boolean
   href: string
 }> = [
-  { label: 'CASE STUDIES', anchor: true, variant: 'secondary', href: '/work' },
+  {
+    label: 'CASE STUDIES',
+    anchor: true,
+    variant: 'secondary',
+    href: '/case-studies'
+  },
   {
     label: 'VIEW RESUME',
     anchor: true,

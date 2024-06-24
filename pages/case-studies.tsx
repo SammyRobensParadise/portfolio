@@ -8,11 +8,10 @@ import { useInterval } from 'usehooks-ts'
 import Link from 'next/link'
 
 import Layout from '../components/Layout'
-import Button from '../components/button'
 
 const timeout = 200
 
-const txt1 = ['THIS', 'IS', 'MY', 'WORK']
+const txt1 = ['EXPLORE', 'CASE', 'STUDIES']
 
 const workOptions: Array<{
   label: string
@@ -21,35 +20,35 @@ const workOptions: Array<{
   href: string
 }> = [
   {
-    label: 'BEACON BIOSIGNALS',
+    label: 'DIGITAL COMPANION',
     subtext:
-      "Designing the world's AI neurobiomarker platform accelerating clinical trials and powering new treatments for patients with neurological and psychiatric diseases. ",
+      "Designing the world's AI neurobiomarker platform accelerating clinical trials and powering new treatments for patients with neurological and psychiatric diseases.",
     anchor: true,
-    href: '/beacon-biosignals'
+    href: '/digital-companion'
   },
   {
-    label: 'FLOAT',
+    label: 'PRODUCT AT BEACON',
     subtext:
       'Orchestrating the dream-to-design-to-build pipeline for Float Inc on a mission to redesign business spending. ',
     anchor: true,
-    href: '/float'
+    href: '/'
   },
   {
     label: 'PHARMABOX',
     subtext:
       'A capstone project to deliver accessible prescription pickup for Canadians. ',
     anchor: true,
-    href: '/pharmabox'
+    href: '/'
   },
   {
-    label: 'HOOTSUITE',
+    label: 'CONTROL+',
     subtext:
       'Developing and deploy code to 18 million users on a daily basis, driving product growth and an unparalleled tool belt for social media gurus.',
     anchor: true,
-    href: '/hootsuite'
+    href: '/'
   },
   {
-    label: 'FINGER FOOD STUDIOS',
+    label: 'ACCESSIBLE SOCIAL MEDIA',
     subtext:
       'I developed a system to quantify UX for world class brands like LEGO, and led QA infrastructure development on bleeding edge mixed reality projects. ',
     anchor: true,
@@ -62,7 +61,6 @@ const Work = forwardRef((): JSX.Element => {
   const [optionsIndex, setOptionsIndex] = useState(0)
   const [playText1, setPlayText1] = useState(true)
   const [playOptions, setPlayOptions] = useState(false)
-  const [loaded, setLoaded] = useState(false)
   const [subtext, setSubtext] = useState<string>('')
 
   useInterval(
@@ -81,7 +79,6 @@ const Work = forwardRef((): JSX.Element => {
       setOptionsIndex((j) => j + 1)
       if (optionsIndex >= workOptions.length) {
         setPlayOptions(false)
-        setLoaded(true)
       }
     },
     playOptions ? timeout : null
@@ -184,13 +181,6 @@ const Work = forwardRef((): JSX.Element => {
                   ))}
               </div>
             </div>
-            {loaded && (
-              <div className="p-8">
-                <Button href="/" anchor>
-                  Back
-                </Button>
-              </div>
-            )}
           </>
         )}
       </div>

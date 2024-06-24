@@ -111,7 +111,7 @@ const LandingPage = forwardRef((): JSX.Element => {
               </>
             )}
             <div className="py-8">
-              <Button href="/work" anchor>
+              <Button href="/case-studies" anchor>
                 Back to Work
               </Button>
             </div>

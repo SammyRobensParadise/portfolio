@@ -70,7 +70,7 @@ const About = forwardRef(
               </Button>
             </div>
             <div className="text-xl">
-              <Anchor anchor href="/work">
+              <Anchor anchor href="/case-studies">
                 Case Studies
               </Anchor>
             </div>
