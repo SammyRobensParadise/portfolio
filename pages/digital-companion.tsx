@@ -40,7 +40,7 @@ const LandingPage = forwardRef((): JSX.Element => {
                 <span
                   key={`${word}-${index}`}
                   data-label={`${word}-${index}`}
-                  className={clsx(index === txt1Index - 1 && 'text-canary')}
+                  className={clsx(index === txt1Index - 1 && 'text-ruby')}
                 >
                   {word.split('').map((letter, i) => (
                     <motion.span
@@ -60,7 +60,16 @@ const LandingPage = forwardRef((): JSX.Element => {
               ))}
             </h1>
           </div>
-          <div className="px-16 space-y-16">{loaded && <></>}</div>
+          <div className="md:px-16">
+            {loaded && (
+              <div className="px-24 space-y-6">
+                <h2 className="text-4xl text-prussian-blue">The Problem</h2>
+                <p>This is a problem statement</p>
+                <h2 className="text-4xl text-prussian-blue">Research</h2>
+                <p>This is a problem statement</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>

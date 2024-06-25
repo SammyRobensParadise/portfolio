@@ -16,10 +16,8 @@ const About = forwardRef(
       <div className="bg-off-white  min-h-screen overflow-y-hidden">
         <div className="py-8 md:p-16 flex gap-16 items-center">
           <h1 className="text-5xl px-24 font-bold text-prussian-blue leading-tight selection:text-ruby selection:bg-prussian-blue">
-            I’m Sammy Robens-Paradise, a{' '}
-            <span className="text-ruby">product designer</span> who weaves
-            engineering principles and beautiful design to solve problems for
-            people.
+            I’m Sammy Robens-Paradise, a product designer who weaves engineering
+            principles and beautiful design to solve problems for people.
           </h1>
         </div>
         <div className="md:px-16">
