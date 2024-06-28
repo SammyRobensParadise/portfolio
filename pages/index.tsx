@@ -7,6 +7,7 @@ import { useInterval } from 'usehooks-ts'
 
 import Button from '../components/button'
 import Layout from '../components/Layout'
+import Navbar from '../components/navbar'
 
 const timeout = 200
 
@@ -105,6 +106,7 @@ const LandingPage = forwardRef((): JSX.Element => {
           <title>Sammy Robens-Paradise</title>
         </Head>
         <div className=" bg-ocrean-green min-h-screen">
+          <Navbar />
           <div className="text-center p-16  flex flex-col justify-center gap-16 items-center">
             <h1 className="text-6xl font-bold text-prussian-blue tracking-tight  text-center leading-[78px] max-w-7xl selection:text-ruby selection:bg-prussian-blue">
               {txt1.slice(0, txt1Index).map((word, index) => (
