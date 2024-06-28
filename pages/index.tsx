@@ -7,7 +7,8 @@ import { useInterval } from 'usehooks-ts'
 
 import Button from '../components/button'
 import Layout from '../components/Layout'
-import Navbar from '../components/navbar'
+import Navbar from '../components/Nav'
+import Sidebar from '../components/Sidebar'
 
 const timeout = 200
 
