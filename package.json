@@ -28,6 +28,7 @@
     "lerp": "^1.0.3",
     "less": "^4.1.1",
     "lodash": "^4.17.21",
+    "lucide-react": "^0.414.0",
     "next": "^14.1.0",
     "postprocessing": "^6.23.1",
     "raw-loader": "^4.0.2",
