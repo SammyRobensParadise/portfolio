@@ -12,7 +12,15 @@ export default function Sidebar({
   const ref = useRef(null)
   useOnClickOutside(ref, onClose)
   return (
-    <div className="fixed z-50 flex h-full flex-col bg-prussian-blue" ref={ref}>
+    <motion.div
+      key="navbar"
+      initial={{ x: -400, opacity: 0.5 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ ease: 'easeInOut', duration: 0.5 }}
+      exit={{ x: -400, opacity: 0.5, transition: { delay: 0.2 } }}
+      className="fixed z-50 flex h-full flex-col bg-prussian-blue"
+      ref={ref}
+    >
       <div className="p-8 mb-2 flex justify-between items-center space-x-32">
         <motion.button
           whileHover={{
@@ -120,6 +128,6 @@ export default function Sidebar({
           </ul>
         </nav>
       </div>
-    </div>
+    </motion.div>
   )
 }
