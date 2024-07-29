@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 
 import Sidebar from './Sidebar'
 
@@ -15,7 +16,9 @@ export default function Navbar({
 
   return (
     <div>
-      {sidebarOpen && <Sidebar onClose={() => closeSidebar()} />}
+      <AnimatePresence mode="wait">
+        {sidebarOpen && <Sidebar onClose={() => closeSidebar()} />}
+      </AnimatePresence>
       <button
         aria-label="home"
         type="button"
