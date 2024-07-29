@@ -7,6 +7,8 @@ import AnimatedCursor from 'react-animated-cursor'
 import { AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/router'
 
+import Navbar from '../components/Nav'
+
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const router = useRouter()
   const pageKey = router.asPath
@@ -48,6 +50,7 @@ function Portfolio({ Component, pageProps, router }: App): ReactElement {
         }}
         trailingSpeed={12}
       />
+      <Navbar />
       <Wrapper Component={Component} pageProps={pageProps} router={router} />
     </ParallaxProvider>
   )

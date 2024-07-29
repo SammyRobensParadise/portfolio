@@ -19,7 +19,7 @@ export default function Navbar({
       <button
         aria-label="home"
         type="button"
-        className={`h-12 w-12 transition-all ease-in-out bg-off-white border-[16px] hover:border-8 n ${color}`}
+        className={`fixed h-12 w-12 transition-all ease-in-out bg-off-white border-[16px] hover:border-8 n ${color}`}
         onClick={() => setSidebarOpen(true)}
       />
     </div>
