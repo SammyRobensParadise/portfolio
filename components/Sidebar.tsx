@@ -18,7 +18,7 @@ export default function Sidebar({
       animate={{ x: 0, opacity: 1 }}
       transition={{ ease: 'easeInOut', duration: 0.5 }}
       exit={{ x: -400, opacity: 0.5, transition: { delay: 0.2 } }}
-      className="fixed z-50 flex h-full flex-col bg-prussian-blue"
+      className="fixed z-50 flex h-full flex-col bg-prussian-blue border-r-2 border-r-off-white"
       ref={ref}
     >
       <div className="p-8 mb-2 flex justify-between items-center space-x-32">
@@ -28,7 +28,9 @@ export default function Sidebar({
           }}
           className="block font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900 text-off-white"
         >
-          <Link href="/">RETURN HOME</Link>
+          <Link href="/" onClick={onClose}>
+            RETURN HOME
+          </Link>
         </motion.button>
         <motion.button
           whileHover={{
@@ -53,6 +55,7 @@ export default function Sidebar({
                 <Link
                   className="block font-semibold uppercase"
                   href="/case-studies"
+                  onClick={onClose}
                 >
                   Case Studies
                 </Link>
@@ -67,6 +70,7 @@ export default function Sidebar({
                 <Link
                   className="block font-semibold uppercase"
                   href="/SammyRPResume.pdf"
+                  onClick={onClose}
                 >
                   Resume
                 </Link>
@@ -78,7 +82,11 @@ export default function Sidebar({
                   scaleX: 1.1
                 }}
               >
-                <Link className="block font-semibold uppercase" href="/about">
+                <Link
+                  className="block font-semibold uppercase"
+                  href="/about"
+                  onClick={onClose}
+                >
                   About
                 </Link>
               </motion.button>
@@ -92,6 +100,7 @@ export default function Sidebar({
                 <Link
                   className="block font-semibold uppercase"
                   href="https://www.linkedin.com/in/sammy-robens-paradise/"
+                  onClick={onClose}
                 >
                   LinkedIn
                 </Link>
@@ -106,6 +115,7 @@ export default function Sidebar({
                 <Link
                   className="block font-semibold uppercase"
                   href="https://github.com/SammyRobensParadise"
+                  onClick={onClose}
                 >
                   GitHub
                 </Link>
@@ -120,6 +130,7 @@ export default function Sidebar({
                 <Link
                   className="block font-semibold uppercase"
                   href="https://dribbble.com/sammyrp"
+                  onClick={onClose}
                 >
                   Dribbble
                 </Link>

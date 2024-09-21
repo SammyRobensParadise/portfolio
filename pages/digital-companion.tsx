@@ -67,6 +67,8 @@ const LandingPage = forwardRef((): JSX.Element => {
                 <p>This is a problem statement</p>
                 <h2 className="text-4xl text-prussian-blue">Research</h2>
                 <p>This is a problem statement</p>
+                <h2 className="text-4xl text-prussian-blue">The Solution</h2>
+                <p>This is a problem statement</p>
               </div>
             )}
           </div>
