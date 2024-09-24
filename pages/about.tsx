@@ -16,8 +16,9 @@ const About = forwardRef(
       <div className="bg-off-white  min-h-screen overflow-y-hidden">
         <div className="py-8 md:p-16 flex gap-16 items-center">
           <h1 className="text-5xl px-24 font-bold text-prussian-blue leading-tight selection:text-ruby selection:bg-prussian-blue">
-            I’m Sammy Robens-Paradise, a product designer who weaves engineering
-            principles and beautiful design to solve problems for people.
+            Hey I&apos;m Sammy, a product designer who weaves engineering
+            principles together with beautiful design to solve problems for
+            people.
           </h1>
         </div>
         <div className="md:px-16">
@@ -78,7 +79,9 @@ const About = forwardRef(
         </div>
         <div className="md:px-16 pb-16">
           <div className="px-24 space-y-6">
-            <h2 className="text-prussian-blue text-4xl">Other things</h2>
+            <h2 className="text-prussian-blue text-4xl font-semibold">
+              Other things
+            </h2>
             <p className="text-gray text-xl">
               I also love to take photos and do some art here and there! Check
               out some of those things.

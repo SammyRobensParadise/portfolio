@@ -6,6 +6,7 @@ import { NextPage } from 'next'
 import { useInterval } from 'usehooks-ts'
 
 import Layout from '../components/Layout'
+import Anchor from '../components/anchor'
 
 const timeout = 200
 
@@ -63,11 +64,46 @@ const LandingPage = forwardRef((): JSX.Element => {
           <div className="md:px-16">
             {loaded && (
               <div className="px-24 space-y-6">
-                <h2 className="text-4xl text-prussian-blue">The Problem</h2>
+                <div className="text-xl">
+                  <Anchor anchor href="https://beacon.bio">
+                    For Beacon Biosignals
+                  </Anchor>
+                </div>
+                <div>
+                  <span className="space-x-2 flex">
+                    <p>My Role:</p>
+                    <p>
+                      Senior Product Designer, <i>Project Lead</i>
+                    </p>
+                  </span>
+                </div>
+                <h2 className="text-4xl text-prussian-blue font-semibold">
+                  Project Overview
+                </h2>
+
+                <h2 className="text-4xl text-prussian-blue font-semibold">
+                  The Problem
+                </h2>
+                <p>
+                  Patients undergoing treatment for sleep-related often struggle
+                  to understand how their medication affects their sleep,
+                  especially outside of clinical studies. This can result in
+                  confusion about the effectiveness of the treatment, leading to
+                  non-adherence or improper use of medication.
+                </p>
+                <p>
+                  There are a wide variety of medication that affect sleep, many
+                  in ways that are unique to each patient. In many cases, the
+                  effectiveness of a therapy is assoicated to the time that it
+                  is taken, however this also varies from patient to patient.
+                </p>
+                <h2 className="text-4xl text-prussian-blue font-semibold">
+                  Research
+                </h2>
                 <p>This is a problem statement</p>
-                <h2 className="text-4xl text-prussian-blue">Research</h2>
-                <p>This is a problem statement</p>
-                <h2 className="text-4xl text-prussian-blue">The Solution</h2>
+                <h2 className="text-4xl text-prussian-blue font-semibold">
+                  The Solution
+                </h2>
                 <p>This is a problem statement</p>
               </div>
             )}
