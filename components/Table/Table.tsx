@@ -1,6 +1,6 @@
 import React, { forwardRef, ForwardedRef } from 'react'
 import { generateUUID } from 'three/src/math/MathUtils'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 
 export type TableHeader = string | JSX.Element
 export type TableHeaders = TableHeader[]

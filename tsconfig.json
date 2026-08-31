@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -25,11 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.js",
-    "components/Flow/Flow.jsx",
-    "components/Blob/Blob.jsx",
-    "components/Renders/*.jsx",
-    "providers/**/*.tsx",
-    "components/Mac/Mac.jsx"
+    "**/*.jsx"
   ],
   "exclude": [
     "node_modules",

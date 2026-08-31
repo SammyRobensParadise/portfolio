@@ -52,7 +52,10 @@ export default function EmailModal({
   }
 
   const Form = () => (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col space-y-4">
+    <form
+      onSubmit={(e) => void handleSubmit(onSubmit)(e)}
+      className="flex flex-col space-y-4"
+    >
       <label htmlFor="name" className="space-x-2 flex flex-row">
         <div>
           <p className="text-cerulaen dark:text-off-white text-sm text-left p-2">

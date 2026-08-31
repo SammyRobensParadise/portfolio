@@ -23,7 +23,7 @@ import Overlay from '../components/Overlay/Overlay'
 
 function Wrapper({ Component, pageProps }: AppProps): ReactElement | null {
   const oldSchool = OldSchool.useOldSchool()
-  const [darkTheme, setIsDarkTheme] = useState<boolean>(false)
+  const [, setIsDarkTheme] = useState<boolean>(false)
 
   if (oldSchool) {
     const { state } = oldSchool

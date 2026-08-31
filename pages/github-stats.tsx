@@ -124,7 +124,7 @@ const GithubStats: NextPage = (): JSX.Element => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-8">
             <div>
               <form
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={(e) => void handleSubmit(onSubmit)(e)}
                 className="flex flex-col space-y-8 pt-4"
               >
                 <label htmlFor="name" className="space-x-2 flex flex-row">

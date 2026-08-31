@@ -2,6 +2,13 @@ module.exports = {
   env: {
     browser: true
   },
+  ignorePatterns: [
+    'components/Blob/blobCreator.js',
+    'components/MobileWarning/MobileCheckUtil.js',
+    'Shaders/Shaders.js',
+    'providers/scroll/utilities.js',
+    '**/*.jsx'
+  ],
   extends: [
     'airbnb-typescript',
     'airbnb/hooks',
@@ -25,7 +32,6 @@ module.exports = {
     'testing-library'
   ],
   rules: {
-    '@typescript-eslint/naming-convention': 'off',
     /* NOTE: https://github.com/facebook/create-react-app/pull/8177 */
     '@typescript-eslint/ban-types': [
       'error',
@@ -33,13 +39,6 @@ module.exports = {
         types: {
           'React.FC': null
         }
-      }
-    ],
-    '@typescript-eslint/naming-convention': [
-      'error',
-      {
-        selector: ['variable'],
-        format: ['camelCase', 'PascalCase', 'snake_case', 'UPPER_CASE']
       }
     ],
     'import/order': [
